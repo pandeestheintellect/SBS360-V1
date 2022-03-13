@@ -1,0 +1,121 @@
+﻿@model IEnumerable<Eng360Web.Models.ViewModel.ProjectReportViewModel>
+
+@{
+    Layout = null;
+}
+
+
+<div class="row inner-page--container">
+    <div class="col-lg-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                Project Report Details
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <table class="table table-striped table-bordered" id="tableProjectReport">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.ReportDate)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.ProjectName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.ClientName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Task_Description)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Resource_name)
+                            </th>
+                            <th>
+                                Supervisor
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.TaskStatusID)
+                            </th>
+                            <th>Actions </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@{
+                                var dt = "";
+                                dt = Convert.ToDateTime(item.ReportDate).ToString(Eng360Web.Models.Utility.AppSettings.GetDateFormat());
+                            }                           
+                                @dt
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ProjectName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ClientName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Task_Description)
+                            </td>
+                         
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Resource_name)
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SVName)
+                            </td>
+                           
+                            <td>
+                                @Html.DisplayFor(modelItem => item.eng_sys_task_status.TaskStatus)
+                                 
+                            </td>
+                            <td>
+                                <a class="btn" title="Edit Project Report"  onclick="EditProjectReport(@item.ProjectReportID)"> <i class="fa fa-pencil" aria-hidden="true" ></i>   </a>
+                                @*<a class="btn" title="View Report Details" style="padding: 0px 0px;" onclick="ViewProject(@item.ProjectReportID)"> <i class="fa fa-search" aria-hidden="true" style="color:#4eb1ba;font-size:24px"></i> </a>*@
+                                
+                                <a class="btn" title="Delete Project Report"  onclick="DeletePR(@item.ProjectReportID)"> <i class="fa fa-trash" aria-hidden="true" ></i> </a>
+                            </td>
+                        </tr>
+                    }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+        <div class="modal-footer">
+                       
+            <span style="float:right">&nbsp;</span><input type="button" value="Back" id="create-projrep-dialog-back" style="float:right" class="btn btn-primary Project" />
+        </div>
+
+    </div>
+</div>
+<script>
+                    $(document).ready(function () {
+                        debugger;
+                        $('#tableProjectReport').DataTable({
+                            "autoWidth": true,
+                            //"scrollX": true,
+                            dom: 'Bfrtipl',
+                            buttons: [
+                                'copyHtml5',
+                                'excelHtml5',
+                                'csvHtml5',
+                                'pdfHtml5',
+
+                            ],
+                            "order": [[0, "desc"]],
+                            columnDefs: [
+                            { type: 'date-eu', targets: 0 }
+                            ]
+                        });
+                    });
+                    //$('.dt-buttons').prepend('<a  onclick="CreateEmployee()" class="dt-button buttons-copy buttons-html5" tabindex="0" aria-controls="emplyeeTable" href="#"><span>Create</span></a>')
+    $('.dt-button').addClass('btn btn-primary').removeClass('dt-button').css('margin-right', '0px')
+
+</script>
+

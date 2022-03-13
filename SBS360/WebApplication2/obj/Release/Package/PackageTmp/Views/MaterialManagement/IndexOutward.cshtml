@@ -1,0 +1,159 @@
+﻿@model IEnumerable<Eng360Web.Models.ViewModel.MMOutwardViewModel>
+
+@{
+    Layout = null;
+}
+
+
+
+<div class="row inner-page--container">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <b>   Outward Details </b>
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <table class="table table-striped table-bordered" id="outwardTable">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Outward_Number)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.eng_store_master.Store_Name)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Branch_Name)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.eng_client_master.Company_Name)
+                            </th>
+                            @*<th>
+                                    @Html.DisplayNameFor(model => model.Dimension)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Measuring_Unit)
+                                </th>*@
+                            <th>
+                                @Html.DisplayNameFor(model => model.Outward_Type)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Delivery_Date)
+                            </th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Outward_Number)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.eng_store_master.Store_Name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Branch_Name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.eng_client_master.Company_Name)
+                                </td>
+                                @*<td>
+                                        @Html.DisplayFor(modelItem => item.Dimension)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Measuring_Unit)
+                                    </td>*@
+                                <td>
+
+                                    @{ 
+                                    var grp = "";
+                                    if (item.Outward_Type == 1)
+                                    {
+                                    grp = "Delivery Order";
+                                    }
+                                    if (item.Outward_Type == 2)
+                                    {
+                                    grp = "Transfer Order";
+                                    }
+                                    if (item.Outward_Type == 3)
+                                    {
+                                    grp = "Return Order";
+                                    }
+                                    if (item.Outward_Type == 4)
+                                    {
+                                    grp = "Material Request";
+                                    }
+                                    if (item.Outward_Type == 5)
+                                    {
+                                    grp = "Miscellaneous";
+                                    }
+
+                                    }
+                                    @grp
+                                    
+                                </td>
+                                <td>
+                                    @{
+                                        var dt = "";
+                                        dt = Convert.ToDateTime(item.Delivery_Date).ToString(Eng360Web.Models.Utility.AppSettings.GetDateFormat());
+                                    }
+                                    @dt
+                                    
+                                </td>
+                                <td>
+                                    @{
+                                        if (item.DraftFlag == 0)
+                                        {
+                                            <a class="btn" title="Edit Outward"  onclick="EditOutward(@item.Outward_ID)"> <i class="fa fa-pencil action-pencil" aria-hidden="true" ></i>   </a>
+                                        }
+                                    }
+
+                                    @*<a class="btn" title="Edit Outward"  onclick="EditOutward(@item.Outward_ID)"> <i class="fa fa-pencil" aria-hidden="true" ></i>   </a>*@
+                                    <a class="btn" title="View Outward Details"  onclick="ViewOutward(@item.Outward_ID)"> <i class="fa fa-search action-search" aria-hidden="true"></i> </a>
+
+
+                                </td>
+
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+
+        $('#outwardTable').DataTable({
+            "autoWidth": true,
+            //"scrollX": true,
+            dom: 'Bfrtipl',
+            buttons: [
+                {
+                    extend: 'excelHtml5',
+                    text: '<i class="fa fa-file-excel-o"></i>',
+                    titleAttr: 'Excel'
+                },
+                {
+                    extend: 'csvHtml5',
+                    text: '<i class="fa fa-file-text-o"></i>',
+                    titleAttr: 'CSV'
+                },
+                {
+                    extend: 'pdfHtml5',
+                    text: '<i class="fa fa-file-pdf-o"></i>',
+                    titleAttr: 'PDF'
+                }
+
+            ]
+        });
+    });
+    $('.dt-buttons').prepend('<a  onclick="CreateOutward()" class="dt-button buttons-create buttons-html5" tabindex="0" aria-controls="outwardTable" href="#" title="Create"><i class="fa fa-plus"></i></a>')
+    $('.dt-button').addClass('btn btn-primary').removeClass('dt-button')
+</script>

@@ -1,0 +1,107 @@
+﻿@model Eng360Web.Models.ViewModel.RAMastersViewModel
+
+@{
+    Layout = null;
+}
+
+<style>
+    .required::after {
+        content: "*";
+        font-weight: bold;
+        color: red;
+    }
+</style>
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                @{
+                    var mastype = "";
+                    if (ViewBag.MasterType == "RAWA")
+                    {
+                        mastype = "RA Work Activity";
+                    }
+                    if (ViewBag.MasterType == "RAPS")
+                    {
+                        mastype = "RA Process";
+                    }
+                    if (ViewBag.MasterType == "RALN")
+                    {
+                        mastype = "RA Locations";
+                    }
+                    if (ViewBag.MasterType == "RAHZ")
+                    {
+                        mastype = "RA Hazard";
+                    }
+                    if (ViewBag.MasterType == "RAPA")
+                    {
+                        mastype = "RA Possible Accidents";
+                    }
+                    if (ViewBag.MasterType == "RACM")
+                    {
+                        mastype = "RA Control Measures";
+                    }
+
+                  }
+                <b> Add New @mastype  </b>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+
+               
+
+                <div class="modal-body">
+                    @using (Html.BeginForm("Create", "RA", FormMethod.Post, new { role = "form", id = "ramasterForm" }))
+                    {
+                        @Html.AntiForgeryToken()
+                      
+                        @Html.HiddenFor(m => m.ramastertype, new { @Value = ViewBag.MasterType })
+                        if (ViewBag.ItemID > 0)
+                        {
+                            @Html.HiddenFor(m => m.ItemID)
+                            @Html.HiddenFor(m => m.CreatedBy)
+                            @Html.HiddenFor(m => m.CreatedDate)
+                        }
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                @Html.LabelFor(model => model.ItemDescription, mastype, htmlAttributes: new { @class = "control-label required" })
+                                <div>
+                                    @Html.TextAreaFor(model => model.ItemDescription, 3, 40, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.ItemDescription, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                           
+                           
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                            @if (ViewBag.ItemID > 0)
+                            {
+                                <button type="button" id="create-ra-dialog-Edit" class="btn btn-primary">Save</button>
+
+                            }
+                            else
+                            {
+                                <button type="button" id="create-ra-dialog-save" class="btn btn-primary">Create</button>
+                            }
+                        </div>
+
+
+                    }
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script>
+    $("form").removeData("validator");
+    $("form").removeData("unobtrusiveValidation");
+    $.validator.unobtrusive.parse("form");
+</script>

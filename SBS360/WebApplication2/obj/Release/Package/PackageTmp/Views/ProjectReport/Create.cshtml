@@ -1,0 +1,265 @@
+﻿@model Eng360Web.Models.ViewModel.ProjectReportViewModel
+
+@{
+    Layout = null;
+}
+<script src="~/Scripts/moment.js"></script>
+<script src="~/Scripts/bootstrap-datetimepicker.js"></script>
+<link href="~/Content/bootstrap-datetimepicker.css" rel="stylesheet" />
+<script src="~/Scripts/tagit/tag-it.js"></script>
+<link href="~/Content/tagit/jquery.tagit.css" rel="stylesheet" />
+
+<style>
+    .table-condensed tbody > tr > td > a {
+        color: #4eb1ba !important;
+    }
+
+    .ui-front {
+        z-index: 9999 !important;
+    }
+
+    .ui-autocomplete {
+        max-height: 10em !important;
+        overflow: auto !important;
+    }
+
+    .ui-menu-item {
+        max-width: 280px !important;
+    }
+
+    .required::after {
+        content: "*";
+        font-weight: bold;
+        color: red;
+    }
+</style>
+
+<div class="row inner-page--container">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+
+            <div class="panel-heading">
+                <b> Add New Project Report  </b>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "formProjectReport" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.HiddenFor(model => model.ProjectID)
+                   
+                     <div class="row">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="col-md-12">
+                            @Html.LabelFor(model => model.ProjectName, htmlAttributes: new { @class = "control-label" })
+                            <div class="">
+
+                                @Html.DisplayFor(model => model.ProjectName)
+
+                            </div>
+                        </div>
+                       
+                        <div class="col-md-12">
+                            @Html.LabelFor(model => model.Location)
+                            <div class="">
+
+                                @Html.DisplayFor(model => model.Location)
+
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            @Html.LabelFor(model => model.ClientName, htmlAttributes: new { @class = "control-label" })
+                            <div class="">
+
+                                @Html.DisplayFor(model => model.ClientName)
+
+                            </div>
+                        </div>
+                        
+
+                         <div class="row" style="padding:10px;">
+                             <div class="col-md-6">
+                                 @Html.LabelFor(model => model.ReportDate, htmlAttributes: new { @class = "control-label required" })
+                                 <div class="">
+                                     @Html.EditorFor(model => model.ReportDate, new { htmlAttributes = new { @class = "form-control" } })
+                                     @Html.ValidationMessageFor(model => model.ReportDate, "", new { @class = "text-danger" })
+                                 </div>
+                             </div>
+                             <div class="col-md-6">
+                                 
+                                 <div class="">
+                                    &nbsp; 
+                                 </div>
+                             </div>
+                         </div>
+                        
+                         <div class="row" style="padding:10px;">
+                             <div class="col-md-6">
+                                 @Html.LabelFor(model => model.Start_Date_Time, htmlAttributes: new { @class = "control-label required" })
+                                 <div id="colorChangeA">
+                                     @Html.EditorFor(model => model.Start_Date_Time, new { htmlAttributes = new { @class = "form-control" } })
+                                     @Html.ValidationMessageFor(model => model.Start_Date_Time, "", new { @class = "text-danger" })
+                                 </div>
+                             </div>
+
+
+                             <div class="col-md-6">
+                                 @Html.LabelFor(model => model.End_Date_Time, htmlAttributes: new { @class = "control-label required" })
+                                 <div class="">
+                                     @Html.EditorFor(model => model.End_Date_Time, new { htmlAttributes = new { @class = "form-control" } })
+                                     @Html.ValidationMessageFor(model => model.End_Date_Time, "", new { @class = "text-danger" })
+                                 </div>
+                             </div>
+                         </div>
+                      
+                        <div class="col-md-12">
+                            @Html.LabelFor(model => model.Task_Description, htmlAttributes: new { @class = "control-label" })
+                            <div class="">
+                                @Html.TextAreaFor(model => model.Task_Description, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Task_Description, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.Quantity, htmlAttributes: new { @class = "control-label" })
+                            <div class="">
+                                @Html.EditorFor(model => model.Quantity, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Quantity, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.TaskStatusID, "TaskStatusID", htmlAttributes: new { @class = "control-label" })
+                            <div class="">
+                                @Html.DropDownList("TaskStatusID", null, htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.TaskStatusID, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="row" style="padding:10px;">
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.ProgressPercentage, "Progress (%)", htmlAttributes: new { @class = "control-label" })
+                            <div class="">
+                                @Html.EditorFor(model => model.ProgressPercentage, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.ProgressPercentage, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.Remarks, htmlAttributes: new { @class = "control-label" })
+                            <div class="">
+                                @Html.EditorFor(model => model.Remarks, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Remarks, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                         </div>
+
+                         <div class="row" style="padding:10px;">
+                             <div class="col-md-12">
+                                 @Html.LabelFor(model => model.Resource_name, "Manpower", htmlAttributes: new { @class = "control-label required" })
+                                 <div class="">
+                                     @Html.EditorFor(model => model.Resource_name, new { htmlAttributes = new { @class = "form-control" } })
+                                     @Html.ValidationMessageFor(model => model.Resource_name, "", new { @class = "text-danger" })
+                                 </div>
+                             </div>
+                         </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.files, htmlAttributes: new { @class = "control-label" })
+                            <div class="">
+                                @Html.TextBoxFor(model => model.files, "", new { @type = "file", @multiple = "multiple", @accept = "image/x-png,image/gif,image/jpeg" })
+                                @Html.ValidationMessageFor(model => model.files, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="modal-footer">
+                        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                        <input type="button" value="Create" id="create-projectreport-dialog-save" class="btn btn-primary" />
+
+                    </div>
+                }
+
+
+            </div>
+        </div>
+    </div>
+</div>
+@*<div class="container">
+        <div class='col-md-5'>
+            <div class="form-group">
+                <div class='input-group date' id='datetimepicker6'>
+                    <input type='text' class="form-control" />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class='col-md-5'>
+            <div class="form-group">
+                <div class='input-group date' id='datetimepicker7'>
+                    <input type='text' class="form-control" />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(function () {
+            $('#datetimepicker6').datetimepicker();
+            $('#datetimepicker7').datetimepicker({
+                useCurrent: false //Important! See issue #1075
+            });
+            $("#datetimepicker6").on("dp.change", function (e) {
+                $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
+            });
+            $("#datetimepicker7").on("dp.change", function (e) {
+                $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
+            });
+        });
+    </script>*@
+<script type="text/javascript">
+    var empTags = [];
+
+    $(function () {
+        $('#ReportDate').datetimepicker({ format: 'DD/MM/YYYY' });
+
+        $('#Start_Date_Time').datetimepicker({ format: 'LT' });
+        $('#End_Date_Time').datetimepicker({
+            format: 'LT',
+            useCurrent: false //Important! See issue #1075
+        });
+        $("#Start_Date_Time").on("dp.change", function (e) {
+            $('#End_Date_Time').data("DateTimePicker").minDate(e.date);
+        });
+
+        $("#End_Date_Time").on("dp.change", function (e) {
+            $('#Start_Date_Time').data("DateTimePicker").maxDate(e.date);
+        });
+
+
+
+        $.post("Employee/getAllEmployees",{@Html.AntiForgeryTokenForAjaxPost()},function (data){
+            debugger;
+            $.each(data, function (index, item) {
+                empTags.push(item)
+            })
+
+            $("#Resource_name").tagit({
+                availableTags: data,
+                beforeTagAdded: function (event, ui) {
+                    // do something special
+                    console.log(ui.tag);
+                }
+            });
+        });
+
+
+    });
+</script>

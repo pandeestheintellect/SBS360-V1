@@ -1,0 +1,52 @@
+2017-10-04 00:07:37.0231|DEBUG|Eng360Web.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: 
+2017-10-04 00:07:37.0690|DEBUG|Eng360Web.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : False
+2017-10-04 00:07:37.0690|DEBUG|Eng360Web.Models.Authentication.BasicAuthenticationMessageHandler|return 401
+2017-10-04 00:08:31.0139|DEBUG|Eng360Web.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: 
+2017-10-04 00:08:31.0139|DEBUG|Eng360Web.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : False
+2017-10-04 00:08:31.0139|DEBUG|Eng360Web.Models.Authentication.BasicAuthenticationMessageHandler|return 401
+2017-10-04 00:08:51.4016|DEBUG|Eng360Web.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: 
+2017-10-04 00:08:51.4016|DEBUG|Eng360Web.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : False
+2017-10-04 00:08:51.4016|DEBUG|Eng360Web.Models.Authentication.BasicAuthenticationMessageHandler|return 401
+2017-10-04 00:09:45.8353|DEBUG|Eng360Web.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: 
+2017-10-04 00:09:45.8393|DEBUG|Eng360Web.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : False
+2017-10-04 00:09:45.8393|DEBUG|Eng360Web.Models.Authentication.BasicAuthenticationMessageHandler|return 401
+2017-10-04 00:11:52.1104|DEBUG|Eng360Web.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: 
+2017-10-04 00:11:52.1315|DEBUG|Eng360Web.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : False
+2017-10-04 00:11:52.1315|DEBUG|Eng360Web.Models.Authentication.BasicAuthenticationMessageHandler|return 401
+2017-10-04 00:13:04.5577|DEBUG|Eng360Web.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: 
+2017-10-04 00:13:22.6151|DEBUG|Eng360Web.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : False
+2017-10-04 00:13:22.6151|DEBUG|Eng360Web.Models.Authentication.BasicAuthenticationMessageHandler|return 401
+2017-10-04 00:14:20.0264|DEBUG|Eng360Web.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: 
+2017-10-04 00:16:09.5150|DEBUG|Eng360Web.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: 
+2017-10-04 00:16:11.7733|DEBUG|Eng360Web.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : True
+2017-10-04 22:07:43.3480|DEBUG|Eng360Web.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: 
+2017-10-04 22:07:46.6787|DEBUG|Eng360Web.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : False
+2017-10-04 22:07:46.6787|DEBUG|Eng360Web.Models.Authentication.BasicAuthenticationMessageHandler|return 401
+2017-10-04 22:08:12.4724|DEBUG|Eng360Web.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: 
+2017-10-04 22:08:31.6690|DEBUG|Eng360Web.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : False
+2017-10-04 22:08:31.6690|DEBUG|Eng360Web.Models.Authentication.BasicAuthenticationMessageHandler|return 401
+2017-10-04 22:10:16.5986|DEBUG|Eng360Web.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: 
+2017-10-04 22:11:10.2362|DEBUG|Eng360Web.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: 
+2017-10-04 22:11:20.4158|DEBUG|Eng360Web.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : True
+2017-10-04 22:15:17.3582|DEBUG|Eng360Web.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: 
+2017-10-04 22:15:24.3341|DEBUG|Eng360Web.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : True
+2017-10-04 22:34:53.9127|DEBUG|Eng360Web.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: 
+2017-10-04 22:34:58.8090|DEBUG|Eng360Web.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : True
+2017-10-04 22:35:13.2998|DEBUG|Eng360Web.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: 
+2017-10-04 22:35:17.6062|DEBUG|Eng360Web.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : True
+2017-10-04 22:42:52.6604|DEBUG|Eng360Web.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: 
+2017-10-04 22:42:56.1718|DEBUG|Eng360Web.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : True
+2017-10-04 23:15:07.2653|DEBUG|Eng360Web.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: 
+2017-10-04 23:15:10.7689|DEBUG|Eng360Web.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : True
+2017-10-04 23:24:29.0641|DEBUG|Eng360Web.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: 
+2017-10-04 23:24:31.5320|DEBUG|Eng360Web.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : True
+2017-10-04 23:24:56.3256|DEBUG|Eng360Web.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: 
+2017-10-04 23:25:03.5317|DEBUG|Eng360Web.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : True
+2017-10-04 23:29:14.2497|DEBUG|Eng360Web.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: 
+2017-10-04 23:29:16.9340|DEBUG|Eng360Web.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : True
+2017-10-04 23:30:54.1399|DEBUG|Eng360Web.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: 
+2017-10-04 23:30:57.3044|DEBUG|Eng360Web.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : True
+2017-10-04 23:31:16.1599|DEBUG|Eng360Web.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: 
+2017-10-04 23:31:19.9482|DEBUG|Eng360Web.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : True
+2017-10-04 23:47:35.9976|DEBUG|Eng360Web.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: 
+2017-10-04 23:47:41.7684|DEBUG|Eng360Web.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : True

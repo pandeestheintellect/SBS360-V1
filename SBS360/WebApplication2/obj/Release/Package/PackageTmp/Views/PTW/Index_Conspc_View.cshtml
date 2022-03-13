@@ -1,0 +1,191 @@
+﻿@model Eng360Web.Models.ViewModel.PTWConspcMasterViewModel
+
+@{
+    Layout = null;
+}
+
+<script src="~/Scripts/moment.js"></script>
+<script src="~/Scripts/bootstrap-datetimepicker.js"></script>
+<link href="~/Content/bootstrap-datetimepicker.css" rel="stylesheet" />
+
+
+<style>
+    .table-condensed tbody > tr > td > a {
+        color: #4eb1ba !important;
+    }
+
+    <style > .dropbtn {
+        background-color: #3498DB;
+        color: white;
+        padding: 16px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+    }
+
+    .dropbtn:hover, .dropbtn:focus {
+        background-color: #2980B9;
+    }
+
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        overflow: auto;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+    .dropdown a:hover {
+        background-color: #f1f1f1
+    }
+
+    .show {
+        display: block;
+    }
+</style>
+
+
+
+
+
+
+<div class="row inner-page--container">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <b> Permit To Work Details </b>
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                @{ 
+                    var ptw = "";
+                    if(Model.PTW_type == "PTWWAH")
+                    {
+                        ptw = "PERMIT TO WORK FOR WORK AT HEIGHT";
+                    }
+                    if (Model.PTW_type == "PTWWFEX")
+                    {
+                        ptw = "PERMIT TO WORK FOR / IN EXCAVATION";
+                    }
+                    if (Model.PTW_type == "PTWHOT")
+                    {
+                        ptw = "PERMIT TO WORK FOR HOT WORKS";
+                    }
+                    if (Model.PTW_type == "PTWLOPT")
+                    {
+                        ptw = "PERMIT TO WORK FOR LIFTING OPERATIONS";
+                    }
+                    if (Model.PTW_type == "PTWCONSPC")
+                    {
+                        ptw = "PERMIT TO WORK FOR CONFINED SPACE";
+                    }
+                }
+
+                <div style="padding: 5px; font-weight: bold;">
+                    @ptw
+                </div>
+                
+                <table class="table table-striped table-bordered" id="qualitydefectTable">
+                    <thead>
+                        <tr>
+                            <th>
+                               @Html.DisplayNameFor(model => model.ProjectTitle)
+                            </th>
+                            <th>
+                                Report Date
+                            </th>
+                            <th>
+                                WSH Personnel Name
+                            </th>
+                            <th>
+                               Safe for Entry?
+                            </th>
+
+                           
+
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.eng_PTW_Conspc_Detail_Stage5)
+                        {
+                            var dt = "";
+                            <tr>
+                                <td>
+                                    @Model.ProjectTitle
+                                </td>
+                                <td>
+                                  @{
+
+                                      dt = Convert.ToDateTime(item.Stage5_Date_Time).ToString(Eng360Web.Models.Utility.AppSettings.GetDateFormat());
+                                }
+                                @dt  
+                                  
+                                </td>
+                                <td>
+                                 @Html.DisplayFor(modelItem => item.Stage5_Assessor_Name)   
+                                </td>
+
+                                <td>
+                                 @Html.DisplayFor(modelItem => item.Safe_for_Entry)    
+                                </td>
+                                                           
+                                <td>
+                                    <a class="btn" href="PTW/ViewPTWConspc?id=@Model.PTW_master_ID&dt=@item.Stage5_Date_Time" target="_blank" title="View PTW" style="padding: 0px 0px;" > <i class="fa fa-file-o" aria-hidden="true" style="color:#4eb1ba;font-size:24px"></i> </a>
+                                </td>
+                          
+                        </tr>
+                    }
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <div class="modal-footer">
+
+                <input type="button" value="Back" id="create-ptw-dialog-back" style="float:right" class="btn btn-primary PTW" />
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+
+        $('#qualitydefectTable').DataTable({
+            "autoWidth": true,
+            //"scrollX": true,
+            dom: 'Bfrtipl',
+            buttons: [
+                'copyHtml5',
+                'excelHtml5',
+                'csvHtml5',
+                'pdfHtml5',
+
+            ]
+        });
+
+
+    });
+   // $('.dt-buttons').prepend('<div class="dropdown"><button onclick= "myFunction()" class="dropbtn  btn btn-primary" > Dropdown</button ><div id="myDropdown" class="dropdown-content"><a id="PTWHOT" onclick="CreatePTWHOT()" href="#home">PTWHOT</a><a href="#about">About</a><a href="#contact">Contact</a> </div></div >');
+    $('.dt-button').addClass('btn btn-primary').removeClass('dt-button').css('margin-right', '5px')
+
+
+
+</script>
+

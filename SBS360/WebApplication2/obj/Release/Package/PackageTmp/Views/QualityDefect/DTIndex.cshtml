@@ -1,0 +1,140 @@
+﻿@model IEnumerable<Eng360Web.Models.ViewModel.QualityDefectDetailViewModel>
+
+@{
+    Layout = null;
+}
+
+<script src="~/Scripts/moment.js"></script>
+<script src="~/Scripts/bootstrap-datetimepicker.js"></script>
+<link href="~/Content/bootstrap-datetimepicker.css" rel="stylesheet" />
+
+
+<style>
+    .table-condensed tbody > tr > td > a {
+        color: #4eb1ba !important;
+    }
+</style>
+
+
+
+
+
+<div class="row inner-page--container">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <b> QI Defect Tracking Details </b>
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <input id="quoteid" type="hidden" />
+                <table class="table table-striped table-bordered" id="defectTable">
+                    <thead>
+                        <tr>
+                            <th>
+                                Defect Track No.
+                            </th>
+                            <th>
+                                Defect Title
+                            </th>
+                            <th>
+                                Project Name
+                            </th>
+                           
+                            <th>
+                                Location
+                            </th>
+                            <th>
+                                Status
+                            </th>
+                           
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DefectTrackNum)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DefectTitle)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.eng_qa_defect.eng_project_master.ProjectName)
+                                </td>
+                                
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.eng_qa_defect.Location)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DefectStatus)
+                                </td>
+                               
+                                <td>
+                                    @if (item.DefectStatus == "InProcess")
+                                    {
+                                        <a class="btn" title="Add/Edit Corrective Action"  onclick="AddEditCPA(@item.DefectDetailID)"> <i class="fa fa-pencil action-pencil" aria-hidden="true" ></i>   </a>
+
+                                    }
+                                    else
+                                    {
+
+                                    <a class="btn" title="Generate CPA Report"  onclick="ViewCPA(@item.DefectDetailID)"> <i class="fa fa-search action-search" aria-hidden="true" ></i> </a>
+                                    }
+
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+
+        $('#defectTable').DataTable({
+            "autoWidth": true,
+            //"scrollX": true,
+            dom: 'Bfrtipl',
+            buttons: [
+                {
+                    extend: 'copyHtml5',
+                    text: '<i class="fa fa-files-o"></i>',
+                    titleAttr: 'Copy'
+                },
+                {
+                    extend: 'excelHtml5',
+                    text: '<i class="fa fa-file-excel-o"></i>',
+                    titleAttr: 'Excel'
+                },
+                {
+                    extend: 'csvHtml5',
+                    text: '<i class="fa fa-file-text-o"></i>',
+                    titleAttr: 'CSV'
+                },
+                {
+                    extend: 'pdfHtml5',
+                    text: '<i class="fa fa-file-pdf-o"></i>',
+                    titleAttr: 'PDF'
+                }
+
+
+            ]
+        });
+
+
+    });
+    //$('.dt-buttons').prepend('<a  onclick="CreateQualityDefect()" class="dt-button buttons-copy buttons-html5" tabindex="0" aria-controls="quoteTable" href="#"><span>Create</span></a>')
+    $('.dt-button').addClass('btn btn-primary').removeClass('dt-button')
+
+
+
+</script>
+

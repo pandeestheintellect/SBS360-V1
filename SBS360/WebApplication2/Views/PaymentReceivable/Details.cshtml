@@ -1,0 +1,217 @@
+﻿@model Eng360Web.Models.ViewModel.PaymentReceivableViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+
+    <style type="text/css">
+        body, td, th {
+            font-family: Book Antiqua;
+            font-size: 12px;
+        }
+
+        body {
+            margin-left: 0px;
+            margin-top: 0px;
+            margin-right: 0px;
+            margin-bottom: 0px;
+        }
+
+        a:link {
+            text-decoration: none;
+        }
+
+        a:visited {
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: none;
+        }
+
+        a:active {
+            text-decoration: none;
+        }
+
+        .tb {
+            border-style: solid;
+            /*border-width:1px;*/
+            border-bottom-width: 1px;
+            border-top-width: 1px;
+            border-left-width: 1px;
+            border-right-width: 1px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body style="font-family: Book Antiqua;">
+    <center>
+        <table width="773" border="0" cellspacing="0" cellpadding="0">
+
+            <tr>
+                <td align="center" valign="top">
+                    <table width="773" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+
+                            <td width="100" align="left" valign="top" style="padding:0px;"><img style="width: 130px; height: 130px;" src="~/images/CompanyLogo/logo.png" /></td>
+                            <td width="398" align="left" valign="top" style="padding:2px;">
+                                <span style="font-size:16px; font-weight:bold;">
+                                    @Eng360Web.Models.Utility.AppSession.GetCompanyDetail().CompanyName
+                                </span><br />
+                                <span style="font-weight:bold; font-size:12px;">
+                                    @Eng360Web.Models.Utility.AppSession.GetCompanyDetail().Address1<br />
+                                    @Eng360Web.Models.Utility.AppSession.GetCompanyDetail().Address2 @Eng360Web.Models.Utility.AppSession.GetCompanyDetail().City @Eng360Web.Models.Utility.AppSession.GetCompanyDetail().Pincode	<br />
+                                    Tel : (65) @Eng360Web.Models.Utility.AppSession.GetCompanyDetail().Tel / Fax: (65) @Eng360Web.Models.Utility.AppSession.GetCompanyDetail().Fax	<br />
+                                    E-mail : @Eng360Web.Models.Utility.AppSession.GetCompanyDetail().Email	<br />
+                                    Co. Reg. No : @Eng360Web.Models.Utility.AppSession.GetCompanyDetail().RegNo GST. Reg. No : @Eng360Web.Models.Utility.AppSession.GetCompanyDetail().GstRegNo
+                                </span>
+                            </td>
+                            <td width="230" align="right" valign="top" style="padding-right:5px; line-height:15px;">
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td align="right" valign="top">
+                                            <img style="width: 210px; height: 90px;" src="~/images/CompanyLogo/biz3.png" />
+                                        </td>
+                                    </tr>
+                                    @*<tr>
+                            <td height="25">&nbsp;</td>
+                        </tr>*@
+                                    <tr>
+                                        <td align="right" valign="bottom" height="35"><span style="font-size:22px; font-weight:bold; padding-right:5px;">Receivable Voucher</span></td>
+                                    </tr>
+                                </table>
+
+                            </td>
+                        </tr>
+                    </table>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td><hr /></td>
+                        </tr>
+                    </table>
+                    <br />
+                    <table width="95%" border="0" cellspacing="0" cellpadding="0" style="margin-top:5px;">
+                        <tr>
+                            <td width="412" align="left" valign="top" style="padding:3px;">
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                    <td align="left" valign="top"><b>Voucher No: @Model.VoucherNo</b></td>
+                                    </tr>
+                        <tr>
+                            <td align="left" valign="top"><b>
+                                Received From: @Model.eng_client_master.Company_Name
+                                </b></td>
+                        </tr>
+                     </table>
+
+                            </td>
+                            <td width="289" align="right" valign="top" style="padding:3px;">
+                                <table width="138" border="0" cellspacing="0" cellpadding="0">
+                                    
+                                    <tr>
+                                        <td width="48" height="11" align="right" valign="middle" style="padding:1px; font-size:12px;"><b></b>Date &nbsp; :</b> </td>
+                                        <td width="90" align="right" valign="middle" style="padding:1px; font-size:12px;"><b>
+                                        &nbsp; @{ var date = Model.Tr_date.ToString().Substring(0, 9); } @date
+                                            </b>
+                                        </td>
+                                    </tr>
+                                    
+                                    
+                       </table>
+                     </td>
+                  </tr>  
+                </table> 
+                    <br /><br />
+                    <table width="95%" border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse;" height="">
+                        <tr style="border-bottom: 1px solid #000000 !important;">
+                            <th width="10%" align="center" valign="middle" style="padding:3px; border: 1px solid #000;" height="20">S.NO</th>
+                            <th align="left" valign="middle" style="padding:3px; border: 1px solid #000;">Particulars</th>
+                                                       
+                            <th width="10%" align="center" valign="middle" style="padding:3px; border: 1px solid #000;">AMOUNT</th>
+                        </tr>
+
+
+                        <tr style="border-bottom: 1px solid #000000 !important;">
+                            <td width="10%" align="center" valign="top" style="padding:3px; border: 1px solid #000; line-height:20px;" height="20">1</td>
+                            <td align="left" valign="top" style="padding-left:3px; padding-right:3px; padding-bottom:3px; padding-top:3px; border: 1px solid #000; line-height:15px;"><pre style="font-family: Book Antiqua;	font-size: 12px;  padding-top:0px; margin-top:0px; padding-bottom:-5px; margin-bottom:-5px;">@Model.Particulars</pre></td>
+                            <td width="10%" align="right" valign="top" style="padding:3px; border: 1px solid #000; line-height:20px;">@Model.Amount </td>
+                        </tr>
+                        @{ 
+
+                            decimal gst = 0;
+                            var subTotal = (decimal)Model.Amount;
+                        
+
+                            if (Model.GTAX == "0")
+                            {
+                                
+                                gst = Math.Round(Convert.ToDecimal((7.0 / 100.00)) * (decimal)Model.Amount, 2);
+
+                                <tr style="border-bottom: 1px solid #000000 !important;">
+                                    <td width="10%" align="center" valign="top" style="padding:3px; border: 1px solid #000; line-height:20px;" height="20">&nbsp;</td>
+                                    <td align="right" valign="top" style="padding-left:3px; padding-right:3px; padding-bottom:3px; padding-top:3px; border: 1px solid #000; line-height:15px;">GST 7%</td>
+                                    <td width="10%" align="right" valign="top" style="padding:3px; border: 1px solid #000; line-height:20px;">@Math.Round(Convert.ToDecimal((7.0 / 100.00)) * (decimal)Model.Amount, 2) </td>
+                                </tr>
+
+
+                            }
+                            else
+                            {
+                                gst = 0;
+                            }
+                            
+
+                            <tr style="border-bottom: 1px solid #000000 !important; border: 1px solid #000;">
+                                <td width="10%" align="center" valign="top" style="padding:3px; border: 1px solid #000; line-height:20px;" height="20">&nbsp;</td>
+                                <td align="right" valign="top" style="padding-left:3px; padding-right:3px; padding-bottom:3px; padding-top:3px; border: 1px solid #000; line-height:15px;">Total</td>
+                                <td width="10%" align="right" valign="top" style="padding:3px; text-align:right; border: 1px solid #000;">@Math.Round(gst + subTotal, 2) </td>
+                            </tr>
+                        }  
+                        
+                        @* }*@
+                    </table> <br /><br />
+                    <table width="95%" border="0" cellspacing="0" cellpadding="0" style="margin-top:0px; border-collapse: collapse;">
+                        <tr>
+                            <td width="385" align="left" valign="top" style="font-size:13px; border-style:solid; border-bottom-width:0px; border-top-width:0px; border-left-width:0px; border-right-width:0px; padding:0px;">
+                                <table width="250" border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td style="padding:10px;">Prepared By :_______________________</td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td width="250" align="right" valign="top" style="font-size:13px; border-style:solid; border-bottom-width:0px; border-top-width:0px; border-left-width:0px; border-right-width:0px; padding:0px;">
+                                <table width="250" border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td style="padding:10px;">Approved By : _______________________</td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td width="250" align="right" valign="top" style="font-size:13px; border-style:solid; border-bottom-width:0px; border-top-width:0px; border-left-width:0px; border-right-width:0px; padding:0px;">
+                                <table width="250" border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td style="padding:10px;">Received By : _______________________</td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+
+
+
+
+                            </td>
+                        </tr>
+                    </table>
+               
+
+    </center>
+</body>
+</html>

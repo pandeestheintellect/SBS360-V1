@@ -1,0 +1,412 @@
+﻿@model Eng360Web.Models.ViewModel.SafetyMasterViewModel
+
+@{
+    Layout = null;
+
+}
+
+<script src="~/Scripts/moment.js"></script>
+<script src="~/Scripts/bootstrap-datetimepicker.js"></script>
+<link href="~/Content/bootstrap-datetimepicker.css" rel="stylesheet" />
+
+<style>
+    .table-condensed tbody > tr > td > a {
+        color: #4eb1ba !important;
+    }
+
+    input[type='checkbox'] {
+        width: 20px;
+        height: 20px;
+    }
+
+    .required::after {
+        content: "*";
+        font-weight: bold;
+        color: red;
+    }
+</style>
+
+
+
+<div class="row inner-page--container">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <b> Add New DTTR  </b>
+
+                @*<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>*@
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+
+
+                @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "safetyForm" }))
+                {
+                    @Html.AntiForgeryToken()
+
+
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                   
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.CompanyName, htmlAttributes: new { @class = "control-label" }) 
+                            @Html.ValidationMessageFor(model => model.CompanyName, "", new { @class = "text-danger" })
+                            <div>
+                                @Html.DropDownListFor(model => model.CompanyName, new SelectList(
+                                    new List<Object>{
+                                    new { value = "CITI CONSTRUCTION  ENGINEERING PTE. LTD." , text = "CITI CONSTRUCTION  ENGINEERING PTE. LTD."  }
+                                   
+                                    }, "value", "text", 1), htmlAttributes: new { @class = "form-control" })
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.ProjectTitle, htmlAttributes: new { @class = "control-label required" })
+                            <div>
+                                @Html.DropDownList("ProjectTitle", null, htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.ProjectTitle, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.RepDate, htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.EditorFor(model => model.RepDate, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.RepDate, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.RepTime, htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.EditorFor(model => model.RepTime, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.RepTime, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.LocationOfWork, htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.EditorFor(model => model.LocationOfWork, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.LocationOfWork, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.SubmittedBy, "Name / Designation / Signature of Supervisor", htmlAttributes: new { @class = "control-label" })
+                           
+                            <div>
+                                @{
+                                    var str = "";
+                                    var grp = "";
+                                    if (Eng360Web.Models.Utility.AppSession.GetCurrentUserGroup() == 3)
+                                    {
+                                        grp = "Supervisor";
+                                    }
+                                    if (Eng360Web.Models.Utility.AppSession.GetCurrentUserGroup() == 1)
+                                    {
+                                        grp = "Superadmin";
+                                    }
+                                    if (Eng360Web.Models.Utility.AppSession.GetCurrentUserGroup() == 2)
+                                    {
+                                        grp = "Manager";
+                                    }
+                                    if (Eng360Web.Models.Utility.AppSession.GetCurrentUserGroup() == 4)
+                                    {
+                                        grp = "Director";
+                                    }
+                                    if (Eng360Web.Models.Utility.AppSession.GetCurrentUserGroup() == 4)
+                                    {
+                                        grp = "Admin";
+                                    }
+
+                                    str = Eng360Web.Models.Utility.AppSession.GetCurrentUserName().ToString() + " / " + grp;
+
+                                }
+                               
+                                @Html.Editor("Test", new { htmlAttributes = new { @class = "form-control", @disabled = "disabled", @Value = @str } })
+
+                            </div>
+                        </div>
+                        <br /><br />
+                        <div class="col-md-11" style="padding-top:15px;">
+                            @Html.Label("List of Hazards associated & identified in today's task & its corresponding RA & SWP reminded (Check box)", htmlAttributes: new { @class = "control-label" })
+                            <div>
+
+                                <table >
+                                    
+                                        @for (int i = 0; i < ViewBag.HazardList.Count; i++)
+                                        {
+                                            var cells = 4;
+                                            
+
+                                            var checkBoxId = "HazardCheckBoxList_" + ViewBag.HazardList[i].Value;
+                                            var tdId = "td" + ViewBag.HazardList[i].Value;
+
+                                            if ((i % cells) == 0)
+                                            {
+                                            @: <tr>
+                                        }
+
+                                        <td width="350px" id="@tdId">
+                                            <input type="checkbox" id="@checkBoxId" class="chkclass" value="@ViewBag.HazardList[i].Value" />
+                                           @ViewBag.HazardList[i].Text
+                                        </td>
+
+                                        if (i == (ViewBag.HazardList.Count - 1))
+                                        {
+                                            while ((i % cells) != 0)
+                                            {
+                                                @:
+                                                <td></td>
+                                                i++;
+                                            }
+                                        }
+
+                                        if ((i % cells) == (cells - 1)) // aka: last row cell
+                                        {
+                                            @: </tr>
+                                        }
+                                    }
+                                </table>
+                          
+                                
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                @Html.LabelFor(model => model.OtherHazard, htmlAttributes: new { @class = "control-label" })
+                                <div>
+                                    @Html.EditorFor(model => model.OtherHazard, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.OtherHazard, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+
+                                <div>
+                                    &nbsp;
+                                </div>
+                            </div>
+                        </div>
+                          
+                        <br />  
+                        
+                                        
+                        <div class="col-md-12">
+                            @Html.LabelFor(model => model.ASHMeasures, "Additional Safety & Health Measures highlightd to comply, if any:", htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.TextAreaFor(model => model.ASHMeasures, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.ASHMeasures, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+
+                        <br />
+                         <div class="col-md-11" style="padding-top:15px;">
+                            @Html.Label("List of PPE highlighted and reminded to comply (Check box)", htmlAttributes: new { @class = "control-label" })
+                            <div>
+
+                                <table  >
+                                    
+                                        @for (int i = 0; i < ViewBag.PPEList.Count; i++)
+                                        {
+                                            var cells = 5;
+                                            
+
+                                            var checkBoxId = "PPECheckBoxList_" + ViewBag.PPEList[i].Value;
+                                            var tdId = "ppetd" + ViewBag.PPEList[i].Value;
+
+                                            if ((i % cells) == 0)
+                                            {
+                                            @: <tr>
+                                        }
+
+                                        <td width="300px" id="@tdId">
+                                            <input type="checkbox" id="@checkBoxId" class="ppeclass" value="@ViewBag.PPEList[i].Value" />
+                                           @ViewBag.PPEList[i].Text
+                                        </td>
+
+                                        if (i == (ViewBag.PPEList.Count - 1))
+                                        {
+                                            while ((i % cells) != 0)
+                                            {
+                                                @:
+                                                <td></td>
+                                                i++;
+                                            }
+                                        }
+
+                                        if ((i % cells) == (cells - 1)) // aka: last row cell
+                                        {
+                                            @: </tr>
+                                        }
+                                    }
+                                </table>
+                          
+                                
+                            </div>
+                        </div>
+
+                        <div class="col-md-10" style="padding-top:20px;">
+                            @Html.Label("Acknowledgement and undertaking by employees attending this Toolbox Talk (Supervisor to highlight this)", htmlAttributes: new { @class = "control-label" })
+                            <div style="color: blue">
+                                We, the undersigned, herewith acknowledge that we have been already briefed on all necessary RA, SWP & MOS for 
+                                the variuos activities and reminded to us today as above. We undertake to comply all ncessary Safety & Health measures.   
+                            </div>
+                        </div>
+
+
+
+                        <div class="col-md-10" style="padding-top:15px;">
+                            @Html.Label("Select the List of Workers (Check box)", htmlAttributes: new { @class = "control-label" })
+                            <div  id="emp_scroll" style ="overflow:scroll;height:200px">
+
+                                <table >
+
+                                    @for (int i = 0; i < ViewBag.WorkerList.Count; i++)
+                                    {
+                                        var cells = 4;
+
+
+                                        var checkBoxId = "WorkerCheckBoxList_" + ViewBag.WorkerList[i].Value;
+                                        var tdId = "wtd" + ViewBag.WorkerList[i].Value;
+
+
+                                        if ((i % cells) == 0)
+                                        {
+                                           @: <tr>
+                                        }
+
+                                                <td width="350px" id="@tdId">
+                                                    <input type="checkbox" id="@checkBoxId" class="empclass" value="@ViewBag.WorkerList[i].Value" />
+                                                    @ViewBag.WorkerList[i].Text
+                                                </td>
+
+
+                                                if (i == (ViewBag.WorkerList.Count - 1))
+                                                {
+                                                while ((i % cells) != 0)
+                                                {
+                                                @:
+                                                <td></td>
+                                                i++;
+                                                }
+                                                }
+
+                                                if ((i % cells) == (cells - 1)) // aka: last row cell
+                                                {
+                                                @: </tr>
+                                        }
+                                    }
+                                </table>
+
+
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+                                    }
+
+            </div>
+            <div class="modal-footer">
+
+               
+                <input type="button" value="Create" id="create-safety-dialog-save" style="float:right" class="btn btn-primary" /><span style="float:right">&nbsp;</span><input type="button" value="Back" id="create-safety-back" style="float:right" class="btn btn-primary DTTR" />
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $('#emp_scroll').scrollTop(150);
+
+    $(function () {
+       
+
+        $('#RepDate').datetimepicker({ format: 'DD/MM/YYYY', defaultDate: new Date()});
+
+        $('#RepTime').datetimepicker({ format: 'LT', defaultDate: new Date() });
+        
+    });
+
+    //$(document).ready(function () {
+    //    $('.chkclass').click(function () {
+    //        var getchkid = $(this).attr('id');
+    //        var isChecked = $('#' + getchkid).is(':checked');
+    //        if ($('#' + getchkid).is(':checked') == true) {
+    //            $('#td' + $(this).val()).css("color", "white");
+    //            $('#td' + $(this).val()).css("background-color", "blue");
+    //        }
+    //        else {
+    //            $('#td' + $(this).val()).css("color", "black");
+    //            $('#td' + $(this).val()).css("background-color", "white");
+    //        }
+    //    });
+
+    //});
+
+///// In case other chk list business logic
+    //$(document).ready(function () {
+    //    $('.chkclass').click(function () {
+    //        var getchkid = $(this).attr('id');
+    //        if (getchkid == "HazardCheckBoxList_19")
+    //         {
+    //            debugger;
+    //        var isChecked = $('#' + getchkid).is(':checked');
+    //        if ($('#' + getchkid).is(':checked') == true) {
+    //            alert("OK");
+    //        }
+    //        else {
+    //            var y = 0;
+    //        }
+    //    }
+    //    });
+
+    //});
+
+
+
+
+    //$(document).ready(function () {
+    //    $('.empclass').click(function () {
+    //        var getchkid = $(this).attr('id');
+    //        var isChecked = $('#' + getchkid).is(':checked');
+    //        if ($('#' + getchkid).is(':checked') == true) {
+    //            $('#wtd' + $(this).val()).css("color", "white");
+    //            $('#wtd' + $(this).val()).css("background-color", "blue");
+    //        }
+    //        else {
+    //            $('#wtd' + $(this).val()).css("color", "black");
+    //            $('#wtd' + $(this).val()).css("background-color", "white");
+    //        }
+    //    });
+
+    //});
+
+    //$(document).ready(function () {
+    //    $('.ppeclass').click(function () {
+    //        var getchkid = $(this).attr('id');
+    //        var isChecked = $('#' + getchkid).is(':checked');
+    //        if ($('#' + getchkid).is(':checked') == true) {
+    //            $('#ppetd' + $(this).val()).css("color", "white");
+    //            $('#ppetd' + $(this).val()).css("background-color", "blue");
+    //        }
+    //        else {
+    //            $('#ppetd' + $(this).val()).css("color", "black");
+    //            $('#ppetd' + $(this).val()).css("background-color", "white");
+    //        }
+    //    });
+
+    //});
+
+
+
+</script>

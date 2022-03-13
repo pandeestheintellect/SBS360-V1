@@ -1,0 +1,451 @@
+﻿@model IEnumerable<Eng360Web.Models.ViewModel.QuoteViewModel>
+
+<link href="~/Scripts/lobipanel-master/dist/css/lobipanel.min.css" rel="stylesheet" />
+@{
+    Layout = null;
+}
+
+<script src="~/Scripts/moment.js"></script>
+<script src="~/Scripts/bootstrap-datetimepicker.js"></script>
+<link href="~/Content/bootstrap-datetimepicker.css" rel="stylesheet" />
+
+
+<style>
+    .table-condensed tbody > tr > td > a {
+        color: #4eb1ba !important;
+    }
+</style>
+
+
+
+
+
+<div class="row inner-page--container">
+    <div class="col-lg-12">
+        <div class="panel panel-default" id="testpanel">
+            <div class="panel-heading">
+                <b> Quotation Details </b>
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <input id="quoteid" type="hidden" />
+                <input id="Is_do_released" type="hidden" />
+                <table class="table table-striped table-bordered" id="quoteTable">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.QuoteRefNum)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.QuoteDate)
+                            </th>
+                            <th>
+                                Client Name
+                            </th>
+                            <th>
+                                    Title
+                                </th>
+                                @*<th>
+                                    @Html.DisplayNameFor(model => model.ValidTill)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.YourRef)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.TermsAndCond)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.GTAX)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Currency)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.QuoteAmount)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.QuoteDiscount)
+                                </th>*@
+                            <th>
+                                @Html.DisplayNameFor(model => model.QuoteTotValue)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.eng_sys_quotestatus.QuoteStatus)
+                            </th>
+                            @*<th>
+                                    @Html.DisplayNameFor(model => model.CreatedDate)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.DeletedDate)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.CreatedBy)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.DeletedBy)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.eng_client_master.ClientDisplayID)
+                                </th>*@
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @{ 
+                                        var qtno = item.QuoteRefNum.Replace("_R0", "");
+                                    }
+                                    @qtno
+                                </td>
+                                <td>
+                                    @{
+                                        var dt = "";
+                                        dt = Convert.ToDateTime(item.QuoteDate).ToString(Eng360Web.Models.Utility.AppSettings.GetDateFormat());
+                                    }
+                                    @dt                                    
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.eng_client_master.Company_Name)
+                                </td>
+                                <td>
+                                        @Html.DisplayFor(modelItem => item.ProjectTitle)
+                                    </td>
+                                    @*<td>
+                                        @Html.DisplayFor(modelItem => item.ValidTill)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.YourRef)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.TermsAndCond)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.GTAX)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Currency)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.QuoteAmount)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.QuoteDiscount)
+                                    </td>*@
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.QuoteTotValue)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.eng_sys_quotestatus.QuoteStatus)
+                                </td>
+                                @* <td>
+                                        @Html.DisplayFor(modelItem => item.CreatedDate)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.DeletedDate)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CreatedBy)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.DeletedBy)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.eng_client_master.ClientDisplayID)
+                                    </td>*@
+                                <td>
+
+                                    @if (item.QuoteCategory == "D")
+                                    {
+
+                                        if (item.eng_sys_quotestatus.QuoteStatus == "Pending")
+                                        {
+                                            <a class="btn" title="Edit Quotation"  onclick="EditQuote('@item.QuoteID','0')"> <i class="fa fa-pencil" aria-hidden="true" ></i>   </a>
+
+                                            <a class="btn" title="Delete Quotation"  onclick="DeleteQuote(@item.QuoteID)"> <i class="fa fa-trash" aria-hidden="true" ></i> </a>
+                                        }
+                                        else
+                                        {
+                                            if (item.Is_invoice_released == null || item.Is_invoice_released == 0)
+                                            {
+
+                                                    @*<a class="btn" title="Set Invoice Date" style="padding: 0px 0px;" onclick="setQuoteDate(@item.QuoteID)"> <i class="fa fa-calendar" aria-hidden="true" style="color:#4eb1ba;font-size:24px"></i> </a>*@
+                                                <a class="btn" title="Set WC Date"  onclick="setQuoteDate(@item.QuoteID)"> <i class="fa fa-bitbucket" aria-hidden="true" ></i> </a>
+                                            }
+
+                                            if ((item.Is_Project_level_inv == null || item.Is_Project_level_inv == 0) && (item.Is_Custom_level_inv == null || item.Is_Custom_level_inv == 0))
+                                            {
+                                                <a class="btn" href="Quote/Details/@item.QuoteID" target="_blank" title="View Quotation Details"  @*onclick="ViewQuote(@item.QuoteID)"*@> <i class="fa fa-search" aria-hidden="true" ></i> </a>
+
+                                                <a class="btn" href="Quote/DetailsInv/@item.QuoteID" target="_blank" title="View Invoice"  @*onclick="ViewQuote(@item.QuoteID)"*@> <i class="fa fa-file-text-o" aria-hidden="true" ></i> </a>
+                                            }
+                                        }
+                                    }
+                                    else
+                                    {
+
+                                        if (item.eng_sys_quotestatus.QuoteStatus == "Pending")
+                                        {
+                                            <a class="btn" title="Edit Quotation"  onclick="EditQuote('@item.QuoteID', '0')"> <i class="fa fa-pencil action-pencil" aria-hidden="true" ></i>   </a>
+                                            if (item.RvFlag == 0)
+                                            {
+                                                <a class="btn" title="Revise Quotation"  onclick="EditQuote('@item.QuoteID','1')"> <i class="fa fa-file-text action-Revise-quo" aria-hidden="true" ></i>   </a>
+                                            }
+                                            <a class="btn" title="Delete Quotation"  onclick="DeleteQuote(@item.QuoteID)"> <i class="fa fa-trash action-trash" aria-hidden="true" ></i> </a>
+                                        }
+
+                                        if (item.eng_sys_quotestatus.QuoteStatus == "In Progress" || item.eng_sys_quotestatus.QuoteStatus == "Approved")
+                                        {
+                                            <a class="btn" title="Create Project"  onclick="CreateProjectSelection(@item.QuoteID)"> <i class="fa fa-tasks action-create" aria-hidden="true" ></i> </a>
+
+                                        }
+
+                                        <a class="btn" href="Quote/Details/@item.QuoteID" target="_blank" title="View Quotation Details"  @*onclick="ViewQuote(@item.QuoteID)"*@> <i class="fa fa-search action-search" aria-hidden="true" ></i> </a>
+                                        <a class="btn" href="Quote/DetailsWOH/@item.QuoteID" target="_blank" title="Print Quotation"  @*onclick="ViewQuote(@item.QuoteID)"*@> <i class="fa fa-print action-print" aria-hidden="true" ></i> </a>
+
+                                        if (item.eng_sys_quotestatus.QuoteStatus != "Pending" && item.eng_sys_quotestatus.QuoteStatus != "Cancelled")
+                                        {
+                                          //  if (item.Is_invoice_released == null || item.Is_invoice_released == 0)
+                                           // {
+                                                if (item.Is_do_released == null || item.Is_do_released == 0)
+                                                {
+                                                    <a class="btn" title="Set WC Date"  onclick="setQuoteDate('@item.QuoteID', 'WC')"> <i class="fa fa-bitbucket action-wc" aria-hidden="true" ></i> </a>
+
+                                            }
+                                            //   <a class="btn" title="Set Invoice/DO Date" style="padding: 0px 0px;" onclick="setQuoteDate('@item.QuoteID', 'IV')"> <i class="fa fa-calendar" aria-hidden="true" style="color:#4eb1ba;font-size:24px"></i> </a>
+
+                                            // }
+                                            if (item.InvoiceFlag == 1 || item.InvoiceFlag == 2)
+                                            {
+                                                if (Eng360Web.Models.Utility.AppSession.GetCurrentUserGroup() == 2)
+                                                {
+                                                <a class="btn" title="Payment Info"  onclick="ViewQLPayment(@item.QuoteID)"> <i class="fa fa-dollar action-dollar" aria-hidden="true" ></i> </a>
+                                                }
+                                            }
+                                            if (item.Is_Quote_level_do == 1)
+                                            {
+                                                <a class="btn" href="Quote/DetailsDo/@item.QuoteID" target="_blank" title="DO(View)"  @*onclick="ViewQuote(@item.QuoteID)"*@> <i class="fa fa-truck action-do-view" aria-hidden="true" ></i> </a>
+                                                
+                                                <a class="btn" href="Quote/DetailsDoWOH/@item.QuoteID" target="_blank" title="DO(Print)"  @*onclick="ViewQuote(@item.QuoteID)"*@> <i class="fa fa-file-archive-o action-do-print" aria-hidden="true" ></i> </a>
+                                               
+                                            }
+
+                                            @*if (item.Is_Quote_level_inv == 1)
+                                            {                                               
+                                                <a class="btn" href="Quote/DetailsInv/@item.QuoteID" target="_blank" title="View Invoice" style="padding: 0px 0px;"> <i class="fa fa-file-text-o" aria-hidden="true" style="color:#4eb1ba;font-size:24px"></i> </a>
+                                                                                                
+                                                <a class="btn" href="Quote/DetailsInvWOH/@item.QuoteID" target="_blank" title="Print Invoice" style="padding: 0px 0px;" > <i class="fa fa-file-o" aria-hidden="true" style="color:#4eb1ba;font-size:24px"></i> </a>
+
+                                            }*@
+                                            
+
+                                        }
+                                    }
+
+                                </td>
+                            </tr>
+                                        }
+                    </tbody>
+
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="create-SetQuoteDate-dialog" data-backdrop="static" class="modal fade in" data-url='@Url.Action("CreateProject", "Project")'>
+    <div class="modal-dialog" style="width: 40%">
+        <div class="modal-content">
+            <div id="create-SetQuoteDate-dialog-container">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <b>Set Invoice Date  </b>
+                         
+                    </div>
+                    <div class="row">
+                        <div class="container panel-body">
+                            <div class='col-md-12'>
+                                <div class="form-group">
+                                    @Html.Label("Invoice Date", htmlAttributes: new { @class = "control-label" })
+                                    <div class='input-group date' id='datetimepicker6'>
+                                        <input type='text' id="invDate" class="form-control" />
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-calendar"></span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            @*<div class='col-md-4'>
+                                <div class="form-group">
+                                    @Html.Label("DO Date", htmlAttributes: new { @class = "control-label" })
+                                    <div class='input-group date' id='datetimepicker7'>
+                                        <input type='text' id="doDate" class="form-control" />
+
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-calendar"></span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>*@
+                            <div class='col-md-12'>
+                                <div class="form-group">
+                                    @Html.Label("Invoice released to client", htmlAttributes: new { @class = "control-label" })
+
+                                    <input type="checkbox" id="invReleased" value="" style="height: 15px;width: 25px;">
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                        <input type="button" value="Save" id="create-QuoteDate-dialog-save" onclick="updateQuoteDate('IV')" class="btn btn-primary" />
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div id="create-SetWCDate-dialog" data-backdrop="static" class="modal fade in" data-url='@Url.Action("CreateProject", "Project")'>
+    <div class="modal-dialog" style="width: 40%">
+        <div class="modal-content">
+            <div id="create-SetWCDate-dialog-container">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <b>Set WC Date  </b>
+
+                    </div>
+                    <div class="row">
+                        <div class="container panel-body">
+                            
+                            <div class='col-md-12'>
+                                <div class="form-group">
+                                    @Html.Label("DO Date", htmlAttributes: new { @class = "control-label" })
+                                    <div class='input-group date' id='datetimepicker7'>
+                                        <input type='text' id="doDate" class="form-control" />
+
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-calendar"></span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='col-md-12'>
+                                <div class="form-group">
+                                    @Html.Label("WC released to client", htmlAttributes: new { @class = "control-label" })
+
+                                    <input type="checkbox" id="doReleased" value="" style="height: 15px;width: 25px;">
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                        <input type="button" value="Save" id="create-WCDate-dialog-save" onclick="updateQuoteDate('WC')" class="btn btn-primary" />
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script src="~/Scripts/lobipanel-master/dist/js/lobipanel.min.js"></script>
+
+
+<script>
+    $(document).ready(function () {
+
+        $('#quoteTable').DataTable({
+            //"pagingType": "full_numbers",
+            "autoWidth": true,
+            //"scrollX": true,
+            dom: 'Bfrtipl',
+            buttons: [
+                {
+                    extend: 'copyHtml5',
+                    text: '<i class="fa fa-files-o"></i>',
+                    titleAttr: 'Copy'
+                },
+                {
+                    extend: 'excelHtml5',
+                    text: '<i class="fa fa-file-excel-o"></i>',
+                    titleAttr: 'Excel'
+                },
+                {
+                    extend: 'csvHtml5',
+                    text: '<i class="fa fa-file-text-o"></i>',
+                    titleAttr: 'CSV'
+                },
+                {
+                    extend: 'pdfHtml5',
+                    text: '<i class="fa fa-file-pdf-o"></i>',
+                    titleAttr: 'PDF'
+                }
+
+            ],
+            columnDefs: [
+       { type: 'date-eu', targets: 1 }
+            ]
+        });
+
+
+    });
+    $('.dt-buttons').prepend('<a  onclick="CreateQuote()" class="dt-button buttons-create buttons-html5" tabindex="0" aria-controls="quoteTable" href="#" title="Create" ><i class="fa fa-plus"></i></a>')
+    $('.dt-button').addClass('btn btn-primary').removeClass('dt-button')
+
+
+    function CreateProjectSelection(id) {
+
+        $.get("Quote/CreateProjectSelection/" + id, function (data) {
+            $('#create-ProjectSelection-dialog-container').html(data);
+            $('#create-ProjectSelection-dialog').modal('show');
+        });
+
+    }
+
+
+    function getSelectedIDs() {
+        var ids = [];
+        $(".checkBoxClass").each(function () {
+            if (this.checked) {
+                ids.push(this.id);
+            }
+        });
+
+        return ids;
+    }
+
+
+    $(function () {
+
+        $('#invDate').datetimepicker({ format: 'DD/MM/YYYY' });
+        $('#doDate').datetimepicker({ format: 'DD/MM/YYYY' });
+
+    });
+
+    $(function () {
+        $('#testpanel, #testpanel1').lobiPanel({
+            //Options go here             
+            reload: false,
+            close: false,
+            editTitle: false
+
+        });
+    });
+
+</script>
+

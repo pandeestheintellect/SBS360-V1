@@ -1,0 +1,313 @@
+﻿@model Eng360Web.Models.ViewModel.ClaimViewModel
+
+@{
+    Layout = null;
+    //  ViewBag.TermsAndCond = "TERMS & CONDITIONS : \n PRICE: All in Singapore dollars \n VALIDITY: Two Month from dated this quotation \n DELIVERY    : One week from upon order confirmation \n PAYMENT: 30 days from the date of invoice \n NOTE: Any others work NOT mentioned here will be additional charged.";
+
+}
+
+<script src="~/Scripts/moment.js"></script>
+<script src="~/Scripts/bootstrap-datetimepicker.js"></script>
+<link href="~/Content/bootstrap-datetimepicker.css" rel="stylesheet" />
+
+
+<style>
+     .table-condensed tbody > tr > td > a {
+        color: #4eb1ba !important;
+    }
+    .required::after {
+        content: "*";
+        font-weight: bold;
+        color: red;
+    }
+</style>
+
+<p>
+    &nbsp;
+</p>
+
+
+<div class="row inner-page--container">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <b> Submit New Expense  </b>
+
+                @*<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>*@
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+
+
+                @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "claimForm", enctype = "multipart/form-data" }))
+                {
+                  @Html.AntiForgeryToken()
+
+
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    @Html.HiddenFor(model => model.ClaimID)
+                    @Html.HiddenFor(model => model.TotalClaim)
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.SubmittedDate, htmlAttributes: new { @class = "control-label " }) @Html.ValidationMessageFor(model => model.SubmittedDate, "", new { @class = "text-danger" })
+                            <div>
+                                @Html.EditorFor(model => model.SubmittedDate, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.ClaimAgainst, "Claim Category", htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.DropDownListFor(model => model.ClaimAgainst, new SelectList(
+                                    new List<Object>{
+                                    new { value = "Project" , text = "Project"  },
+                                    new { value = "Office" , text = "Office" },
+                                    new { value = "Miscellaneous" , text = "Miscellaneous" }
+
+                    }, "value", "text", 2), htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.ClaimAgainst, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.ProjectID, htmlAttributes: new { @class = "control-label" }) @Html.ValidationMessageFor(model => model.ProjectID, "", new { @class = "text-danger" })
+                            <div>
+                                @Html.DropDownList("ProjectID", null, htmlAttributes: new { @class = "form-control"})
+
+                            </div>
+                        </div>
+                        
+                       
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.UserID, htmlAttributes: new { @class = "control-label" }) @Html.ValidationMessageFor(model => model.UserID, "", new { @class = "text-danger" })
+                            <div>
+                                @Html.DropDownList("UserID", null, htmlAttributes: new { @class = "form-control" })
+
+                            </div>
+                        </div>
+
+                        @* // Hiding Approver selection *@
+                        @*<div class="col-md-6">
+                            @Html.LabelFor(model => model.ApprovedBy, htmlAttributes: new { @class = "control-label" }) @Html.ValidationMessageFor(model => model.ApprovedBy, "", new { @class = "text-danger" })
+                            <div>
+                                @Html.DropDownList("ApprovedBy", null, htmlAttributes: new { @class = "form-control" })
+
+                            </div>
+                        </div>*@
+
+
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.SVRemarks, "Remarks", htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.EditorFor(model => model.SVRemarks, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.SVRemarks, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.PaymentSource, "Source of Payment", htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.DropDownListFor(model => model.PaymentSource, new SelectList(
+                                    new List<Object>{
+                                    new { value = "Self" , text = "Self"  },
+                                    new { value = "Company" , text = "Company" }
+                                    
+
+                    }, "value", "text", 1), htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.PaymentSource, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-3">
+                            @Html.LabelFor(model => model.files, htmlAttributes: new { @class = "control-label" })
+                            <div class="">
+                                @Html.TextBoxFor(model => model.files, "", new { @type = "file", @multiple = "multiple", @accept = "image/x-png,image/gif,image/jpeg" })
+                                @Html.ValidationMessageFor(model => model.files, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-3">
+                            @Html.Label("Claim Amount")
+                            <div>
+                                @Html.TextBox("ClaimValue", Model.ClaimAmount, new { @class = "form-control", @readonly = "readonly" })
+                            </div>
+                        </div>
+                        
+
+
+                      
+                    </div>
+                        <div class="col-md-12" style="min-height:300px !important;padding-top:25px;padding-left:0px;padding-right:0px;">
+
+                            <table class="table table-striped table-bordered" id="tableClaimDescriptions">
+
+                                <thead>
+                                    <tr>
+                                        <th>Category</th>
+                                        <th>Category</th>
+                                        <th>Claim Desc</th>
+                                        <th>Receipt Date</th>
+                                        <th>Receipt Amount</th>
+                                        <th>GST</th>
+
+                                        <th>Actions</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="remove">
+                                        <td>
+                                            sdsd
+                                        </td>
+                                        <td>
+                                            sdsd
+                                        </td>
+                                        <td>
+                                            sds
+                                        </td>
+                                        <td>
+                                            sdas
+                                        </td>
+                                        <td>sds</td>
+                                        <td>sddds</td>
+
+                                        <td>kdsd</td>
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+
+
+                }
+
+            </div>
+            <div class="modal-footer">
+
+                
+
+                <input type="button" value="Submit" id="create-claim-dialog-save" style="float:right" class="btn btn-primary" /><span style="float:right">&nbsp;</span><input type="button" value="Back" id="create-claim-dialog-back" style="float:right" class="btn btn-primary ExpenseEntry" />
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+
+
+    var contacts = [];
+   
+    var claimdescTable;
+    
+                    $(document).ready(function () {
+
+                        claimdescTable = $('#tableClaimDescriptions').DataTable({
+                            "autoWidth": false,
+                            "scrollX": true,
+                            dom: 'Briti',
+                            buttons: [
+                                'copyHtml5',
+                                'excelHtml5',
+                                'csvHtml5',
+                                'pdfHtml5',
+
+                            ],
+                            "columnDefs": [
+                        {
+                            // The `data` parameter refers to the data for the cell (defined by the
+                            // `data` option, which defaults to the column being worked with, in
+                            // this case `data: 0`.
+                            "render": function (data, type, row) {
+                               // return '<a class="btn" onclick="removeDataFromDT(this)"> <img src="Content/images/delete.png" /> </a>';
+                                return '<a class="btn" onclick="removeDataFromDT(this)" title="Delete ClaimDescription" > <i class="fa fa-trash" aria-hidden="true" ></i> </a>';
+                                //return ' <a class="btn" title="Edit Description"  onclick="EditClaimDesc(this)"> <i class="fa fa-pencil" aria-hidden="true" style="color:#4eb1ba;font-size:24px"></i></a>';
+                                return ' <a> </a>';
+                            },
+                            "targets": 6
+                        }]
+                        });
+                       
+                    });
+                    var column = claimdescTable.column(1);
+                    column.visible(false);
+                    claimdescTable.row('.remove').remove().draw(false);
+                   
+                    $('.dt-buttons').prepend('<a style="margin-bottom:10px;"  onclick="CreateClaimDesc()" class="dt-button  buttons-html5" tabindex="0" aria-controls="claimTable" href="#"><span>Add Description</span></a>');
+                    $('.dt-button').addClass('btn btn-primary').removeClass('dt-button').css('margin-right', '5px');
+                    $('.buttons-copy').css('display', 'none');
+                    $('.buttons-excel').css('display', 'none');
+                    $('.buttons-csv').css('display', 'none');
+                    $('.buttons-pdf').css('display', 'none');
+                    
+                    
+
+                    function removeDataFromDT(btn) {
+
+                        $(btn.closest('tr')).addClass('remove')
+                        claimdescTable.row('.remove').remove().draw(false);
+                        //calcAmount();
+                        
+                        $('.dt-buttons').show();
+                       
+                    }
+
+                    function EditClaimDesc(btn) {
+
+                        var id = btn.closest('tr').id;
+                        $(btn.closest('tr')).addClass('selectedRow')
+                        CreateClaimDescEdit(id);
+                    }
+
+
+                    function calcAmount() {
+                        var disp = "";
+                        var amt = 0;
+                        var gst = 0;
+                        var tot = 0;
+                    claimdescTable.rows().every(function (rowIdx, tableLoop, rowLoop) {
+                        var data = this.data();
+                        amt = parseFloat(data[4]);
+
+                        if (data[5] == 'YES') {
+                            gst =  (parseFloat(data[4]) * 7 / 100);
+                            tot = amt + gst;
+
+                        }
+                        else {
+                            tot = amt + gst;
+                        }
+                        debugger;
+                        disp = "Amt:" + amt + " + Gst:" + gst + " = Tot:" + tot;
+                       
+                    });
+
+                    $('#ClaimValue').val(disp);
+                    $('#TotalClaim').val(tot.toFixed(2));
+
+                    $('.dt-buttons').hide();
+                    }
+
+                    $(function () {
+                       
+                        $('#SubmittedDate').datetimepicker({ format: 'DD/MM/YYYY', defaultDate: new Date() });
+
+                       });
+
+                    
+                                  
+                    $("form").removeData("validator");
+                    $("form").removeData("unobtrusiveValidation");
+                    $.validator.unobtrusive.parse("form");
+
+
+</script>

@@ -1,0 +1,101 @@
+﻿@model Eng360Web.Models.ViewModel.QualityDefectDetailViewModel
+
+@{
+    Layout = null;
+}
+
+<style>
+    .required::after {
+        content: "*";
+        font-weight: bold;
+        color: red;
+    }
+</style>
+
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h4 class="modal-title">Add New Description</h4>
+</div>
+<div class="modal-body">
+    <form id="formDefectDetail">
+        @Html.HiddenFor(model => model.DefectDetailID)
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DefectTrackNum, htmlAttributes: new { @class = "control-label" })
+                    <div class="">
+                        @Html.EditorFor(model => model.DefectTrackNum, new { htmlAttributes = new { @class = "form-control", @value="Will be created", @readonly="readonly" } })
+                        @Html.ValidationMessageFor(model => model.DefectTrackNum, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DefectTitle, htmlAttributes: new { @class = "control-label required" })
+                    <div class="">
+                        @Html.EditorFor(model => model.DefectTitle, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.DefectTitle, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DefectImpactDetails, htmlAttributes: new { @class = "control-label" })
+                    <div class="">
+                        @Html.EditorFor(model => model.DefectImpactDetails, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.DefectImpactDetails, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DefectStatus, htmlAttributes: new { @class = "control-label" })
+                    <div class="">
+                        @Html.EditorFor(model => model.DefectStatus, new { htmlAttributes = new { @class = "form-control", @value = "Pending", @readonly = "readonly" } })
+                        @Html.ValidationMessageFor(model => model.DefectStatus, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    <input type="button" value="Add" id="create-DefectDetail-dialog-save" class="btn btn-primary" />
+
+</div>
+<script>
+
+        $("form").removeData("validator");
+        $("form").removeData("unobtrusiveValidation");
+        $.validator.unobtrusive.parse("form");
+
+        function addDataToDataTable() {
+            if ($('#formDefectDetail').valid()) {
+                var dtn = $('#DefectTrackNum').val().trim();
+                var deftitle = $('#DefectTitle').val().trim();
+                var did = $('#DefectImpactDetails').val().trim();
+                var ds = $('#DefectStatus').val().trim();
+               
+                debugger;
+                if ($('#DefectDetailID').val() == "") {
+
+                   defectdetailTable.row.add(["Will be generated", deftitle, did, "Pending", 0]).draw(false)
+               }
+               else
+               {
+                   defectdetailTable.cell('.selectedRow', ':eq(0)').data(dtn);
+                   defectdetailTable.cell('.selectedRow', ':eq(1)').data(deftitle);
+                   defectdetailTable.cell('.selectedRow', ':eq(2)').data(did);
+                   defectdetailTable.cell('.selectedRow', ':eq(3)').data(ds);
+                   
+                   defectdetailTable.cell('.selectedRow', ':eq(4)').data($('#DefectDetailID').val());
+                   defectdetailTable.draw();
+
+                   $('.selectedRow').addClass('RowEdited').removeClass('selectedRow');
+               }
+
+               $('#create-DefectDetail-dialog').modal('hide');
+               $('#create-DefectDetail-dialog').css('z-index', '');
+               
+            }
+        }
+</script>

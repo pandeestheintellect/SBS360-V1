@@ -1,0 +1,121 @@
+﻿@model IEnumerable<Eng360Web.Models.ViewModel.RATransMasterViewModel>
+
+@{
+    Layout = null;
+}
+
+
+
+<div class="row inner-page--container">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <b> Risk Assessment Details </b>
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <input id="poid" type="hidden" />
+                <table class="table table-striped table-bordered" id="raTable">
+                    <thead>
+                        <tr>
+                            <th>
+                                RA Ref Num
+                            </th>
+                            <th>
+                                Project
+                            </th>
+                            <th>
+                                Activity Location
+                            </th>
+                            
+                            <th>
+                                RA Leader
+                            </th>
+                            <th>
+                                Contract Number
+                            </th>
+                            
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            var dt = "";
+
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.RARefNum)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.eng_project_master.ProjectName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ActivityLocation)
+                                </td>
+                                
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.RALeader)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ContractNumber)
+                                </td>
+                                
+                                <td>
+                                    <a class="btn" title="Edit RA"  onclick="EditRA(@item.RAID)"> <i class="fa fa-pencil action-pencil" aria-hidden="true" ></i>   </a>
+
+                                    <a class="btn" title="Add Details"  onclick="AddRADetails(@item.RAID)"> <i class="fa fa-plus action-add-dt" aria-hidden="true" ></i>   </a>
+                                    @if (item.eng_ra_trans_detail1.Count > 0)
+                                    {
+                                    <a class="btn" title="RA Evaluation"  onclick="AddRACMEV(@item.RAID)"> <i class="fa fa-paste action-ra-ev" aria-hidden="true" ></i>   </a>
+                                    }
+                                    @if (item.eng_ra_trans_racm.Count > 0)
+                                    {
+                                        
+                                        <a class="btn" href="RA/Details/@item.RAID" target="_blank" title="View RA" > <i class="fa fa-print action-print" aria-hidden="true" ></i> </a>
+                                    }
+                                    
+
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+
+        $('#raTable').DataTable({
+            "autoWidth": true,
+            //"scrollX": true,
+            dom: 'Bfrtipl',
+            buttons: [
+                {
+                    extend: 'excelHtml5',
+                    text: '<i class="fa fa-file-excel-o"></i>',
+                    titleAttr: 'Excel'
+                },
+                {
+                    extend: 'csvHtml5',
+                    text: '<i class="fa fa-file-text-o"></i>',
+                    titleAttr: 'CSV'
+                },
+                {
+                    extend: 'pdfHtml5',
+                    text: '<i class="fa fa-file-pdf-o"></i>',
+                    titleAttr: 'PDF'
+                }
+
+            ]
+        });
+    });
+    $('.dt-buttons').prepend('<a  onclick="CreateRA()" class="dt-button buttons-create buttons-html5" tabindex="0" aria-controls="poTable" href="#" title="Create" ><i class="fa fa-plus"></i></a>')
+    
+    $('.dt-button').addClass('btn btn-primary').removeClass('dt-button')
+</script>

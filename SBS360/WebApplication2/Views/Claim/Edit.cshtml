@@ -1,0 +1,640 @@
+﻿@model Eng360Web.Models.ViewModel.ClaimViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<style>
+    input[type='checkbox'] {
+        width: 20px;
+        height: 20px;
+    }
+
+    .required::after {
+        content: "*";
+        font-weight: bold;
+        color: red;
+    }
+
+</style>
+
+
+
+<div class="row inner-page--container">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <b> Details of Expense ID - @Model.ClaimDisplayID  </b>
+
+                @*<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>*@
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+
+
+
+                @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "claimEditForm" }))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="row">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.HiddenFor(model => model.ClaimID)
+                        @Html.HiddenFor(model => model.ClaimDisplayID)
+                        @Html.HiddenFor(model => model.Status)
+                        @Html.HiddenFor(model => model.SubmittedDate)
+                        @Html.HiddenFor(model => model.SubmittedBy)
+                        @Html.HiddenFor(model => model.TotalClaim)
+
+                        @if (Eng360Web.Models.Utility.AppSession.GetCurrentUserGroup() == 3)
+                        {
+                            @Html.HiddenFor(model => model.ApprovalRemarks)
+                            @Html.HiddenFor(model => model.RejectRemarks)
+                            @Html.HiddenFor(model => model.ApprovedDate)
+                        }
+
+
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.SubmittedDate, htmlAttributes: new { @class = "control-label" })
+                            <div>   
+                                @{
+                                    var dt = "";
+                                    dt = Convert.ToDateTime(@Model.SubmittedDate).ToString(Eng360Web.Models.Utility.AppSettings.GetDateFormat());
+
+                                }
+
+                                @Html.Editor("Test", new { htmlAttributes = new { @class = "form-control", @disabled = "disabled", @Value = @dt } })
+
+
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.ClaimAgainst, "Claim Category", htmlAttributes: new { @class = "control-label" })
+                            <div>
+                            @if (Eng360Web.Models.Utility.AppSession.GetCurrentUserGroup() == 3 && Model.Status != 1)
+                               {
+                                @Html.DropDownListFor(model => model.ClaimAgainst, new SelectList(new List<Object>{
+                                    new { value = "Project" , text = "Project"  },
+                                    new { value = "Office" , text = "Office" },
+                                    new { value = "Miscellaneous" , text = "Miscellaneous" }
+
+                                    }, "value", "text", 2), htmlAttributes: new { @class = "form-control" })
+                            }
+                            else
+                            {
+                                @Html.DropDownListFor(model => model.ClaimAgainst, new SelectList(new List<Object>{
+                                    new { value = "Project" , text = "Project"  },
+                                    new { value = "Office" , text = "Office" },
+                                    new { value = "Miscellaneous" , text = "Miscellaneous" }
+
+                                    }, "value", "text", 2), htmlAttributes: new { @class = "form-control", @disabled="disabled" })
+
+                            }
+                                @Html.ValidationMessageFor(model => model.ClaimAgainst, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.ProjectID, "ProjectID", htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @if (Eng360Web.Models.Utility.AppSession.GetCurrentUserGroup() == 3 && Model.Status != 1)
+                                {
+                                @Html.DropDownList("ProjectID", null, htmlAttributes: new { @class = "form-control" })
+                                }
+                                else
+                                {
+                                @Html.DropDownList("ProjectID", null, htmlAttributes: new { @class = "form-control", @disabled="disabled" })
+                                }
+                                @Html.ValidationMessageFor(model => model.ProjectID, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.UserID, "UserID", htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @if (Eng360Web.Models.Utility.AppSession.GetCurrentUserGroup() == 3 && Model.Status != 1)
+                                {
+                                @Html.DropDownList("UserID", null, htmlAttributes: new { @class = "form-control" })
+                                }
+                                else
+                                {
+                                @Html.DropDownList("UserID", null, htmlAttributes: new { @class = "form-control", @disabled="disabled" })
+                                }
+                                @Html.ValidationMessageFor(model => model.UserID, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                <div class="col-md-6">
+                @Html.LabelFor(model => model.PaymentSource, "Source of Payment", htmlAttributes: new { @class = "control-label" })
+                <div>
+                    @if (Eng360Web.Models.Utility.AppSession.GetCurrentUserGroup() == 3 && Model.Status != 1)
+                    {
+                    @Html.DropDownListFor(model => model.PaymentSource, new SelectList(
+                        new List<Object>{
+                        new { value = "Self" , text = "Self"  },
+                        new { value = "Company" , text = "Company" }
+
+
+        }, "value", "text", 1), htmlAttributes: new { @class = "form-control" })
+                    }
+                    else
+                    {
+                    @Html.DropDownListFor(model => model.PaymentSource, new SelectList(
+                                    new List<Object>{
+                                    new { value = "Self" , text = "Self"  },
+                                    new { value = "Company" , text = "Company" }
+
+
+                    }, "value", "text", 1), htmlAttributes: new { @class = "form-control",@disabled="disabled" })
+                    }
+                    @Html.ValidationMessageFor(model => model.PaymentSource, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+                                   
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.SVRemarks, htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @if (Eng360Web.Models.Utility.AppSession.GetCurrentUserGroup() == 3 && Model.Status != 1)
+                                {
+                                @Html.EditorFor(model => model.SVRemarks, new { htmlAttributes = new { @class = "form-control" } })
+                                }
+                                else
+                                {
+                                @Html.EditorFor(model => model.SVRemarks, new { htmlAttributes = new { @class = "form-control", @disabled="disabled" } })
+                                }
+                                @Html.ValidationMessageFor(model => model.SVRemarks, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                      
+
+
+                        @if (Eng360Web.Models.Utility.AppSession.GetCurrentUserGroup() == 2)
+                        {
+                            <div class="col-md-6">
+                                @Html.LabelFor(model => model.Status, "Approve/Reject", htmlAttributes: new { @class = "control-label required" })
+                                <div>
+                                    @if (Model.Status == 0 || Model.Status == 2)
+                                    {
+                                        @Html.DropDownListFor(model => model.ClaimStatus, new SelectList(new List<Object>{
+                                    
+                                    new { value = 1 , text = "Approved" },
+                                    new { value = 2 , text = "Rejected" }
+
+                                    }, "value", "text", 1), htmlAttributes: new { @class = "form-control" })
+                                    }
+                                    else
+                                    {
+                                        @Html.DropDownListFor(model => model.Status, new SelectList(new List<Object>{
+                                    
+                                    new { value = 1 , text = "Approved" },
+                                    new { value = 2 , text = "Rejected" }
+
+                                    }, "value", "text", 1), htmlAttributes: new { @class = "form-control", @disabled="disabled" })
+                                    }
+                                    @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+
+                                </div>
+                            </div>
+
+                        }
+
+
+                        @if (Eng360Web.Models.Utility.AppSession.GetCurrentUserGroup() == 2)
+                        {
+                            <div class="col-md-6">
+                                @Html.LabelFor(model => model.ApprovalRemarks, "Manager Remarks", htmlAttributes: new { @class = "control-label required" })
+                                <div>
+                                    @if(Model.Status==0 || Model.Status==2){
+                                    @Html.EditorFor(model => model.ApprovalRemarks, new { htmlAttributes = new { @class = "form-control"} })
+                                    }
+                                    else
+                                    {
+                                    @Html.EditorFor(model => model.ApprovalRemarks, new { htmlAttributes = new { @class = "form-control", @disabled="disabled" } })
+                                    }
+                                    @Html.ValidationMessageFor(model => model.ApprovalRemarks, "", new { @class = "text-danger" })
+                                
+                                </div>
+                            </div>
+
+                        }
+
+
+                        @if (Eng360Web.Models.Utility.AppSession.GetCurrentUserGroup() == 3 && Model.Status == 1)
+                        {
+                            <div class="col-md-6">
+                                @Html.LabelFor(model => model.ApprovalRemarks, "Manager Remarks", htmlAttributes: new { @class = "control-label" })
+                                <div>                                    
+                                        @Html.EditorFor(model => model.ApprovalRemarks, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                             
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                @Html.LabelFor(model => model.ApprovedDate, "Approved Date", htmlAttributes: new { @class = "control-label" })
+                                <div>
+                                    @Html.EditorFor(model => model.ApprovedDate, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+
+                                </div>
+                            </div>
+
+                        }
+
+                         @if (Eng360Web.Models.Utility.AppSession.GetCurrentUserGroup() == 3 && Model.Status == 2)
+                        {
+                            <div class="col-md-6">
+                                @Html.LabelFor(model => model.ApprovalRemarks, "Manager Remarks", htmlAttributes: new { @class = "control-label" })
+                                <div>                                    
+                                        @Html.EditorFor(model => model.RejectRemarks, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                     
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                @Html.LabelFor(model => model.ApprovedDate, "Rejected Date", htmlAttributes: new { @class = "control-label" })
+                                <div>
+                                    @Html.EditorFor(model => model.ApprovedDate, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+
+                                </div>
+                            </div>
+
+                        }
+                                  
+                        @*@if (Eng360Web.Models.Utility.AppSession.GetCurrentUserGroup() == 3 && Model.Status == 1)
+                        {
+                            <div class="col-md-6">
+                                @Html.LabelFor(model => model.RejectRemarks, htmlAttributes: new { @class = "control-label required" })
+                                <div>
+                                    @if (Model.Status == 0)
+                                    {
+                                    @Html.EditorFor(model => model.RejectRemarks, new { htmlAttributes = new { @class = "form-control" } })
+                                    }
+                                    else
+                                    {
+                                    @Html.EditorFor(model => model.RejectRemarks, new { htmlAttributes = new { @class = "form-control", @disabled="disabled" } })
+                                    }
+                                    @Html.ValidationMessageFor(model => model.RejectRemarks, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                        }*@
+
+                        @if (Eng360Web.Models.Utility.AppSession.GetCurrentUserGroup() == 3 && Model.Status != 1)
+                        {
+                            <div class="col-md-3">
+                                @Html.LabelFor(model => model.files, htmlAttributes: new { @class = "control-label" })
+                                <div class="">
+                                    @Html.TextBoxFor(model => model.files, "", new { @type = "file", @multiple = "multiple", @accept = "image/x-png,image/gif,image/jpeg" })
+                                    @Html.ValidationMessageFor(model => model.files, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        }
+
+                        <div class="col-md-3">
+                            @Html.Label("Claim Amount")
+                            <div>
+                                @Html.TextBox("ClaimValue", Model.ClaimAmount, new { @class = "form-control", @readonly = "readonly" })
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-12" style="min-height:300px !important;padding-top:25px;padding-left:0px;padding-right:0px;">
+
+                        <table class="table table-striped table-bordered" id="tableClaimDescriptions">
+
+                            <thead>
+                                <tr>
+                                    <th>Category</th>
+                                    <th>Claim Desc</th>
+                                    <th>Receipt Date</th>
+                                    <th>Receipt Amount</th>
+                                    <th>GST</th>
+                                    <th>track</th>
+                                    <th>Actions</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var obj in Model.eng_claim_description)
+                                {
+                                    <tr id="@obj.ClaimDescID">
+                                        <td>
+                                            
+                                            @obj.eng_sys_claimtype.ClaimType
+                                            @*@if (Model.Status != 1)
+                                            {
+                                            @obj.ClaimTypeID
+                                            }
+                                            else
+                                            {
+                                            @obj.eng_sys_claimtype.ClaimType
+                                            }*@
+                                        </td>
+                                        <td>
+                                            @obj.ClaimDescription
+                                        </td>
+                                        <td>
+                                            @{
+
+                                                dt = Convert.ToDateTime(obj.RecpDate).ToString(Eng360Web.Models.Utility.AppSettings.GetDateFormat());
+                                            }
+                                            @dt
+                                         </td>
+
+                                        <td>@obj.RecpAmount</td>
+                                        <td>@obj.GST</td>
+                                        <td>-1</td>
+                                        <td></td>
+                                    </tr>
+                                }
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <table class="table table-striped table-bordered" id="tableFiles">
+
+                                <thead>
+                                    <tr>
+
+                                        <th>File Name</th>
+
+                                        <th>Image</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var file in Model.eng_claim_files)
+                                    {
+                                        <tr id="@file.ClaimFileID">
+
+                                            <td>
+                                                @file.FileName
+                                            </td>
+                                            <td>
+                                                <a href="@file.FilePath" target="_blank">
+                                                <img src="@file.FilePath" height="20" width="20" />
+                                                </a>
+                                            </td>
+                                            <td>
+                                                @* <a class="btn" title="Delete Project" style="padding: 0px 0px;"> <i class="fa fa-trash" aria-hidden="true" style="color:orangered;font-size:24px"></i> </a>*@
+                                                @*<a class="btn" title="Delete File" style="padding: 0px 0px;" onclick="DeleteReportFile(@file.ProjectSupportFileID)"> <i class="fa fa-trash" aria-hidden="true" style="color:orangered;font-size:24px"></i> </a>*@
+                                            </td>
+
+                                        </tr>
+                                    }
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+
+
+                }
+
+            </div>
+            <div class="modal-footer">
+                @if (Model.Status != 1)
+                {
+                if (Eng360Web.Models.Utility.AppSession.GetCurrentUserGroup() == 3)
+                {
+                <button type="button" id="create-claimEdit-dialog-save" style="float:right" class="btn btn-primary">Save</button>
+                }
+                if (Eng360Web.Models.Utility.AppSession.GetCurrentUserGroup() == 2)
+                {
+
+                    @*<button type="button" id="create-claimApprove-dialog-save" style="float:right" class="btn btn-primary">Approve</button>
+                    <span style="float:right">&nbsp;</span>
+                    <button type="button" id="create-claimReject-dialog-save" style="float:right" class="btn btn-primary">Reject</button>*@
+
+                    <button type="button" id="create-claimApprove-dialog-save" style="float:right" class="btn btn-primary">Save</button>
+
+                    }
+                }
+                <span style="float:right">&nbsp;</span>
+                <input type="button" value="Back" id="create-claim1-dialog1-back1" style="float:right" class="btn btn-primary ExpenseEntry" />
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var contacts = [];
+    var deleteIDs = [];
+        var claimdescTable;
+        $(document).ready(function () {
+
+            claimdescTable = $('#tableClaimDescriptions').DataTable({
+                dom: 'Brti',
+                buttons: [
+                    'copyHtml5',
+                    'excelHtml5',
+                    'csvHtml5',
+                    'pdfHtml5',
+
+                ],
+                "columnDefs": [
+                       {
+                           // The `data` parameter refers to the data for the cell (defined by the
+                           // `data` option, which defaults to the column being worked with, in
+                           // this case `data: 0`.
+                           "render": function (data, type, row) {
+                               // return '<a class="btn" onclick="removeDataFromDT(this)"> <img src="Content/images/delete.png" /> </a>';
+                               //return ' <a class="btn" title="Edit Description"  onclick="EditClaimDesc(this)"> <i class="fa fa-pencil" aria-hidden="true" style="color:#4eb1ba;font-size:24px"></i>   </a><a class="btn" onclick="removeDataFromDT(this)" title="Delete ClaimDescription" style="padding: 0px 0px;"> <i class="fa fa-trash" aria-hidden="true" style="color:orangered;font-size:20px"></i> </a>';
+                               return ' <a class="btn" title="Edit Description"  onclick="EditClaimDesc(this)"> <i class="fa fa-pencil" aria-hidden="true" ></i></a>';
+                           },
+                           "targets": 6
+                       }]
+            });
+        });
+        var column = claimdescTable.column(5);
+        var column1 = claimdescTable.column(6);
+
+        calcAmount();
+
+        column.visible(false);
+        column1.visible(false);
+        if ("@Model.Status" != "1" && "@Eng360Web.Models.Utility.AppSession.GetCurrentUserGroup()" == "3") {
+            //$('.dt-buttons').prepend('<a style="margin-bottom:10px;"  onclick="CreateClaimDesc()" class="dt-button  buttons-html5" tabindex="0" aria-controls="claimdescTable" href="#"><span>Add Description</span></a>')
+
+            column1.visible(true);
+        }
+    $('.dt-button').addClass('btn btn-primary').removeClass('dt-button').css('margin-right', '5px')
+    $('.buttons-copy').css('display', 'none');
+    $('.buttons-excel').css('display', 'none');
+    $('.buttons-csv').css('display', 'none');
+    $('.buttons-pdf').css('display', 'none');
+
+        function EditClaimDesc(btn)
+        {
+
+            var id = btn.closest('tr').id;
+            $(btn.closest('tr')).addClass('selectedRow')
+            CreateClaimDescEdit(id);
+        }
+
+        function removeDataFromDT(btn) {
+
+            $(btn.closest('tr')).addClass('remove')
+            var id = btn.closest('tr').id;
+            //deleteIDs.push(btn.closest('tr').id);
+            debugger;
+            if (id != "")
+            {
+
+                DeleteClaimDesc(id);
+                //claimdescTable.row('.remove').remove().draw(false);
+
+            }
+            else
+            {
+                claimdescTable.row('.remove').remove().draw(false);
+            }
+
+            calcAmount();
+        }
+
+        function calcAmount() {
+            var disp = "";
+            var amt = 0;
+            var gst = 0;
+            var tot = 0;
+            claimdescTable.rows().every(function (rowIdx, tableLoop, rowLoop) {
+                var data = this.data();
+                amt = parseFloat(data[3]);
+
+                if (data[4] == 'YES') {
+                    gst = (parseFloat(data[3]) * 7 / 100);
+                    tot = amt + gst;
+
+                }
+                else {
+                    tot = amt + gst;
+                }
+                debugger;
+                disp = "Amt:" + amt + " + Gst:" + gst + " = Tot:" + tot;
+
+            });
+           
+            $('#ClaimValue').val(disp);
+            $('#TotalClaim').val(tot.toFixed(2));
+        }
+
+        
+
+        var contactTable;
+        $(document).ready(function () {
+            debugger;
+            contactTable = $('#tableFiles').DataTable({
+                dom: 'Brti',
+                //buttons: [
+                //    'copyHtml5',
+                //    'excelHtml5',
+                //    'csvHtml5',
+                //    'pdfHtml5',
+
+                //],
+                "columnDefs": [
+            {
+                //    // The `data` parameter refers to the data for the cell (defined by the
+                //    // `data` option, which defaults to the column being worked with, in
+                //    // this case `data: 0`.
+                "render": function (data, type, row) {
+                    //        //  return '<a class="btn" onclick="removeDataFromDT(this)"> <img src="Content/images/delete.png" /> </a>';
+                    if ("@Model.Status" != "1" && "@Eng360Web.Models.Utility.AppSession.GetCurrentUserGroup()" == "3") {
+
+                        return '<a class="btn" onclick="removeDataFromFT(this)" title="Delete File" > <i class="fa fa-trash" aria-hidden="true" ></i> </a>';
+                    }
+                    else
+                    {
+                        return '<a class="btn">  </a>';
+                    }
+                },
+
+                "targets": 2
+            }]
+            });
+        });
+        
+        
+
+        //$('.dt-buttons').prepend('<a  onclick="CreateContact()" class="dt-button  buttons-html5" tabindex="0" aria-controls="emplyeeTable" href="#"><span>Add Contacts</span></a>')
+        $('.dt-button').addClass('btn btn-primary').removeClass('dt-button').css('margin-right', '5px')
+        $('.buttons-copy').css('display', 'none');
+        $('.buttons-excel').css('display', 'none');
+        $('.buttons-csv').css('display', 'none');
+        $('.buttons-pdf').css('display', 'none');
+        $('.buttons-print').css('display', 'none');
+
+
+
+
+        function removeDataFromFT(btn) {
+            debugger;
+            var id = btn.closest('tr').id;
+            $(btn.closest('tr')).addClass('remove')
+            DeleteClaimFile(id);
+            //contactTable.row('.remove').remove().draw(false);
+
+        }
+
+        function DeleteClaimFile(id)
+        {
+
+            confirmDialogYesorNo("Are you sure to delete this File?", DeleteClaimFileConfirmed, null, id)
+
+        }
+
+        function DeleteClaimFileConfirmed(id)
+        {
+            debugger;
+
+            $.post("Claim/DeleteFile/", { id: id, @Html.AntiForgeryTokenForAjaxPost()}, function (data) {
+                if (data.value == "OK") {
+                    //removeDataFromFT(btn);
+                    contactTable.row('.remove').remove().draw(false);
+                    return;
+
+                }
+                else {
+                    alertDialog("Delete File failed")
+                }
+            });
+        }
+
+
+    function DeleteClaimDesc(id)
+    {
+
+        confirmDialogYesorNo("Are you sure to delete this item?", DeleteClaimDescConfirmed, null, id)
+    }
+
+    function DeleteClaimDescConfirmed(id)
+    {
+        debugger;
+
+        $.post("Claim/DeleteClaimDesc/", { id: id, @Html.AntiForgeryTokenForAjaxPost()}, function (data) {
+            if (data.value == "OK") {
+                //removeDataFromDT(btn);
+                claimdescTable.row('.remove').remove().draw(false);
+                return;
+
+            }
+            else {
+                alertDialog("Delete Item failed")
+            }
+        });
+    }
+
+</script>

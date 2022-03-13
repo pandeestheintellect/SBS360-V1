@@ -1,0 +1,566 @@
+﻿@model Eng360Web.Models.ViewModel.RATransMasterViewModel
+
+@{
+    Layout = null;
+    //  ViewBag.TermsAndCond = "TERMS & CONDITIONS : \n PRICE: All in Singapore dollars \n VALIDITY: Two Month from dated this quotation \n DELIVERY    : One week from upon order confirmation \n PAYMENT: 30 days from the date of invoice \n NOTE: Any others work NOT mentioned here will be additional charged.";
+
+}
+
+<script src="~/Scripts/moment.js"></script>
+<script src="~/Scripts/bootstrap-datetimepicker.js"></script>
+<link href="~/Content/bootstrap-datetimepicker.css" rel="stylesheet" />
+
+<style>
+    .table-condensed tbody > tr > td > a {
+        color: #4eb1ba !important;
+    }
+
+    input[type='checkbox'] {
+        width: 20px;
+        height: 20px;
+    }
+
+    .required::after {
+        content: "*";
+        font-weight: bold;
+        color: red;
+    }
+</style>
+
+
+
+<div class="row inner-page--container">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <b> Risk Assessment Control Measures  </b>
+
+                @*<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>*@
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+
+
+                @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "riskcontrolForm" }))
+                {
+                    @Html.AntiForgeryToken()
+
+                    @Html.HiddenFor(model=>model.RAID)
+                   
+
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    
+                    <div class="row">
+
+                        <div class="col-md-12">
+                            @Html.LabelFor(model => model.ProjectID, "Project Name", htmlAttributes: new { @class = "control-label" }) 
+                            
+                            <div>
+                                @Html.EditorFor(model => model.eng_project_master.ProjectName, new { htmlAttributes = new { @class = "form-control", @disabled="disabled"} })
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.ContractNumber, htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.EditorFor(model => model.ContractNumber, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                                @Html.ValidationMessageFor(model => model.ContractNumber, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.RARefNum, htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.EditorFor(model => model.RARefNum, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                                @Html.ValidationMessageFor(model => model.RARefNum, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                    </div>
+                        <br />
+
+                        <div class="row" style="padding: 1px;">
+
+                            <div class="col-lg-6" style="padding: 3px;">
+
+                                <div class="panel panel-default" style="max-height: 250px; min-height: 250px; padding-bottom: 1px;">
+                                    <div class="panel-heading" style=" text-align: center">
+                                        <span style="font-family: Calibri;  font-weight: bolder;">
+                                            <i class="fa fa-money fa-fw"></i>Hazard Identification
+                                        </span>
+                                        <div class="pull-right">
+                                        </div>
+                                    </div>
+                                    <!-- /.panel-heading -->
+                                    <div class="panel-body" style="padding: 1px;">
+                                        
+                                        <div class="col-md-12">
+                                            @Html.LabelFor(model => model.RARefNum, "Work Activity", htmlAttributes: new { @class = "control-label" })
+                                            <div>
+                                                @Html.DropDownList("WorkAll", null, htmlAttributes: new { @class = "form-control" })
+
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            @Html.LabelFor(model => model.RARefNum, "Hazard", htmlAttributes: new { @class = "control-label" })
+                                            <div>
+                                                @Html.DropDownList("HazardAll", null, htmlAttributes: new { @class = "form-control" })
+
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            @Html.LabelFor(model => model.RARefNum, "Possible Accidents / Injures", htmlAttributes: new { @class = "control-label" })
+                                            <div>
+                                                @Html.DropDownList("PahAll", null, htmlAttributes: new { @class = "form-control" })
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <!-- /.panel-body -->
+                                </div>
+
+
+                                <!-- /.panel -->
+
+                            </div>
+
+                            <div class="col-lg-6" style="padding: 3px;">
+
+                                <div class="panel panel-default" style="max-height: 250px; min-height: 250px; padding-bottom: 1px;">
+                                    <div class="panel-heading" style=" text-align: center">
+                                        <span style="font-family: Calibri;  font-weight: bolder;">
+                                            <i class="fa fa-money fa-fw"></i>Risk Evaluation
+                                        </span>
+                                        <div class="pull-right">
+                                        </div>
+                                    </div>
+                                    <!-- /.panel-heading -->
+                                    <div class="panel-body" style="padding: 1px;">
+                                        
+                                        <div class="col-md-12">
+                                            @Html.LabelFor(model => model.RARefNum, "Existing Control Measures", htmlAttributes: new { @class = "control-label" })
+                                            <div>
+                                                @Html.DropDownList("ControlAll", null, htmlAttributes: new { @class = "form-control" })
+
+                                            </div>
+                                        </div>
+
+                                        <div class="row" style="padding: 1px;">
+
+                                            <div class="col-md-6">
+                                                @Html.LabelFor(model => model.RARefNum, "Likelihood", htmlAttributes: new { @class = "control-label" })
+                                                <div>
+                                                    @Html.DropDownList("LhAll", null, htmlAttributes: new { @class = "form-control", @onchange="RALSChange(this)" })
+
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                @Html.LabelFor(model => model.RARefNum, "Severity", htmlAttributes: new { @class = "control-label" })
+                                                <div>
+                                                    @Html.DropDownList("SvAll", null, htmlAttributes: new { @class = "form-control", @onchange = "RALSChange(this)" })
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            @Html.LabelFor(model => model.LocString, "RPN ( S x L)", htmlAttributes: new { @class = "control-label" })
+                                            <div>
+                                                @Html.EditorFor(model => model.LocString, new { htmlAttributes = new { @class = "form-control", @readonly="readonly"} })
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <!-- /.panel-body -->
+                                </div>
+
+
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-12" style="padding: 3px;">
+                                <div class="panel panel-default" style="max-height: 350px; min-height: 350px; padding-bottom: 1px;">
+                                    <div class="panel-heading" style=" text-align: center">
+                                        <span style="font-family: Calibri;  font-weight: bolder;">
+                                            <i class="fa fa-money fa-fw"></i>Risk Control
+                                        </span>
+                                        <div class="pull-right">
+                                        </div>
+                                    </div>
+                                    <!-- /.panel-heading -->
+                                    <div class="panel-body" style="padding: 1px;">
+
+                                        <div class="col-md-6">
+                                            @Html.LabelFor(model => model.RARefNum, "Additional Control Measures", htmlAttributes: new { @class = "control-label" })
+                                            <div>
+                                                @Html.DropDownList("AddControlAll", null, htmlAttributes: new { @class = "form-control", @onchange = "OnAddControlChange(this)" })
+
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            @Html.LabelFor(model => model.dummyPro, "Work Activities", htmlAttributes: new { @class = "control-label" })
+                                            <div>
+                                                @Html.TextAreaFor(model => model.dummyWac, 2, 40, new { @class = "form-control" })
+
+                                            </div>
+                                        </div>
+
+                                        <div class="row" style="padding: 1px;">
+
+                                            <div class="col-md-6">
+                                                @Html.LabelFor(model => model.RARefNum, "Likelihood", htmlAttributes: new { @class = "control-label" })
+                                                <div>
+                                                    @Html.DropDownList("RCLhAll", null, htmlAttributes: new { @class = "form-control", @onchange = "RCLSChange(this)" })
+
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                @Html.LabelFor(model => model.RARefNum, "Severity", htmlAttributes: new { @class = "control-label" })
+                                                <div>
+                                                    @Html.DropDownList("RCSvAll", null, htmlAttributes: new { @class = "form-control", @onchange = "RCLSChange(this)" })
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            @Html.LabelFor(model => model.LocString, "RPN ( S x L)", htmlAttributes: new { @class = "control-label" })
+                                            <div>
+                                                @Html.EditorFor(model => model.ProString, new { htmlAttributes = new { @class = "form-control", @readonly="readonly" } })
+
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            @Html.LabelFor(model => model.ImpOfficer, htmlAttributes: new { @class = "control-label" })
+                                            <div>
+                                                @Html.DropDownListFor(model => model.ImpOfficer, new SelectList(ViewBag.MNGList, "Value", "Text"), htmlAttributes: new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(model => model.ImpOfficer, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            @Html.LabelFor(model => model.DueDate, htmlAttributes: new { @class = "control-label" })
+                                            <div>
+                                                @Html.EditorFor(model => model.DueDate, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.DueDate, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            @Html.LabelFor(model => model.Remarks, htmlAttributes: new { @class = "control-label" })
+                                            <div>
+                                                @Html.EditorFor(model => model.Remarks, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.Remarks, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+
+
+                                        </div>
+                                    </div>
+
+
+
+                                    </div>
+                                </div>
+
+                                <div class="row">
+
+                                    <div class="col-md-12">
+
+                                        <table class="table table-striped table-bordered" id="tableRACM">
+
+                                            <thead>
+                                                <tr>
+                                                    <th>Work Activity</th>
+                                                    <th>Hazard</th>
+                                                    <th>Possible Accident / Ill Health & Persons-at-Risk</th>
+                                                    <th>Existing Risk Control</th>
+                                                    <th>L</th>
+                                                    <th>S</th>
+                                                    <th>RPN (S x L)</th>
+                                                    <th>Additional Risk Control</th>
+                                                    <th>L</th>
+                                                    <th>S</th>
+                                                    <th>RPN (S x L)</th>
+                                                    <th>Implementation Officer</th>
+                                                    <th>Due Date</th>
+                                                    <th>Remarks</th>
+                                                    <th>WacID</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var obj in Model.eng_ra_trans_racm)
+                                                {
+                                                    <tr id="@obj.RACMID">
+                                                        <td>
+                                                            @obj.RAWADetail
+                                                        </td>
+                                                        <td>
+                                                            @obj.HazardID
+                                                        </td>
+                                                        <td>
+                                                            @obj.PAHID
+                                                        </td>
+                                                        <td>
+                                                            @obj.REvExRCID
+                                                        </td>
+                                                        <td>
+                                                            @obj.REvRMLHID
+                                                        </td>
+                                                        <td>
+                                                            @obj.REvRMSVID
+                                                        </td>
+                                                        <td>
+                                                            @obj.REvRPN
+                                                        </td>
+                                                        <td>
+                                                            @obj.RCAdRCID
+                                                        </td>
+                                                        <td>
+                                                            @obj.RCRMLHID
+                                                        </td>
+                                                        <td>
+                                                            @obj.RCRMSVID
+                                                        </td>
+                                                        <td>
+                                                            @obj.RCRPN
+                                                        </td>
+                                                        <td>
+                                                            @obj.ImpOfficer
+                                                        </td>
+                                                        <td>
+                                                            @Convert.ToDateTime(obj.DueDate).ToString("dd/MM/yyyy")
+                                                        </td>
+                                                        <td>
+                                                            @obj.Remarks
+                                                        </td>
+                                                        <td>
+                                                            @obj.RAWADetID
+                                                        </td>
+
+                                                        <td></td>
+                                                    </tr>
+                                                }
+
+                                            </tbody>
+
+                                        </table>
+
+                                    </div>
+
+                                </div>
+
+                                }
+
+                            </div>
+            <div class="modal-footer">
+
+                <input type="button" value="Save" id="create-racm-dialog-save" style="float:right" class="btn btn-primary" /><span style="float:right">&nbsp;</span><input type="button" value="Back" id="create-racm-back" style="float:right" class="btn btn-primary RA" />
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    $(function () {
+        
+        $('#DueDate').datetimepicker({ format: 'DD/MM/YYYY' });
+        
+    });
+
+    var contacts = [];
+    var deleteIDs = [];
+    var radescTable;
+    $(document).ready(function () {
+
+        radescTable = $('#tableRACM').DataTable({
+            "autoWidth": false,
+            "scrollX": true,
+            "order": [],
+            dom: 'Bfrtipl',
+            buttons: [
+                'copyHtml5',
+                'excelHtml5',
+                'csvHtml5',
+                'pdfHtml5',
+
+            ],
+            "columnDefs": [
+                   {
+                       
+                       "render": function (data, type, row) {
+                           
+                           return '<a class="btn" onclick="removeDataFromDT(this)" title="Delete Item" style="padding: 0px 0px;"> <i class="fa fa-trash" aria-hidden="true" style="color:orangered;font-size:20px"></i> </a>';
+                       },
+                       "targets": 15
+                   }]
+        });
+    });
+
+    var column = radescTable.column(14);
+    column.visible(false);
+
+    $('.dt-buttons').prepend('<a style="margin-bottom:10px;"  onclick="AddDesc()" class="dt-button  buttons-html5" tabindex="0" aria-controls="radescTable" href="#"><span>Add Items</span></a>')
+         
+    $('.dt-button').addClass('btn btn-primary').removeClass('dt-button').css('margin-right', '5px')
+    $('.buttons-copy').css('display', 'none');
+    $('.buttons-excel').css('display', 'none');
+    $('.buttons-csv').css('display', 'none');
+    $('.buttons-pdf').css('display', 'none');
+
+  
+
+    function OnAddControlChange(val) {
+
+        var thisval = $("#AddControlAll option:selected").text();
+        $('#dummyWac').val(thisval);
+    }
+
+    function RALSChange(val) {
+
+        var lhval = parseInt($("#LhAll option:selected").text());
+        var svval = parseInt($("#SvAll option:selected").text());
+        var rpn = lhval * svval;
+
+        $('#LocString').val(rpn);
+    }
+
+    function RCLSChange(val) {
+
+        var lhval = parseInt($("#RCLhAll option:selected").text());
+        var svval = parseInt($("#RCSvAll option:selected").text());
+        var rpn = lhval * svval;
+
+        $('#ProString').val(rpn);
+    }
+
+    function removeDataFromDT(btn) {
+
+        $(btn.closest('tr')).addClass('remove')
+        radescTable.row('.remove').remove().draw(false);
+        
+    }
+
+    function AddDesc() {
+
+        var wac = $("#WorkAll option:selected").text();
+        if (wac == "Select") {
+            alert("Please select WorkActivity");
+            return;
+        }
+
+        var wkdetid = parseInt($("#WorkAll option:selected").val());
+
+        var haz = $("#HazardAll option:selected").text();
+        if (haz == "Select") {
+            alert("Please select Hazard");
+            return;
+        }
+
+        var pah = $("#PahAll option:selected").text();
+        if (pah == "Select") {
+            alert("Please select Possible Accident");
+            return;
+        }
+
+        var excm = $("#ControlAll option:selected").text();
+        if (excm == "Select") {
+            alert("Please select Existing Control Measure");
+            return;
+        }
+
+        var ralhval = parseInt($("#LhAll option:selected").text());
+        var rasvval = parseInt($("#SvAll option:selected").text());
+       
+
+        
+
+        if (ralhval == 0) {
+            alert("Please Select RA Likelihood");
+            return;
+        }
+
+        if (rasvval == 0) {
+            alert("Please Select RA Severity");
+            return;
+        }
+
+        var adcm = $('#dummyWac').val().trim();
+
+        if (adcm == null || adcm == '') {
+            alert("Please Select additonal control measure");
+            return;
+        }
+
+        var rclhval = parseInt($("#RCLhAll option:selected").text());
+        var rcsvval = parseInt($("#RCSvAll option:selected").text());
+
+        if (rclhval == 0) {
+            alert("Please Select Risk Control Likelihood");
+            return;
+        }
+
+        if (rcsvval == 0) {
+            alert("Please Select Risk Control Severity");
+            return;
+        }
+
+        var imo = $("#ImpOfficer option:selected").text();
+        if (imo == "Select") {
+            alert("Please select Implementation Officer");
+            return;
+        }
+
+        var due = $("#DueDate").val();
+
+        if (due == null || due == '') {
+            alert("Please select due date");
+            return;
+        }
+
+       var rem = $("#Remarks").val();
+        if (rem == null || rem =='') {
+            alert("Please fill Remarks");
+            return;
+        }
+        var rarpn = ralhval * rasvval;
+        var rcrpn = rclhval * rcsvval;
+       
+
+        radescTable.row.add([wac, haz, pah, excm, ralhval, rasvval, rarpn, adcm, rclhval, rcsvval, rcrpn, imo, due, rem, wkdetid, '' ]).draw(false)
+        
+        
+        
+        $('#HazardAll').val(0);
+        $('#PahAll').val(0);
+        $('#WorkAll').val(0);
+
+        $('#ControlAll').val(0);
+        $('#LhAll').val(0);
+        $('#SvAll').val(0);
+
+        $('#AddControlAll').val(0);
+        $('#dummyWac').val(null);
+        $('#RCLhAll').val(0);
+        $('#RCSvAll').val(0);
+        $('#ImpOfficer').val(0);
+        $('#Remarks').val(null);
+        
+    }
+
+</script>

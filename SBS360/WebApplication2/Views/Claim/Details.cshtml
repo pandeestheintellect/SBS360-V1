@@ -1,0 +1,146 @@
+﻿@model Eng360Web.Models.Domain.eng_claim
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>eng_claim</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.UserID)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UserID)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ExpDate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ExpDate)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ExpAmount)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ExpAmount)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Status)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Status)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ExpDescription)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ExpDescription)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SVRemarks)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SVRemarks)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ApprovalRemarks)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ApprovalRemarks)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.RejectRemarks)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.RejectRemarks)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ApprovedBy)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ApprovedBy)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ApprovedDate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ApprovedDate)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SubmittedBy)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SubmittedBy)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SubmittedDate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SubmittedDate)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.eng_employee_profile.UserName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.eng_employee_profile.UserName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.eng_project_master.ProjectNo)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.eng_project_master.ProjectNo)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.eng_sys_claimtype.ClaimType)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.eng_sys_claimtype.ClaimType)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ClaimID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

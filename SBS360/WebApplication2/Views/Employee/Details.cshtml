@@ -1,0 +1,314 @@
+﻿@model Eng360Web.Models.ViewModel.EmployeeViewModel
+
+@{
+    Layout = null;
+}
+
+<div class="inner-page--container view">
+    <div class="modal-footer">
+        @*<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>*@
+        <input type="button" value="Back" id="create-employee-dialog-save" class="btn btn-primary Employee" />
+
+    </div>
+
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Employee Details
+
+        </div>
+        <!-- /.panel-heading -->
+        <div class="panel-body">
+            <div class="modal-body">
+
+
+
+                @*<div class="row col-md-8">
+                        <div class="">
+                            @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label" }) : @Html.DisplayFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+                    </div>
+                    <div class="row col-md-8">
+                        <div class="">
+                            @Html.LabelFor(model => model.EmpID, htmlAttributes: new { @class = "control-label" }) : @Html.DisplayFor(model => model.EmpID, new { htmlAttributes = new { @class = "form-control" } })
+
+                        </div>
+                        </div>
+                    <div class="row col-md-8">
+                        <div class="">
+                            @Html.LabelFor(model => model.GroupID, "GroupID", htmlAttributes: new { @class = "control-label" }) : @Html.DisplayFor(model => model.eng_usergroup.GroupName, new { htmlAttributes = new { @class = "form-control" } })
+
+                        </div>
+                    </div>*@
+                @*<row>
+                        @if (!string.IsNullOrEmpty(@Model.Profile_Photo_Path))
+                        {
+                            <img src="@Model.Profile_Photo_Path" alt="@Model.Profile_Photo_Path" />
+                        }
+                        else
+                        {
+                            <img style="height:120px;width:120px" src="Content/images/no-image-icon-md.png" />
+                        }
+                    </row>*@
+                
+
+
+                <table class="table table-bordered">
+                    <tr>
+
+                        <th bgcolor="beige">@Html.DisplayNameFor(model => model.EmpID) </th>
+                        <th bgcolor="beige">@Html.DisplayNameFor(model => model.FirstName) </th>
+                        <th bgcolor="beige">@Html.DisplayNameFor(model => model.OpBranch) </th>
+                    </tr>
+
+                    <tr>
+                        <td>@Html.DisplayFor(model => model.EmpID)</td>
+                        <td>@Html.DisplayFor(model => model.FirstName)</td>
+                        <td>@Html.DisplayFor(model => model.OpBranch)</td>
+                    </tr>
+
+                    <tr>
+
+                        <th bgcolor="beige">@Html.DisplayNameFor(model => model.LastName) </th>
+                        <th bgcolor="beige">@Html.DisplayNameFor(model => model.DoB) </th>
+                        <th bgcolor="beige">@Html.DisplayNameFor(model => model.Nationality) </th>
+                    </tr>
+
+                    <tr>
+
+                        <td>@Html.DisplayFor(model => model.LastName)</td>
+                        <td>
+                            @{
+                                var dt = "";
+                                dt = Convert.ToDateTime(Model.DoB).ToString(Eng360Web.Models.Utility.AppSettings.GetDateFormat());
+                            }
+                            @if (Model.DoB != null)
+                            {
+                                @dt
+                            }
+                        </td>
+                        <td>@Html.DisplayFor(model => model.Nationality)</td>
+                    </tr>
+
+                    <tr>
+                        <th bgcolor="beige">@Html.DisplayNameFor(model => model.DoJ) </th>
+                        <th bgcolor="beige">@Html.DisplayNameFor(model => model.DoR) </th>
+                        <th bgcolor="beige">@Html.DisplayNameFor(model => model.Gender) </th>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            @{
+                                dt = Convert.ToDateTime(Model.DoJ).ToString(Eng360Web.Models.Utility.AppSettings.GetDateFormat());
+                        }
+                        @if (Model.DoJ != null)
+                        {
+                            @dt
+                        }
+
+                    </td>
+                    <td>
+                        @{
+                            dt = Convert.ToDateTime(Model.DoR).ToString(Eng360Web.Models.Utility.AppSettings.GetDateFormat());
+                    }
+                    @if (Model.DoR != null)
+                    {
+                        @dt
+                    }
+
+                </td>
+                <td>@Html.DisplayFor(model => model.Gender)</td>
+            </tr>
+
+            <tr>
+                <th bgcolor="beige">@Html.DisplayNameFor(model => model.Designation) </th>
+                <th bgcolor="beige">@Html.DisplayNameFor(model => model.ID_Type) </th>
+                <th bgcolor="beige">@Html.DisplayNameFor(model => model.ID_Number) </th>
+            </tr>
+
+            <tr>
+                <td>@Html.DisplayFor(model => model.Designation)</td>
+                <td>@Html.DisplayFor(model => model.ID_Type)</td>
+                <td>@Html.DisplayFor(model => model.ID_Number)</td>
+            </tr>
+
+
+            <tr>
+                <th bgcolor="beige">@Html.DisplayNameFor(model => model.SOC_number) </th>
+                <th bgcolor="beige">@Html.DisplayNameFor(model => model.SOC_Issue_Date) </th>
+                <th bgcolor="beige">@Html.DisplayNameFor(model => model.SOC_Expiry_Date) </th>
+            </tr>
+
+            <tr>
+                <td>@Html.DisplayFor(model => model.SOC_number)</td>
+                <td>
+                    @{
+                        dt = Convert.ToDateTime(Model.SOC_Issue_Date).ToString(Eng360Web.Models.Utility.AppSettings.GetDateFormat());
+                }
+                @if (Model.SOC_Issue_Date != null)
+                {
+                    @dt
+                }
+            </td>
+            <td>
+                @{
+                    dt = Convert.ToDateTime(Model.SOC_Expiry_Date).ToString(Eng360Web.Models.Utility.AppSettings.GetDateFormat());
+            }
+            @if (Model.SOC_Expiry_Date != null)
+            {
+                @dt
+            }
+        </td>
+    </tr>
+
+    <tr>
+        <th bgcolor="beige">@Html.DisplayNameFor(model => model.eng_address_master.Address1) </th>
+        <th bgcolor="beige">@Html.DisplayNameFor(model => model.eng_address_master.Address2) </th>
+        <th bgcolor="beige">@Html.DisplayNameFor(model => model.eng_address_master.City) </th>
+    </tr>
+
+    <tr>
+        <td>@Html.DisplayFor(model => model.eng_address_master.Address1)</td>
+        <td>@Html.DisplayFor(model => model.eng_address_master.Address2)</td>
+        <td>@Html.DisplayFor(model => model.eng_address_master.City)</td>
+    </tr>
+
+    <tr>
+        <th bgcolor="beige">@Html.DisplayNameFor(model => model.eng_address_master.Country) </th>
+        <th bgcolor="beige">@Html.DisplayNameFor(model => model.eng_address_master.Email) </th>
+        <th bgcolor="beige">@Html.DisplayNameFor(model => model.eng_address_master.Web) </th>
+    </tr>
+
+    <tr>
+        <td>@Html.DisplayFor(model => model.eng_address_master.Country)</td>
+        <td>@Html.DisplayFor(model => model.eng_address_master.Email)</td>
+        <td>@Html.DisplayFor(model => model.eng_address_master.Web)</td>
+    </tr>
+
+    <tr>
+        <th bgcolor="beige">@Html.DisplayNameFor(model => model.eng_address_master.Mobile) </th>
+        <th bgcolor="beige">@Html.DisplayNameFor(model => model.eng_address_master.Tel) </th>
+        <th bgcolor="beige">@Html.DisplayNameFor(model => model.eng_address_master.Fax1) </th>
+    </tr>
+
+    <tr>
+        <td>@Html.DisplayFor(model => model.eng_address_master.Mobile)</td>
+        <td>@Html.DisplayFor(model => model.eng_address_master.Tel)</td>
+        <td>@Html.DisplayFor(model => model.eng_address_master.Fax1)</td>
+    </tr>
+
+    <tr>
+        <th bgcolor="beige">@Html.DisplayNameFor(model => model.eng_address_master.Postal_Code) </th>
+        <th bgcolor="beige">@Html.DisplayNameFor(model => model.eng_address_master.SkypeID) </th>
+        <th bgcolor="beige">@Html.DisplayNameFor(model => model.LastLogin) </th>
+    </tr>
+
+    <tr>
+        <td>@Html.DisplayFor(model => model.eng_address_master.Postal_Code)</td>
+        <td>@Html.DisplayFor(model => model.eng_address_master.SkypeID)</td>
+        <td>@Html.DisplayFor(model => model.LastLogin)</td>
+    </tr>
+
+    <tr>
+        <th bgcolor="beige">@Html.DisplayNameFor(model => model.Licence_Number) </th>
+        <th bgcolor="beige">@Html.DisplayNameFor(model => model.Licence_Valid_Till) </th>
+        <th bgcolor="beige">@Html.DisplayNameFor(model => model.Profile_Desc) </th>
+    </tr>
+
+    <tr>
+        <td>@Html.DisplayFor(model => model.Licence_Number)</td>
+        <td>
+            @{
+                dt = Convert.ToDateTime(Model.Licence_Valid_Till).ToString(Eng360Web.Models.Utility.AppSettings.GetDateFormat());
+        }
+        @if (Model.Licence_Valid_Till != null)
+        {
+            @dt
+        }
+    </td>
+    <td>@Html.DisplayFor(model => model.Profile_Desc)</td>
+</tr>
+
+<tr>
+    <th bgcolor="beige">@Html.DisplayNameFor(model => model.Permit_Number) </th>
+    <th bgcolor="beige">@Html.DisplayNameFor(model => model.Permit_Valid_From) </th>
+    <th bgcolor="beige">@Html.DisplayNameFor(model => model.Permit_Valid_To) </th>
+</tr>
+
+<tr>
+    <td>@Html.DisplayFor(model => model.Permit_Number)</td>
+    <td>
+        @{
+            dt = Convert.ToDateTime(Model.Permit_Valid_From).ToString(Eng360Web.Models.Utility.AppSettings.GetDateFormat());
+    }
+    @if (Model.Permit_Valid_From != null)
+    {
+        @dt
+    }
+</td>
+<td>
+    @{
+        dt = Convert.ToDateTime(Model.Permit_Valid_To).ToString(Eng360Web.Models.Utility.AppSettings.GetDateFormat());
+}
+@if (Model.Permit_Valid_To != null)
+{
+    @dt
+}
+</td>
+</tr>
+
+<tr>
+    <th bgcolor="beige">@Html.DisplayNameFor(model => model.Passport_Number) </th>
+    <th bgcolor="beige">@Html.DisplayNameFor(model => model.Passport_Valid_Till) </th>
+    <th bgcolor="beige">@Html.DisplayNameFor(model => model.Insurance_Number) </th>
+</tr>
+
+<tr>
+    <td>@Html.DisplayFor(model => model.Passport_Number)</td>
+    <td>
+        @{
+            dt = Convert.ToDateTime(Model.Passport_Valid_Till).ToString(Eng360Web.Models.Utility.AppSettings.GetDateFormat());
+    }
+    @if (Model.Passport_Valid_Till != null)
+    {
+        @dt
+    }
+</td>
+<td>@Html.DisplayFor(model => model.Insurance_Number)</td>
+</tr>
+
+<tr>
+    <th bgcolor="beige">@Html.DisplayNameFor(model => model.Insurance_Valid_Till) </th>
+    <th bgcolor="beige">@Html.DisplayNameFor(model => model.Salary) </th>
+    <th bgcolor="beige">@Html.DisplayNameFor(model => model.Levy) </th>
+</tr>
+
+<tr>
+    <td>
+        @{
+            dt = Convert.ToDateTime(Model.Insurance_Valid_Till).ToString(Eng360Web.Models.Utility.AppSettings.GetDateFormat());
+    }
+    @if (Model.Insurance_Valid_Till != null)
+    {
+        @dt
+    }
+</td>
+<td>@Html.DisplayFor(model => model.Salary)</td>
+<td>@Html.DisplayFor(model => model.Levy)</td>
+</tr>
+
+
+
+</table>
+
+
+
+</div>
+</div>
+</div>
+<div class="modal-footer">
+    @*<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>*@
+    <input type="button" value="Back" id="create-employee-dialog-save" class="btn btn-primary Employee" />
+
+</div>
+</div>

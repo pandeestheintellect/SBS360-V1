@@ -1,0 +1,253 @@
+﻿@model Eng360Web.Models.ViewModel.FilterViewModel
+
+@{
+    Layout = null;
+}
+
+<script src="~/Scripts/moment.js"></script>
+<script src="~/Scripts/bootstrap-datetimepicker.js"></script>
+<link href="~/Content/bootstrap-datetimepicker.css" rel="stylesheet" />
+
+
+<style>
+    .table-condensed tbody > tr > td > a {
+        color: #4eb1ba !important;
+    }
+</style>
+
+
+
+
+
+<div class="row inner-page--container">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <b> Invoice Details </b>
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                
+                @using (Html.BeginForm(null, null, FormMethod.Post, new { role = "form", id = "invReportForm" }))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            @Html.Label("Invoice Number", htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @*Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })*@
+                                @Html.DropDownList("InvoiceNo", null, htmlAttributes: new { @class = "form-control" })
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            @Html.Label("Client Name", htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.DropDownList("ClientID", null, htmlAttributes: new { @class = "form-control" })
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            @Html.Label("Date From", htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.EditorFor(model => model.dateFrom, new { htmlAttributes = new { @class = "form-control" } })
+
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-4">
+                            @Html.Label("Date To", htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.EditorFor(model => model.dateTo, new { htmlAttributes = new { @class = "form-control" } })
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            @Html.Label("Status", htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                
+                                @Html.DropDownListFor(model => model.QuoteStatusID, new SelectList(
+                                    new List<Object>{
+                                    new { value = 0 , text = "Select"  },
+                                    new { value = 1 , text = "Pending" },
+                                    new { value = 2 , text = "Paid" }
+
+                    }, "value", "text", 0), htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.QuoteStatusID, "", new { @class = "text-danger" })
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            @Html.Label("Month", htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.DropDownListFor(model => model.Month, new SelectList(
+                                    new List<Object>{
+                                    new { value = 0 , text = "Select"  },
+                                    new { value = 1 , text = "Current" },
+                                    new { value = 2 , text = "Last" }
+
+                    }, "value", "text", 0), htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Month, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <div class="modal-footer">
+
+                        <button type="button" id="report-invIndex-search" class="btn btn-primary">Search</button>
+
+                    </div>
+
+
+
+
+                }
+
+
+
+                <table class="table table-striped table-bordered" id="quoteTable">
+                    <thead>
+                        <tr>
+                            <th>Invoice Number</th>
+                            <th>Invoice Date</th>
+                            <th>Invoice Type</th> 
+                            <th>Company Name</th>
+                            <th>Invoice SubTot</th>
+                            <th>GST</th>
+                            <th>Invoice Total</th>
+                            
+                            @*<th>DO Number</th>
+                            <th>DO Date</th>*@
+                            <th>Quotation Number</th>
+                            <th>Quotation Date</th>
+                            
+                            <th>Title Remarks</th>
+                            <th>Quote Amount</th>
+                                                                         
+                    
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.eng_invoice_master)
+                        {
+                            var dt = "";
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.InvoiceNum)</td>
+                                <td>@{
+
+                                    dt = Convert.ToDateTime(item.InvoiceDate).ToString(Eng360Web.Models.Utility.AppSettings.GetDateFormat());
+                                }
+                                @dt</td>
+                                <td>
+                                    @{
+                                        var ivtyp = "";
+                                        if (item.QuoteID == null)
+                                        {
+                                            ivtyp = "Other";
+
+                                        }
+                                        else
+                                        {
+                                            ivtyp = "Quote Based";
+                                        }
+                                        @ivtyp
+                                    }
+
+                                </td>
+                                <td>@Html.DisplayFor(modelItem => item.ClientName)</td>
+                                <td>@Html.DisplayFor(modelItem => item.INVValue)</td>
+                                
+                                <td>@Html.DisplayFor(modelItem => item.Percentage)</td>
+                                <td>@Html.DisplayFor(modelItem => item.TotalInvoiceAmount)</td>
+                                @*<td>@Html.DisplayFor(modelItem => item.DoNo)</td>
+                                <td>@{
+                                    if (item.DoDate != null)
+                                    {
+                                        dt = Convert.ToDateTime(item.DoDate).ToString(Eng360Web.Models.Utility.AppSettings.GetDateFormat());
+                                    }
+                                    else
+                                    {
+                                        dt = "";
+                                    }
+                                }
+                                @dt</td>*@
+                                <td>@Html.DisplayFor(modelItem => item.QuoteRefNum)</td>
+                                <td>@{
+                                    if (item.QuoteDate != null)
+                                    {
+                                        dt = Convert.ToDateTime(item.QuoteDate).ToString(Eng360Web.Models.Utility.AppSettings.GetDateFormat());
+                                    }
+                                    else
+                                    {
+                                        dt = "";
+                                    }
+                                }
+                                @dt</td>
+                                
+                                <td>@Html.DisplayFor(modelItem => item.ServicesFor)</td>
+                                <td>@Html.DisplayFor(modelItem => item.QuoteFinalAmount)</td>
+                                
+                                   
+                            </tr>
+                        }
+                    </tbody>
+
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        var currentdate = new Date();
+        var datetime = currentdate.getDate() + ""
+                    + (currentdate.getMonth() + 1) + ""
+                    + currentdate.getFullYear() + " "
+                    + currentdate.getHours() + ""
+                    + currentdate.getMinutes() + ""
+                    + currentdate.getSeconds();
+
+        $('#quoteTable').DataTable({
+            "autoWidth": false,
+            "scrollX": true,
+            dom: 'Bfrtipl',
+            buttons: [
+                {
+                    extend: 'excelHtml5',
+                    text: '<i class="fa fa-file-excel-o"></i>',
+                    title: 'Invoice Details-' + datetime
+                },
+                {
+                    extend: 'csvHtml5',
+                    text: '<i class="fa fa-file-text-o"></i>',
+                    title: 'Invoice Details-' + datetime
+                }
+
+            ]
+        });
+
+
+    });
+    
+    $('.dt-button').addClass('btn btn-primary').removeClass('dt-button').css('margin-right', '0px')
+
+    $(function () {
+
+        $('#dateFrom').datetimepicker({ format: 'DD/MM/YYYY' });
+        $('#dateTo').datetimepicker({ format: 'DD/MM/YYYY' });
+
+    });
+
+</script>
+

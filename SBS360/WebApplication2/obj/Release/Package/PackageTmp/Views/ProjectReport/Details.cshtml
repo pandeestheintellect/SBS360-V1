@@ -1,0 +1,98 @@
+﻿@model Eng360Web.Models.Domain.eng_project_report
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>eng_project_report</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.ReportDate)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ReportDate)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Start_Date_Time)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Start_Date_Time)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.End_Date_Time)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.End_Date_Time)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Task_Description)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Task_Description)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Quantity)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Remarks)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Remarks)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Resource_name)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Resource_name)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.eng_project_master.ProjectNo)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.eng_project_master.ProjectNo)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.eng_sys_task_status.TaskStatus)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.eng_sys_task_status.TaskStatus)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ProjectReportID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

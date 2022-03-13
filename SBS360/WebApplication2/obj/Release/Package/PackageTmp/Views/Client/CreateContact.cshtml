@@ -1,0 +1,125 @@
+﻿@model Eng360Web.Models.ViewModel.ClientContactViewModel
+@{
+    Layout = null;
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <b> Add New Contact  </b>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <form id="formContact">
+                    @Html.HiddenFor(model => model.CCID)
+                    <div class="row">
+                        <div class="col-md-12">
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.NamePrefix, "Prefix", htmlAttributes: new { @class = "control-label" })
+                                <div class="">
+                                    @Html.DropDownListFor(model => model.NamePrefix, new SelectList(
+                                    new List<Object>{
+                                    new { value = "Mr. " , text = "Mr."  },
+                                    new { value = "Ms. " , text = "Ms." },  
+                                    new { value = "Mrs. " , text = "Mrs." }
+
+                                    }, "value", "text", 2), htmlAttributes: new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.NamePrefix, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.SPOCName, "Contact Name", htmlAttributes: new { @class = "control-label" })
+                                <div class="">
+                                    @Html.EditorFor(model => model.SPOCName, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.SPOCName, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label" })
+                                <div class="">
+                                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Mobile, htmlAttributes: new { @class = "control-label" })
+                                <div class="">
+                                    @Html.EditorFor(model => model.Mobile, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Mobile, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Tel, htmlAttributes: new { @class = "control-label" })
+                                <div class="">
+                                    @Html.EditorFor(model => model.Tel, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Tel, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Remarks, htmlAttributes: new { @class = "control-label" })
+                                <div class="">
+                                    @Html.EditorFor(model => model.Remarks, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Remarks, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                @if (ViewBag.Check == 0)
+                {
+                <input type="button" onclick="addDataToDataTable()" value="Add" id="create-Contact-dialog-save" class="btn btn-primary" />
+                }
+                else
+                {
+                    <input type="button" onclick="addDataToDataTable()" value="Save" id="create-Contact-dialog-save" class="btn btn-primary" />
+                }
+
+            </div>
+            </div>
+        </div>
+    </div>
+            <script>
+
+                $("form").removeData("validator");
+                $("form").removeData("unobtrusiveValidation");
+                $.validator.unobtrusive.parse("form");
+
+                function addDataToDataTable() {
+                    if ($('#formContact').valid()) {
+                        var pfix = $('#NamePrefix').val().trim();
+                        var name = $('#SPOCName').val().trim();
+                        var email = $('#Email').val().trim();
+                        var mobile = $('#Mobile').val().trim();
+                        var tel = $('#Tel').val().trim();
+                        //   var remarks = $('#Remarks').val().trim();
+
+                        if ($('#CCID').val() == "") {
+                            //contactTable.row.add([name, email, mobile, tel]).draw(false)
+                            contactTable.row.add([pfix, name, email, mobile, tel,0]).draw(false)
+                        }
+                        else
+                        {
+                            contactTable.cell('.selectedRow', ':eq(0)').data(pfix);
+                            contactTable.cell('.selectedRow', ':eq(1)').data(name);
+                            contactTable.cell('.selectedRow', ':eq(2)').data(email);
+                            contactTable.cell('.selectedRow', ':eq(3)').data(mobile);
+                            contactTable.cell('.selectedRow', ':eq(4)').data(tel);
+                            contactTable.cell('.selectedRow', ':eq(5)').data($('#CCID').val());
+                            contactTable.draw();
+
+                            $('.selectedRow').addClass('RowEdited').removeClass('selectedRow');
+                        }
+                        
+                        $('#create-Contact-dialog').modal('hide');
+                    }
+                }
+            </script>

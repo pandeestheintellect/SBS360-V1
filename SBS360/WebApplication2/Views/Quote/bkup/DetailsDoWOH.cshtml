@@ -1,0 +1,327 @@
+﻿@model Eng360Web.Models.ViewModel.QuoteViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+
+
+
+    <link href="~/Content/pagination/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/pagination/bootstrap-table.min.css" rel="stylesheet" />
+
+    <script src="~/Scripts/pagination/jquery.min.js"></script>
+
+    <script src="~/Scripts/pagination/bootstrap.min.js"></script>
+
+    <script src="~/Scripts/pagination/bootstrap-table.min.js"></script>
+
+    <style type="text/css">
+        .bs-example {
+            margin: 20px;
+        }
+
+        p {
+            page-break-after: always;
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 0px;
+        }
+
+        .pagenum:before {
+            content: counter(page);
+        }
+    </style>
+
+</head>
+
+<body style="padding:20px">
+
+    <div class="printable">
+        <div class="row">
+
+            <table width="98%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td align="center">
+                        <span style="font-size:22px; font-family: Arial; font-weight:bold; padding-right:5px;">
+                            WORK COMPLETION
+                        </span>
+                    </td>
+                </tr>
+            </table>
+
+            <table width="98%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td><hr /></td>
+                </tr>
+            </table>
+
+            <table width="95%" border="0" cellspacing="0" cellpadding="0" style="margin-top:5px;">
+                <tr>
+                    <td width="412" align="left" valign="top" style="padding:3px;">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td width="5%" align="left" valign="top"><strong>To:</strong></td>
+                                <td width="95%">
+                                    <div style="margin-left:10px;">
+                                        <strong> @Model.eng_client_master.Company_Name<br /> </strong>
+                                        <div>
+                                            @Model.eng_client_master.eng_address_master.Address1<br />
+                                            @Model.eng_client_master.eng_address_master.Address2<br />
+                                            @Model.eng_client_master.eng_address_master.City- @Model.eng_client_master.eng_address_master.Postal_Code<br />
+                                            Tel: @Model.eng_client_master.eng_address_master.Tel<br />
+                                            Fax: @Model.eng_client_master.eng_address_master.Fax1<br />
+
+                                            <strong>
+                                                Attn : @Model.eng_client_master.eng_client_contact.Where(a => a.CCID == Model.Attention_CCID).First().SPOCName
+                                                <br />(HP: @Model.eng_client_master.eng_client_contact.Where(a => a.CCID == Model.Attention_CCID).First().Mobile)
+                                            </strong><br />
+
+                                            Email: @Model.eng_client_master.eng_address_master.Email	<br />
+
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+
+                    </td>
+                    <td width="289" align="center" valign="top" style="padding:3px;">
+                        <table width="299" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td width="166" height="11" align="right" valign="middle" style="padding:1px; font-size:13px;font-weight:bold;">WC NO &nbsp; : </td>
+                                <td width="133" align="left" valign="middle" style="padding:1px; font-size:13px;font-weight:bold;">&nbsp; @Model.DoNo</td>
+                            </tr>
+                            <tr>
+                                <td width="166" height="11" align="right" valign="middle" style="padding:1px; font-size:13px;font-weight:bold;">Date &nbsp; : </td>
+                                <td width="133" align="left" valign="middle" style="padding:1px; font-size:13px;font-weight:bold;">
+                                    &nbsp;
+                                    @{
+                                        var dt = "";
+                                        dt = Convert.ToDateTime(Model.DODate).ToString("dd-MM-yyyy");
+                                    }
+                                    @dt
+
+                                    
+
+                                </td>
+                            </tr>
+                                                        
+                            <tr>
+                                <td height="11" align="right" valign="middle" style="padding:1px; font-size:13px;">Our Ref &nbsp; : </td>
+                                <td width="133" align="left" valign="middle" style="padding:1px; font-size:13px;">&nbsp; @Model.QuoteRefNum.Replace("_R0", "")</td>
+                            </tr>
+                            
+                        </table>
+                    </td>
+                </tr>
+            </table>
+            <br />
+
+
+            <table id="Result" class="table table-bordered table-sm" style="border-collapse: collapse !important" width="100%">
+                <thead>
+                    <tr>
+                        <th width="10%" style="border:1px solid #000000 !important">S.NO</th>
+                        <th width="50%" align="center" style="border:1px solid #000000 !important;">JOB DESCRIPTION</th>
+                        <th width="10%" style="border:1px solid #000000 !important">UNIT</th>
+                        <th width="10%" style="border:1px solid #000000 !important">QTY</th>
+                        @*<th width="12%" style="border:1px solid #000000 !important">PRICE S$</th>
+                        <th width="16%" style="border:1px solid #000000 !important">AMOUNT S$</th>*@
+                    </tr>
+                </thead>
+                @{
+                    var st = "";
+                    var i = 1;
+                    decimal subTotal = 0;
+                    decimal total = 0;
+                    decimal gst = 0;
+
+                    var qflag = Model.Is_Quote_level_inv;
+                    var cflag = Model.Is_Custom_level_inv;
+
+                    decimal disc = (decimal)Model.Discount;
+                    foreach (var desc in Model.eng_quote_description)
+                    {
+                        var tempTotal = desc.Quantity * desc.QuotePrice;
+                        IHtmlString tx = null;
+
+                        tx = Html.Raw(Html.Encode(desc.QuoteDescription).Replace(Environment.NewLine, "<br />"));
+                        tx = Html.Raw(Html.Encode(tx).Replace("\n", "<br />"));
+                        tx = Html.Raw(Html.Encode(tx).Replace("\r", "<br />"));
+                        if (desc.QDID == Model.eng_quote_description.Last().QDID)
+                        {
+
+                            @*<tr style="border-bottom: 1px solid #000000 !important;">*@
+                            <tr style="border:1px solid #000000 !important; border: 1px solid #000;">
+                                <td width="10%" align="center" valign="top" style="font-size:16px;padding:3px; border:1px solid #000000 !important">@i</td>
+                                <td width="50%" align="left" valign="top" style="font-size:16px;word-wrap:break-word; text-overflow: ellipsis;border:1px solid #000000 !important ">
+                                    <div style="font-size:16px;word-wrap: break-word;">
+                                        @*@Html.Raw(Html.Encode(desc.QuoteDescription).Replace(Environment.NewLine, "<br />"))*@
+                                        @tx
+                                    </div>
+                                </td>
+                                <td width="10%" align="center" valign="top" style="font-size:16px;padding:3px;border:1px solid #000000 !important">@desc.UnitOfMeasure</td>
+                                <td width="10%" align="center" valign="top" style="font-size:16px;padding:3px;border:1px solid #000000 !important ">@desc.Quantity</td>
+                                @*<td width="12%" align="right" valign="top" style="font-size:16px;padding:3px;border:1px solid #000000 !important ">
+                                    @{
+                                        st = string.Format("{0:0,0.00}", desc.QuotePrice);
+                                    }
+                                    @st
+                                </td>
+                                <td width="16%" align="right" valign="top" style="font-size:16px;padding:3px;border:1px solid #000000 !important ">
+                                    @{
+                                        st = string.Format("{0:0,0.00}", tempTotal);
+                                    }
+                                    @st
+                                </td>*@
+                            </tr>
+
+                                        }
+                                        else
+                                        {
+
+                                            @*<tr style="border-bottom: 1px solid #000000 !important;">*@
+                                            <tr style="border:1px solid #000000 !important; border: 1px solid #000;">
+                                                <td width="10%" align="center" valign="top" style="font-size:16px;padding:3px;border:1px solid #000000 !important ">@i</td>
+                                                <td width="50%" align="left" valign="top" style="font-size:16px;padding-left:3px; padding-right:3px; border:1px solid #000000 !important">
+                                                    <div style="font-size:16px;word-wrap: break-word;">
+                                                        @*@Html.Raw(Html.Encode(desc.QuoteDescription).Replace(Environment.NewLine, "<br />"))*@
+                                                        @tx
+                                                    </div>
+                                                </td>
+                                                <td width="10%" align="center" valign="top" style="font-size:16px;padding:3px; border:1px solid #000000 !important">@desc.UnitOfMeasure </td>
+                                                <td width="10%" align="center" valign="top" style="font-size:16px;padding:3px;border:1px solid #000000 !important ">@desc.Quantity</td>
+                                                @*<td width="12%" align="right" valign="top" style="font-size:16px;padding:3px; text-align:right;border:1px solid #000000 !important ">
+                                                    @{
+                                                        st = string.Format("{0:0,0.00}", desc.QuotePrice);
+                                                    }
+                                                    @st
+                                                </td>
+                                                <td width="16%" align="right" valign="top" style="font-size:16px;padding:3px; text-align:right;border:1px solid #000000 !important ">
+                                                    @{
+                                                        st = string.Format("{0:0,0.00}", tempTotal);
+                                                    }
+                                                    @st
+                                                </td>*@
+                                            </tr>
+
+                                                            }
+
+
+                                                            subTotal = subTotal + (desc.Quantity * Convert.ToDecimal(desc.QuotePrice));
+
+                                                            i = i + 1;
+                                                        }
+                    
+
+                                }
+
+            </table>
+            <br />
+
+         
+            <br /><br />
+            <table width="97%" border="0" cellspacing="0" cellpadding="0" style="margin-top:0px; border-collapse: collapse; padding: 10px; ">
+                <tr>
+                    <td width="430" align="left" valign="top" style="font-size:13px;border-style:solid; border-bottom-width:0px; border-top-width:0px; border-left-width:0px; border-right-width:0px; padding:0px;">
+                        <table width="510" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td style="padding:10px;">
+                                    <strong>Pls Ref the Invoice No : @Model.InvoiceNo</strong><br /><br /><br /><br />
+                                    For @Model.CompanyName
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding:10px;"> &nbsp;<!-- ____________________________________--><br /></td>
+                            </tr>
+                            <tr>
+                                <td style="padding:10px;">Authorised Signature </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td width="260" align="right" valign="top" style="font-size: 13px;border-style:solid; border-bottom-width:0px; border-top-width:0px; border-left-width:0px; border-right-width:0px; padding:0px;">
+                        <br />
+                        <table width="330" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td style="padding:10px;" align="center">
+                                <br />
+                                <br />
+                                Confirmed and Accepted by Client</td>
+                            </tr>
+                            <tr>
+                                <td style="padding:10px;"> &nbsp;<!-- ____________________________________--></td>
+                            </tr>
+                            <tr>
+                                <td style="padding:10px;" align="center">Authorised Signature and Co's Stamp </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+           
+
+        </div>
+
+    </div>
+    <div class="customtoolbar">
+        <button type="button" class="btn btn-primary" onclick="PrintReport();"><i class="fa fa-print left"></i> Print</button>
+    </div>
+
+    <script>
+
+            var PrintText = "";
+            $(document).ready(function () {
+                PrintText = $('.printable').html();
+
+                $('#Result').bootstrapTable({
+                    search: false,
+                    toolbar: '.customtoolbar',
+                    pagination: true,
+                    striped: true,
+                    pageSize: 5,
+                    pageList: [5, 10, 25, 50, 100],
+
+                    formatShowingRows: function (pageFrom, pageTo, totalRows) {
+                        /*do nothing here, we don't want to show the text "showing x of y from..."*/
+                    },
+                    formatRecordsPerPage: function (pageNumber) {
+                        return pageNumber + " rows visible";
+                    },
+                    icons: {
+                        refresh: 'fa fa-refresh',
+                        toggle: 'fa fa-th-list',
+                        columns: 'fa fa-columns',
+                        detailOpen: 'fa fa-plus-circle',
+                        detailClose: 'fa fa-minus-circle'
+                    }
+                });
+
+            });
+            function PrintReport() {
+                var WinPrint = window.open('', '', 'width=900,height=650');
+                WinPrint.document.write('<html><head>');
+                debugger;
+                WinPrint.document.write('<link rel="stylesheet" href="bootstrap.min.css">');
+                WinPrint.document.write('</head><body onload="print();close();">');
+                WinPrint.document.write(PrintText);
+                WinPrint.document.write('</body></html>');
+                WinPrint.document.close();
+                WinPrint.focus();
+            }
+    </script>
+
+
+</body>
+
+</html>

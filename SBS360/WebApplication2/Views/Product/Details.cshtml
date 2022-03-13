@@ -1,0 +1,75 @@
+﻿@model Eng360Web.Models.ViewModel.ProductViewModel
+
+@{
+    Layout = null;
+}
+
+<div class="inner-page--container view">
+
+    <div class="modal-footer">
+        @*<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>*@
+        <input type="button" value="Back" id="create-product-dialog-save" class="btn btn-primary Product" />
+
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <b> Product Details</b>
+        </div>
+        <!-- /.panel-heading -->
+        <div class="panel-body">
+
+            <div class="modal-body">
+
+               
+
+
+                <table class="table table-bordered">
+                    <tr>
+                        <th bgcolor="beige">@Html.LabelFor(model => model.Product_Name) </th>
+                        <th bgcolor="beige">@Html.DisplayNameFor(model => model.Product_Code) </th>
+                        <th bgcolor="beige">@Html.DisplayNameFor(model => model.Product_Company_Name) </th>
+                    </tr>
+
+                    <tr>
+                        <td>@Html.DisplayFor(model => model.Product_Name)</td>
+                        <td>@Html.DisplayFor(model => model.Product_Code)</td>
+                        <td>@Html.DisplayFor(model => model.Product_Company_Name)</td>
+                    </tr>
+
+                    <tr>
+                        <th bgcolor="beige">@Html.LabelFor(model => model.Product_Description) </th>
+                        <th bgcolor="beige">@Html.DisplayNameFor(model => model.Dimension) </th>
+                        <th bgcolor="beige">@Html.DisplayNameFor(model => model.Measuring_Unit) </th>
+                    </tr>
+
+                    <tr>
+                        <td>@Html.DisplayFor(model => model.Product_Description)</td>
+                        <td>@Html.DisplayFor(model => model.Dimension)</td>
+                        <td>@Html.DisplayFor(model => model.Measuring_Unit)</td>
+                    </tr>
+
+                    <tr>
+                        <th bgcolor="beige">@Html.LabelFor(model => model.Unit_Price) </th>
+                        <th bgcolor="beige">@Html.DisplayNameFor(model => model.Product_Code) </th>
+                        <th bgcolor="beige"></th>
+                    </tr>
+
+                    <tr>
+                        <td>@Html.DisplayFor(model => model.Unit_Price)</td>
+                        <td>@Html.DisplayFor(model => model.Product_Code)</td>
+                        <td></td>
+                    </tr>
+
+
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        @*<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>*@
+        <input type="button" value="Back" id="create-product-dialog-save" class="btn btn-primary Product" />
+
+    </div>
+</div>

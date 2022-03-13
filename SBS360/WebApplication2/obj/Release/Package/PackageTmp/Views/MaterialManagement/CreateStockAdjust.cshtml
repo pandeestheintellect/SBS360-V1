@@ -1,0 +1,313 @@
+﻿@model Eng360Web.Models.ViewModel.MMStockAdjustViewModel
+
+@{
+    Layout = null;
+    //  ViewBag.TermsAndCond = "TERMS & CONDITIONS : \n PRICE: All in Singapore dollars \n VALIDITY: Two Month from dated this quotation \n DELIVERY    : One week from upon order confirmation \n PAYMENT: 30 days from the date of invoice \n NOTE: Any others work NOT mentioned here will be additional charged.";
+
+}
+
+<script src="~/Scripts/moment.js"></script>
+<script src="~/Scripts/bootstrap-datetimepicker.js"></script>
+<link href="~/Content/bootstrap-datetimepicker.css" rel="stylesheet" />
+
+<style>
+    .table-condensed tbody > tr > td > a {
+        color: #4eb1ba !important;
+    }
+
+    input[type='checkbox'] {
+        width: 20px;
+        height: 20px;
+    }
+
+    .required::after {
+        content: "*";
+        font-weight: bold;
+        color: red;
+    }
+</style>
+
+
+
+<div class="row inner-page--container">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <b> Add Stock Adjustment   </b>
+
+                @*<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>*@
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+
+
+                @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "stockadjForm" }))
+                {
+                    @Html.AntiForgeryToken()
+
+
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.Stock_Taking_Date, htmlAttributes: new { @class = "control-label" }) 
+                            @Html.ValidationMessageFor(model => model.Stock_Taking_Date, "", new { @class = "text-danger" })
+                            <div>
+                                @Html.EditorFor(model => model.Stock_Taking_Date, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+
+                            </div>
+                        </div>
+
+
+                      
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.StoreID, htmlAttributes: new { @class = "control-label required" }) 
+                            @Html.ValidationMessageFor(model => model.StoreID, "", new { @class = "text-danger" })
+                            <div>
+                                @Html.DropDownList("StoreID", null, htmlAttributes: new { @class = "form-control", @onchange = "ShowHideProductEntry(this.value)" })
+
+                            </div>
+                        </div>
+
+                        
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.Branch_Name, "Company Name", htmlAttributes: new { @class = "control-label" })
+                            @Html.ValidationMessageFor(model => model.Branch_Name, "", new { @class = "text-danger" })
+                            <div>
+                                @Html.DropDownListFor(model => model.Branch_Name, new SelectList(
+                                    new List<Object>{
+                                    new { value = "City Construction Eng Pte Ltd" , text = "City Construction Eng Pte Ltd"  }
+
+                                    }, "value", "text", 1), htmlAttributes: new { @class = "form-control" })
+
+                            </div>
+                        </div>
+
+                       
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.AdjReason, "Adjustment Reason", htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.DropDownListFor(model => model.AdjReason, new SelectList(
+                                    new List<Object>{
+                                    new { value = 1 , text = "DataEntry Error"  },
+                                    new { value = 2 , text = "Quality Check" },
+                                    new { value = 3 , text = "Damage" },
+                                    new { value = 4 , text = "Annual Adjustment" },
+                                    new { value = 5 , text = "Miscellaneous" }
+
+                    }, "value", "text", 1), htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.AdjReason, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.Adj_Ref_Number, "Reference Number", htmlAttributes: new { @class = "control-label required" })
+                            <div>
+                                @Html.EditorFor(model => model.Adj_Ref_Number, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Adj_Ref_Number, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.Adj_Ref_Date, "Ref Date", htmlAttributes: new { @class = "control-label required" })
+                            <div>
+                                @Html.EditorFor(model => model.Adj_Ref_Date, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Adj_Ref_Date, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.AdjType, "Adjustment Type", htmlAttributes: new { @class = "control-label" })
+                            @Html.ValidationMessageFor(model => model.AdjType, "", new { @class = "text-danger" })
+                            <div>
+                                @Html.DropDownListFor(model => model.AdjType, new SelectList(
+                                    new List<Object>{
+                                    new { value = 1 , text = "Deduction"  },
+                                    new { value = 0 , text = "Addition"  },
+
+                                    }, "value", "text", 1), htmlAttributes: new { @class = "form-control" })
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.Stock_Taken_By, htmlAttributes: new { @class = "control-label" })
+                            @Html.ValidationMessageFor(model => model.Stock_Taken_By, "", new { @class = "text-danger" })
+                            <div>
+                                @Html.DropDownList("Stock_Taken_By", null, htmlAttributes: new { @class = "form-control" })
+
+                            </div>
+                        </div>
+                        
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.Remarks, htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.EditorFor(model => model.Remarks, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Remarks, "", new { @class = "text-danger" })
+
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-11">
+                            &nbsp;
+                            <div>
+                                &nbsp;
+
+                            </div>
+                        </div>
+
+                        <div id="show-auto-product" style="display: none" class="col-md-6">
+                            
+                            <table width="95%" border="1">
+                                
+                                <tr>
+                                    <td><span style="font-size:16px; font-weight:bold;">Product Code </span> </td>
+                                    <td>@Html.EditorFor(model => model.Product_Code, new { htmlAttributes = new { onchange = "OnProductEntry(this)", @class = "form-control" } }) </td>
+
+                                </tr>
+
+                                <tr>
+                                     <td><span style="font-size:16px; font-weight:bold;">ProductID</span></td>
+                                     <td>@Html.EditorFor(model => model.ProductID, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } }) </td>
+                                </tr>
+
+                        <tr>
+                                
+                                <td><span style="font-size:16px; font-weight:bold;">ProductName</span></td>
+                                <td>@Html.EditorFor(model => model.Product_Name, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } }) </td>
+
+                        </tr>
+
+                        <tr>
+                                    <td><span style="font-size:16px; font-weight:bold;">UoM </span></td> 
+                                    <td>@Html.EditorFor(model => model.Measuring_Unit, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } }) </td>                                    
+
+                        </tr>
+
+                                <tr>                             
+                                    <td><span style="font-size:16px; font-weight:bold;">Current Stock </span></td>
+                                    <td>@Html.EditorFor(model => model.CurrentStock, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } }) </td>
+
+                                </tr>
+
+                                <tr>
+                                    <td><span style="font-size:16px; font-weight:bold;">Actual Stock </span></td>
+                                    <td>@Html.EditorFor(model => model.ActualStock, new { htmlAttributes = new { @class = "form-control"} }) </td>
+
+                                </tr>
+
+                                <tr>
+                                    <td><span style="font-size:16px; font-weight:bold;">Quantity to be adjusted </span></td>
+                                    <td>@Html.EditorFor(model => model.Quantity, new { htmlAttributes = new { @class = "form-control"} }) </td>
+
+                                </tr>
+
+
+
+                                </table>
+
+
+                    </div>
+
+                        </div>
+
+
+
+                }
+
+            </div>
+            <div class="modal-footer">
+                
+                
+                
+                <input type="button" value="Create" id="create-stockadj-dialog-save" style="float:right" class="btn btn-primary" /><span style="float:right">&nbsp;</span><input type="button" value="Back" id="create-stockadj-back" style="float:right" class="btn btn-primary StockTaking" />
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    var dataAsJsonString = {};
+    
+    $(function () {
+
+
+        $('#Stock_Taking_Date').datetimepicker({ format: 'DD/MM/YYYY', defaultDate: new Date() });
+
+        $('#Adj_Ref_Date').datetimepicker({ format: 'DD/MM/YYYY' });
+
+        $.post("Product/getAllProducts",{@Html.AntiForgeryTokenForAjaxPost()},function (data){
+            dataAsJsonString = JSON.stringify(data);
+        });
+
+    });
+
+
+    function ShowHideProductEntry(val) {
+        debugger;
+
+        var element = document.getElementById('show-auto-product');
+        $("#Product_Code").val('');
+        $("#Measuring_Unit").val('');
+        $("#ProductID").val('');
+        $("#Product_Name").val('');
+        $("#CurrentStock").val('');
+        $("#ActualStock").val('');
+        $("#Quantity").val('');
+        element.style.display = 'block';
+   
+    }
+
+                    function OnProductEntry(val) {
+
+                        debugger;
+                        var pdc = $("#Product_Code").val();
+                        var lk = $.parseJSON(dataAsJsonString);
+                        var x = 0;
+                        var storeid = $("#StoreID").val();
+                        
+                        $.each(lk, function (k, v) {
+                            if (v.Product_Code == pdc) {
+                                // alert(k + ' is ' + v.Product_Name);
+                                $("#Product_Name").val(v.Product_Name);
+                                $("#Measuring_Unit").val(v.Measuring_Unit);
+                                $("#ProductID").val(v.ProductID);
+                                debugger;
+
+                                $.post("MaterialManagement/GetCurrentStock?pid=" + v.ProductID + "&storeid=" + storeid, {@Html.AntiForgeryTokenForAjaxPost() }, function (datanew) {
+                                    
+                                    $("#CurrentStock").val(datanew.stockcnt);
+                                });
+
+                                
+                                x = 1;
+                                
+                                return;
+                            }
+
+                        });
+                        if (x == 0) {
+                            $("#Product_Code").val('');                            
+                            $("#Measuring_Unit").val('');
+                            $("#ProductID").val('');
+                            $("#Product_Name").val('');
+                            $("#CurrentStock").val('');
+                            $("#ActualStock").val('');
+                            $("#Quantity").val('0');
+                            
+                            alert('Product is not available!')
+                        }
+
+
+                    }
+
+                   
+
+</script>

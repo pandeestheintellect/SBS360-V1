@@ -1,0 +1,1219 @@
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\roslyn\csc.exe
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\roslyn\Microsoft.CodeAnalysis.dll
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\roslyn\Microsoft.CSharp.Core.targets
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\roslyn\Microsoft.VisualBasic.Core.targets
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\roslyn\System.Collections.Immutable.dll
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\roslyn\System.Reflection.Metadata.dll
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\roslyn\vbc.exe
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\roslyn\VBCSCompiler.exe
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\roslyn\VBCSCompiler.exe.config
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\Eng360Web.dll.config
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\Eng360Web.dll
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\Eng360Web.pdb
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\Antlr3.Runtime.dll
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\AutoMapper.dll
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\EntityFramework.dll
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\EntityFramework.SqlServer.dll
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\Microsoft.AspNet.Identity.Core.dll
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\Microsoft.AspNet.Identity.Owin.dll
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\Microsoft.Owin.dll
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\Microsoft.Owin.Host.SystemWeb.dll
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.Cookies.dll
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.dll
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.Facebook.dll
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.Google.dll
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.OAuth.dll
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.Twitter.dll
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\Microsoft.Practices.ServiceLocation.dll
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\Microsoft.Web.Infrastructure.dll
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\Newtonsoft.Json.dll
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\Ninject.dll
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\Ninject.Web.Common.dll
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\Ninject.Web.Mvc.dll
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\NLog.dll
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\Owin.dll
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\System.Net.Http.Formatting.dll
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\System.Web.Helpers.dll
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\System.Web.Http.dll
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\System.Web.Http.WebHost.dll
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\System.Web.Mvc.dll
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\System.Web.Optimization.dll
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\System.Web.Razor.dll
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\System.Web.WebPages.Deployment.dll
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\System.Web.WebPages.dll
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\System.Web.WebPages.Razor.dll
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\WebActivator.dll
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\WebActivatorEx.dll
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\WebGrease.dll
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\AutoMapper.xml
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\Ninject.xml
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\Ninject.Web.Common.xml
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\Ninject.Web.Mvc.xml
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\NLog.xml
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\System.Web.Helpers.xml
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\System.Web.Mvc.xml
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\System.Web.Optimization.xml
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\System.Web.Razor.xml
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\System.Web.WebPages.xml
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\System.Web.WebPages.Deployment.xml
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\System.Web.WebPages.Razor.xml
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\Antlr3.Runtime.pdb
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\Newtonsoft.Json.xml
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\System.Net.Http.Formatting.xml
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\System.Web.Http.xml
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\System.Web.Http.WebHost.xml
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\EntityFramework.xml
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\EntityFramework.SqlServer.xml
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\Microsoft.AspNet.Identity.Core.xml
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\Microsoft.AspNet.Identity.Owin.xml
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\Microsoft.Owin.xml
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\Microsoft.Owin.Host.SystemWeb.xml
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.xml
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.Facebook.xml
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.Cookies.xml
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.OAuth.xml
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.Google.xml
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.Twitter.xml
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\obj\Release\Eng360Web.dll
+F:\Proj-Pandees\Eng360_v3\WebApplication2\WebApplication2\obj\Release\Eng360Web.pdb
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\roslyn\csc.exe
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\roslyn\Microsoft.CodeAnalysis.dll
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\roslyn\Microsoft.CSharp.Core.targets
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\roslyn\Microsoft.VisualBasic.Core.targets
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\roslyn\System.Collections.Immutable.dll
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\roslyn\System.Reflection.Metadata.dll
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\roslyn\vbc.exe
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\roslyn\VBCSCompiler.exe
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\roslyn\VBCSCompiler.exe.config
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\Eng360Web.dll.config
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\Eng360Web.dll
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\Eng360Web.pdb
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\Antlr3.Runtime.dll
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\AutoMapper.dll
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\EntityFramework.dll
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\EntityFramework.SqlServer.dll
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\Microsoft.AspNet.Identity.Core.dll
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\Microsoft.AspNet.Identity.Owin.dll
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\Microsoft.Owin.dll
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\Microsoft.Owin.Host.SystemWeb.dll
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.Cookies.dll
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.dll
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.Facebook.dll
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.Google.dll
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.OAuth.dll
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.Twitter.dll
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\Microsoft.Practices.ServiceLocation.dll
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\Microsoft.Web.Infrastructure.dll
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\Newtonsoft.Json.dll
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\Ninject.dll
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\Ninject.Web.Common.dll
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\Ninject.Web.Mvc.dll
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\NLog.dll
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\Owin.dll
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\System.Net.Http.Formatting.dll
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\System.Web.Helpers.dll
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\System.Web.Http.dll
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\System.Web.Http.WebHost.dll
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\System.Web.Mvc.dll
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\System.Web.Optimization.dll
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\System.Web.Razor.dll
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\System.Web.WebPages.Deployment.dll
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\System.Web.WebPages.dll
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\System.Web.WebPages.Razor.dll
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\WebActivator.dll
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\WebActivatorEx.dll
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\WebGrease.dll
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\AutoMapper.xml
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\Ninject.xml
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\Ninject.Web.Common.xml
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\Ninject.Web.Mvc.xml
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\NLog.xml
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\System.Web.Helpers.xml
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\System.Web.Mvc.xml
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\System.Web.Optimization.xml
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\System.Web.Razor.xml
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\System.Web.WebPages.xml
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\System.Web.WebPages.Deployment.xml
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\System.Web.WebPages.Razor.xml
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\Antlr3.Runtime.pdb
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\Newtonsoft.Json.xml
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\System.Net.Http.Formatting.xml
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\System.Web.Http.xml
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\System.Web.Http.WebHost.xml
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\EntityFramework.xml
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\EntityFramework.SqlServer.xml
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\Microsoft.AspNet.Identity.Core.xml
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\Microsoft.AspNet.Identity.Owin.xml
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\Microsoft.Owin.xml
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\Microsoft.Owin.Host.SystemWeb.xml
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.xml
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.Facebook.xml
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.Cookies.xml
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.OAuth.xml
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.Google.xml
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.Twitter.xml
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\obj\Release\Eng360Web.dll
+F:\Proj-Pandees\Eng360_v9\WebApplication2\WebApplication2\obj\Release\Eng360Web.pdb
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\roslyn\csc.exe
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\roslyn\Microsoft.CodeAnalysis.dll
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\roslyn\Microsoft.CSharp.Core.targets
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\roslyn\Microsoft.VisualBasic.Core.targets
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\roslyn\System.Collections.Immutable.dll
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\roslyn\System.Reflection.Metadata.dll
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\roslyn\vbc.exe
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\roslyn\VBCSCompiler.exe
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\roslyn\VBCSCompiler.exe.config
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\Eng360Web.dll.config
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\Eng360Web.dll
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\Eng360Web.pdb
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\Antlr3.Runtime.dll
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\AutoMapper.dll
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\EntityFramework.dll
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\EntityFramework.SqlServer.dll
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\Microsoft.AspNet.Identity.Core.dll
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\Microsoft.AspNet.Identity.Owin.dll
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\Microsoft.Owin.dll
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\Microsoft.Owin.Host.SystemWeb.dll
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.Cookies.dll
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.dll
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.Facebook.dll
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.Google.dll
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.OAuth.dll
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.Twitter.dll
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\Microsoft.Practices.ServiceLocation.dll
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\Microsoft.Web.Infrastructure.dll
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\Newtonsoft.Json.dll
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\Ninject.dll
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\Ninject.Web.Common.dll
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\Ninject.Web.Mvc.dll
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\NLog.dll
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\Owin.dll
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\System.Net.Http.Formatting.dll
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\System.Web.Helpers.dll
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\System.Web.Http.dll
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\System.Web.Http.WebHost.dll
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\System.Web.Mvc.dll
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\System.Web.Optimization.dll
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\System.Web.Razor.dll
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\System.Web.WebPages.Deployment.dll
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\System.Web.WebPages.dll
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\System.Web.WebPages.Razor.dll
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\WebActivator.dll
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\WebActivatorEx.dll
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\WebGrease.dll
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\AutoMapper.xml
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\Ninject.xml
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\Ninject.Web.Common.xml
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\Ninject.Web.Mvc.xml
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\NLog.xml
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\System.Web.Helpers.xml
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\System.Web.Mvc.xml
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\System.Web.Optimization.xml
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\System.Web.Razor.xml
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\System.Web.WebPages.xml
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\System.Web.WebPages.Deployment.xml
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\System.Web.WebPages.Razor.xml
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\Antlr3.Runtime.pdb
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\Newtonsoft.Json.xml
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\System.Net.Http.Formatting.xml
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\System.Web.Http.xml
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\System.Web.Http.WebHost.xml
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\EntityFramework.xml
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\EntityFramework.SqlServer.xml
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\Microsoft.AspNet.Identity.Core.xml
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\Microsoft.AspNet.Identity.Owin.xml
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\Microsoft.Owin.xml
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\Microsoft.Owin.Host.SystemWeb.xml
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.xml
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.Facebook.xml
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.Cookies.xml
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.OAuth.xml
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.Google.xml
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.Twitter.xml
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\obj\Release\Eng360Web.csprojResolveAssemblyReference.cache
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\obj\Release\Eng360Web.dll
+F:\Proj-Pandees\En360_11\WebApplication2\WebApplication2\obj\Release\Eng360Web.pdb
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\roslyn\csc.exe
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\roslyn\Microsoft.CodeAnalysis.dll
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\roslyn\Microsoft.CSharp.Core.targets
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\roslyn\Microsoft.VisualBasic.Core.targets
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\roslyn\System.Collections.Immutable.dll
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\roslyn\System.Reflection.Metadata.dll
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\roslyn\vbc.exe
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\roslyn\VBCSCompiler.exe
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\roslyn\VBCSCompiler.exe.config
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\Eng360Web.dll.config
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\Eng360Web.dll
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\Eng360Web.pdb
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\Antlr3.Runtime.dll
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\AutoMapper.dll
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\EntityFramework.dll
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\EntityFramework.SqlServer.dll
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\Microsoft.AspNet.Identity.Core.dll
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\Microsoft.AspNet.Identity.Owin.dll
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\Microsoft.Owin.dll
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\Microsoft.Owin.Host.SystemWeb.dll
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.Cookies.dll
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.dll
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.Facebook.dll
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.Google.dll
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.OAuth.dll
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.Twitter.dll
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\Microsoft.Practices.ServiceLocation.dll
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\Microsoft.Web.Infrastructure.dll
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\Newtonsoft.Json.dll
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\Ninject.dll
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\Ninject.Web.Common.dll
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\Ninject.Web.Mvc.dll
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\NLog.dll
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\Owin.dll
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\System.Net.Http.Formatting.dll
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\System.Web.Helpers.dll
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\System.Web.Http.dll
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\System.Web.Http.WebHost.dll
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\System.Web.Mvc.dll
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\System.Web.Optimization.dll
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\System.Web.Razor.dll
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\System.Web.WebPages.Deployment.dll
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\System.Web.WebPages.dll
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\System.Web.WebPages.Razor.dll
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\WebActivator.dll
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\WebActivatorEx.dll
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\WebGrease.dll
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\AutoMapper.xml
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\Ninject.xml
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\Ninject.Web.Common.xml
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\Ninject.Web.Mvc.xml
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\NLog.xml
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\System.Web.Helpers.xml
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\System.Web.Mvc.xml
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\System.Web.Optimization.xml
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\System.Web.Razor.xml
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\System.Web.WebPages.xml
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\System.Web.WebPages.Deployment.xml
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\System.Web.WebPages.Razor.xml
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\Antlr3.Runtime.pdb
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\Newtonsoft.Json.xml
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\System.Net.Http.Formatting.xml
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\System.Web.Http.xml
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\System.Web.Http.WebHost.xml
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\EntityFramework.xml
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\EntityFramework.SqlServer.xml
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\Microsoft.AspNet.Identity.Core.xml
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\Microsoft.AspNet.Identity.Owin.xml
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\Microsoft.Owin.xml
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\Microsoft.Owin.Host.SystemWeb.xml
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.xml
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.Facebook.xml
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.Cookies.xml
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.OAuth.xml
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.Google.xml
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.Twitter.xml
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\obj\Release\Eng360Web.csprojResolveAssemblyReference.cache
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\obj\Release\Eng360Web.dll
+F:\Proj-Pandees\En360_V14\WebApplication2\WebApplication2\obj\Release\Eng360Web.pdb
+F:\Proj-Pandees\En360_V15\WebApplication2\WebApplication2\bin\roslyn\csc.exe
+F:\Proj-Pandees\En360_V15\WebApplication2\WebApplication2\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+F:\Proj-Pandees\En360_V15\WebApplication2\WebApplication2\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+F:\Proj-Pandees\En360_V15\WebApplication2\WebApplication2\bin\roslyn\Microsoft.CodeAnalysis.dll
+F:\Proj-Pandees\En360_V15\WebApplication2\WebApplication2\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+F:\Proj-Pandees\En360_V15\WebApplication2\WebApplication2\bin\roslyn\Microsoft.CSharp.Core.targets
+F:\Proj-Pandees\En360_V15\WebApplication2\WebApplication2\bin\roslyn\Microsoft.VisualBasic.Core.targets
+F:\Proj-Pandees\En360_V15\WebApplication2\WebApplication2\bin\roslyn\System.Collections.Immutable.dll
+F:\Proj-Pandees\En360_V15\WebApplication2\WebApplication2\bin\roslyn\System.Reflection.Metadata.dll
+F:\Proj-Pandees\En360_V15\WebApplication2\WebApplication2\bin\roslyn\vbc.exe
+F:\Proj-Pandees\En360_V15\WebApplication2\WebApplication2\bin\roslyn\VBCSCompiler.exe
+F:\Proj-Pandees\En360_V15\WebApplication2\WebApplication2\bin\roslyn\VBCSCompiler.exe.config
+F:\Proj-Pandees\En360_V15\WebApplication2\WebApplication2\bin\Eng360Web.dll.config
+F:\Proj-Pandees\En360_V15\WebApplication2\WebApplication2\bin\Eng360Web.dll
+F:\Proj-Pandees\En360_V15\WebApplication2\WebApplication2\bin\Eng360Web.pdb
+F:\Proj-Pandees\En360_V15\WebApplication2\WebApplication2\bin\AutoMapper.xml
+F:\Proj-Pandees\En360_V15\WebApplication2\WebApplication2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+F:\Proj-Pandees\En360_V15\WebApplication2\WebApplication2\bin\Ninject.xml
+F:\Proj-Pandees\En360_V15\WebApplication2\WebApplication2\bin\Ninject.Web.Common.xml
+F:\Proj-Pandees\En360_V15\WebApplication2\WebApplication2\bin\Ninject.Web.Mvc.xml
+F:\Proj-Pandees\En360_V15\WebApplication2\WebApplication2\bin\NLog.xml
+F:\Proj-Pandees\En360_V15\WebApplication2\WebApplication2\bin\System.Web.Helpers.xml
+F:\Proj-Pandees\En360_V15\WebApplication2\WebApplication2\bin\System.Web.Mvc.xml
+F:\Proj-Pandees\En360_V15\WebApplication2\WebApplication2\bin\System.Web.Optimization.xml
+F:\Proj-Pandees\En360_V15\WebApplication2\WebApplication2\bin\System.Web.Razor.xml
+F:\Proj-Pandees\En360_V15\WebApplication2\WebApplication2\bin\System.Web.WebPages.xml
+F:\Proj-Pandees\En360_V15\WebApplication2\WebApplication2\bin\System.Web.WebPages.Deployment.xml
+F:\Proj-Pandees\En360_V15\WebApplication2\WebApplication2\bin\System.Web.WebPages.Razor.xml
+F:\Proj-Pandees\En360_V15\WebApplication2\WebApplication2\bin\Antlr3.Runtime.pdb
+F:\Proj-Pandees\En360_V15\WebApplication2\WebApplication2\bin\Newtonsoft.Json.xml
+F:\Proj-Pandees\En360_V15\WebApplication2\WebApplication2\bin\System.Net.Http.Formatting.xml
+F:\Proj-Pandees\En360_V15\WebApplication2\WebApplication2\bin\System.Web.Http.xml
+F:\Proj-Pandees\En360_V15\WebApplication2\WebApplication2\bin\System.Web.Http.WebHost.xml
+F:\Proj-Pandees\En360_V15\WebApplication2\WebApplication2\bin\EntityFramework.xml
+F:\Proj-Pandees\En360_V15\WebApplication2\WebApplication2\bin\EntityFramework.SqlServer.xml
+F:\Proj-Pandees\En360_V15\WebApplication2\WebApplication2\bin\Microsoft.AspNet.Identity.Core.xml
+F:\Proj-Pandees\En360_V15\WebApplication2\WebApplication2\bin\Microsoft.AspNet.Identity.Owin.xml
+F:\Proj-Pandees\En360_V15\WebApplication2\WebApplication2\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+F:\Proj-Pandees\En360_V15\WebApplication2\WebApplication2\bin\Microsoft.Owin.xml
+F:\Proj-Pandees\En360_V15\WebApplication2\WebApplication2\bin\Microsoft.Owin.Host.SystemWeb.xml
+F:\Proj-Pandees\En360_V15\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.xml
+F:\Proj-Pandees\En360_V15\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.Facebook.xml
+F:\Proj-Pandees\En360_V15\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.Cookies.xml
+F:\Proj-Pandees\En360_V15\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.OAuth.xml
+F:\Proj-Pandees\En360_V15\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.Google.xml
+F:\Proj-Pandees\En360_V15\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.Twitter.xml
+F:\Proj-Pandees\En360_V15\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+F:\Proj-Pandees\En360_V15\WebApplication2\WebApplication2\obj\Release\Eng360Web.csprojResolveAssemblyReference.cache
+F:\Proj-Pandees\En360_V15\WebApplication2\WebApplication2\obj\Release\Eng360Web.dll
+F:\Proj-Pandees\En360_V15\WebApplication2\WebApplication2\obj\Release\Eng360Web.pdb
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\roslyn\csc.exe
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\roslyn\vbc.exe
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\roslyn\VBCSCompiler.exe
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\Eng360Web.dll.config
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\Eng360Web.dll
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\Eng360Web.pdb
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\Ninject.Web.WebApi.dll
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\Ninject.Web.WebApi.xml
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\obj\Release\Eng360Web.dll
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\obj\Release\Eng360Web.pdb
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\Antlr3.Runtime.dll
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\AutoMapper.dll
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\EntityFramework.dll
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\EntityFramework.SqlServer.dll
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\Microsoft.Owin.dll
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.dll
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\Microsoft.Practices.ServiceLocation.dll
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\Newtonsoft.Json.dll
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\Ninject.dll
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\Ninject.Web.Common.dll
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\Ninject.Web.Mvc.dll
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\NLog.dll
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\Owin.dll
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\System.Net.Http.Formatting.dll
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\System.Web.Helpers.dll
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\System.Web.Http.dll
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\System.Web.Http.WebHost.dll
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\System.Web.Mvc.dll
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\System.Web.Optimization.dll
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\System.Web.Razor.dll
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\System.Web.WebPages.Deployment.dll
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\System.Web.WebPages.dll
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\System.Web.WebPages.Razor.dll
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\WebActivator.dll
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\WebActivatorEx.dll
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\WebGrease.dll
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\AutoMapper.xml
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\Ninject.xml
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\Ninject.Web.Common.xml
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\Ninject.Web.Mvc.xml
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\NLog.xml
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\System.Web.Helpers.xml
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\System.Web.Mvc.xml
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\System.Web.Optimization.xml
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\System.Web.Razor.xml
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\System.Web.WebPages.xml
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\System.Web.WebPages.Deployment.xml
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\System.Web.WebPages.Razor.xml
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\Antlr3.Runtime.pdb
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\Newtonsoft.Json.xml
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\System.Net.Http.Formatting.xml
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\System.Web.Http.xml
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\System.Web.Http.WebHost.xml
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\EntityFramework.xml
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\EntityFramework.SqlServer.xml
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\Microsoft.Owin.xml
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.xml
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\itextsharp.dll
+C:\Users\recdepadmin\Downloads\Eng360_V15\WebApplication2\WebApplication2\bin\itextsharp.xml
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\roslyn\csc.exe
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\roslyn\Microsoft.CodeAnalysis.dll
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\roslyn\Microsoft.CSharp.Core.targets
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\roslyn\Microsoft.VisualBasic.Core.targets
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\roslyn\System.Collections.Immutable.dll
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\roslyn\System.Reflection.Metadata.dll
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\roslyn\vbc.exe
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\roslyn\VBCSCompiler.exe
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\roslyn\VBCSCompiler.exe.config
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\Eng360Web.dll.config
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\Eng360Web.dll
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\Eng360Web.pdb
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\Antlr3.Runtime.dll
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\AutoMapper.dll
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\EntityFramework.dll
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\EntityFramework.SqlServer.dll
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\Microsoft.AspNet.Identity.Core.dll
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\Microsoft.AspNet.Identity.Owin.dll
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\Microsoft.Owin.dll
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\Microsoft.Owin.Host.SystemWeb.dll
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.Cookies.dll
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.dll
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.Facebook.dll
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.Google.dll
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.OAuth.dll
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.Twitter.dll
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\Microsoft.Practices.ServiceLocation.dll
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\Microsoft.Web.Infrastructure.dll
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\Newtonsoft.Json.dll
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\Ninject.dll
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\Ninject.Web.Common.dll
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\Ninject.Web.Mvc.dll
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\Ninject.Web.WebApi.dll
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\NLog.dll
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\Owin.dll
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\System.Net.Http.Formatting.dll
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\System.Web.Helpers.dll
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\System.Web.Http.dll
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\System.Web.Http.WebHost.dll
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\System.Web.Mvc.dll
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\System.Web.Optimization.dll
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\System.Web.Razor.dll
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\System.Web.WebPages.Deployment.dll
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\System.Web.WebPages.dll
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\System.Web.WebPages.Razor.dll
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\WebActivator.dll
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\WebActivatorEx.dll
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\WebGrease.dll
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\AutoMapper.xml
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\Ninject.xml
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\Ninject.Web.Common.xml
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\Ninject.Web.Mvc.xml
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\Ninject.Web.WebApi.xml
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\NLog.xml
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\System.Web.Helpers.xml
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\System.Web.Mvc.xml
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\System.Web.Optimization.xml
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\System.Web.Razor.xml
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\System.Web.WebPages.xml
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\System.Web.WebPages.Deployment.xml
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\System.Web.WebPages.Razor.xml
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\Antlr3.Runtime.pdb
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\Newtonsoft.Json.xml
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\System.Net.Http.Formatting.xml
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\System.Web.Http.xml
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\System.Web.Http.WebHost.xml
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\EntityFramework.xml
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\EntityFramework.SqlServer.xml
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\Microsoft.AspNet.Identity.Core.xml
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\Microsoft.AspNet.Identity.Owin.xml
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\Microsoft.Owin.xml
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\Microsoft.Owin.Host.SystemWeb.xml
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.xml
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.Facebook.xml
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.Cookies.xml
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.OAuth.xml
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.Google.xml
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.Twitter.xml
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\obj\Release\Eng360Web.dll
+F:\Proj-Pandees\Eng_360_Merged_Final\WebApplication2\WebApplication2\obj\Release\Eng360Web.pdb
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\roslyn\csc.exe
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\roslyn\vbc.exe
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\roslyn\VBCSCompiler.exe
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\Eng360Web.dll.config
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\Eng360Web.dll
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\Eng360Web.pdb
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\Antlr3.Runtime.dll
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\AutoMapper.dll
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\EntityFramework.dll
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\EntityFramework.SqlServer.dll
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\itextsharp.dll
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\Microsoft.Owin.dll
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.dll
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\Microsoft.Practices.ServiceLocation.dll
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\Newtonsoft.Json.dll
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\Ninject.dll
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\Ninject.Web.Common.dll
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\Ninject.Web.Mvc.dll
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\Ninject.Web.WebApi.dll
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\NLog.dll
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\Owin.dll
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\System.Net.Http.Formatting.dll
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\System.Web.Helpers.dll
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\System.Web.Http.dll
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\System.Web.Http.WebHost.dll
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\System.Web.Mvc.dll
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\System.Web.Optimization.dll
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\System.Web.Razor.dll
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\System.Web.WebPages.Deployment.dll
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\System.Web.WebPages.dll
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\System.Web.WebPages.Razor.dll
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\WebActivator.dll
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\WebActivatorEx.dll
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\WebGrease.dll
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\AutoMapper.xml
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\itextsharp.xml
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\Ninject.xml
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\Ninject.Web.Common.xml
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\Ninject.Web.Mvc.xml
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\Ninject.Web.WebApi.xml
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\NLog.xml
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\System.Web.Helpers.xml
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\System.Web.Mvc.xml
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\System.Web.Optimization.xml
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\System.Web.Razor.xml
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\System.Web.WebPages.xml
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\System.Web.WebPages.Deployment.xml
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\System.Web.WebPages.Razor.xml
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\Antlr3.Runtime.pdb
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\Newtonsoft.Json.xml
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\System.Net.Http.Formatting.xml
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\System.Web.Http.xml
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\System.Web.Http.WebHost.xml
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\EntityFramework.xml
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\EntityFramework.SqlServer.xml
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\Microsoft.Owin.xml
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.xml
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\obj\Release\Eng360Web.dll
+C:\Users\recdepadmin\Downloads\Eng360_051117\WebApplication2\WebApplication2\obj\Release\Eng360Web.pdb
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\roslyn\csc.exe
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\roslyn\Microsoft.CodeAnalysis.dll
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\roslyn\Microsoft.CSharp.Core.targets
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\roslyn\Microsoft.VisualBasic.Core.targets
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\roslyn\System.Collections.Immutable.dll
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\roslyn\System.Reflection.Metadata.dll
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\roslyn\vbc.exe
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\roslyn\VBCSCompiler.exe
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\roslyn\VBCSCompiler.exe.config
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\Eng360Web.dll.config
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\Eng360Web.dll
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\Eng360Web.pdb
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\Antlr3.Runtime.dll
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\AutoMapper.dll
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\EntityFramework.dll
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\EntityFramework.SqlServer.dll
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\Microsoft.AspNet.Identity.Core.dll
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\Microsoft.AspNet.Identity.Owin.dll
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\Microsoft.Owin.dll
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\Microsoft.Owin.Host.SystemWeb.dll
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.Cookies.dll
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.dll
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.Facebook.dll
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.Google.dll
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.OAuth.dll
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.Twitter.dll
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\Microsoft.Practices.ServiceLocation.dll
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\Microsoft.Web.Infrastructure.dll
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\Newtonsoft.Json.dll
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\Ninject.dll
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\Ninject.Web.Common.dll
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\Ninject.Web.Mvc.dll
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\Ninject.Web.WebApi.dll
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\NLog.dll
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\Owin.dll
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\System.Net.Http.Formatting.dll
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\System.Web.Helpers.dll
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\System.Web.Http.dll
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\System.Web.Http.WebHost.dll
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\System.Web.Mvc.dll
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\System.Web.Optimization.dll
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\System.Web.Razor.dll
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\System.Web.WebPages.Deployment.dll
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\System.Web.WebPages.dll
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\System.Web.WebPages.Razor.dll
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\WebActivator.dll
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\WebActivatorEx.dll
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\WebGrease.dll
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\AutoMapper.xml
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\Ninject.xml
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\Ninject.Web.Common.xml
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\Ninject.Web.Mvc.xml
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\Ninject.Web.WebApi.xml
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\NLog.xml
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\System.Web.Helpers.xml
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\System.Web.Mvc.xml
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\System.Web.Optimization.xml
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\System.Web.Razor.xml
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\System.Web.WebPages.xml
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\System.Web.WebPages.Deployment.xml
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\System.Web.WebPages.Razor.xml
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\Antlr3.Runtime.pdb
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\Newtonsoft.Json.xml
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\System.Net.Http.Formatting.xml
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\System.Web.Http.xml
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\System.Web.Http.WebHost.xml
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\EntityFramework.xml
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\EntityFramework.SqlServer.xml
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\Microsoft.AspNet.Identity.Core.xml
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\Microsoft.AspNet.Identity.Owin.xml
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\Microsoft.Owin.xml
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\Microsoft.Owin.Host.SystemWeb.xml
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.xml
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.Facebook.xml
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.Cookies.xml
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.OAuth.xml
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.Google.xml
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.Twitter.xml
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\obj\Release\Eng360Web.dll
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\obj\Release\Eng360Web.pdb
+F:\Proj-Pandees\Eng360_web_api_working\WebApplication2\WebApplication2\obj\Release\Eng360Web.csprojResolveAssemblyReference.cache
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\roslyn\csc.exe
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\roslyn\Microsoft.CodeAnalysis.dll
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\roslyn\Microsoft.CSharp.Core.targets
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\roslyn\Microsoft.VisualBasic.Core.targets
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\roslyn\System.Collections.Immutable.dll
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\roslyn\System.Reflection.Metadata.dll
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\roslyn\vbc.exe
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\roslyn\VBCSCompiler.exe
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\roslyn\VBCSCompiler.exe.config
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\Eng360Web.dll.config
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\Eng360Web.dll
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\Eng360Web.pdb
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\Antlr3.Runtime.dll
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\AutoMapper.dll
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\EntityFramework.dll
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\EntityFramework.SqlServer.dll
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\Microsoft.AspNet.Identity.Core.dll
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\Microsoft.AspNet.Identity.Owin.dll
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\Microsoft.Owin.dll
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\Microsoft.Owin.Host.SystemWeb.dll
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\Microsoft.Owin.Security.Cookies.dll
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\Microsoft.Owin.Security.dll
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\Microsoft.Owin.Security.Facebook.dll
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\Microsoft.Owin.Security.Google.dll
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\Microsoft.Owin.Security.OAuth.dll
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\Microsoft.Owin.Security.Twitter.dll
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\Microsoft.Practices.ServiceLocation.dll
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\Microsoft.Web.Infrastructure.dll
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\Newtonsoft.Json.dll
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\Ninject.dll
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\Ninject.Web.Common.dll
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\Ninject.Web.Mvc.dll
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\Ninject.Web.WebApi.dll
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\NLog.dll
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\Owin.dll
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\System.Net.Http.Formatting.dll
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\System.Web.Helpers.dll
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\System.Web.Http.dll
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\System.Web.Http.WebHost.dll
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\System.Web.Mvc.dll
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\System.Web.Optimization.dll
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\System.Web.Razor.dll
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\System.Web.WebPages.Deployment.dll
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\System.Web.WebPages.dll
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\System.Web.WebPages.Razor.dll
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\WebActivator.dll
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\WebActivatorEx.dll
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\WebGrease.dll
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\AutoMapper.xml
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\Ninject.xml
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\Ninject.Web.Common.xml
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\Ninject.Web.Mvc.xml
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\Ninject.Web.WebApi.xml
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\NLog.xml
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\System.Web.Helpers.xml
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\System.Web.Mvc.xml
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\System.Web.Optimization.xml
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\System.Web.Razor.xml
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\System.Web.WebPages.xml
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\System.Web.WebPages.Deployment.xml
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\System.Web.WebPages.Razor.xml
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\Antlr3.Runtime.pdb
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\Newtonsoft.Json.xml
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\System.Net.Http.Formatting.xml
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\System.Web.Http.xml
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\System.Web.Http.WebHost.xml
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\EntityFramework.xml
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\EntityFramework.SqlServer.xml
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\Microsoft.AspNet.Identity.Core.xml
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\Microsoft.AspNet.Identity.Owin.xml
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\Microsoft.Owin.xml
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\Microsoft.Owin.Host.SystemWeb.xml
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\Microsoft.Owin.Security.xml
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\Microsoft.Owin.Security.Facebook.xml
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\Microsoft.Owin.Security.Cookies.xml
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\Microsoft.Owin.Security.OAuth.xml
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\Microsoft.Owin.Security.Google.xml
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\Microsoft.Owin.Security.Twitter.xml
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\obj\Release\Eng360Web.csprojResolveAssemblyReference.cache
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\obj\Release\Eng360Web.dll
+F:\Proj-Pandees\Eng360_Demo\WebApplication2\obj\Release\Eng360Web.pdb
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\roslyn\csc.exe
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\roslyn\vbc.exe
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\roslyn\VBCSCompiler.exe
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\Eng360Web.dll.config
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\Eng360Web.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\Eng360Web.pdb
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\Antlr3.Runtime.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\AutoMapper.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\EntityFramework.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\EntityFramework.SqlServer.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\Microsoft.Owin.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\Microsoft.Owin.Security.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\Microsoft.Practices.ServiceLocation.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\Newtonsoft.Json.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\Ninject.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\Ninject.Web.Common.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\Ninject.Web.Mvc.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\Ninject.Web.WebApi.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\NLog.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\Owin.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\System.Net.Http.Formatting.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\System.Web.Helpers.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\System.Web.Http.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\System.Web.Http.WebHost.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\System.Web.Mvc.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\System.Web.Optimization.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\System.Web.Razor.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\System.Web.WebPages.Deployment.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\System.Web.WebPages.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\System.Web.WebPages.Razor.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\WebActivator.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\WebActivatorEx.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\WebGrease.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\AutoMapper.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\Ninject.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\Ninject.Web.Common.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\Ninject.Web.Mvc.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\Ninject.Web.WebApi.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\NLog.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\System.Web.Helpers.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\System.Web.Mvc.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\System.Web.Optimization.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\System.Web.Razor.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\System.Web.WebPages.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\System.Web.WebPages.Deployment.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\System.Web.WebPages.Razor.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\Antlr3.Runtime.pdb
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\Newtonsoft.Json.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\System.Net.Http.Formatting.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\System.Web.Http.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\System.Web.Http.WebHost.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\EntityFramework.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\EntityFramework.SqlServer.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\Microsoft.Owin.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\Microsoft.Owin.Security.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\obj\Release\Eng360Web.csprojAssemblyReference.cache
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\obj\Release\Eng360Web.csproj.CoreCompileInputs.cache
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\obj\Release\Eng360Web.csproj.CopyComplete
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\obj\Release\Eng360Web.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 1\WebApplication2\obj\Release\Eng360Web.pdb
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\roslyn\csc.exe
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\roslyn\vbc.exe
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\roslyn\VBCSCompiler.exe
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\Eng360Web.dll.config
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\Eng360Web.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\Eng360Web.pdb
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\Antlr3.Runtime.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\AutoMapper.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\EntityFramework.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\EntityFramework.SqlServer.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\Microsoft.Owin.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\Microsoft.Owin.Security.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\Microsoft.Practices.ServiceLocation.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\Newtonsoft.Json.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\Ninject.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\Ninject.Web.Common.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\Ninject.Web.Mvc.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\Ninject.Web.WebApi.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\NLog.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\Owin.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\System.Net.Http.Formatting.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\System.Web.Helpers.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\System.Web.Http.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\System.Web.Http.WebHost.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\System.Web.Mvc.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\System.Web.Optimization.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\System.Web.Razor.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\System.Web.WebPages.Deployment.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\System.Web.WebPages.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\System.Web.WebPages.Razor.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\WebActivator.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\WebActivatorEx.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\WebGrease.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\AutoMapper.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\Ninject.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\Ninject.Web.Common.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\Ninject.Web.Mvc.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\Ninject.Web.WebApi.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\NLog.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\System.Web.Helpers.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\System.Web.Mvc.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\System.Web.Optimization.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\System.Web.Razor.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\System.Web.WebPages.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\System.Web.WebPages.Deployment.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\System.Web.WebPages.Razor.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\Antlr3.Runtime.pdb
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\Newtonsoft.Json.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\System.Net.Http.Formatting.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\System.Web.Http.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\System.Web.Http.WebHost.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\EntityFramework.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\EntityFramework.SqlServer.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\Microsoft.Owin.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\Microsoft.Owin.Security.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\obj\Release\Eng360Web.csprojAssemblyReference.cache
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\obj\Release\Eng360Web.csproj.CoreCompileInputs.cache
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\obj\Release\Eng360Web.csproj.CopyComplete
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\obj\Release\Eng360Web.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2\WebApplication2\obj\Release\Eng360Web.pdb
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\roslyn\csc.exe
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\roslyn\vbc.exe
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\roslyn\VBCSCompiler.exe
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Eng360Web.dll.config
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Eng360Web.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Eng360Web.pdb
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Antlr3.Runtime.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\AutoMapper.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\EntityFramework.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\EntityFramework.SqlServer.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Microsoft.Owin.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Microsoft.Owin.Security.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Microsoft.Practices.ServiceLocation.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Newtonsoft.Json.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Ninject.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Ninject.Web.Common.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Ninject.Web.Mvc.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Ninject.Web.WebApi.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\NLog.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Owin.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\System.Net.Http.Formatting.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\System.Web.Helpers.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\System.Web.Http.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\System.Web.Http.WebHost.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\System.Web.Mvc.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\System.Web.Optimization.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\System.Web.Razor.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\System.Web.WebPages.Deployment.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\System.Web.WebPages.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\System.Web.WebPages.Razor.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\WebActivator.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\WebActivatorEx.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\WebGrease.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\AutoMapper.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Ninject.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Ninject.Web.Common.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Ninject.Web.Mvc.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Ninject.Web.WebApi.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\NLog.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\System.Web.Helpers.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\System.Web.Mvc.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\System.Web.Optimization.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\System.Web.Razor.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\System.Web.WebPages.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\System.Web.WebPages.Deployment.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\System.Web.WebPages.Razor.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Antlr3.Runtime.pdb
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Newtonsoft.Json.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\System.Net.Http.Formatting.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\System.Web.Http.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\System.Web.Http.WebHost.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\EntityFramework.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\EntityFramework.SqlServer.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Microsoft.Owin.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Microsoft.Owin.Security.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\obj\Release\Eng360Web.csprojAssemblyReference.cache
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\obj\Release\Eng360Web.csproj.CoreCompileInputs.cache
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\obj\Release\Eng360Web.csproj.CopyComplete
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\obj\Release\Eng360Web.dll
+C:\Users\DELL\Documents\GitHub\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\obj\Release\Eng360Web.pdb
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\roslyn\csc.exe
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\roslyn\System.Collections.Immutable.dll
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\roslyn\System.Reflection.Metadata.dll
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\roslyn\vbc.exe
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\roslyn\VBCSCompiler.exe
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\roslyn\VBCSCompiler.exe.config
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Eng360Web.dll.config
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Eng360Web.dll
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Eng360Web.pdb
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Antlr3.Runtime.dll
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\AutoMapper.dll
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\EntityFramework.dll
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\EntityFramework.SqlServer.dll
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Microsoft.AspNet.Identity.Core.dll
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Microsoft.Owin.dll
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Microsoft.Owin.Security.Cookies.dll
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Microsoft.Owin.Security.dll
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Microsoft.Owin.Security.Facebook.dll
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Microsoft.Owin.Security.Google.dll
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Microsoft.Owin.Security.OAuth.dll
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Microsoft.Owin.Security.Twitter.dll
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Microsoft.Practices.ServiceLocation.dll
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Microsoft.Web.Infrastructure.dll
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Newtonsoft.Json.dll
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Ninject.dll
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Ninject.Web.Common.dll
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Ninject.Web.Mvc.dll
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Ninject.Web.WebApi.dll
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\NLog.dll
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Owin.dll
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\System.Net.Http.Formatting.dll
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\System.Web.Helpers.dll
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\System.Web.Http.dll
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\System.Web.Http.WebHost.dll
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\System.Web.Mvc.dll
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\System.Web.Optimization.dll
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\System.Web.Razor.dll
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\System.Web.WebPages.Deployment.dll
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\System.Web.WebPages.dll
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\System.Web.WebPages.Razor.dll
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\WebActivator.dll
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\WebActivatorEx.dll
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\WebGrease.dll
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\AutoMapper.xml
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Ninject.xml
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Ninject.Web.Common.xml
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Ninject.Web.Mvc.xml
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Ninject.Web.WebApi.xml
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\NLog.xml
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\System.Web.Helpers.xml
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\System.Web.Mvc.xml
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\System.Web.Optimization.xml
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\System.Web.Razor.xml
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\System.Web.WebPages.xml
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\System.Web.WebPages.Deployment.xml
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\System.Web.WebPages.Razor.xml
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Antlr3.Runtime.pdb
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Newtonsoft.Json.xml
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\System.Net.Http.Formatting.xml
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\System.Web.Http.xml
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\System.Web.Http.WebHost.xml
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\EntityFramework.xml
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\EntityFramework.SqlServer.xml
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Microsoft.AspNet.Identity.Core.xml
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Microsoft.Owin.xml
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Microsoft.Owin.Security.xml
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Microsoft.Owin.Security.Facebook.xml
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Microsoft.Owin.Security.Cookies.xml
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Microsoft.Owin.Security.OAuth.xml
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Microsoft.Owin.Security.Google.xml
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Microsoft.Owin.Security.Twitter.xml
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\obj\Release\Eng360Web.csprojAssemblyReference.cache
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\obj\Release\Eng360Web.csproj.CoreCompileInputs.cache
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\obj\Release\Eng360Web.csproj.CopyComplete
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\obj\Release\Eng360Web.dll
+D:\SISonline\ENG360\Eng360_Web_Demo 2 - (12-3-19)\WebApplication2\obj\Release\Eng360Web.pdb

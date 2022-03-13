@@ -1,0 +1,184 @@
+﻿@model Eng360Web.Models.ViewModel.TransportViewModel
+
+@{
+    Layout = null;
+}
+
+<div class="inner-page--container view">
+
+    <div class="modal-footer">
+        @*<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>*@
+        <input type="button" value="Back" id="create-vehicle-dialog-save" class="btn btn-primary Vehicle" />
+
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <b> Vehicle Details</b>
+        </div>
+        <!-- /.panel-heading -->
+        <div class="panel-body">
+
+            <div class="modal-body">
+
+                
+
+
+                <table class="table table-bordered">
+                    <tr>
+                        <th bgcolor="beige">Vehicle Name </th>
+                        <th bgcolor="beige">Company </th>
+                        <th bgcolor="beige">Model </th>
+                    </tr>
+
+                    <tr>
+                        <td>@Html.DisplayFor(model => model.Vehicle_Name)</td>
+                        <td>@Html.DisplayFor(model => model.Vehicle_Company)</td>
+                        <td>@Html.DisplayFor(model => model.Vehicle_Model)</td>
+                    </tr>
+
+                    <tr>
+                        <th bgcolor="beige">Type </th>
+                        <th bgcolor="beige">Vehicle Number </th>
+                        <th bgcolor="beige">Insurance Company</th>
+                    </tr>
+
+                    <tr>
+                        <td>@Html.DisplayFor(model => model.Vehicle_Type)</td>
+                        <td>@Html.DisplayFor(model => model.Vehicle_Number)</td>
+                        <td>@Html.DisplayFor(model => model.Insurance_Company)</td>
+                    </tr>
+
+                    <tr>
+                        <th bgcolor="beige">Insurance Number </th>
+                        <th bgcolor="beige">Insurance Date </th>
+                        <th bgcolor="beige">Insurance Expiry Date</th>
+                    </tr>
+
+                    <tr>
+                        <td>@Html.DisplayFor(model => model.Insurance_Policy_Number)</td>
+                        <td>
+                            @{
+                                var dt = "";
+                                if (Model.Insurance_Issue_Date != null)
+                                {
+                                    dt = Convert.ToDateTime(@Model.Insurance_Issue_Date).ToString(Eng360Web.Models.Utility.AppSettings.GetDateFormat());
+                                }
+                            }
+                            @dt
+                        </td>
+                        <td>
+                            @{
+                                dt = "";
+                                if (Model.Insurance_Expiry_Date != null)
+                                {
+                                    dt = Convert.ToDateTime(@Model.Insurance_Expiry_Date).ToString(Eng360Web.Models.Utility.AppSettings.GetDateFormat());
+                                }
+                            }
+                            @dt
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th bgcolor="beige">COE Registration Number </th>
+                        <th bgcolor="beige">COE Registration Date </th>
+                        <th bgcolor="beige">COE Expiry Date</th>
+                    </tr>
+
+                    <tr>
+                        <td>@Html.DisplayFor(model => model.COE_Regn_Number)</td>
+                        <td>
+                            @{
+                                dt = "";
+                                if (Model.COE_Issue_Date != null)
+                                {
+                                    dt = Convert.ToDateTime(@Model.COE_Issue_Date).ToString(Eng360Web.Models.Utility.AppSettings.GetDateFormat());
+                                }
+                            }
+                            @dt
+                        </td>
+                        <td>
+                            @{
+                                dt = "";
+                                if (Model.COE_Expiry_Date != null)
+                                {
+                                    dt = Convert.ToDateTime(@Model.COE_Expiry_Date).ToString(Eng360Web.Models.Utility.AppSettings.GetDateFormat());
+                                }
+                            }
+                            @dt
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th bgcolor="beige">Road Tax Number </th>
+                        <th bgcolor="beige">Road Tax Date </th>
+                        <th bgcolor="beige">Road Tax Expiry Date</th>
+                    </tr>
+
+                    <tr>
+                        <td>@Html.DisplayFor(model => model.RoadTax_Regn_Number)</td>
+                        <td>
+                            @{
+                                dt = "";
+                                if (Model.RoadTax_Issue_Date != null)
+                                {
+                                    dt = Convert.ToDateTime(@Model.RoadTax_Issue_Date).ToString(Eng360Web.Models.Utility.AppSettings.GetDateFormat());
+                                }
+                            }
+                            @dt
+                        </td>
+                        <td>
+                            @{
+                                dt = "";
+                                if (Model.RoadTax_Expiry_Date != null)
+                                {
+                                    dt = Convert.ToDateTime(@Model.RoadTax_Expiry_Date).ToString(Eng360Web.Models.Utility.AppSettings.GetDateFormat());
+                                }
+                            }
+                            @dt
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th bgcolor="beige">Inspection Date </th>
+                        <th bgcolor="beige">Inspection Due Date </th>
+                        <th bgcolor="beige"></th>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            @{
+                                dt = "";
+                                if (Model.Vehicle_Inspection_Date != null)
+                                {
+                                    dt = Convert.ToDateTime(@Model.Vehicle_Inspection_Date).ToString(Eng360Web.Models.Utility.AppSettings.GetDateFormat());
+                                }
+                            }
+                            @dt
+                        </td>
+                        <td>
+                            @{
+                                dt = "";
+                                if (Model.Inspection_Due_Date != null)
+                                {
+                                    dt = Convert.ToDateTime(@Model.Inspection_Due_Date).ToString(Eng360Web.Models.Utility.AppSettings.GetDateFormat());
+                                }
+                            }
+                            @dt
+                        </td>
+                        <td></td>
+                    </tr>
+
+
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        @*<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>*@
+        <input type="button" value="Back" id="create-vehicle-dialog-save" class="btn btn-primary Vehicle" />
+
+    </div>
+
+ </div>

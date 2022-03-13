@@ -1,0 +1,128 @@
+﻿@model Eng360Web.Models.Domain.eng_safety_master
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+</head>
+<body>
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        <h4>eng_safety_master</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.CompanyName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CompanyName)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.ProjectTitle)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ProjectTitle)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.RepDate)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.RepDate)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.RepTime)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.RepTime)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.LocationOfWork)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.LocationOfWork)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.OtherHazard)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.OtherHazard)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.SubmittedBy)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.SubmittedBy)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.ASHMeasures)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ASHMeasures)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Status)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Status)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CreatedDate)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CreatedDate)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.UpdatedBy)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.UpdatedBy)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.UpdatedDate)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.UpdatedDate)
+            </dd>
+    
+        </dl>
+    
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+    
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>
+</body>
+</html>

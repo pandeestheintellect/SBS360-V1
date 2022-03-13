@@ -1,0 +1,132 @@
+﻿@model Eng360Web.Models.ViewModel.QuoteDescriptionViewModel
+
+@{
+    Layout = null;
+}
+
+<style>
+    .required::after {
+        content: "*";
+        font-weight: bold;
+        color: red;
+    }
+</style>
+
+
+<div class="modal-header ">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h4 class="modal-title">Add/Edit Description</h4>
+</div>
+<div class="modal-body">
+    <form id="formInvoiceDesc">
+        @Html.HiddenFor(model => model.QDID)
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.QuoteDescription, "Description", htmlAttributes: new { @class = "control-label required" })
+                    <div class="">
+                        @Html.TextAreaFor(model => model.QuoteDescription, 6, 40, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.QuoteDescription, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Quantity, htmlAttributes: new { @class = "control-label required" })
+                    <div class="">
+                        @Html.EditorFor(model => model.Quantity, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Quantity, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.UnitOfMeasure, "Unit of Measure", htmlAttributes: new { @class = "control-label" })
+                    <div class="">
+                        @Html.DropDownListFor(model => model.UnitOfMeasure, new SelectList(
+                                    new List<Object>{
+                                    new { value = "mm" , text = "mm"  },
+                                    new { value = "cm" , text = "cm" },
+                                    new { value = "meter" , text = "meter" },
+                                    new { value = "msq" , text = "msq" },
+                                    new { value = "nos" , text = "nos" },
+                                    new { value = "ltrs" , text = "ltrs" },
+                                    new { value = "kg" , text = "kg" },
+                                    new { value = "lot" , text = "lot" },
+                                    new { value = "pallet" , text = "pallet" },
+                                    new { value = "ton" , text = "ton" },
+                                    new { value = "bundle" , text = "bundle" },
+                                    new { value = "dozen" , text = "dozon" },
+                                    new { value = "Month" , text = "Month" },
+                                    new { value = "pack" , text = "pack" }
+
+                                    }, "value", "text", 2), htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.UnitOfMeasure, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.QuotePrice, "Unit Price", htmlAttributes: new { @class = "control-label required" })
+                    <div class="">
+                        @Html.EditorFor(model => model.QuotePrice, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.QuotePrice, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    <input type="button" value="Save" id="create-InvoiceDesc-dialog-save" class="btn btn-primary" />
+
+</div>
+<script>
+
+        $("form").removeData("validator");
+        $("form").removeData("unobtrusiveValidation");
+        $.validator.unobtrusive.parse("form");
+        debugger;
+        var itemid = '@Model.QDID'
+    if (itemid == '0' && createFlag == false)
+    {
+        $('#QuoteDescription').val(invdescTable.cell('.selectedRow', ':eq(0)').data());
+        $('#Quantity').val(invdescTable.cell('.selectedRow', ':eq(1)').data());
+        $('#UnitOfMeasure').val(invdescTable.cell('.selectedRow', ':eq(2)').data());
+        $('#QuotePrice').val(invdescTable.cell('.selectedRow', ':eq(3)').data());
+    }
+    createFlag = false;
+        function addDataToDataTable() {
+            if ($('#formInvoiceDesc').valid()) {
+                var desc = $('#QuoteDescription').val().trim();
+                var qty = $('#Quantity').val().trim();
+                var uom = $('#UnitOfMeasure').val().trim();
+                var price = $('#QuotePrice').val().trim();
+                //var quotedisc = $('#QuoteDiscPercent').val().trim();
+                debugger;
+                if ($('#QDID').val() == "" || $('#QDID').val() == 0 && editFlag == false) {
+                    invdescTable.row.add([desc, qty, uom, price, 0]).draw(false)
+                    
+               }
+               else
+               {
+                invdescTable.cell('.selectedRow', ':eq(0)').data(desc);
+                invdescTable.cell('.selectedRow', ':eq(1)').data(qty);
+                invdescTable.cell('.selectedRow', ':eq(2)').data(uom);
+                invdescTable.cell('.selectedRow', ':eq(3)').data(price);
+                //invdescTable.cell('.selectedRow', ':eq(4)').data(quotedisc);
+                invdescTable.cell('.selectedRow', ':eq(4)').data($('#QDID').val());
+                invdescTable.draw();
+
+                   $('.selectedRow').addClass('RowEdited').removeClass('selectedRow');
+               }
+
+               $('#create-InvoiceDesc-dialog').modal('hide');
+               $('#create-InvoiceDesc-dialog').css('z-index', '');
+               calcAmount();
+            }
+        }
+</script>

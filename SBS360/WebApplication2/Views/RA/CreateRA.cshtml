@@ -1,0 +1,231 @@
+﻿@model Eng360Web.Models.ViewModel.RATransMasterViewModel
+
+@{
+    Layout = null;
+    //  ViewBag.TermsAndCond = "TERMS & CONDITIONS : \n PRICE: All in Singapore dollars \n VALIDITY: Two Month from dated this quotation \n DELIVERY    : One week from upon order confirmation \n PAYMENT: 30 days from the date of invoice \n NOTE: Any others work NOT mentioned here will be additional charged.";
+
+}
+
+<script src="~/Scripts/moment.js"></script>
+<script src="~/Scripts/bootstrap-datetimepicker.js"></script>
+<link href="~/Content/bootstrap-datetimepicker.css" rel="stylesheet" />
+
+<style>
+    .table-condensed tbody > tr > td > a {
+        color: #4eb1ba !important;
+    }
+
+    input[type='checkbox'] {
+        width: 20px;
+        height: 20px;
+    }
+
+    .required::after {
+        content: "*";
+        font-weight: bold;
+        color: red;
+    }
+</style>
+
+
+<div class="row inner-page--container">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <b> Add New Risk Assessment  </b>
+
+                @*<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>*@
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+
+
+                @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "riskForm" }))
+                {
+                    @Html.AntiForgeryToken()
+                    
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.ProjectID, "Project Name", htmlAttributes: new { @class = "control-label" }) 
+                            @Html.ValidationMessageFor(model => model.ProjectID, "", new { @class = "text-danger" })
+                            <div>
+                                @Html.DropDownList("ProjectID", null, htmlAttributes: new { @class = "form-control" })
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.ContractNumber, htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.EditorFor(model => model.ContractNumber, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.ContractNumber, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.CompanyName, htmlAttributes: new { @class = "control-label" }) 
+                            @Html.ValidationMessageFor(model => model.CompanyName, "", new { @class = "text-danger" })
+                            <div>
+                                @Html.DropDownListFor(model => model.CompanyName, new SelectList(
+                            new List<Object>{
+                            new { value = "CITI CONSTRUCTION  ENGINEERING PTE. LTD." , text = "CITI CONSTRUCTION  ENGINEERING PTE. LTD."  }
+
+                                }, "value", "text", 1), htmlAttributes: new { @class = "form-control" })
+
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.RALeader, htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.DropDownListFor(model => model.RALeader, new SelectList(ViewBag.WorkerList, "Value", "Text"), htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.RALeader, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.Process, htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.EditorFor(model => model.Process, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Process, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.RAMember1, htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.DropDownListFor(model => model.RAMember1, new SelectList(ViewBag.WorkerList, "Value", "Text"), htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.RAMember1, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.ActivityLocation, htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.EditorFor(model => model.ActivityLocation, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.ActivityLocation, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.RAMember2, htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.DropDownListFor(model => model.RAMember2, new SelectList(ViewBag.WorkerList, "Value", "Text"), htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.RAMember2, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.AssessmentDate, htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.EditorFor(model => model.AssessmentDate, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.AssessmentDate, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.RAMember3, htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.DropDownListFor(model => model.RAMember3, new SelectList(ViewBag.WorkerList, "Value", "Text"), htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.RAMember3, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.LastReviewDate, htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.EditorFor(model => model.LastReviewDate, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.LastReviewDate, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.RAMember4, htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.DropDownListFor(model => model.RAMember4, new SelectList(ViewBag.WorkerList, "Value", "Text"), htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.RAMember4, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.NextReviewDate, htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.EditorFor(model => model.NextReviewDate, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.NextReviewDate, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.RAMember5, htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.DropDownListFor(model => model.RAMember5, new SelectList(ViewBag.WorkerList, "Value", "Text"), htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.RAMember5, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.ApprovedBy, htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.DropDownListFor(model => model.ApprovedBy, new SelectList(ViewBag.WorkerList, "Value", "Text"), htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.ApprovedBy, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.ApprovedDesig, htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.EditorFor(model => model.ApprovedDesig, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.ApprovedDesig, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.ApprovedDate, htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.EditorFor(model => model.ApprovedDate, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.ApprovedDate, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.Reference_Number, htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.EditorFor(model => model.Reference_Number, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Reference_Number, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        </div>
+
+                }
+
+            </div>
+            <div class="modal-footer">
+
+                <input type="button" value="Create" id="create-risk-dialog-save" style="float:right" class="btn btn-primary" /><span style="float:right">&nbsp;</span><input type="button" value="Back" id="create-risk-back" style="float:right" class="btn btn-primary RA" />
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+
+    $(function () {
+       // $("#TermsAndCond").html("TERMS & CONDITIONS : \n PRICE: All in Singapore dollars \n VALIDITY: Two Month from dated this quotation \n DELIVERY    : One week from upon order confirmation \n NOTE: Any others work NOT mentioned here will be additional charged.");
+        $('#AssessmentDate').datetimepicker({ format: 'DD/MM/YYYY', maxDate: new Date() });
+        $('#LastReviewDate').datetimepicker({ format: 'DD/MM/YYYY', maxDate: new Date() });
+        $('#NextReviewDate').datetimepicker({ format: 'DD/MM/YYYY' });
+        $('#ApprovedDate').datetimepicker({ format: 'DD/MM/YYYY', maxDate: new Date() });
+
+       
+    });
+
+
+</script>

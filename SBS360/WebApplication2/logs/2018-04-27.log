@@ -1,0 +1,12 @@
+2018-04-27 20:03:02.1805|ERROR|Eng360Web.Models.Repository.Imp.InvoiceRepository|
+
+Mapping types:
+eng_invoice_master_2D5B865C18897B6C1E1FA8686BDF74BFDDE6AF7C802F5E3BACFE6004116D8C51 -> List`1
+System.Data.Entity.DynamicProxies.eng_invoice_master_2D5B865C18897B6C1E1FA8686BDF74BFDDE6AF7C802F5E3BACFE6004116D8C51 -> System.Collections.Generic.List`1[[Eng360Web.Models.ViewModel.InvoiceDescriptionViewModel, Eng360Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+
+Destination path:
+List`1[0].eng_invoice_details.eng_invoice_details
+
+Source value:
+System.Data.Entity.DynamicProxies.eng_invoice_master_2D5B865C18897B6C1E1FA8686BDF74BFDDE6AF7C802F5E3BACFE6004116D8C51
+2018-04-27 20:03:02.9390|ERROR|Eng360Web.Models.Repository.Imp.InvoiceRepository|   at Eng360Web.Models.Repository.Imp.InvoiceRepository.getAllInvoices() in F:\Proj-Pandees\Eng360_Demo\WebApplication2\Models\Repository\Imp\InvoiceRepository.cs:line 28

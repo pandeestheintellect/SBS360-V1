@@ -1,0 +1,138 @@
+﻿@model Eng360Web.Models.ViewModel.ProductViewModel
+
+@{
+    Layout = null;
+}
+
+<style>
+    .required::after {
+        content: "*";
+        font-weight: bold;
+        color: red;
+    }
+</style>
+
+
+<div class="row inner-page--container">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <b> Add New Product  </b>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+
+                <div class="modal-body">
+                    @using (Html.BeginForm("Create", "Product", FormMethod.Post, new { role = "form", id = "productForm" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+
+
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                @Html.LabelFor(model => model.Product_Name, htmlAttributes: new { @class = "control-label required" })
+                                <div>
+                                    @Html.EditorFor(model => model.Product_Name, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Product_Name, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                @Html.LabelFor(model => model.Product_Type, htmlAttributes: new { @class = "control-label" })
+                                <div>
+                                    @Html.EditorFor(model => model.Product_Type, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Product_Type, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                @Html.LabelFor(model => model.Product_Company_Name, htmlAttributes: new { @class = "control-label" })
+                                <div>
+                                    @Html.EditorFor(model => model.Product_Company_Name, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Product_Company_Name, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                @Html.LabelFor(model => model.Product_Description, htmlAttributes: new { @class = "control-label" })
+                                <div>
+                                    @Html.EditorFor(model => model.Product_Description, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Product_Description, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                @Html.LabelFor(model => model.Dimension, htmlAttributes: new { @class = "control-label" })
+                                <div>
+                                    @Html.EditorFor(model => model.Dimension, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Dimension, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            
+                            <div class="col-md-6">
+                                @Html.LabelFor(model => model.Measuring_Unit, "Unit of Measure", htmlAttributes: new { @class = "control-label" })
+                                <div>
+                                    @Html.DropDownListFor(model => model.Measuring_Unit, new SelectList(
+                                    new List<Object>{
+                                    new { value = "mm" , text = "mm"  },
+                                    new { value = "cm" , text = "cm" },
+                                    new { value = "meter" , text = "meter" },
+                                    new { value = "sq.m" , text = "sq.m" },
+                                    new { value = "Nos" , text = "nos" },
+                                    new { value = "ltrs" , text = "ltrs" },
+                                    new { value = "lot" , text = "lot" },
+                                    new { value = "kg" , text = "kg" },
+                                    new { value = "Pallet" , text = "pallet" },
+                                    new { value = "Ton" , text = "ton" },
+                                    new { value = "Bundle" , text = "bundle" },
+                                    new { value = "Dozen" , text = "dozon" },
+                                    new { value = "Tin" , text = "Tin" },
+                                    new { value = "Box" , text = "Box" },
+                                    new { value = "Lumpsum" , text = "Lumpsum" },
+                                    new { value = "cu.m" , text = "cu.m" },
+                                    new { value = "hr" , text = "hr" },
+                                    new { value = "day" , text = "day" },
+                                    new { value = "week" , text = "week" },
+                                    new { value = "Pack" , text = "pack" }
+
+                                    }, "value", "text", 2), htmlAttributes: new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Measuring_Unit, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-6">
+                                @Html.LabelFor(model => model.Unit_Price, htmlAttributes: new { @class = "control-label required" })
+                                <div>
+                                    @Html.EditorFor(model => model.Unit_Price, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Unit_Price, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                           
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                            
+                            <button type="button" id="create-product-dialog-save" class="btn btn-primary">Create</button>
+
+                        </div>
+
+
+                    }
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script>
+    $("form").removeData("validator");
+    $("form").removeData("unobtrusiveValidation");
+    $.validator.unobtrusive.parse("form");
+</script>

@@ -1,0 +1,297 @@
+﻿@model Eng360Web.Models.ViewModel.TransportViewModel
+
+@{
+    Layout = null;
+}
+
+<script src="~/Scripts/moment.js"></script>
+<script src="~/Scripts/bootstrap-datetimepicker.js"></script>
+<link href="~/Content/bootstrap-datetimepicker.css" rel="stylesheet" />
+
+
+<style>
+    .required::after {
+        content: "*";
+        font-weight: bold;
+        color: red;
+    }
+</style>
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <b> Edit Vehicle </b>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+
+                <div class="modal-body">
+                    @using (Html.BeginForm("Edit", "Transport", FormMethod.Post, new { role = "form", id = "vehicleEditForm" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        @Html.HiddenFor(model => model.TransportID)
+                        @Html.HiddenFor(model => model.CreatedBy)
+                        @Html.HiddenFor(model => model.CreatedDate)
+                        @Html.HiddenFor(model => model.IsActive)
+
+
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                @Html.LabelFor(model => model.Vehicle_Name, "Vehicle Name", htmlAttributes: new { @class = "control-label required" })
+                                <div>
+                                    @Html.EditorFor(model => model.Vehicle_Name, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Vehicle_Name, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                @Html.LabelFor(model => model.Vehicle_Type, "Vehicle Type", htmlAttributes: new { @class = "control-label required" })
+                                <div>
+                                    @Html.EditorFor(model => model.Vehicle_Type, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Vehicle_Type, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                @Html.LabelFor(model => model.Vehicle_Company, "Vehicle Company Name", htmlAttributes: new { @class = "control-label" })
+                                <div>
+                                    @Html.EditorFor(model => model.Vehicle_Company, new { htmlAttributes = new { @class = "form-control", @onkeyup = "InputToUpper(this);" } })
+                                    @Html.ValidationMessageFor(model => model.Vehicle_Company, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                @Html.LabelFor(model => model.Vehicle_Model, "Model", htmlAttributes: new { @class = "control-label" })
+                                <div>
+                                    @Html.EditorFor(model => model.Vehicle_Model, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Vehicle_Model, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                @Html.LabelFor(model => model.Vehicle_Number, "Vehicle Number", htmlAttributes: new { @class = "control-label required" })
+                                <div>
+                                    @Html.EditorFor(model => model.Vehicle_Number, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Vehicle_Number, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                @Html.LabelFor(model => model.COE_Regn_Number, "COE Registration Number", htmlAttributes: new { @class = "control-label" })
+                                <div>
+                                    @Html.EditorFor(model => model.COE_Regn_Number, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.COE_Regn_Number, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                @Html.LabelFor(model => model.COE_Issue_Date, "COE Registration Date", htmlAttributes: new { @class = "control-label" })
+                                <div>
+                                    @{
+                                        var dt = "";
+                                        if (Model.COE_Issue_Date != null)
+                                        {
+                                            dt = Convert.ToDateTime(@Model.COE_Issue_Date).ToString(Eng360Web.Models.Utility.AppSettings.GetDateFormat());
+                                        }
+                                    }
+                                    @Html.EditorFor(model => model.COE_Issue_Date, new { htmlAttributes = new { @class = "form-control" , @Value = @dt } })
+                                    @Html.ValidationMessageFor(model => model.COE_Issue_Date, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                @Html.LabelFor(model => model.COE_Expiry_Date, "COE Expiry Date", htmlAttributes: new { @class = "control-label" })
+                                <div>
+                                    @{
+                                        dt = "";
+                                        if (Model.COE_Expiry_Date != null)
+                                        {
+                                            dt = Convert.ToDateTime(@Model.COE_Expiry_Date).ToString(Eng360Web.Models.Utility.AppSettings.GetDateFormat());
+                                        }
+                                    }
+                                    @Html.EditorFor(model => model.COE_Expiry_Date, new { htmlAttributes = new { @class = "form-control", @Value = @dt } })
+                                    @Html.ValidationMessageFor(model => model.COE_Expiry_Date, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-4">
+                                @Html.LabelFor(model => model.RoadTax_Regn_Number, "Road Tax Registration Number", htmlAttributes: new { @class = "control-label" })
+                                <div>                                    
+                                    @Html.EditorFor(model => model.RoadTax_Regn_Number, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.RoadTax_Regn_Number, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                @Html.LabelFor(model => model.RoadTax_Issue_Date, "Road Tax Registration Date", htmlAttributes: new { @class = "control-label" })
+                                <div>
+                                    @{
+                                        dt = "";
+                                        if (Model.RoadTax_Issue_Date != null)
+                                        {
+                                            dt = Convert.ToDateTime(@Model.RoadTax_Issue_Date).ToString(Eng360Web.Models.Utility.AppSettings.GetDateFormat());
+                                        }
+                                    }
+                                    @Html.EditorFor(model => model.RoadTax_Issue_Date, new { htmlAttributes = new { @class = "form-control", @Value=@dt } })
+                                    @Html.ValidationMessageFor(model => model.RoadTax_Issue_Date, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                @Html.LabelFor(model => model.RoadTax_Expiry_Date, "Road Tax Expiry Date", htmlAttributes: new { @class = "control-label" })
+                                <div>
+                                    @{
+                                        dt = "";
+                                        if (Model.RoadTax_Expiry_Date != null)
+                                        {
+                                            dt = Convert.ToDateTime(@Model.RoadTax_Expiry_Date).ToString(Eng360Web.Models.Utility.AppSettings.GetDateFormat());
+                                        }
+                                    }
+                                    @Html.EditorFor(model => model.RoadTax_Expiry_Date, new { htmlAttributes = new { @class = "form-control", @Value=@dt } })
+                                    @Html.ValidationMessageFor(model => model.RoadTax_Expiry_Date, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                @Html.LabelFor(model => model.Insurance_Company, "Insurance Company", htmlAttributes: new { @class = "control-label" })
+                                <div>
+                                    @Html.EditorFor(model => model.Insurance_Company, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Insurance_Company, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                @Html.LabelFor(model => model.Insurance_Policy_Number, "Insurance Number", htmlAttributes: new { @class = "control-label" })
+                                <div>
+                                    @Html.EditorFor(model => model.Insurance_Policy_Number, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Insurance_Policy_Number, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                @Html.LabelFor(model => model.Insurance_Issue_Date, "Insurance Date", htmlAttributes: new { @class = "control-label" })
+                                <div>
+                                    @{
+                                        dt = "";
+                                        if (Model.Insurance_Issue_Date != null)
+                                        {
+                                            dt = Convert.ToDateTime(@Model.Insurance_Issue_Date).ToString(Eng360Web.Models.Utility.AppSettings.GetDateFormat());
+                                        }
+                                    }
+                                    @Html.EditorFor(model => model.Insurance_Issue_Date, new { htmlAttributes = new { @class = "form-control", @Value=@dt } })
+                                    @Html.ValidationMessageFor(model => model.Insurance_Issue_Date, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                @Html.LabelFor(model => model.Insurance_Expiry_Date, "Insurance Expiry Date", htmlAttributes: new { @class = "control-label" })
+                                <div>
+                                    @{
+                                        dt = "";
+                                        if (Model.Insurance_Expiry_Date != null)
+                                        {
+                                            dt = Convert.ToDateTime(@Model.Insurance_Expiry_Date).ToString(Eng360Web.Models.Utility.AppSettings.GetDateFormat());
+                                        }
+                                    }
+                                    @Html.EditorFor(model => model.Insurance_Expiry_Date, new { htmlAttributes = new { @class = "form-control", @Value=@dt } })
+                                    @Html.ValidationMessageFor(model => model.Insurance_Expiry_Date, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                @Html.LabelFor(model => model.Vehicle_Inspection_Date, "Inspection Date", htmlAttributes: new { @class = "control-label" })
+                                <div>
+                                    @{
+                                        dt = "";
+                                        if (Model.Vehicle_Inspection_Date != null)
+                                        {
+                                            dt = Convert.ToDateTime(@Model.Vehicle_Inspection_Date).ToString(Eng360Web.Models.Utility.AppSettings.GetDateFormat());
+                                        }
+                                    }
+                                    @Html.EditorFor(model => model.Vehicle_Inspection_Date, new { htmlAttributes = new { @class = "form-control", @Value=@dt } })
+                                    @Html.ValidationMessageFor(model => model.Vehicle_Inspection_Date, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                @Html.LabelFor(model => model.Inspection_Due_Date, "Inspection Due Date", htmlAttributes: new { @class = "control-label" })
+                                <div>
+                                    @{
+                                        dt = "";
+                                        if (Model.Inspection_Due_Date != null)
+                                        {
+                                            dt = Convert.ToDateTime(@Model.Inspection_Due_Date).ToString(Eng360Web.Models.Utility.AppSettings.GetDateFormat());
+                                        }
+                                    }
+                                    @Html.EditorFor(model => model.Inspection_Due_Date, new { htmlAttributes = new { @class = "form-control", @Value=@dt } })
+                                    @Html.ValidationMessageFor(model => model.Inspection_Due_Date, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                @Html.LabelFor(model => model.AgreementNumber, "Agreement Number", htmlAttributes: new { @class = "control-label" })
+                                <div>
+                                    @Html.EditorFor(model => model.AgreementNumber, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.AgreementNumber, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    @Html.LabelFor(model => model.Remarks, htmlAttributes: new { @class = "control-label" })
+                                    <div>
+                                        @Html.EditorFor(model => model.Remarks, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Remarks, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+
+                        
+                        <div class="modal-footer">
+                            <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+
+                            <button type="button" id="create-vehicle-dialog-Edit" class="btn btn-primary">Save</button>
+
+                        </div>
+
+
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+
+        $('#COE_Issue_Date').datetimepicker({ format: 'DD/MM/YYYY' });
+        $('#COE_Expiry_Date').datetimepicker({ format: 'DD/MM/YYYY' });
+        $('#RoadTax_Issue_Date').datetimepicker({ format: 'DD/MM/YYYY' });
+        $('#RoadTax_Expiry_Date').datetimepicker({ format: 'DD/MM/YYYY' });
+        $('#Insurance_Issue_Date').datetimepicker({ format: 'DD/MM/YYYY' });
+        $('#Insurance_Expiry_Date').datetimepicker({ format: 'DD/MM/YYYY' });
+        $('#Vehicle_Inspection_Date').datetimepicker({ format: 'DD/MM/YYYY' });
+        $('#Inspection_Due_Date').datetimepicker({ format: 'DD/MM/YYYY' });
+
+
+    });
+
+    $("form").removeData("validator");
+    $("form").removeData("unobtrusiveValidation");
+    $.validator.unobtrusive.parse("form");
+
+    function InputToUpper(obj) {
+        if (obj.value != "") {
+            obj.value = obj.value.toUpperCase();
+        }
+    }
+</script>

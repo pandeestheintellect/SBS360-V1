@@ -1,0 +1,2271 @@
+/*!
+   * Start Bootstrap - SB Admin 2 v3.3.7+1 (http://startbootstrap.com/template-overviews/sb-admin-2)
+   * Copyright 2013-2016 Start Bootstrap
+   * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
+   */
+
+body {
+    /*background-color: #4eb1ba;*/
+    /* background-color: #d63f3b; */
+  	background-color: #fafafa;
+    font-family: 'Poppins-Regular', Arial, Helvetica, sans-serif;
+	
+}
+
+
+/*//////////////////////////////////////////////////////////////////
+  [ FONT ]*/
+
+@font-face {
+    font-family: Poppins-Regular;
+    src: url('font/poppins/Poppins-Regular.ttf');
+}
+
+@font-face {
+    font-family: Poppins-Medium;
+    src: url('font/poppins/Poppins-Medium.ttf');
+}
+
+@font-face {
+    font-family: Poppins-Bold;
+    src: url('font/poppins/Poppins-Bold.ttf');
+}
+
+@font-face {
+    font-family: Poppins-SemiBold;
+    src: url('font/poppins/Poppins-SemiBold.ttf');
+}
+
+#wrapper {
+    width: 100%;
+}
+
+#page-wrapper {
+    padding: 0 15px;
+    min-height: 568px;
+    background-color: white;
+}
+
+@media (min-width: 768px) {
+    #page-wrapper {
+        position: inherit;
+        margin: 0 0 0 250px;
+        padding: 30px;
+    }
+}
+
+.navbar-top-links {
+    margin-right: 0;
+}
+
+    .navbar-top-links li {
+        display: inline-block;
+    }
+
+        .navbar-top-links li:last-child {
+            margin-right: 15px;
+            margin-top: 10px;
+        }
+
+        .navbar-top-links li a {
+            padding: 15px;
+            min-height: 50px;
+        }
+
+    .navbar-top-links .dropdown-menu li {
+        display: block;
+    }
+
+        .navbar-top-links .dropdown-menu li:last-child {
+            margin-right: 0;
+        }
+
+        .navbar-top-links .dropdown-menu li a {
+            padding: 3px 20px;
+            min-height: 0;
+			color:#2a3f6d;
+        }
+
+            .navbar-top-links .dropdown-menu li a:hover, .navbar-top-links .dropdown-menu li a:focus {
+                /* background: #dc514d; */
+				background: #fafafa;
+            }
+
+            .navbar-top-links .dropdown-menu li a div {
+                white-space: normal;
+            }
+
+    .navbar-top-links .dropdown-messages,
+    .navbar-top-links .dropdown-tasks,
+    .navbar-top-links .dropdown-alerts {
+        width: 310px;
+        min-width: 0;
+    }
+
+    .navbar-top-links .dropdown-messages {
+        margin-left: 5px;
+    }
+
+    .navbar-top-links .dropdown-tasks {
+        margin-left: -59px;
+    }
+
+    .navbar-top-links .dropdown-alerts {
+        margin-left: -123px;
+    }
+
+    .navbar-top-links .dropdown-user {
+        right: 0;
+        left: auto;
+    }
+
+.sidebar .sidebar-nav.navbar-collapse {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.sidebar .sidebar-search {
+    padding: 15px;
+}
+
+.sidebar ul li {
+     border-bottom: 1px solid #536489; 
+}
+
+    .sidebar ul li a.active {
+        background-color: #536489;
+    }
+
+.sidebar .arrow {
+    float: right;
+    font-size: 16px;
+}
+
+.sidebar .fa.arrow:before {
+    content: "\f104";
+}
+
+.sidebar .active > a > .fa.arrow:before {
+    content: "\f107";
+}
+
+.sidebar .nav-second-level li,
+.sidebar .nav-third-level li {
+    border-bottom: none !important;
+}
+
+    .sidebar .nav-second-level li a {
+        padding-left: 37px;
+    }
+
+    .sidebar .nav-third-level li a {
+        padding-left: 52px;
+    }
+
+@media (min-width: 768px) {
+    .sidebar {
+        z-index: 1;
+        position: absolute;
+        width: 250px;
+        margin-top: 51px;
+        transition: all 0.2s ease-in-out;
+    }
+
+    body.mini-sidebar .sidebar {
+        width: 60px;
+    }
+
+        body.mini-sidebar .sidebar #side-menu li a span {
+            display: none;
+        }
+
+        body.mini-sidebar .sidebar ul li .nav-second-level {
+            display: none;
+        }
+
+    body.mini-sidebar #page-wrapper {
+        margin: 0 0 0 60px;
+    }
+
+    body.mini-sidebar .navbar-default a.navbar-brand {
+        font-size: 8px;
+    }
+
+    body.mini-sidebar .navbar-default .navbar-header .navbar-brand a#toggleBtn {
+        padding-left: 0;
+    }
+
+    .navbar-top-links .dropdown-messages,
+    .navbar-top-links .dropdown-tasks,
+    .navbar-top-links .dropdown-alerts {
+        margin-left: auto;
+    }
+}
+
+.btn-outline {
+    color: inherit;
+    background-color: transparent;
+    transition: all .5s;
+}
+
+.btn-primary.btn-outline {
+    color: #428bca;
+}
+
+.btn-success.btn-outline {
+    color: #5cb85c;
+}
+
+.btn-info.btn-outline {
+    color: #5bc0de;
+}
+
+.btn-warning.btn-outline {
+    color: #f0ad4e;
+}
+
+.btn-danger.btn-outline {
+    color: #d9534f;
+}
+
+    .btn-primary.btn-outline:hover,
+    .btn-success.btn-outline:hover,
+    .btn-info.btn-outline:hover,
+    .btn-warning.btn-outline:hover,
+    .btn-danger.btn-outline:hover {
+        color: white;
+    }
+
+.chat {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+    .chat li {
+        margin-bottom: 10px;
+        padding-bottom: 5px;
+        border-bottom: 1px dotted #999999;
+    }
+
+        .chat li.left .chat-body {
+            margin-left: 60px;
+        }
+
+        .chat li.right .chat-body {
+            margin-right: 60px;
+        }
+
+        .chat li .chat-body p {
+            margin: 0;
+        }
+
+    .panel .slidedown .glyphicon,
+    .chat .glyphicon {
+        margin-right: 5px;
+    }
+
+.chat-panel .panel-body {
+    overflow-y: scroll;
+}
+
+.login-panel {
+    margin-top: 25%;
+}
+
+.flot-chart {
+    display: block;
+    height: 400px;
+}
+
+.flot-chart-content {
+    width: 100%;
+    height: 100%;
+}
+
+table.dataTable thead .sorting,
+table.dataTable thead .sorting_asc,
+table.dataTable thead .sorting_desc,
+table.dataTable thead .sorting_asc_disabled,
+table.dataTable thead .sorting_desc_disabled {
+    background: transparent;
+}
+
+    table.dataTable thead .sorting_asc:after {
+        content: "\f0de";
+        float: right;
+        font-family: fontawesome;
+    }
+
+    table.dataTable thead .sorting_desc:after {
+        content: "\f0dd";
+        float: right;
+        font-family: fontawesome;
+    }
+
+    table.dataTable thead .sorting:after {
+        content: "\f0dc";
+        float: right;
+        font-family: fontawesome;
+        color: rgba(50, 50, 50, 0.5);
+    }
+
+.btn-circle {
+    width: 30px;
+    height: 30px;
+    padding: 6px 0;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.428571429;
+}
+
+    .btn-circle.btn-lg {
+        width: 50px;
+        height: 50px;
+        padding: 10px 16px;
+        border-radius: 25px;
+        font-size: 18px;
+        line-height: 1.33;
+    }
+
+    .btn-circle.btn-xl {
+        width: 70px;
+        height: 70px;
+        padding: 10px 16px;
+        border-radius: 35px;
+        font-size: 24px;
+        line-height: 1.33;
+    }
+
+.show-grid [class^="col-"] {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 1px solid #ddd;
+    background-color: #eee !important;
+}
+
+.show-grid {
+    margin: 15px 0;
+}
+
+.huge {
+    font-size: 40px;
+    line-height: 45px;
+}
+
+.panel-green {
+    border-color: #5cb85c;
+}
+
+    .panel-green > .panel-heading {
+        border-color: #5cb85c;
+        color: white;
+        background-color: #5cb85c;
+    }
+
+    .panel-green > a {
+        color: #5cb85c;
+    }
+
+        .panel-green > a:hover {
+            color: #3d8b3d;
+        }
+
+.panel-red {
+    border-color: #d9534f;
+}
+
+    .panel-red > .panel-heading {
+        border-color: #d9534f;
+        color: white;
+        background-color: #d9534f;
+    }
+
+    .panel-red > a {
+        color: #d9534f;
+    }
+
+        .panel-red > a:hover {
+            color: #b52b27;
+        }
+
+.panel-yellow {
+    border-color: #f0ad4e;
+}
+
+    .panel-yellow > .panel-heading {
+        border-color: #f0ad4e;
+        color: white;
+        background-color: #f0ad4e;
+    }
+
+    .panel-yellow > a {
+        color: #f0ad4e;
+    }
+
+        .panel-yellow > a:hover {
+            color: #df8a13;
+        }
+
+.timeline {
+    position: relative;
+    padding: 20px 0 20px;
+    list-style: none;
+}
+
+    .timeline:before {
+        content: " ";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        width: 3px;
+        margin-left: -1.5px;
+        background-color: #eeeeee;
+    }
+
+    .timeline > li {
+        position: relative;
+        margin-bottom: 20px;
+    }
+
+        .timeline > li:before,
+        .timeline > li:after {
+            content: " ";
+            display: table;
+        }
+
+        .timeline > li:after {
+            clear: both;
+        }
+
+        .timeline > li:before,
+        .timeline > li:after {
+            content: " ";
+            display: table;
+        }
+
+        .timeline > li:after {
+            clear: both;
+        }
+
+        .timeline > li > .timeline-panel {
+            float: left;
+            position: relative;
+            width: 46%;
+            padding: 20px;
+            border: 1px solid #d4d4d4;
+            border-radius: 2px;
+            -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
+            box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
+        }
+
+            .timeline > li > .timeline-panel:before {
+                content: " ";
+                display: inline-block;
+                position: absolute;
+                top: 26px;
+                right: -15px;
+                border-top: 15px solid transparent;
+                border-right: 0 solid #ccc;
+                border-bottom: 15px solid transparent;
+                border-left: 15px solid #ccc;
+            }
+
+            .timeline > li > .timeline-panel:after {
+                content: " ";
+                display: inline-block;
+                position: absolute;
+                top: 27px;
+                right: -14px;
+                border-top: 14px solid transparent;
+                border-right: 0 solid #fff;
+                border-bottom: 14px solid transparent;
+                border-left: 14px solid #fff;
+            }
+
+        .timeline > li > .timeline-badge {
+            z-index: 100;
+            position: absolute;
+            top: 16px;
+            left: 50%;
+            width: 50px;
+            height: 50px;
+            margin-left: -25px;
+            border-radius: 50% 50% 50% 50%;
+            text-align: center;
+            font-size: 1.4em;
+            line-height: 50px;
+            color: #fff;
+            background-color: #999999;
+        }
+
+        .timeline > li.timeline-inverted > .timeline-panel {
+            float: right;
+        }
+
+            .timeline > li.timeline-inverted > .timeline-panel:before {
+                right: auto;
+                left: -15px;
+                border-right-width: 15px;
+                border-left-width: 0;
+            }
+
+            .timeline > li.timeline-inverted > .timeline-panel:after {
+                right: auto;
+                left: -14px;
+                border-right-width: 14px;
+                border-left-width: 0;
+            }
+
+.timeline-badge.primary {
+    background-color: #2e6da4 !important;
+}
+
+.timeline-badge.success {
+    background-color: #3f903f !important;
+}
+
+.timeline-badge.warning {
+    background-color: #f0ad4e !important;
+}
+
+.timeline-badge.danger {
+    background-color: #d9534f !important;
+}
+
+.timeline-badge.info {
+    background-color: #5bc0de !important;
+}
+
+.timeline-title {
+    margin-top: 0;
+    color: inherit;
+}
+
+.timeline-body > p,
+.timeline-body > ul {
+    margin-bottom: 0;
+}
+
+    .timeline-body > p + p {
+        margin-top: 5px;
+    }
+
+@media (max-width: 767px) {
+    ul.timeline:before {
+        left: 40px;
+    }
+
+    ul.timeline > li > .timeline-panel {
+        width: calc(10%);
+        width: -moz-calc(10%);
+        width: -webkit-calc(10%);
+    }
+
+    ul.timeline > li > .timeline-badge {
+        top: 16px;
+        left: 15px;
+        margin-left: 0;
+    }
+
+    ul.timeline > li > .timeline-panel {
+        float: right;
+    }
+
+        ul.timeline > li > .timeline-panel:before {
+            right: auto;
+            left: -15px;
+            border-right-width: 15px;
+            border-left-width: 0;
+        }
+
+        ul.timeline > li > .timeline-panel:after {
+            right: auto;
+            left: -14px;
+            border-right-width: 14px;
+            border-left-width: 0;
+        }
+}
+
+.loading-img {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1020;
+    background: transparent url('./img/ajax-loader1.gif') 50% 50% no-repeat;
+}
+
+.overlay {
+    z-index: 1060 !important;
+}
+
+.paginate_button a {
+    color: #000 !important;
+}
+
+.navbar-default {
+    background-color: #fafafa !important;
+    border-color: #fafafa !important;
+}
+
+    .navbar-default .navbar-header .navbar-brand a {
+        padding-left: 35px;
+        color: #2a3f6d;
+    }
+
+    .navbar-default a.navbar-brand {
+        padding: 0;
+        text-align:right;
+    }
+
+        .navbar-default a.navbar-brand span img {
+            width: 80%;
+            padding: 10px 0 10px 10px;
+        }
+
+body.mini-sidebar .navbar-default a.navbar-brand {
+    width: 75px;
+}
+
+    body.mini-sidebar .navbar-default a.navbar-brand span img {
+        width: 100%;
+        padding: 17px 10px 10px
+    }
+
+body.mini-sidebar .navbar-default div.navbar-brand {
+    margin: 5px 0 0 0;
+}
+
+.add-description{
+	background: #6f9dcd !important;
+    border-radius: 50px !important;
+}
+
+.navbar-default div.navbar-brand {
+    margin: 10px 0 0 0;
+}
+
+#page-wrapper .panel {
+    border-radius: 0;
+    border: 0;
+}
+
+    #page-wrapper .panel .panel-heading {
+        padding: 0;
+        border-radius: 0;
+    }
+
+        #page-wrapper .panel .panel-heading .row {
+            padding: 15px 20px;
+        }
+
+        #page-wrapper .panel .panel-heading .small-box-footer {
+            position: relative;
+            text-align: center;
+            padding: 5px 0;
+            color: #fff;
+            color: rgba(255, 255, 255, 0.8);
+            display: block;
+            z-index: 10;
+            background: rgba(0, 0, 0, 0.1);
+            text-decoration: none;
+        }
+
+            #page-wrapper .panel .panel-heading .small-box-footer i.fa {
+                padding-left: 10px;
+            }
+
+        #page-wrapper .panel .panel-heading .text-right {
+            font-size: 18px;
+        }
+
+            #page-wrapper .panel .panel-heading .text-right .huge {
+                font-family: Poppins-Bold;
+            }
+
+        #page-wrapper .panel .panel-heading.blue {
+            background-color: #4eb1ba;
+            border: 0;
+        }
+
+        #page-wrapper .panel .panel-heading.green {
+            background-color: #4eb1ba;
+        }
+
+        #page-wrapper .panel .panel-heading.yellow {
+            background-color: #4eb1ba;
+        }
+
+        #page-wrapper .panel .panel-heading.red {
+            background-color: #4eb1ba;
+        }
+
+
+.dropdown-toggle a:hover,
+.dropdown-toggle a:focus,
+.dropdown.open a.dropdown-toggle,
+.dropdown.open .dropdown-toggle a:hover,
+.dropdown.open .dropdown-toggle a:focus {
+    background-color: #fafafa !important;
+	color: #2a3f6d !important;
+}
+
+#side-menu li a {
+    font-size: 13px;
+    padding: 15px 15px !important;
+    transition: all 0.2s ease-in-out 0s;
+}
+
+    #side-menu li a:hover,
+    #side-menu li a:focus {
+        text-decoration: none;
+        background-color: #fafafa;
+        color: #2a3f6d;
+    }
+
+#side-menu li ul.nav-second-level li a {
+    padding: 10px 35px !important;
+}
+
+#side-menu li i.fa {
+    margin-right: 5px;
+}
+
+/*.table-container .panel {
+  max-height: 300px;
+}*/
+
+.table-container .panel .panel-heading {
+    text-align: center;
+    padding: 15px 0 !important;
+}
+
+    .table-container .panel .panel-heading .title {
+        font-size: 20px;
+        color: #fff;
+        font-weight: bolder;
+    }
+
+        .table-container .panel .panel-heading .title .fa {
+            margin-right: 10px;
+        }
+
+.table-container .panel .panel-body {
+    padding: 0 !important;
+}
+
+    .table-container .panel .panel-body .dataTables_wrapper .table.table-bordered {
+        margin-top: 0 !important;
+    }
+
+        .table-container .panel .panel-body .dataTables_wrapper .table.table-bordered tbody td {
+            padding-left: 16px;
+        }
+
+    .table-container .panel .panel-body .dataTables_wrapper table.dataTable thead .sorting:after {
+        opacity: 0.8;
+        content: "\e150";
+        -webkit-text-fill-color: #fff;
+        font-size: 12px;
+        top: 9px;
+    }
+
+    .table-container .panel .panel-body .dataTables_wrapper .table-bordered > tbody > tr:nth-child(even) > td,
+    .table-container .panel .panel-body .dataTables_wrapper .table-bordered > tbody > tr:nth-child(even) > th {
+        background-color: #f5f5f5;
+    }
+
+.table-container .panel .panel-heading.green,
+.table-container .tablehead.green {
+    background-color: #4eb1ba !important;
+}
+
+.table-container .panel .panel-heading.blue,
+.table-container .tablehead.blue {
+    background-color: #4eb1ba !important;
+}
+
+.table-container .panel .panel-heading.darkblue,
+.table-container .tablehead.darkblue {
+    background-color: #4eb1ba !important;
+}
+
+.table-container .panel .panel-heading.orange,
+.table-container .tablehead.orange {
+    background-color: #4eb1ba !important;
+}
+
+.table-container .panel .panel-heading.compblue,
+.table-container .tablehead.compblue {
+    background-color: #4eb1ba !important;
+}
+
+.table-container .panel .panel-heading.pink,
+.table-container .tablehead.pink {
+    background-color: #4eb1ba !important;
+}
+
+.table-container .tablehead {
+    color: white;
+    font-size: 14px;
+}
+
+.table-wrapper {
+    background: #eee;
+    padding: 20px 20px 1px 20px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+}
+
+#DBDHREmpTable_filter.dataTables_filter {
+    border-left: 1px solid #dddddd;
+    border-right: 1px solid #dddddd;
+    margin: 0;
+}
+
+.inner-page--container .panel,
+.panel-expanded.panel,
+.panel-unpin.panel {
+    margin-bottom: 0;
+    box-shadow: none;
+}
+
+    .inner-page--container .panel .panel-heading,
+    .panel-expanded.panel .panel-heading,
+    .panel-unpin.panel .panel-heading {
+        background: #536489;
+        color: #fff;
+        font-size: 20px;
+        padding: 10px 15px !important;
+        margin-bottom: 20px;
+    }
+
+    .inner-page--container .panel .panel-body,
+    .panel-expanded.panel .panel-body,
+    .panel-unpin.panel .panel-body {
+        padding: 0;
+    }
+
+.inner-page--container .modal-footer,
+.panel-expanded .modal-footer,
+.panel-unpin .modal-footer {
+    border-top: 0;
+    padding: 0;
+}
+
+.inner-page--container .panel .panel-body .dataTables_wrapper .dataTables_filter
+.panel-expanded.panel .panel-body .dataTables_wrapper .dataTables_filter,
+.panel-unpin.panel .panel-body .dataTables_wrapper .dataTables_filter {
+    margin-bottom: 15px;
+}
+
+.inner-page--container .panel .panel-body .dataTables_wrapper .table.dataTable thead th,
+.panel-expanded.panel .panel-body .dataTables_wrapper .table.dataTable thead th,
+.panel-unpin.panel .panel-body .dataTables_wrapper .table.dataTable thead th,
+#create-ProjectSelection-dialog-container .modal-body #tableCreateProject_wrapper thead th {
+    background: #536489;
+    color: #fff;
+    padding: 10px 15px;
+}
+
+.inner-page--container .panel .panel-body .dataTables_wrapper table.dataTable thead th.sorting_asc:after,
+.inner-page--container .panel .panel-body .dataTables_wrapper table.dataTable thead th.sorting_dsc:after,
+.inner-page--container .panel .panel-body .dataTables_wrapper table.dataTable thead th.sorting:after,
+.panel-expanded.panel.panel-body .dataTables_wrapper table.dataTable thead th.sorting_asc:after,
+.panel-expanded.panel .panel-body .dataTables_wrapper table.dataTable thead th.sorting_dsc:after,
+.panel-expanded.panel .panel-body .dataTables_wrapper table.dataTable thead th.sorting:after,
+.panel-unpin.panel.panel-body .dataTables_wrapper table.dataTable thead th.sorting_asc:after,
+.panel-unpin.panel .panel-body .dataTables_wrapper table.dataTable thead th.sorting_dsc:after,
+.panel-unpin.panel .panel-body .dataTables_wrapper table.dataTable thead th.sorting:after {
+    opacity: 0.8 !important;
+    top: 9px;
+    color: #fff;
+}
+
+.inner-page--container .panel .panel-body .dataTables_wrapper table.dataTable tbody td,
+.panel-expanded.panel .panel-body .dataTables_wrapper table.dataTable tbody td,
+.panel-unpin.panel .panel-body .dataTables_wrapper table.dataTable tbody td {
+    vertical-align: middle;
+    padding: 10px 15px;
+}
+
+    .inner-page--container .panel .panel-body .dataTables_wrapper table.dataTable tbody td a.btn,
+    .panel-expanded.panel .panel-body .dataTables_wrapper table.dataTable tbody td a.btn,
+    .panel-unpin.panel .panel-body .dataTables_wrapper table.dataTable tbody td a.btn {
+        padding: 5px 8px 5px 0;
+    }
+
+        .inner-page--container .panel .panel-body .dataTables_wrapper table.dataTable tbody td a.btn .fa,
+        .panel-expanded.panel .panel-body .dataTables_wrapper table.dataTable tbody td a.btn .fa,
+        .panel-unpin.panel .panel-body .dataTables_wrapper table.dataTable tbody td a.btn .fa {
+            font-size: 18px;
+            color: #fff;
+            top: 1px;
+            position: relative;
+        }
+
+            .inner-page--container .panel .panel-body .dataTables_wrapper table.dataTable tbody td a.btn .fa.action-pencil,
+            .panel-expanded.panel .panel-body .dataTables_wrapper table.dataTable tbody td a.btn .fa.action-pencil,
+            .panel-unpin.panel .panel-body .dataTables_wrapper table.dataTable tbody td a.btn .fa.action-pencil {
+                color: #28D094;
+            }
+
+            .inner-page--container .panel .panel-body .dataTables_wrapper table.dataTable tbody td a.btn .fa.action-search,
+            .panel-expanded.panel .panel-body .dataTables_wrapper table.dataTable tbody td a.btn .fa.action-search,
+            .panel-unpin.panel .panel-body .dataTables_wrapper table.dataTable tbody td a.btn .fa.action-search {
+                color: #1E9FF2;
+            }
+
+            .inner-page--container .panel .panel-body .dataTables_wrapper table.dataTable tbody td a.btn .fa.action-trash,
+            .panel-expanded.panel .panel-body .dataTables_wrapper table.dataTable tbody td a.btn .fa.action-trash,
+            .panel-unpin.panel .panel-body .dataTables_wrapper table.dataTable tbody td a.btn .fa.action-trash {
+                color: #FF4961;
+            }
+
+            .inner-page--container .panel .panel-body .dataTables_wrapper table.dataTable tbody td a.btn .fa.action-print,
+            .panel-expanded.panel .panel-body .dataTables_wrapper table.dataTable tbody td a.btn .fa.action-print,
+            .panel-unpin.panel .panel-body .dataTables_wrapper table.dataTable tbody td a.btn .fa.action-print {
+                color: #6B6F82;
+            }
+
+            .inner-page--container .panel .panel-body .dataTables_wrapper table.dataTable tbody td a.btn .fa.action-do-view,
+            .panel-expanded.panel .panel-body .dataTables_wrapper table.dataTable tbody td a.btn .fa.action-do-view,
+            .panel-unpin.panel .panel-body .dataTables_wrapper table.dataTable tbody td a.btn .fa.action-do-view {
+                color: #742C27;
+            }
+
+            .inner-page--container .panel .panel-body .dataTables_wrapper table.dataTable tbody td a.btn .fa.action-do-print,
+            .panel-expanded.panel .panel-body .dataTables_wrapper table.dataTable tbody td a.btn .fa.action-do-print,
+            .panel-unpin.panel .panel-body .dataTables_wrapper table.dataTable tbody td a.btn .fa.action-do-print {
+                color: #0e9aa7;
+            }
+
+            .inner-page--container .panel .panel-body .dataTables_wrapper table.dataTable tbody td a.btn .fa.action-invoice,
+            .panel-expanded.panel .panel-body .dataTables_wrapper table.dataTable tbody td a.btn .fa.action-invoice,
+            .panel-unpin.panel .panel-body .dataTables_wrapper table.dataTable tbody td a.btn .fa.action-invoice {
+                color: #AB47BC;
+            }
+
+            .inner-page--container .panel .panel-body .dataTables_wrapper table.dataTable tbody td a.btn .fa.action-create,
+            .panel-expanded.panel .panel-body .dataTables_wrapper table.dataTable tbody td a.btn .fa.action-create,
+            .panel-unpin.panel .panel-body .dataTables_wrapper table.dataTable tbody td a.btn .fa.action-create {
+                color: #0B3A29;
+            }
+
+            .inner-page--container .panel .panel-body .dataTables_wrapper table.dataTable tbody td a.btn .fa.action-wc,
+            .panel-expanded.panel .panel-body .dataTables_wrapper table.dataTable tbody td a.btn .fa.action-wc,
+            .panel-unpin.panel .panel-body .dataTables_wrapper table.dataTable tbody td a.btn .fa.action-wc {
+                color: #FF9149;
+            }
+
+            .inner-page--container .panel .panel-body .dataTables_wrapper table.dataTable tbody td a.btn .fa.action-dollar,
+            .panel-expanded.panel .panel-body .dataTables_wrapper table.dataTable tbody td a.btn .fa.action-dollar,
+            .panel-unpin.panel .panel-body .dataTables_wrapper table.dataTable tbody td a.btn .fa.action-dollar {
+                color: #963B00;
+            }
+
+            .inner-page--container .panel .panel-body .dataTables_wrapper table.dataTable tbody td a.btn .fa.action-submit,
+            .panel-expanded.panel .panel-body .dataTables_wrapper table.dataTable tbody td a.btn .fa.action-submit,
+            .panel-unpin.panel .panel-body .dataTables_wrapper table.dataTable tbody td a.btn .fa.action-submit {
+                color: #A4A9F1;
+            }
+
+            .inner-page--container .panel .panel-body .dataTables_wrapper table.dataTable tbody td a.btn .fa.action-view-project,
+            .panel-expanded.panel .panel-body .dataTables_wrapper table.dataTable tbody td a.btn .fa.action-view-project,
+            .panel-unpin.panel .panel-body .dataTables_wrapper table.dataTable tbody td a.btn .fa.action-view-project {
+                color: #960014;
+            }
+
+            .inner-page--container .panel .panel-body .dataTables_wrapper table.dataTable tbody td a.btn .fa.action-Revise-quo,
+            .panel-expanded.panel .panel-body .dataTables_wrapper table.dataTable tbody td a.btn .fa.action-Revise-quo,
+            .panel-unpin.panel .panel-body .dataTables_wrapper table.dataTable tbody td a.btn .fa.action-Revise-quo {
+                color: #455A64;
+            }
+
+            .inner-page--container .panel .panel-body .dataTables_wrapper table.dataTable tbody td a.btn .fa.action-submit,
+            .panel-expanded.panel .panel-body .dataTables_wrapper table.dataTable tbody td a.btn .fa.action-submit,
+            .panel-unpin.panel .panel-body .dataTables_wrapper table.dataTable tbody td a.btn .fa.action-submit {
+                color: #AB47BC;
+            }
+
+            .inner-page--container .panel .panel-body .dataTables_wrapper table.dataTable tbody td a.btn .fa.action-View-pro,
+            .panel-expanded.panel .panel-body .dataTables_wrapper table.dataTable tbody td a.btn .fa.action-View-pro,
+            .panel-unpin.panel .panel-body .dataTables_wrapper table.dataTable tbody td a.btn .fa.action-View-pro {
+                color: #ff5588;
+            }
+
+            .inner-page--container .panel .panel-body .dataTables_wrapper table.dataTable tbody td a.btn .fa.action-mail,
+            .panel-expanded.panel .panel-body .dataTables_wrapper table.dataTable tbody td a.btn .fa.action-mail,
+            .panel-unpin.panel .panel-body .dataTables_wrapper table.dataTable tbody td a.btn .fa.action-mail {
+                color: #2979FF;
+            }
+
+            .inner-page--container .panel .panel-body .dataTables_wrapper table.dataTable tbody td a.btn .fa.action-ra-ev,
+            .panel-expanded.panel .panel-body .dataTables_wrapper table.dataTable tbody td a.btn .fa.action-ra-ev,
+            .panel-unpin.panel .panel-body .dataTables_wrapper table.dataTable tbody td a.btn .fa.action-ra-ev {
+                color: #c68642;
+            }
+
+            .inner-page--container .panel .panel-body .dataTables_wrapper table.dataTable tbody td a.btn .fa.action-add-dt,
+            .panel-expanded.panel .panel-body .dataTables_wrapper table.dataTable tbody td a.btn .fa.action-add-dt,
+            .panel-unpin.panel .panel-body .dataTables_wrapper table.dataTable tbody td a.btn .fa.action-add-dt {
+                color: #006064;
+            }
+
+            .inner-page--container .panel .panel-body .dataTables_wrapper table.dataTable tbody td a.btn .fa.action-ptw-rep,
+            .panel-expanded.panel .panel-body .dataTables_wrapper table.dataTable tbody td a.btn .fa.action-ptw-rep,
+            .panel-unpin.panel .panel-body .dataTables_wrapper table.dataTable tbody td a.btn .fa.action-ptw-rep {
+                color: #FF7E39;
+            }
+
+            .inner-page--container .panel .panel-body .dataTables_wrapper table.dataTable tbody td a.btn .fa.action-ptw,
+            .panel-expanded.panel .panel-body .dataTables_wrapper table.dataTable tbody td a.btn .fa.action-ptw,
+            .panel-unpin.panel .panel-body .dataTables_wrapper table.dataTable tbody td a.btn .fa.action-ptw {
+                color: #FFA264;
+            }
+
+            .inner-page--container .panel .panel-body .dataTables_wrapper table.dataTable tbody td a.btn .fa.action-ptw-rew,
+            .panel-expanded.panel .panel-body .dataTables_wrapper table.dataTable tbody td a.btn .fa.action-ptw-rew,
+            .panel-unpin.panel .panel-body .dataTables_wrapper table.dataTable tbody td a.btn .fa.action-ptw-rew {
+                color: #FFD600;
+            }
+
+.inner-page--container .panel .panel-body .dataTables_wrapper div.dt-buttons {
+    margin-bottom: 20px;
+}
+
+.panel-expanded.panel .panel-body .dataTables_wrapper div.dt-buttons,
+.panel-unpin.panel .panel-body .dataTables_wrapper div.dt-buttons {
+    margin-bottom: 20px;
+    margin-left: 15px;
+}
+
+.inner-page--container .panel .panel-body .dataTables_wrapper .dt-buttons .btn,
+.panel-expanded.panel .panel-body .dataTables_wrapper .dt-buttons .btn,
+.panel-unpin.panel .panel-body .dataTables_wrapper .dt-buttons .btn {
+    border-radius: 0;
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    position: relative;
+    -webkit-transition-property: color;
+    transition-property: color;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    border: 0;
+    padding: 10px 20px;
+    background: transparent;
+}
+
+    .inner-page--container .panel .panel-body .dataTables_wrapper .dt-buttons .btn:first-child,
+    .panel-expanded.panel .panel-body .dataTables_wrapper .dt-buttons .btn:first-child,
+    .panel-unpin.panel .panel-body .dataTables_wrapper .dt-buttons .btn:first-child {
+        border-radius: 50px 0 0 50px;
+    }
+
+    .inner-page--container .panel .panel-body .dataTables_wrapper .dt-buttons .btn:last-child,
+    .panel-expanded.panel .panel-body .dataTables_wrapper .dt-buttons .btn:last-child,
+    .panel-unpin.panel .panel-body .dataTables_wrapper .dt-buttons .btn:last-child {
+        border-radius: 0 50px 50px 0;
+    }
+
+    .inner-page--container .panel .panel-body .dataTables_wrapper .dt-buttons .btn.buttons-create,
+    .panel-expanded.panel .panel-body .dataTables_wrapper .dt-buttons .btn.buttons-create,
+    .panel-unpin.panel .panel-body .dataTables_wrapper .dt-buttons .btn.buttons-create {
+        background: #1976d2;
+    }
+
+    .inner-page--container .panel .panel-body .dataTables_wrapper .dt-buttons .btn.buttons-copy,
+    .panel-expanded.panel .panel-body .dataTables_wrapper .dt-buttons .btn.buttons-copy,
+    .panel-unpin.panel .panel-body .dataTables_wrapper .dt-buttons .btn.buttons-copy {
+        background: #00c0ef;
+    }
+
+    .inner-page--container .panel .panel-body .dataTables_wrapper .dt-buttons .btn.buttons-excel,
+    .panel-expanded.panel .panel-body .dataTables_wrapper .dt-buttons .btn.buttons-excel,
+    .panel-unpin.panel .panel-body .dataTables_wrapper .dt-buttons .btn.buttons-excel {
+        background: #388e3c;
+    }
+
+    .inner-page--container .panel .panel-body .dataTables_wrapper .dt-buttons .btn.buttons-csv,
+    .panel-expanded.panel .panel-body .dataTables_wrapper .dt-buttons .btn.buttons-csv,
+    .panel-unpin.panel .panel-body .dataTables_wrapper .dt-buttons .btn.buttons-csv {
+        background: #ffa000;
+    }
+
+    .inner-page--container .panel .panel-body .dataTables_wrapper .dt-buttons .btn.buttons-pdf,
+    .panel-expanded.panel .panel-body .dataTables_wrapper .dt-buttons .btn.buttons-pdf,
+    .panel-unpin.panel .panel-body .dataTables_wrapper .dt-buttons .btn.buttons-pdf {
+        border-right: 0;
+        background: #d32f2f;
+    }
+
+    .inner-page--container .panel .panel-body .dataTables_wrapper .dt-buttons .btn .fa,
+    .panel-expanded.panel .panel-body .dataTables_wrapper .dt-buttons .btn .fa,
+    .panel-unpin.panel .panel-body .dataTables_wrapper .dt-buttons .btn .fa {
+        font-size: 20px;
+        line-height: 24px;
+    }
+
+    .inner-page--container .panel .panel-body .dataTables_wrapper .dt-buttons .btn .fa-plus,
+    .panel-expanded.panel .panel-body .dataTables_wrapper .dt-buttons .btn .fa-plus,
+    .panel-unpin.panel .panel-body .dataTables_wrapper .dt-buttons .btn .fa-plus {
+        top: 2px;
+        position: relative;
+        left: 2px;
+    }
+
+.inner-page--container .panel .modal-footer .btn.btn-primary,
+.panel-expanded.panel .modal-footer .btn.btn-primary,
+.panel-unpin.panel .modal-footer .btn.btn-primary,
+.inner-page--container .modal-footer .btn.btn-primary,
+.panel-expanded .modal-footer .btn.btn-primary,
+.panel-unpin .modal-footer .btn.btn-primary,
+#create-PTW-dialog-container .panel .wizard > .actions > ul > li > a,
+.inner-page--container .panel .wizard > .actions > ul > li > a,
+.panel-expanded.panel .wizard > .actions > ul > li > a,
+.panel-unpin.panel .wizard > .actions > ul > li > a {
+    border-radius: 0;
+    margin-left: 10px;
+    background: #ea730c;
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    position: relative;
+    -webkit-transition-property: color;
+    transition-property: color;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    border: 0;
+    padding: 12px 25px;
+}
+
+#create-PTW-dialog-container .panel .wizard > .actions > ul > li.disabled > a,
+#create-PTW-dialog-container .panel .wizard > .actions > ul > li.disabled > a:before,
+.inner-page--container .panel .wizard > .actions > ul > li.disabled > a,
+.inner-page--container .panel .wizard > .actions > ul > li.disabled > a:before,
+.panel-expanded.panel .wizard > .actions > ul > li.disabled > a,
+.panel-unpin.panel .wizard > .actions > ul > li.disabled > a:before,
+.panel-unpin.panel .wizard > .actions > ul > li.disabled > a,
+.panel-unpin.panel .wizard > .actions > ul > li.disabled > a:before {
+    background: #eee !important;
+}
+
+.modal .modal-dialog .modal-content .panel .modal-footer .btn.btn-primary,
+.modal .modal-dialog .modal-content .modal-footer .btn.btn-primary,
+.inner-page--container.view .modal-footer .btn.btn-primary,
+#create-ProjectSelection-dialog-container .modal-footer .btn.btn-primary {
+    border-radius: 0;
+    background: #ea730c;
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    position: relative;
+    -webkit-transition-property: color;
+    transition-property: color;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    border: 0;
+    padding: 10px 20px;
+}
+
+    .inner-page--container .panel .panel-body .dataTables_wrapper .dt-buttons .btn:before,
+    .panel-expanded.panel .panel-body .dataTables_wrapper .dt-buttons .btn:before,
+    .panel-unpin.panel .panel-body .dataTables_wrapper .dt-buttons .btn:before,
+    .modal .modal-dialog .modal-content .panel .modal-footer .btn.btn-primary:before,
+    .modal .modal-dialog .modal-content .modal-footer .btn.btn-primary:before,
+    .inner-page--container .panel .modal-footer .btn.btn-primary:before,
+    .panel-expanded.panel .modal-footer .btn.btn-primary:before,
+    .panel-unpin.panel .modal-footer .btn.btn-primary:before,
+    .inner-page--container.view .modal-footer .btn.btn-primary:before,
+    #create-PTW-dialog-container .panel .wizard > .actions > ul > li > a:before,
+    .inner-page--container .panel .wizard > .actions > ul > li > a:before,
+    .panel-expanded.panel .wizard > .actions > ul > li > a:before,
+    .panel-unpin.panel .wizard > .actions > ul > li > a:before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        -webkit-transition-property: transform;
+        transition-property: transform;
+        -webkit-transition-duration: 0.3s;
+        transition-duration: 0.3s;
+        -webkit-transition-timing-function: ease-out;
+        transition-timing-function: ease-out;
+    }
+
+    .inner-page--container .panel .panel-body .dataTables_wrapper .dt-buttons .btn:hover:before,
+    .inner-page--container .panel .panel-body .dataTables_wrapper .dt-buttons .btn:focus:before,
+    .inner-page--container .panel .panel-body .dataTables_wrapper .dt-buttons .btn:active:before,
+    .panel-expanded.panel .panel-body .dataTables_wrapper .dt-buttons .btn:hover:before,
+    .panel-expanded.panel .panel-body .dataTables_wrapper .dt-buttons .btn:focus:before,
+    .panel-expanded.panel .panel-body .dataTables_wrapper .dt-buttons .btn:active:before,
+    .panel-unpin.panel .panel-body .dataTables_wrapper .dt-buttons .btn:hover:before,
+    .panel-unpin.panel .panel-body .dataTables_wrapper .dt-buttons .btn:focus:before,
+    .panel-unpin.panel .panel-body .dataTables_wrapper .dt-buttons .btn:active:before,
+    .modal .modal-dialog .modal-content .panel .modal-footer .btn.btn-primary:hover:before,
+    .modal .modal-dialog .modal-content .panel .modal-footer .btn.btn-primary:focus:before,
+    .modal .modal-dialog .modal-content .panel .modal-footer .btn.btn-primary:active:before,
+    .modal .modal-dialog .modal-content .modal-footer .btn.btn-primary:hover:before,
+    .modal .modal-dialog .modal-content .modal-footer .btn.btn-primary:focus:before,
+    .modal .modal-dialog .modal-content .modal-footer .btn.btn-primary:active:before,
+    .inner-page--container.view .modal-footer .btn.btn-primary:hover:before,
+    .inner-page--container.view .modal-footer .btn.btn-primary:focus:before,
+    .inner-page--container.view .modal-footer .btn.btn-primary:active:before,
+    .inner-page--container .panel .modal-footer .btn.btn-primary:hover:before,
+    .inner-page--container .panel .modal-footer .btn.btn-primary:focus:before,
+    .inner-page--container .panel .modal-footer .btn.btn-primary:active:before,
+    .panel-expanded.panel .modal-footer .btn.btn-primary:hover:before,
+    .panel-expanded.panel .modal-footer .btn.btn-primary:focus:before,
+    .panel-expanded.panel .modal-footer .btn.btn-primary:active:before,
+    .panel-unpin.panel .modal-footer .btn.btn-primary:hover:before,
+    .panel-unpin.panel .modal-footer .btn.btn-primary:focus:before,
+    .panel-unpin.panel .modal-footer .btn.btn-primary:active:before,
+    #create-PTW-dialog-container .panel .wizard > .actions > ul > li > a:hover:before,
+    #create-PTW-dialog-container .panel .wizard > .actions > ul > li > a:focus:before,
+    #create-PTW-dialog-container .panel .wizard > .actions > ul > li > a:active:before,
+    .inner-page--container .panel .wizard > .actions > ul > li > a:hover:before,
+    .inner-page--container .panel .wizard > .actions > ul > li > a:focus:before,
+    .inner-page--container .panel .wizard > .actions > ul > li > a:active:before,
+    .panel-expanded.panel .wizard > .actions > ul > li > a:hover:before,
+    .panel-expanded.panel .wizard > .actions > ul > li > a:focus:before,
+    .panel-expanded.panel .wizard > .actions > ul > li > a:active:before,
+    .panel-unpin.panel .wizard > .actions > ul > li > a:hover:before,
+    .panel-unpin.panel .wizard > .actions > ul > li > a:focus:before,
+    .panel-unpin.panel .wizard > .actions > ul > li > a:active:before {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+
+.inner-page--container .panel .panel-body .dataTables_wrapper .pagination .active a,
+.panel-expanded.panel .panel-body .dataTables_wrapper .pagination .active a,
+.panel-unpin.panel .panel-body .dataTables_wrapper .pagination .active a {
+    background: #536489;
+    border-color: #536489;
+    color: #fff !important;
+}
+
+.ui-widget,
+.ui-widget input,
+.ui-widget select,
+.ui-widget textarea,
+.ui-widget button {
+	
+    font-family: 'Poppins-Regular', Arial, Helvetica, sans-serif;
+    font-size: 1em;
+	
+}
+
+
+
+.modal .modal-dialog .modal-content .panel {
+    margin-bottom: 0;
+    border: 0;
+}
+
+    .modal .modal-dialog .modal-content .panel .modal-footer {
+        padding: 0;
+        border-top: 0;
+    }
+
+.modal .modal-dialog .modal-content .panel-default .panel-heading,
+.modal .modal-dialog .modal-content .modal-header,
+#create-ProjectSelection-dialog-container .modal-header {
+    background: #536489;
+    color: #fff;
+    padding: 15px 20px !important;
+}
+
+    .modal .modal-dialog .modal-content .panel-default .panel-heading b {
+        font-size: 16px;
+    }
+
+.modal .modal-dialog .modal-content .panel-default .panel-body .modal-body {
+    padding: 0;
+}
+
+.modal .modal-dialog .modal-content .panel-default .panel-body .row .col-md-4,
+.modal .modal-dialog .modal-content .panel-default .panel-body .row .col-md-6,
+.modal .modal-dialog .modal-content .panel-default .panel-body .row .col-md-10,
+.modal .modal-dialog .modal-content .panel-default .panel-body .row .col-md-12 {
+    margin-bottom: 10px;
+}
+
+.modal .modal-dialog .modal-content .panel-default .ui-widget-header,
+.inner-page--container .panel-default .ui-widget-header,
+.panel-expanded .panel-default .ui-widget-header,
+.panel-unpin .panel-default .ui-widget-header {
+    background: #fff;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    padding: 10px 0 0px 20px;
+}
+
+.inner-page--container .panel-default .ui-widget-content a.btn,
+.panel-expanded .panel-default .ui-widget-content a.btn,
+.panel-unpin .panel-default .ui-widget-content a.btn {
+    color: #fff;
+}
+
+.modal .modal-dialog .modal-content .panel-default .panel-heading .close,
+.modal .modal-dialog .modal-content .modal-header .close,
+.modal .modal-dialog .panel .panel-heading .close,
+#create-ProjectSelection-dialog-container .modal-header .close {
+    color: #fff;
+    opacity: 1;
+}
+
+#create-ProjectSelection-dialog-container .modal-body .col-md-12 {
+    padding: 0;
+}
+
+    #create-ProjectSelection-dialog-container .modal-body .col-md-12 .col-md-12 {
+        padding: 0 15px;
+    }
+
+#create-ProjectSelection-dialog-container .modal-body #tableCreateProject_wrapper {
+    clear: both;
+    float: left;
+    width: 100%;
+    padding: 0 15px;
+}
+
+#create-ProjectSelection-dialog-container .modal-footer {
+    border-top: 0;
+    padding: 0 20px 20px;
+}
+
+.modal .modal-dialog .modal-content .panel-default .ui-tabs,
+.inner-page--container .panel-default .ui-tabs,
+.panel-expanded .panel-default .ui-tabs,
+.panel-unpin .panel-default .ui-tabs {
+    padding: 0;
+}
+
+    .modal .modal-dialog .modal-content .panel-default .ui-tabs li,
+    .inner-page--container .panel-default .ui-tabs li,
+    .panel-expanded .panel-default .ui-tabs li,
+    .panel-unpin .panel-default .ui-tabs li {
+        margin-right: 8px;
+    }
+
+        .modal .modal-dialog .modal-content .panel-default .ui-tabs li a,
+        .inner-page--container .panel-default .ui-tabs li a,
+        .panel-expanded .panel-default .ui-tabs li a,
+        .panel-unpin .panel-default .ui-tabs li a {
+            padding: 12px 20px;
+        }
+
+    .modal .modal-dialog .modal-content .panel-default .ui-tabs .ui-tabs-panel .col-md-4. .inner-page--container .panel-default .ui-tabs .ui-tabs-panel .col-md-4,
+    .modal .modal-dialog .modal-content .panel-default .ui-tabs .ui-tabs-panel .col-md-4. .panel-expanded .panel-default .ui-tabs .ui-tabs-panel .col-md-4,
+    .modal .modal-dialog .modal-content .panel-default .ui-tabs .ui-tabs-panel .col-md-4. .panel-unpin .panel-default .ui-tabs .ui-tabs-panel .col-md-4 {
+        margin-bottom: 10px;
+    }
+
+    .modal .modal-dialog .modal-content .panel-default .ui-tabs .ui-state-active,
+    .modal .modal-dialog .modal-content .panel-default .ui-tabs .ui-widget-content .ui-state-active,
+    .modal .modal-dialog .modal-content .panel-default .ui-tabs .ui-widget-header .ui-state-active,
+    .modal .modal-dialog .modal-content .panel-default .ui-tabs a.ui-button:active,
+    .modal .modal-dialog .modal-content .panel-default .ui-tabs .ui-button:active,
+    .modal .modal-dialog .modal-content .panel-default .ui-tabs .ui-button.ui-state-active:hover,
+    .inner-page--container .panel-default .ui-tabs .ui-state-active,
+    .inner-page--container .panel-default .ui-tabs .ui-widget-content .ui-state-active,
+    .inner-page--container .panel-default .ui-tabs .ui-widget-header .ui-state-active,
+    .inner-page--container .panel-default .ui-tabs a.ui-button:active,
+    .inner-page--container .panel-default .ui-tabs .ui-button:active,
+    .inner-page--container .panel-default .ui-tabs .ui-button.ui-state-active:hover,
+    .panel-expanded .panel-default .ui-tabs .ui-state-active,
+    .panel-expanded .panel-default .ui-tabs .ui-widget-content .ui-state-active,
+    .panel-expanded .panel-default .ui-tabs .ui-widget-header .ui-state-active,
+    .panel-expanded .panel-default .ui-tabs a.ui-button:active,
+    .panel-expanded .panel-default .ui-tabs .ui-button:active,
+    .panel-expanded .panel-default .ui-tabs .ui-button.ui-state-active:hover,
+    .panel-unpin .panel-default .ui-tabs .ui-state-active,
+    .panel-unpin .panel-default .ui-tabs .ui-widget-content .ui-state-active,
+    .panel-unpin .panel-default .ui-tabs .ui-widget-header .ui-state-active,
+    .panel-unpin .panel-default .ui-tabs a.ui-button:active,
+    .panel-unpin .panel-default .ui-tabs .ui-button:active,
+    .panel-unpin .panel-default .ui-tabs .ui-button.ui-state-active:hover {
+        background: #2980b9;
+        border-color: #2980b9;
+    }
+
+.modal .modal-dialog .modal-content .panel .modal-footer [data-dismiss="modal"],
+.modal .modal-dialog .modal-content .modal-footer [data-dismiss="modal"],
+.modal .modal-dialog .panel .modal-footer [data-dismiss="modal"] {
+    color: red;
+    font-size: 16px;
+    background: transparent;
+}
+
+a:focus {
+    outline: none !important;
+}
+
+
+.ui-state-hover,
+.ui-widget-content .ui-state-hover,
+.ui-widget-header .ui-state-hover,
+.ui-state-focus,
+.ui-widget-content .ui-state-focus,
+.ui-widget-header .ui-state-focus,
+.ui-button:hover,
+.ui-button:focus {
+	
+    border: 1px solid #2980b9;
+    background: #2980b9;
+    font-weight: normal;
+    color: #fff;
+	
+}
+
+
+    .ui-state-hover a,
+    .ui-state-hover a:hover,
+    .ui-state-hover a:link,
+    .ui-state-hover a:visited,
+    .ui-state-focus a,
+    .ui-state-focus a:hover,
+    .ui-state-focus a:link,
+    .ui-state-focus a:visited,
+    a.ui-button:hover,
+    a.ui-button:focus {
+        color: #fff;
+        text-decoration: none;
+    }
+
+.dataTables_wrapper .dataTables_filter label {
+    padding: 10px;
+    margin-bottom: 0;
+}
+
+.inner-page--container .dataTables_wrapper .dataTables_filter label,
+.panel-expanded .dataTables_wrapper .dataTables_filter label,
+.panel-unpin .dataTables_wrapper .dataTables_filter label {
+    padding: 7px 0 5px 0;
+    margin-bottom: 0;
+}
+
+    .inner-page--container .dataTables_wrapper .dataTables_filter label .input-sm {
+        border-radius: 50px;
+        padding: 15px;
+        margin-left: 10px;
+    }
+
+    .inner-page--container .dataTables_wrapper .dataTables_filter label .input-sm,
+    .panel-expanded .dataTables_wrapper .dataTables_filter label .input-sm,
+    .panel-unpin .dataTables_wrapper .dataTables_filter label .input-sm {
+        border-radius: 50px;
+        padding: 15px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+.dataTables_wrapper .dataTables_scroll .dataTables_scrollHeadInner {
+    border-right: 1px solid #ddd !important;
+}
+
+#create-Contact-dialog-container .panel .modal-footer {
+    padding: 0 15px 15px 0;
+    margin-top: 0;
+}
+
+#tableContacts_wrapper.dataTables_wrapper {
+    margin-top: 25px;
+}
+
+    #tableContacts_wrapper.dataTables_wrapper .btn.btn-primary {
+        margin-bottom: 15px;
+    }
+
+#clientForm .row .col-md-4 {
+    margin-bottom: 10px;
+}
+
+.inner-page--container .panel .modal-footer,
+.panel-expanded .panel .modal-footer,
+.panel-expanded.panel .modal-footer,
+.panel-unpin .panel .modal-footer,
+.panel-unpin.panel .modal-footer {
+    border-top: 0;
+    padding: 0;
+}
+
+#employeeReportForm .row .col-md-4,
+#clientReportForm .row .col-md-4,
+#quoteReportForm .row .col-md-4,
+#poReportForm .row .col-md-4,
+#invReportForm .row .col-md-4,
+#doReportForm .row .col-md-4 {
+    margin-bottom: 10px;
+}
+
+#clientReportForm .modal-footer {
+    margin-top: 0;
+}
+
+#quoteReportForm .modal-footer,
+#poReportForm .modal-footer,
+#invReportForm .modal-footer,
+#doReportForm .modal-footer {
+    margin-bottom: 15px;
+    margin-top: 5px;
+}
+
+.inner-page--container.view .modal-footer {
+    border-top: 0;
+    padding: 0 0 20px 0;
+    margin-top: 0;
+}
+
+.inner-page--container.view .panel .panel-body .modal-body {
+    padding: 0;
+}
+
+.inner-page--container.view .table.table-bordered tbody tr th {
+    background: #666;
+    color: #fff;
+    padding: 10px 15px;
+}
+
+.inner-page--container.view .table.table-bordered > tbody > tr:nth-child(even) > td {
+    background-color: #fff;
+}
+
+.navbar-right.nav > li > a:hover,
+.navbar-right > .nav > li > a:focus {
+    background-color: #fafafa;
+    color: #2a3f6d;
+}
+
+.inner-page--container #projectReportForm .col-md-4,
+.inner-page--container #expenseReportForm .col-md-4,
+.inner-page--container #timeentryReportForm .col-md-4,
+.inner-page--container #companyForm .col-md-4,
+.inner-page--container #clientEditForm .col-md-4,
+.inner-page--container #projectEditForm .col-md-4,
+.inner-page--container #stockadjForm .col-md-6,
+.inner-page--container #qualityForm .col-md-6,
+.inner-page--container #quotationForm .col-md-6,
+.inner-page--container #poForm .col-md-6,
+.inner-page--container #poEditForm .col-md-6,
+.inner-page--container #safetyForm .col-md-6,
+.inner-page--container #formProjectReport .col-md-6,
+.inner-page--container #formProjectReport .col-md-12,
+.inner-page--container #invoicemasterForm .col-md-6,
+.inner-page--container #invoicemasterEditForm .col-md-6,
+.inner-page--container #formProjectEditReport .col-md-4,
+.inner-page--container #formProjectEditReport .col-md-6,
+.inner-page--container #formProjectEditReport .col-md-12,
+.inner-page--container #safetyForm .col-md-11,
+.inner-page--container #riskForm .col-md-6,
+.inner-page--container #riskForm .col-md-12,
+.inner-page--container #claimEditForm .col-md-6,
+.inner-page--container #inwardForm .col-md-6,
+.inner-page--container #inwardForm .col-md-11,
+.inner-page--container #outwardForm .col-md-6,
+.inner-page--container #outwardForm .col-md-11,
+.inner-page--container .col-lg-12 .panel-body .col-md-6,
+.inner-page--container .col-lg-12 .panel-body .col-md-12,
+.inner-page--container #cpaForm .col-md-4,
+.inner-page--container #cpaForm .col-md-8,
+.inner-page--container #formNewSafetyInspectionEdit .col-md-6,
+.panel-expanded #projectReportForm .col-md-4,
+.panel-expanded #expenseReportForm .col-md-4,
+.panel-expanded #timeentryReportForm .col-md-4,
+.panel-expanded #companyForm .col-md-4,
+.panel-expanded #clientEditForm .col-md-4,
+.panel-expanded #projectEditForm .col-md-4,
+.panel-expanded #stockadjForm .col-md-6,
+.panel-expanded #qualityForm .col-md-6,
+.panel-expanded #quotationForm .col-md-6,
+.panel-expanded #poForm .col-md-6,
+.panel-expanded #poEditForm .col-md-6,
+.panel-expanded #safetyForm .col-md-6,
+.panel-expanded #formProjectReport .col-md-6,
+.panel-expanded #formProjectReport .col-md-12,
+.panel-expanded #invoicemasterForm .col-md-6,
+.panel-expanded #invoicemasterEditForm .col-md-6,
+.panel-expanded #formProjectEditReport .col-md-4,
+.panel-expanded #formProjectEditReport .col-md-6,
+.panel-expanded #formProjectEditReport .col-md-12,
+.panel-expanded #safetyForm .col-md-11,
+.panel-expanded #riskForm .col-md-6,
+.panel-expanded #riskForm .col-md-12,
+.panel-expanded #claimEditForm .col-md-6,
+.panel-expanded #inwardForm .col-md-6,
+.panel-expanded #inwardForm .col-md-11,
+.panel-expanded #outwardForm .col-md-6,
+.panel-expanded #outwardForm .col-md-11,
+.panel-expanded .col-lg-12 .panel-body .col-md-6,
+.panel-expanded .col-lg-12 .panel-body .col-md-12,
+.panel-expanded #cpaForm .col-md-4,
+.panel-expanded #cpaForm .col-md-8,
+.panel-expanded #formNewSafetyInspectionEdit .col-md-6,
+.panel-unpin #projectReportForm .col-md-4,
+.panel-unpin #expenseReportForm .col-md-4,
+.panel-unpin #timeentryReportForm .col-md-4,
+.panel-unpin #companyForm .col-md-4,
+.panel-unpin #clientEditForm .col-md-4,
+.panel-unpin #projectEditForm .col-md-4,
+.panel-unpin #stockadjForm .col-md-6,
+.panel-unpin #qualityForm .col-md-6,
+.panel-unpin #quotationForm .col-md-6,
+.panel-unpin #poForm .col-md-6,
+.panel-unpin #poEditForm .col-md-6,
+.panel-unpin #safetyForm .col-md-6,
+.panel-unpin #formProjectReport .col-md-6,
+.panel-unpin #formProjectReport .col-md-12,
+.panel-unpin #invoicemasterForm .col-md-6,
+.panel-unpin #invoicemasterEditForm .col-md-6,
+.panel-unpin #formProjectEditReport .col-md-4,
+.panel-unpin #formProjectEditReport .col-md-6,
+.panel-unpin #formProjectEditReport .col-md-12,
+.panel-unpin #safetyForm .col-md-11,
+.panel-unpin #riskForm .col-md-6,
+.panel-unpin #riskForm .col-md-12,
+.panel-unpin #claimEditForm .col-md-6,
+.panel-unpin #inwardForm .col-md-6,
+.panel-unpin #inwardForm .col-md-11,
+.panel-unpin #outwardForm .col-md-6,
+.panel-unpin #outwardForm .col-md-11,
+.panel-unpin .col-lg-12 .panel-body .col-md-6,
+.panel-unpin .col-lg-12 .panel-body .col-md-12,
+.panel-unpin #cpaForm .col-md-4,
+.panel-unpin #cpaForm .col-md-8,
+.panel-unpin #formNewSafetyInspectionEdit .col-md-6 {
+    margin-bottom: 10px;
+}
+
+    .inner-page--container #inwardForm .col-md-11 table tr td,
+    .inner-page--container #outwardForm .col-md-11 table tr td,
+    .inner-page--container .col-lg-12 .panel-body .col-md-6 table tr td,
+    .panel-expanded #inwardForm .col-md-11 table tr td,
+    .panel-expanded #outwardForm .col-md-11 table tr td,
+    .panel-expanded .col-lg-12 .panel-body .col-md-6 table tr td,
+    .panel-unpin #inwardForm .col-md-11 table tr td,
+    .panel-unpin #outwardForm .col-md-11 table tr td,
+    .panel-unpin .col-lg-12 .panel-body .col-md-6 table tr td {
+        padding: 10px;
+    }
+
+.inner-page--container #poEditForm .col-md-12,
+.panel-expanded #poEditForm .col-md-12,
+.panel-unpin #poEditForm .col-md-12 {
+    padding: 0;
+}
+
+.inner-page--container #expenseReportForm .col-md-8 .col-md-12,
+.panel-expanded #expenseReportForm .col-md-8 .col-md-12,
+.panel-unpin #expenseReportForm .col-md-8 .col-md-12 {
+    padding: 0 30px 0 0;
+    margin: 0;
+}
+
+.inner-page--container #timeentryReportForm .col-md-8 .col-md-9,
+.panel-expanded #timeentryReportForm .col-md-8 .col-md-9,
+.panel-unpin #timeentryReportForm .col-md-8 .col-md-9 {
+    padding: 0;
+    margin: 0;
+}
+
+.inner-page--container .panel .panel-body #projectReportForm .modal-footer,
+.inner-page--container .panel .panel-body #expenseReportForm .modal-footer,
+.inner-page--container .panel .panel-body #timeentryReportForm .modal-footer,
+.panel-expanded.panel .panel-body #projectReportForm .modal-footer,
+.panel-expanded.panel .panel-body #expenseReportForm .modal-footer,
+.panel-expanded.panel .panel-body #timeentryReportForm .modal-footer,
+.panel-unpin.panel .panel-body #projectReportForm .modal-footer,
+.panel-unpin.panel .panel-body #expenseReportForm .modal-footer,
+.panel-unpin.panel .panel-body #timeentryReportForm .modal-footer {
+    margin-bottom: 15px;
+}
+
+.panel-body {
+    padding: 20px;
+}
+
+#productForm .row,
+#payableForm .row,
+#payableEditForm .row,
+#formProjectReport .row,
+#formProjectEditReport .row,
+#storeForm .row,
+#storeEditForm .row {
+    margin: 0 5px;
+}
+
+    #formProjectReport .row .row,
+    #timeentryEditForm .row,
+    #formNewSafetyInspection .row,
+    #userForm .row,
+    #userEditForm .row {
+        margin: 0;
+    }
+
+        #timeentryEditForm .row .col-md-12 {
+            padding: 0;
+        }
+
+        #timeentryEditForm .row .row {
+            margin-left: -15px;
+            margin-right: -15px;
+        }
+
+#productForm .modal-footer,
+#create-SetWCDate-dialog-container .modal-footer,
+#payableForm .modal-footer,
+#payableEditForm .modal-footer,
+#formProjectReport .modal-footer,
+#formProjectEditReport .modal-footer,
+#storeForm .modal-footer,
+#storeEditForm .modal-footer,
+#create-DefectDetail-dialog-container .modal-footer,
+#userForm .modal-footer,
+#userEditForm .modal-footer {
+    padding: 0 20px 20px;
+}
+
+#formNewSafetyInspection .modal-footer {
+    padding: 15px 20px 20px;
+}
+
+#create-DefectDetail-dialog-container .modal-footer {
+    border-top: 0;
+    margin-top: 0;
+}
+
+#safetyForm input[type='checkbox'] {
+    width: 20px;
+    height: 20px;
+    float: left;
+    margin: 1px 5px 0 0;
+}
+
+#create-PTW-dialog-container .panel .wizard > .steps .number,
+.inner-page--container .panel .wizard > .steps .number,
+.panel-expanded.panel .wizard > .steps .number,
+.panel-unpin.panel .wizard > .steps .number {
+    font-size: 12px;
+}
+
+#create-PTW-dialog-container .panel .wizard > .content > .body,
+.inner-page--container .panel .wizard > .content > .body,
+.panel-expanded.panel .wizard > .content > .body,
+.panel-unpin.panel .wizard > .content > .body {
+    width: 100%;
+    height: auto;
+}
+
+#create-PTW-dialog-container .panel .wizard > .steps > ul > li,
+.inner-page--container .panel .wizard > .steps > ul > li,
+.panel-expanded.panel .wizard > .steps > ul > li,
+.panel-unpin.panel .wizard > .steps > ul > li {
+    width: auto;
+}
+
+#create-PTW-dialog-container .panel .content section .row .row table,
+.inner-page--container .panel .content section .row .row table,
+.panel-expanded.panel.content section .row .row table,
+.panel-unpin.panel.content section .row .row table {
+    margin: 0 20px;
+}
+
+#create-PTW-dialog-container .panel .wizard > .actions > ul,
+.inner-page--container .panel .wizard > .actions > ul,
+.panel-expanded.panel .wizard > .actions > ul,
+.panel-unpin.panel .wizard > .actions > ul {
+    margin-top: 20px;
+}
+
+#formStage1 {
+    padding: 0 20px;
+}
+
+.inner-page--container .panel .content section .row table td,
+.panel-expanded.panel .content section .row table td,
+.panel-unpin.panel .content section .row table td {
+    padding: 10px;
+}
+
+.nav > li > a:hover,
+.nav > li > a:focus {
+    background-color: #dc514d;
+    color: #fff;
+}
+
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+    color: #d4d4d4 !important;
+}
+
+#page-wrapper .panel .panel-heading .fa.fa-5x {
+    color: rgba(0, 0, 0, 0.15);
+}
+
+#page-wrapper .col-lg-3.col-md-6 .panel .panel-heading {
+    -webkit-transition: all .25s ease;
+    -o-transition: all .25s ease;
+    -moz-transition: all .25s ease;
+    transition: all .25s ease;
+    cursor: pointer;
+}
+
+    #page-wrapper .col-lg-3.col-md-6 .panel .panel-heading:hover {
+        -webkit-transform: translateY(-4px) scale(1.02);
+        -moz-transform: translateY(-4px) scale(1.02);
+        -ms-transform: translateY(-4px) scale(1.02);
+        -o-transform: translateY(-4px) scale(1.02);
+        transform: translateY(-4px) scale(1.02);
+        -webkit-box-shadow: 0 14px 24px rgba(62, 57, 107, .2);
+        box-shadow: 0 14px 24px rgba(62, 57, 107, .2);
+        z-index: 999;
+    }
+
+
+/* Blue Theme */
+
+body.blue,
+body.blue .navbar-default {
+    background-color: #113448 !important;
+}
+
+    body.blue .sidebar ul li,
+    body.blue .navbar-default {
+        border-bottom: 1px solid #1d4456;
+        border-color: #1d4456 !important;
+    }
+
+    body.blue .dropdown-toggle a:hover,
+    .dropdown-toggle a:focus,
+    body.blue .dropdown.open a.dropdown-toggle,
+    body.blue .dropdown.open .dropdown-toggle a:hover,
+    body.blue .dropdown.open .dropdown-toggle a:focus,
+    body.blue .navbar-right.nav > li > a:hover,
+    body.blue .navbar-right > .nav > li > a:focus,
+    body.blue .dropdown-menu > li > a:hover,
+    body.blue .dropdown-menu > li > a:focus,
+    body.blue .nav > li > a:hover,
+    body.blue .nav > li > a:focus {
+        background-color: #1d4456 !important;
+        color: #fff !important;
+    }
+
+    body.blue #side-menu li a:hover,
+    body.blue #side-menu li a:focus {
+        background-color: #1d4456;
+    }
+
+    body.blue .table-container .panel .panel-heading.green,
+    body.blue .table-container .tablehead.green {
+        background-color: #1f3a93 !important;
+    }
+
+    body.blue .table-container .panel .panel-heading.orange,
+    body.blue .table-container .tablehead.orange {
+        background-color: #40769a !important;
+    }
+
+    body.blue .table-container .panel .panel-heading.compblue,
+    body.blue .table-container .tablehead.compblue {
+        background-color: #17748e !important;
+    }
+
+    body.blue .table-container .panel .panel-heading.pink,
+    body.blue .table-container .tablehead.pink {
+        background-color: #4b7bc3 !important;
+    }
+
+    body.blue #page-wrapper .panel .panel-heading.blue {
+        background-color: #2574a9;
+    }
+
+    body.blue .panel-green {
+        border-color: #1e8bc3;
+    }
+
+        body.blue .panel-green > .panel-heading {
+            border-color: #1e8bc3;
+            color: white;
+            background-color: #1e8bc3;
+        }
+
+        body.blue .panel-green > a {
+            color: #1e8bc3;
+        }
+
+    body.blue .panel-yellow {
+        border-color: #2c82c9;
+    }
+
+        body.blue .panel-yellow > .panel-heading {
+            border-color: #2c82c9;
+            color: white;
+            background-color: #2c82c9;
+        }
+
+        body.blue .panel-yellow > a {
+            color: #2c82c9;
+        }
+
+    body.blue .panel-red {
+        border-color: #3a539b;
+    }
+
+        body.blue .panel-red > .panel-heading {
+            border-color: #3a539b;
+            color: white;
+            background-color: #3a539b;
+        }
+
+        body.blue .panel-red > a {
+            color: #3a539b;
+        }
+
+    body.blue .inner-page--container .panel .panel-heading,
+    body.blue .panel-expanded.panel .panel-heading,
+    body.blue .panel-unpin.panel .panel-heading {
+        background: #2574a9;
+    }
+
+    body.blue .inner-page--container .panel .panel-body .dataTables_wrapper .table.dataTable thead th,
+    body.blue .panel-expanded.panel .panel-body .dataTables_wrapper .table.dataTable thead th,
+    body.blue .panel-unpin.panel .panel-body .dataTables_wrapper .table.dataTable thead th {
+        background: #2574a9;
+    }
+
+    body.blue .inner-page--container .panel .panel-body .dataTables_wrapper .pagination .active a,
+    body.blue .panel-expanded.panel .panel-body .dataTables_wrapper .pagination .active a,
+    body.blue .panel-unpin.panel .panel-body .dataTables_wrapper .pagination .active a {
+        background: #2574a9;
+        border-color: #2574a9;
+    }
+
+    body.blue .modal .modal-dialog .modal-content .panel-default .panel-heading,
+    body.blue .modal .modal-dialog .modal-content .modal-header {
+        background: #2574a9;
+    }
+
+    body.blue .modal .modal-dialog .modal-content .panel-default .ui-tabs .ui-state-active,
+    body.blue .modal .modal-dialog .modal-content .panel-default .ui-tabs .ui-widget-content .ui-state-active,
+    body.blue .modal .modal-dialog .modal-content .panel-default .ui-tabs .ui-widget-header .ui-state-active,
+    body.blue .modal .modal-dialog .modal-content .panel-default .ui-tabs a.ui-button:active,
+    body.blue .modal .modal-dialog .modal-content .panel-default .ui-tabs .ui-button:active,
+    body.blue .modal .modal-dialog .modal-content .panel-default .ui-tabs .ui-button.ui-state-active:hover,
+    body.blue .inner-page--container .panel-default .ui-tabs .ui-state-active,
+    body.blue .inner-page--container .panel-default .ui-tabs .ui-widget-content .ui-state-active,
+    body.blue .inner-page--container .panel-default .ui-tabs .ui-widget-header .ui-state-active,
+    body.blue .inner-page--container .panel-default .ui-tabs a.ui-button:active,
+    body.blue .inner-page--container .panel-default .ui-tabs .ui-button:active,
+    body.blue .inner-page--container .panel-default .ui-tabs .ui-button.ui-state-active:hover,
+    body.blue .panel-expanded .panel-default .ui-tabs .ui-state-active,
+    body.blue .panel-expanded .panel-default .ui-tabs .ui-widget-content .ui-state-active,
+    body.blue .panel-expanded .panel-default .ui-tabs .ui-widget-header .ui-state-active,
+    body.blue .panel-expanded .panel-default .ui-tabs a.ui-button:active,
+    body.blue .panel-expanded .panel-default .ui-tabs .ui-button:active,
+    body.blue .panel-expanded .panel-default .ui-tabs .ui-button.ui-state-active:hover,
+    body.blue .panel-unpin .panel-default .ui-tabs .ui-state-active,
+    body.blue .panel-unpin .panel-default .ui-tabs .ui-widget-content .ui-state-active,
+    body.blue .panel-unpin .panel-default .ui-tabs .ui-widget-header .ui-state-active,
+    body.blue .panel-unpin .panel-default .ui-tabs a.ui-button:active,
+    body.blue .panel-unpin .panel-default .ui-tabs .ui-button:active,
+    body.blue .panel-unpin .panel-default .ui-tabs .ui-button.ui-state-active:hover {
+        background: #336e7b;
+        border-color: #336e7b;
+    }
+
+    body.blue .ui-state-hover,
+    body.blue .ui-widget-content .ui-state-hover,
+    body.blue .ui-widget-header .ui-state-hover,
+    body.blue .ui-state-focus,
+    body.blue .ui-widget-content .ui-state-focus,
+    body.blue .ui-widget-header .ui-state-focus,
+    body.blue .ui-button:hover,
+    body.blue .ui-button:focus {
+        border: 1px solid #336e7b;
+        background: #336e7b;
+    }
+
+
+/* Orange Theme */
+
+body.orange,
+body.orange .navbar-default {
+    background-color: #BE2138 !important;
+}
+
+    body.orange .sidebar ul li,
+    body.orange .navbar-default {
+        border-bottom: 1px solid #da475d;
+        border-color: #da475d !important;
+    }
+
+    body.orange .dropdown-toggle a:hover,
+    .dropdown-toggle a:focus,
+    body.orange .dropdown.open a.dropdown-toggle,
+    body.orange .dropdown.open .dropdown-toggle a:hover,
+    body.orange .dropdown.open .dropdown-toggle a:focus,
+    body.orange .navbar-right.nav > li > a:hover,
+    body.orange .navbar-right > .nav > li > a:focus,
+    body.orange .dropdown-menu > li > a:hover,
+    body.orange .dropdown-menu > li > a:focus,
+    body.orange .nav > li > a:hover,
+    body.orange .nav > li > a:focus {
+        background-color: #fafafa !important;
+        color: #2a3f6d !important;
+    }
+
+    body.orange #side-menu li a:hover,
+    body.orange #side-menu li a:focus {
+        background-color: #BE2138;
+    }
+
+    body.orange .table-container .panel .panel-heading.green,
+    body.orange .table-container .tablehead.green {
+        background-color: #009688 !important;
+    }
+
+    body.orange .table-container .panel .panel-heading.blue,
+    body.orange .table-container .tablehead.blue {
+        background-color: #ff4a64 !important;
+    }
+
+    body.orange .table-container .panel .panel-heading.darkblue,
+    body.orange .table-container .tablehead.darkblue {
+        background-color: #f51b3b !important;
+    }
+
+    body.orange .table-container .panel .panel-heading.orange,
+    body.orange .table-container .tablehead.orange {
+        background-color: #bf1c34 !important;
+    }
+
+    body.orange .table-container .panel .panel-heading.compblue,
+    body.orange .table-container .tablehead.compblue {
+        background-color: #0d7fa0 !important;
+    }
+
+    body.orange .table-container .panel .panel-heading.pink,
+    body.orange .table-container .tablehead.pink {
+        background-color: #0e5a6f !important;
+    }
+
+    body.orange #page-wrapper .panel .panel-heading.blue {
+        background-color: #009688;
+    }
+
+    body.orange .panel-green {
+        border-color: #FF9800;
+    }
+
+        body.orange .panel-green > .panel-heading {
+            border-color: #1e655e;
+            color: white;
+            background-color: #1e655e;
+        }
+
+        body.orange .panel-green > a {
+            color: #FF9800;
+        }
+
+    body.orange .panel-yellow {
+        border-color: #F57C00;
+    }
+
+        body.orange .panel-yellow > .panel-heading {
+            border-color: #0d7fa0;
+            color: white;
+            background-color: #0d7fa0;
+        }
+
+        body.orange .panel-yellow > a {
+            color: #F57C00;
+        }
+
+    body.orange .panel-red {
+        border-color: #1b7b72;
+    }
+
+        body.orange .panel-red > .panel-heading {
+            border-color: #1b7b72;
+            color: white;
+            background-color: #1b7b72;
+        }
+
+        body.orange .panel-red > a {
+            color: #1b7b72;
+        }
+
+    body.orange .inner-page--container .panel .panel-heading,
+    body.orange .panel-expanded.panel .panel-heading,
+    body.orange .panel-unpin.panel .panel-heading {
+        background: #009688;
+    }
+
+    body.orange .inner-page--container .panel .panel-body .dataTables_wrapper .table.dataTable thead th,
+    body.orange .panel-expanded.panel .panel-body .dataTables_wrapper .table.dataTable thead th,
+    body.orange .panel-unpin.panel .panel-body .dataTables_wrapper .table.dataTable thead th {
+        background: #009688;
+    }
+
+    body.orange .inner-page--container .panel .panel-body .dataTables_wrapper .pagination .active a,
+    body.orange .panel-expanded.panel .panel-body .dataTables_wrapper .pagination .active a,
+    body.orange .panel-unpin.panel .panel-body .dataTables_wrapper .pagination .active a {
+        background: #009688;
+        border-color: #009688;
+    }
+
+    body.orange .modal .modal-dialog .modal-content .panel-default .panel-heading,
+    body.orange .modal .modal-dialog .modal-content .modal-header {
+        background: #009688;
+    }
+
+    body.orange .modal .modal-dialog .modal-content .panel-default .ui-tabs .ui-state-active,
+    body.orange .modal .modal-dialog .modal-content .panel-default .ui-tabs .ui-widget-content .ui-state-active,
+    body.orange .modal .modal-dialog .modal-content .panel-default .ui-tabs .ui-widget-header .ui-state-active,
+    body.orange .modal .modal-dialog .modal-content .panel-default .ui-tabs a.ui-button:active,
+    body.orange .modal .modal-dialog .modal-content .panel-default .ui-tabs .ui-button:active,
+    body.orange .modal .modal-dialog .modal-content .panel-default .ui-tabs .ui-button.ui-state-active:hover,
+    body.orange .inner-page--container .panel-default .ui-tabs .ui-state-active,
+    body.orange .inner-page--container .panel-default .ui-tabs .ui-widget-content .ui-state-active,
+    body.orange .inner-page--container .panel-default .ui-tabs .ui-widget-header .ui-state-active,
+    body.orange .inner-page--container .panel-default .ui-tabs a.ui-button:active,
+    body.orange .inner-page--container .panel-default .ui-tabs .ui-button:active,
+    body.orange .inner-page--container .panel-default .ui-tabs .ui-button.ui-state-active:hover,
+    body.orange .panel-expanded .panel-default .ui-tabs .ui-state-active,
+    body.orange .panel-expanded .panel-default .ui-tabs .ui-widget-content .ui-state-active,
+    body.orange .panel-expanded .panel-default .ui-tabs .ui-widget-header .ui-state-active,
+    body.orange .panel-expanded .panel-default .ui-tabs a.ui-button:active,
+    body.orange .panel-expanded .panel-default .ui-tabs .ui-button:active,
+    body.orange .panel-expanded .panel-default .ui-tabs .ui-button.ui-state-active:hover,
+    body.orange .panel-unpin .panel-default .ui-tabs .ui-state-active,
+    body.orange .panel-unpin .panel-default .ui-tabs .ui-widget-content .ui-state-active,
+    body.orange .panel-unpin .panel-default .ui-tabs .ui-widget-header .ui-state-active,
+    body.orange .panel-unpin .panel-default .ui-tabs a.ui-button:active,
+    body.orange .panel-unpin .panel-default .ui-tabs .ui-button:active,
+    body.orange .panel-unpin .panel-default .ui-tabs .ui-button.ui-state-active:hover {
+        background: #FB8C00;
+        border-color: #FB8C00;
+    }
+
+    body.orange .ui-state-hover,
+    body.orange .ui-widget-content .ui-state-hover,
+    body.orange .ui-widget-header .ui-state-hover,
+    body.orange .ui-state-focus,
+    body.orange .ui-widget-content .ui-state-focus,
+    body.orange .ui-widget-header .ui-state-focus,
+    body.orange .ui-button:hover,
+    body.orange .ui-button:focus {
+        border: 1px solid #FB8C00;
+        background: #FB8C00;
+    }
+
+.themes {
+    z-index: 999;
+    position: fixed;
+    top: 220px;
+    width: 153px;
+    border: 0;
+    box-shadow: none;
+    padding: 0;
+    border-bottom-left-radius: 2px;
+    right: -153px;
+    background: #fff;
+    -webkit-transition: transform 0.15s ease;
+    -o-transition: transform 0.15s ease;
+    transition: transform 0.15s ease;
+}
+
+body.theme-opened .themes {
+    width: 308px;
+}
+
+body.theme-closed .themes {
+    width: 153px;
+}
+
+.themes .themes-icon {
+    display: inline-block;
+    position: absolute;
+    left: -47px;
+    height: 48px;
+    width: 48px;
+    color: #fff;
+    line-height: 48px;
+    text-align: center;
+    font-size: 24px;
+    border-width: 1px 0 1px 1px;
+    background-color: #FF4961 !important;
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+    top: 0;
+    cursor: pointer;
+    border-radius: 15px 0 0 15px;
+    webkit-box-shadow: 0 14px 24px 0 rgba(62, 57, 107, .26);
+    box-shadow: 0 14px 24px 0 rgba(62, 57, 107, .26);
+}
+
+.themes .themes-body {
+    float: left;
+    background-color: #fff;
+    border-top: 1px solid #e0e0e0;
+    border-left: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
+    color: #616161;
+    height: auto;
+    display: inline-block;
+    padding: 2px 0 3px;
+}
+
+    .themes .themes-body .theme-colors {
+        margin: 6px 0 0 0;
+        padding: 0 0 0 20px;
+    }
+
+        .themes .themes-body .theme-colors li {
+            list-style-type: none;
+            float: left;
+            margin-right: 15px;
+        }
+
+        .themes .themes-body .theme-colors span {
+            width: 30px;
+            height: 30px;
+            display: inline-block;
+        }
+
+            .themes .themes-body .theme-colors span.theme-default {
+                background: #d9534f;
+            }
+
+            .themes .themes-body .theme-colors span.theme-blue {
+                background: #2c82c9;
+            }
+
+            .themes .themes-body .theme-colors span.theme-orange {
+                background: #009688;
+            }
+
+#page-wrapper .lobipanel .panel-heading .dropdown .dropdown-menu > li > a .panel-control-icon {
+    color: #fff;
+}
+
+.modal {
+    z-index: 104000 !important;
+}

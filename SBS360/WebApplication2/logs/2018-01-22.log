@@ -1,0 +1,16 @@
+2018-01-22 15:30:52.3021|ERROR|Eng360Web.MvcApplication|Claim Report Error:
+2018-01-22 15:30:52.3357|ERROR|Eng360Web.MvcApplication|A potentially dangerous Request.Path value was detected from the client (:).
+2018-01-22 15:30:52.3357|ERROR|Eng360Web.MvcApplication|   at System.Web.HttpRequest.ValidateInputIfRequiredByConfig()
+   at System.Web.HttpApplication.PipelineStepManager.ValidateHelper(HttpContext context)
+2018-01-22 15:33:31.5240|ERROR|Eng360Web.MvcApplication|Claim Report Error:
+2018-01-22 15:33:31.5240|ERROR|Eng360Web.MvcApplication|A potentially dangerous Request.Path value was detected from the client (&).
+2018-01-22 15:33:31.5240|ERROR|Eng360Web.MvcApplication|   at System.Web.HttpRequest.ValidateInputIfRequiredByConfig()
+   at System.Web.HttpApplication.PipelineStepManager.ValidateHelper(HttpContext context)
+2018-01-22 15:35:15.6584|ERROR|Eng360Web.MvcApplication|Claim Report Error:
+2018-01-22 15:35:15.6584|ERROR|Eng360Web.MvcApplication|A potentially dangerous Request.Path value was detected from the client (:).
+2018-01-22 15:35:15.6584|ERROR|Eng360Web.MvcApplication|   at System.Web.HttpRequest.ValidateInputIfRequiredByConfig()
+   at System.Web.HttpApplication.PipelineStepManager.ValidateHelper(HttpContext context)
+2018-01-22 15:38:21.4451|ERROR|Eng360Web.MvcApplication|Claim Report Error:
+2018-01-22 15:38:21.4451|ERROR|Eng360Web.MvcApplication|A potentially dangerous Request.Path value was detected from the client (&).
+2018-01-22 15:38:21.4451|ERROR|Eng360Web.MvcApplication|   at System.Web.HttpRequest.ValidateInputIfRequiredByConfig()
+   at System.Web.HttpApplication.PipelineStepManager.ValidateHelper(HttpContext context)

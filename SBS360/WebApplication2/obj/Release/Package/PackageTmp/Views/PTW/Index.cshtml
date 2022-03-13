@@ -1,0 +1,281 @@
+﻿@model IEnumerable<Eng360Web.Models.ViewModel.PTWMasterViewModel>
+
+@{
+    Layout = null;
+}
+
+<script src="~/Scripts/moment.js"></script>
+<script src="~/Scripts/bootstrap-datetimepicker.js"></script>
+<link href="~/Content/bootstrap-datetimepicker.css" rel="stylesheet" />
+
+
+<style>
+    .table-condensed tbody > tr > td > a {
+        color: #4eb1ba !important;
+    }
+
+    <style > .dropbtn {
+        background-color: #3498DB;
+        color: white;
+        padding: 16px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+    }
+
+    .dropbtn:hover, .dropbtn:focus {
+        background-color: #2980B9;
+    }
+
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        overflow: auto;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+    .dropdown a:hover {
+        background-color: #f1f1f1
+    }
+
+    .show {
+        display: block;
+    }
+</style>
+</style>
+
+
+
+
+<div class="row inner-page--container">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <b> Permit To Work Details </b>
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <input id="quoteid" type="hidden" />
+                <table class="table table-striped table-bordered" id="qualitydefectTable">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.PTW_type)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.ProjectTitle)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Start_Date_Time)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.End_Date_Time)
+                            </th>
+
+                            <th>
+                                @Html.DisplayNameFor(model => model.NameOfApplicant)
+                            </th>
+
+
+                            <th>
+                                Status
+                            </th>
+
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            var dt = "";
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.PTW_type)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ProjectTitle)
+
+                                </td>
+                                <td>
+                                    @{
+
+                                        dt = Convert.ToDateTime(item.Start_Date_Time).ToString(Eng360Web.Models.Utility.AppSettings.GetDateFormat());
+                                    }
+                                    @dt
+                                </td>
+
+                                <td>
+                                    @{
+
+                                        dt = Convert.ToDateTime(item.End_Date_Time).ToString(Eng360Web.Models.Utility.AppSettings.GetDateFormat());
+                                    }
+                                    @dt
+                                </td>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NameOfApplicant)
+                                </td>
+                                <td>
+                                    @{
+                                        var status = "";
+                                        if (item.PTW_type == "Confined Space Permit")
+                                        {
+                                            if (item.CompletedStage == 1)
+                                            { status = "Stage 1 Completed"; }
+
+                                            if (item.CompletedStage == 2)
+                                            { status = "Stage 2 Completed"; }
+
+                                            if (item.CompletedStage == 3)
+                                            { status = "Stage 3 Completed"; }
+
+                                            if (item.CompletedStage == 4)
+                                            { status = "Stage 4 Completed"; }
+
+                                            if (item.CompletedStage == 5)
+                                            { status = "Stage 5 in progress"; }
+
+                                            if (item.CompletedStage == 6)
+                                            { status = "Completed"; }
+
+                                            if (item.CompletedStage == 7)
+                                            { status = "Revoked"; }
+
+                                        }
+                                        else
+                                        {
+                                            if (item.CompletedStage == 1)
+                                            { status = "Stage 1 Completed"; }
+
+                                            if (item.CompletedStage == 2)
+                                            { status = "Stage 2 Completed"; }
+
+                                            if (item.CompletedStage == 3)
+                                            { status = "Stage 3 Completed"; }
+
+                                            if (item.CompletedStage == 4)
+                                            { status = "Stage 4 Completed"; }
+
+                                            if (item.CompletedStage == 5)
+                                            { status = "Completed"; }
+
+                                            if (item.CompletedStage == 6)
+                                            { status = "Revoked"; }
+
+                                        }
+                                    }
+                                    @status
+
+                                </td>
+                                <td>
+                                    @if (item.PTW_type == "Confined Space Permit")
+                                    {
+                                        if (item.CompletedStage <= 5)
+                                        {
+                                            <a class="btn" title="Edit PTW"  onclick="EditPTWCONSPC(@item.PTW_master_ID)"> <i class="fa fa-pencil" aria-hidden="true" ></i>   </a>
+                                        }
+                                        <a class="btn" title="PTW Reports"  onclick="ViewPTWConspcIndex(@item.PTW_master_ID)"> <i class="fa fa-mixcloud" aria-hidden="true" ></i>   </a>
+                                        if (item.CompletedStage == 4)
+                                        {
+                                            <a class="btn" href="PTW/ViewPTWConspc?id=@item.PTW_master_ID&dt=check" target="_blank" title="View PTW" > <i class="fa fa-file-o" aria-hidden="true" ></i> </a>
+                                        }
+
+                                        if (item.CompletedStage >= 6)
+                                        {
+                                            @*<a class="btn" href="PTW/ViewPTW/@item.PTW_master_ID" target="_blank" title="Final Report" style="padding: 0px 0px;"> <i class="fa fa-gear" aria-hidden="true" style="color:#4eb1ba;font-size:24px"></i> </a>*@
+                                            <a class="btn" title="ReCreate"  onclick="RevokePTWConspc(@item.PTW_master_ID)"> <i class="fa fa-check-circle-o" aria-hidden="true" ></i>   </a>
+                                        }
+
+                                    }
+                                    else
+                                    {
+                                        if (item.CompletedStage <= 4)
+                                        {
+                                    <a class="btn" title="Edit PTW"  onclick="EditPTW(@item.PTW_master_ID)"> <i class="fa fa-pencil action-pencil" aria-hidden="true" ></i>   </a>
+                                    }
+                                    <a class="btn" title="PTW Reports"  onclick="ViewPTWIndex(@item.PTW_master_ID)"> <i class="fa fa-mixcloud action-ptw-rep" aria-hidden="true" ></i>   </a>
+                                    if (item.CompletedStage == 3)
+                                    {
+                                    <a class="btn" href="PTW/ViewPTW?id=@item.PTW_master_ID&dt=check" target="_blank" title="View PTW" > <i class="fa fa-file-o action-ptw" aria-hidden="true" ></i> </a>
+                                    }
+
+                                    if (item.CompletedStage >= 5)
+                                    {
+                                    @*<a class="btn" href="PTW/ViewPTW/@item.PTW_master_ID" target="_blank" title="Final Report" style="padding: 0px 0px;"> <i class="fa fa-gear" aria-hidden="true" style="color:#4eb1ba;font-size:24px"></i> </a>*@
+                                    <a class="btn" title="ReCreate"  onclick="RevokePTW(@item.PTW_master_ID)"> <i class="fa fa-check-circle-o action-ptw-rew" aria-hidden="true" ></i>   </a>
+                                    }
+                                    }
+
+
+                                </td>
+
+                            </tr>
+                        }
+                    </tbody>
+
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+
+        $('#qualitydefectTable').DataTable({
+            "autoWidth": true,
+            //"scrollX": true,
+            dom: 'Bfrtipl',
+            buttons: [
+                {
+                    extend: 'copyHtml5',
+                    text: '<i class="fa fa-files-o"></i>',
+                    titleAttr: 'Copy'
+                },
+                {
+                    extend: 'excelHtml5',
+                    text: '<i class="fa fa-file-excel-o"></i>',
+                    titleAttr: 'Excel'
+                },
+                {
+                    extend: 'csvHtml5',
+                    text: '<i class="fa fa-file-text-o"></i>',
+                    titleAttr: 'CSV'
+                },
+                {
+                    extend: 'pdfHtml5',
+                    text: '<i class="fa fa-file-pdf-o"></i>',
+                    titleAttr: 'PDF'
+                }
+
+            ]
+        });
+
+
+    });
+    $('.dt-buttons').prepend('<div class="dropdown"><button onclick= "myFunction()" class="dropbtn  btn btn-primary" > <i class="fa fa-plus"></i> </button ><div id="myDropdown" class="dropdown-content"><a id="PTWHOT" onclick="CreatePTWHOT()" href="#home">Hot work Permit</a><a id="PTWWAH" onclick="CreatePTWWAH()" href="#home">Working at Height Permit</a><a id="PTWLOPT" onclick="CreatePTWLOPT()" href="#home">Lifting work Permit</a> <a id="PTWWFEX" onclick="CreatePTWWFEX()" href="#home">Lifting work Permit</a><a id="PTWCONSPC" onclick="CreatePTWCONSPC()" href="#home">Confined Space Permit</a></div></div >');
+    $('.dt-button').addClass('btn btn-primary').removeClass('dt-button')
+
+
+    function myFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+</script>
+

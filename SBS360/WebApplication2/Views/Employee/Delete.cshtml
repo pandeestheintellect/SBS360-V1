@@ -1,0 +1,296 @@
+﻿@model Eng360Web.Models.Domain.eng_employee_profile
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+</head>
+<body>
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        <h4>eng_employee_profile</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.UserName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.UserName)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Password)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Password)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.EmpID)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.EmpID)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.OpBranch)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.OpBranch)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.FirstName)
+            </dd>
+    
+          
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.LastName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.LastName)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.DoB)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.DoB)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.DoJ)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.DoJ)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.DoR)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.DoR)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Gender)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Gender)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Designation)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Designation)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.ID_Type)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ID_Type)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.ID_Number)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ID_Number)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Profile_Desc)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Profile_Desc)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Profile_Photo_Path)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Profile_Photo_Path)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.llevel)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.llevel)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CreatedDate)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CreatedDate)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.UpdatedDate)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.UpdatedDate)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CreatedBy)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CreatedBy)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.UpdatedBy)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.UpdatedBy)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.LastLogin)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.LastLogin)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Passport_Number)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Passport_Number)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Passport_Valid_Till)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Passport_Valid_Till)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Permit_Number)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Permit_Number)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Permit_Valid_From)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Permit_Valid_From)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Permit_Valid_To)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Permit_Valid_To)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Licence_Number)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Licence_Number)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Licence_Valid_Till)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Licence_Valid_Till)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Insurance_Number)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Insurance_Number)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Insurance_Valid_Till)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Insurance_Valid_Till)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.IsActive)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.IsActive)
+            </dd>
+    
+            
+    
+            <dd>
+                @Html.DisplayFor(model => model.eng_address_master.Email)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.eng_usergroup.GroupName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.eng_usergroup.GroupName)
+            </dd>
+    
+        </dl>
+    
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+    
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>
+</body>
+</html>

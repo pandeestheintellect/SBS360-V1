@@ -1,0 +1,74 @@
+﻿@model Eng360Web.Models.Domain.eng_custom_invoice
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>eng_custom_invoice</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.InvoiceDate)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.InvoiceDate)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.ProjectID)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ProjectID)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.QuotationID)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.QuotationID)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.InvoiceNo)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.InvoiceNo)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.DoNo)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.DoNo)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.DODate)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.DODate)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.InvoiceID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

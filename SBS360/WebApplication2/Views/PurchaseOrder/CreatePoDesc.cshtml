@@ -1,0 +1,115 @@
+﻿@model Eng360Web.Models.ViewModel.PoDescriptionViewModel
+
+@{
+    Layout = null;
+}
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h4 class="modal-title">Add New Description</h4>
+</div>
+<div class="modal-body">
+    <form id="formPoDesc">
+        @Html.HiddenFor(model => model.PDID)
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.PODescription, htmlAttributes: new { @class = "control-label" })
+                    <div class="">
+                        @Html.TextAreaFor(model => model.PODescription, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.PODescription, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Quantity, htmlAttributes: new { @class = "control-label" })
+                    <div class="">
+                        @Html.EditorFor(model => model.Quantity, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Quantity, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                
+                <div class="form-group">
+                    @Html.LabelFor(model => model.UnitOfMeasure, "Unit of Measure", htmlAttributes: new { @class = "control-label" })
+                    <div class="">
+                        @Html.DropDownListFor(model => model.UnitOfMeasure, new SelectList(
+                                    new List<Object>{
+                                    new { value = "mm" , text = "mm"  },
+                                    new { value = "cm" , text = "cm" },
+                                    new { value = "meter" , text = "meter" },
+                                    new { value = "sq.m" , text = "sq.m" },
+                                    new { value = "nos" , text = "nos" },
+                                    new { value = "ltrs" , text = "ltrs" },
+                                    new { value = "kg" , text = "kg" },
+                                    new { value = "pallet" , text = "pallet" },
+                                    new { value = "ton" , text = "ton" },
+                                    new { value = "bundle" , text = "bundle" },
+                                    new { value = "dozen" , text = "dozon" },
+                                    new { value = "Tin" , text = "Tin" },
+                                    new { value = "Box" , text = "Box" },
+                                    new { value = "Lumpsum" , text = "Lumpsum" },
+                                    new { value = "cu.m" , text = "cu.m" },
+                                    new { value = "hr" , text = "hr" },
+                                    new { value = "day" , text = "day" },
+                                    new { value = "week" , text = "week" },
+                                    new { value = "pack" , text = "pack" }
+
+                                    }, "value", "text", 2), htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.UnitOfMeasure, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.PoPrice, htmlAttributes: new { @class = "control-label" })
+                    <div class="">
+                        @Html.EditorFor(model => model.PoPrice, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.PoPrice, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    <input type="button" value="Add" id="create-PoDesc-dialog-save" class="btn btn-primary" />
+
+</div>
+<script>
+
+        $("form").removeData("validator");
+        $("form").removeData("unobtrusiveValidation");
+        $.validator.unobtrusive.parse("form");
+
+        function addDataToDataTable() {
+            if ($('#formPoDesc').valid()) {
+                var desc = $('#PODescription').val().trim();
+                var qty = $('#Quantity').val().trim();
+                var uom = $('#UnitOfMeasure').val().trim();
+                var price = $('#PoPrice').val().trim();
+                //var quotedisc = $('#QuoteDiscPercent').val().trim();
+                debugger;
+               if ($('#PDID').val() == "") {
+                   podescTable.row.add([desc, qty, uom, price, 0]).draw(false)
+               }
+               else
+               {
+                   podescTable.cell('.selectedRow', ':eq(0)').data(desc);
+                   podescTable.cell('.selectedRow', ':eq(1)').data(qty);
+                   podescTable.cell('.selectedRow', ':eq(2)').data(uom);
+                   podescTable.cell('.selectedRow', ':eq(3)').data(price);
+                   //quotedescTable.cell('.selectedRow', ':eq(4)').data(quotedisc);
+                   podescTable.cell('.selectedRow', ':eq(4)').data($('#PDID').val());
+                   podescTable.draw();
+
+                   $('.selectedRow').addClass('RowEdited').removeClass('selectedRow');
+               }
+
+               $('#create-PoDesc-dialog').modal('hide');
+               $('#create-PoDesc-dialog').css('z-index', '');
+               calcAmount();
+            }
+        }
+</script>

@@ -1,0 +1,95 @@
+﻿@using Eng360Web.Models.ViewModel
+@model LoginViewModel
+@{
+    ViewBag.Title = "Login";
+    Layout = null;
+
+}
+
+<head>
+    <title>SBS360</title>
+    <link rel="stylesheet" type="text/css" href="~/Scripts/Login/css/style.css">
+
+    <link href="~/Scripts/Login/css/eng360css.css" type="text/css" rel="stylesheet" />
+    <link rel="shortcut icon" href="~/Scripts/Login/fv.png" type="image/png>
+    <link rel="icon" href="~/Scripts/Login/img/fv.png" type="image/x-icon">
+
+
+    <script src="~/Scripts/Login/js/eng360js.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body>
+    <img class="wave" src="~/Scripts/Login/img/wave.png" />
+    <div class="container">
+        <div class="img"></div>
+        <div class="login-content">
+
+
+            @using (Html.BeginForm("Index", "Login", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                <img src="~/Scripts/Login/img/SBS360_Logo.png" />
+
+                <h2 class="title">Sign in!!</h2>
+                <div class="input-div one">
+                    <div class="i">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="div">
+                        <h5>Username</h5>
+                        <!--<input type="text" class="input" />-->
+                        @Html.TextBoxFor(m => m.UserName, new { @class = "input" })
+
+                    </div>
+
+                </div>
+
+                <div class="input-div pass">
+                    <div class="i">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <!-- <span>
+                      <i class=" pas fas fa-lock"></i>
+                    </span> -->
+                    <div class="div">
+                        <h5>Password</h5>
+                        <!--<input type="password" class="input" />-->
+                        @Html.PasswordFor(m => m.Password, new { @class = "input" })
+
+                    </div>
+
+                </div>
+
+                <span> <a href="#">Forgot Password?</a> </span>
+
+                <input type="submit" class="btn" value="Sign in" />
+
+            }
+
+
+        </div>
+    </div>
+    <script type="text/javascript" src="~/Scripts/Login/js/main.js"></script>
+</body>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<script>
+
+    if (window.location.href.indexOf("/Login") == -1) {
+        window.location.href = "Login/Index";
+    }
+
+    $(".toggle-password").click(function () {
+        $(this).toggleClass("fa-eye fa-eye-slash");
+        var input = $($(this).attr("toggle"));
+        if (input.attr("type") == "password") {
+            input.attr("type", "text");
+        } else {
+            input.attr("type", "password");
+        }
+    });
+</script>

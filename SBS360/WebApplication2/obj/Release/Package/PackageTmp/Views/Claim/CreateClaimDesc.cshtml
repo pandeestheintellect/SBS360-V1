@@ -1,0 +1,146 @@
+﻿@model Eng360Web.Models.ViewModel.ClaimDescriptionViewModel
+
+@{
+    Layout = null;
+}
+<script src="~/Scripts/moment.js"></script>
+<script src="~/Scripts/bootstrap-datetimepicker.js"></script>
+<link href="~/Content/bootstrap-datetimepicker.css" rel="stylesheet" />
+
+<style>
+    .required::after {
+        content: "*";
+        font-weight: bold;
+        color: red;
+    }
+</style>
+
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h4 class="modal-title">Add New Description</h4>
+</div>
+<div class="modal-body">
+    <form id="formClaimDesc">
+        @Html.HiddenFor(model => model.ClaimDescID)
+        <div class="row">
+
+            <div class="col-md-12">
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ClaimTypeID, htmlAttributes: new { @class = "control-label required" })
+                    <div class="">
+                        @*Html.DropDownListFor(model => model.ClaimTypeID, "ClaimTypeID", null, htmlAttributes: new { @class = "form-control" })*@
+                        @Html.DropDownListFor(model => model.ClaimTypeID, null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.ClaimTypeID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.ClaimDescription, htmlAttributes: new { @class = "control-label required" })
+                        <div class="">
+                            @Html.EditorFor(model => model.ClaimDescription, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.ClaimDescription, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    
+                    
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.RecpDate, htmlAttributes: new { @class = "control-label required" })
+                            <div class="">
+                               
+                                
+                                    @Html.EditorFor(model => model.RecpDate, new { htmlAttributes = new { @class = "form-control" } })
+                                
+                                @Html.ValidationMessageFor(model => model.RecpDate, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.RecpAmount, htmlAttributes: new { @class = "control-label required" })
+                                <div class="">
+                                    @Html.EditorFor(model => model.RecpAmount, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.RecpAmount, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.GST, "GST", htmlAttributes: new { @class = "control-label" })
+                    <div class="">
+                        @Html.DropDownListFor(model => model.GST, new SelectList(
+                                    new List<Object>{
+                                    new { value = "YES" , text = "YES"  },
+                                    new { value = "NO" , text = "NO" }
+
+                    }, "value", "text", 2), htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.GST, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                        </div>
+            </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    <input type="button" value="Add" id="create-ClaimDesc-dialog-save" class="btn btn-primary" />
+
+</div>
+<script>
+
+        $("form").removeData("validator");
+        $("form").removeData("unobtrusiveValidation");
+        $.validator.unobtrusive.parse("form");
+
+        $(document).ready(function () {
+
+            $('#RecpDate').datetimepicker({ format: 'DD/MM/YYYY' });
+
+            
+        });
+
+    function addDataToDataTable() {
+        
+        if ($('#formClaimDesc').valid()) {
+            var ctdesc = "";
+            var ctd = $('#ClaimTypeID').val().trim();
+            if (ctd == 1)
+            { ctdesc = "Transport"; }
+            if (ctd == 2)
+            { ctdesc = "Meals"; }
+            if (ctd == 3)
+            { ctdesc = "Medical"; }
+            if (ctd == 4)
+            { ctdesc = "Miscellaneous"; }
+
+                var claimtype = $('#ClaimTypeID').val().trim();
+                var claimdesc = $('#ClaimDescription').val().trim();
+                var recpdate = $('#RecpDate').val().trim();
+                var recpamount = $('#RecpAmount').val().trim();
+                var gst = $('#GST').val().trim();
+                
+               if ($('#ClaimDescID').val() == "") {
+                   claimdescTable.row.add([ctdesc, claimtype, claimdesc, recpdate, recpamount, gst, 0]).draw(false)
+               }
+               else
+               {
+                   
+                   claimdescTable.cell('.selectedRow', ':eq(0)').data(ctdesc);
+                   claimdescTable.cell('.selectedRow', ':eq(1)').data(claimdesc);
+                   claimdescTable.cell('.selectedRow', ':eq(2)').data(recpdate);
+                   claimdescTable.cell('.selectedRow', ':eq(3)').data(recpamount);
+                   claimdescTable.cell('.selectedRow', ':eq(4)').data(gst);
+                   claimdescTable.cell('.selectedRow', ':eq(5)').data($('#ClaimDescID').val());
+                   claimdescTable.draw();
+
+                   $('.selectedRow').addClass('RowEdited').removeClass('selectedRow');
+               }
+
+               $('#create-ClaimDesc-dialog').modal('hide');
+               $('#create-ClaimDesc-dialog').css('z-index', '');
+               calcAmount();
+            }
+        }
+</script>

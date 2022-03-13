@@ -1,0 +1,769 @@
+﻿@model Eng360Web.Models.ViewModel.PTWMasterViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+
+    <style type="text/css">
+        @@media print
+        {
+        #footer {
+         display: block;
+         position: fixed;
+         bottom: 0;
+            }
+        }
+
+        body, td, th {
+            font-family: Arial;
+            font-size: 13px;
+            word-wrap:break-word;
+        }
+
+       
+    </style>
+</head>
+<body style="font-family: Book Antiqua;">
+    <center>
+
+        <table border="0" width="810">
+            <thead>
+                <tr>
+                    <th style="width:100%">
+                    @*<img style="width: 790px; height: 75px;" src="~/images/CompanyLogo/Header.jpg" />*@
+                        <table width="773" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+
+                                <td width="100" align="left" valign="top" style="padding:0px;"><img style="width: 130px; height: 130px;" src="~/images/CompanyLogo/logo.png" /></td>
+                                <td width="388" align="left" valign="top" style="padding:2px;">
+                                    <span style="font-size:16px; font-weight:bold;">
+                                        @Eng360Web.Models.Utility.AppSession.GetCompanyDetail().CompanyName
+                                    </span><br />
+                                    <span style="font-weight:bold; font-size:12px;">
+                                        @Eng360Web.Models.Utility.AppSession.GetCompanyDetail().Address1<br />
+                                        @Eng360Web.Models.Utility.AppSession.GetCompanyDetail().Address2 @Eng360Web.Models.Utility.AppSession.GetCompanyDetail().City @Eng360Web.Models.Utility.AppSession.GetCompanyDetail().Pincode	<br />
+                                        Tel : (65) @Eng360Web.Models.Utility.AppSession.GetCompanyDetail().Tel / Fax: (65) @Eng360Web.Models.Utility.AppSession.GetCompanyDetail().Fax	<br />
+                                        E-mail : @Eng360Web.Models.Utility.AppSession.GetCompanyDetail().Email	<br />
+                                        Co. Reg. No : @Eng360Web.Models.Utility.AppSession.GetCompanyDetail().RegNo GST. Reg. No : @Eng360Web.Models.Utility.AppSession.GetCompanyDetail().GstRegNo
+                                    </span>
+                                </td>
+                                <td width="240" align="right" valign="top" style="padding-right:5px; line-height:15px;">
+                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                        <tr>
+                                            <td align="right" valign="top">
+                                                <img style="width: 210px; height: 90px;" src="~/images/CompanyLogo/biz3.png" />
+                                            </td>
+                                        </tr>
+
+                                    </table>
+
+                                </td>
+                            </tr>
+                        </table>
+                    </th>
+                </tr>
+                <tr>
+                    <th><hr /></th>
+                </tr>
+
+            </thead>   
+            
+            <tfoot>
+                <tr>
+                    <td width="100%">
+                        <table width="100%" border="0" height="30">
+                            <tr>
+                                <td><br />&nbsp;</td>
+                            </tr>
+                        </table>
+            </tfoot>         
+
+            <tdoby>
+                <tr>
+                    @{ 
+                        var ptw = "";
+                        if (Model.PTW_type == "PTWWAH" || Model.PTW_type == "Working at Height Permit")
+                        {
+                            ptw = "PERMIT TO WORK FOR WORK AT HEIGHT";
+                        }
+                        if (Model.PTW_type == "PTWWFEX" || Model.PTW_type == "Excavation Permit")
+                        {
+                            ptw = "PERMIT TO WORK FOR / IN EXCAVATION";
+                        }
+                        if (Model.PTW_type == "PTWHOT" || Model.PTW_type == "Hot work Permit")
+                        {
+                            ptw = "PERMIT TO WORK FOR HOT WORKS";
+                        }
+                        if (Model.PTW_type == "PTWLOPT" || Model.PTW_type == "Lifting work Permit")
+                        {
+                            ptw = "PERMIT TO WORK FOR LIFTING OPERATIONS";
+                        }
+                    }
+
+                    <td>
+
+                        <table border="1" width="810" style="border-collapse:collapse;">
+                            <tr>
+                                <td colspan="6" style="font-size: 22px; font-weight: bold;" align="center">
+                                    @ptw
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="2">
+                                    Name of company & project title:
+                                </td>
+                                <td colspan="4">
+                                    @Model.CompanyName &nbsp; / &nbsp; @Model.ProjectTitle
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="6" style="font-size: 13px; font-weight: bold;">
+                                    STAGE 1:  APPLICATION BY SUPERVISOR IN-CHARGE
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="2">
+                                    Name of Applicant:
+                                </td>
+                                <td colspan="4">
+                                    @Model.NameOfApplicant
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="2">
+                                    Date & Time of Permit:
+                                </td>
+                                <td colspan="4">
+                                    @Model.Date_Time
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="2">
+                                    Sub-con Name (if applicable):
+                                </td>
+                                <td colspan="4">
+                                    @Model.Sub_con_Name
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="6" style="font-size: 13px; font-weight: bold;">
+                                    WORK DESCRIPTIONS
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="2">
+                                    Location of Work / Grid Line no:
+                                </td>
+                                <td colspan="4">
+                                   &nbsp; @Model.Loc_or_GridLineNo
+                                </td>
+                            </tr>
+                            @{ 
+                                var empcnt = Model.eng_PTW_Employee_Details.Count;
+                            }
+
+                            <tr>
+                                <td width="135px">
+                                    Date & Time of Start:
+                                </td>
+                                <td width="135px">
+                                    &nbsp;@Model.Start_Date_Time
+                                </td>
+                                <td width="135px">
+                                    Date & Time of End:
+                                </td>
+                                <td width="135px">
+                                    &nbsp;@Model.End_Date_Time
+                                </td>
+                                <td width="135px">
+                                    No. of workers involved in this work:
+                                </td>
+                                <td width="135px">
+                                    &nbsp;@empcnt
+                                </td>
+                            </tr>
+                        </table>
+                        <br />
+
+                        <table border="1" width="810" style="border-collapse:collapse;">
+
+                            <tr>
+                                <td colspan="2" style="font-size: 13px;">
+                                    <span style="font-weight: bold;">
+                                        Checklist items to implement &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    </span>
+                                    Tick box  -  <span style="font-weight: bold;">Legend:  </span> √ = Yes    X = No     NA = Not Applicable
+                                </td>
+
+                            </tr>
+                            @*<tr>
+                        <td width="380px;">
+                            1. All the adjacent activities are properly coordinated and no faulty m/c or tools used for works
+                        </td>
+                        <td width="25px;">
+                            &nbsp;
+                        </td>
+                        <td width="380px;">
+                            9. Warning / safety signs are displayed adequately at conspicuous locations.
+                        </td>
+                        <td width="25px;">
+                            &nbsp;
+                        </td>
+
+                    </tr>*@
+                            @foreach (var item in Model.eng_PTW_Detail_Satge1.OrderBy(a=>a.PTW_Stage_One_ID))
+                            {
+                                <tr>
+                                    <td width="780">
+                                        @item.item
+                                    </td>
+                                    <td width="30" align="center">
+                                        @item.Applicable
+                                    </td>
+                                </tr>
+
+
+                            }
+                            <tr>
+                                <td colspan="2">
+                                    I have checked and confirmed that the above safety requirements have been complied with and will be maintained. I will supervise the works and undertake to stop / cease the operation should there be any unsafe condition or potentially hazardous situation arose during the course of work.
+                                    <br /> <br />
+                                    <table border="0" width="100%">
+                                        <tr>
+                                            <td width="65%">
+                                                Name/ Signature:
+                                                <u>@Model.Stage1_Person_Name</u> 
+                                                </td>
+                                            <td width="35%">
+                                                Date / Time:&nbsp;
+                                                <u>@Model.Stage1_Date_Time</u>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+
+
+                        </table>
+
+                        <br />
+
+
+                        <table border="1" width="810" style="border-collapse:collapse;">
+                            <tr>
+                                <td style="font-size: 13px; font-weight: bold;">
+                                    STAGE 2 – Endorsement by EHS Personnel / Assessor
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    I have inspected the above-stated location & confirmed that the recommended safety measures are in place and the said location is safe for work
+                                    <br /> <br /><br />
+                                    <table border="0" width="100%">
+                                        <tr>
+                                            <td width="65%">
+                                                Name/ Signature:
+                                                <u>@Model.Stage2_Person_Name</u>
+                                            </td>
+                                            <td width="35%">
+                                                Date / Time:&nbsp;
+                                                <u>@Model.Stage2_Date_Time</u>
+                                            </td>
+                                        </tr>
+                                    </table>
+
+                                    <br />
+                                    <span>&nbsp;</span>
+                                </td>
+                            </tr>
+
+                        </table>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;<br /></td>
+                </tr>
+
+                <tr>
+                    <td>
+
+                        <table border="1" width="810" style="border-collapse:collapse;">
+                            <tr>
+                                <td style="font-size: 13px; font-weight: bold;">
+                                    STAGE 3 – Approval by Project Manager / Authorized Manager
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    I am fully satisfied that a thorough inspection and proper assessment of the work area and its surrounding have been conducted and the excavation work can be carried out safely.
+                                    <br /> <br /><br />
+                                    <table border="0" width="100%">
+                                        <tr>
+                                            <td width="65%">
+                                                Name/ Signature:
+                                                <u>@Model.Stage3_Person_Name</u>
+                                            </td>
+                                            <td width="35%">
+                                                Date / Time:&nbsp;
+                                                <u>@Model.Stage3_Date_Time</u>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <br />
+                                    <span>&nbsp;</span>
+                                </td>
+                            </tr>
+
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;<br /></td>
+                </tr>
+
+                <tr>
+                    <td>
+
+                        <table border="1" width="810" style="border-collapse:collapse;">
+                            <tr>
+                                <td colspan="9" style="font-size: 13px; font-weight: bold;">
+                                    STAGE 4: Daily checks on implementation as per above checklist
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    Name of person & Designation
+                                </td>
+                                <td>
+                                    Day / Date
+                                </td>
+                                <td>
+                                    Mon
+                                </td>
+                                <td>
+                                    Tue
+                                </td>
+                                <td>
+                                    Wed
+                                </td>
+                                <td>
+                                    Thu
+                                </td>
+                                <td>
+                                    Fri
+                                </td>
+                                <td>
+                                    Sat
+                                </td>
+                                <td>
+                                    Sun
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    @Model.Stage4_Sup_Name
+                                </td>
+                                <td align="right">
+                                    /Supervisor Incharge
+                                </td>
+                                <td rowspan="2" style="font-size: 18px;">
+                                    @{ 
+                                        var day = "";
+                                        if (ViewBag.St4Day == "Mon")
+                                        {
+                                            day = "√";
+                                        }
+                                        else
+                                        {
+                                            day = "";
+                                        }
+                                    }
+                                    &nbsp;@day
+                                </td>
+                                <td rowspan="2" style="font-size: 18px;">
+                                    @if (ViewBag.St4Day == "Tue")
+                                    {
+                                        day = "√";
+                                    }
+                                    else
+                                    {
+                                        day = "";
+                                    }
+                                    &nbsp;@day
+                                </td>
+                                <td rowspan="2" style="font-size: 18px;">
+                                    @if (ViewBag.St4Day == "Wed")
+                                    {
+                                        day = "√";
+                                    }
+                                    else
+                                    {
+                                        day = "";
+                                    }
+                                    &nbsp;@day
+                                </td>
+                                <td rowspan="2" style="font-size: 18px;">
+                                    @if (ViewBag.St4Day == "Thu")
+                                    {
+                                        day = "√";
+                                    }
+                                    else
+                                    {
+                                        day = "";
+                                    }
+                                    &nbsp;@day
+                                </td>
+                                <td rowspan="2" style="font-size: 18px;">
+                                    @if (ViewBag.St4Day == "Fri")
+                                    {
+                                        day = "√";
+                                    }
+                                    else
+                                    {
+                                        day = "";
+                                    }
+                                    &nbsp;@day
+                                </td>
+                                <td rowspan="2" style="font-size: 18px;">
+                                    @if (ViewBag.St4Day == "Sat")
+                                    {
+                                        day = "√";
+                                    }
+                                    else
+                                    {
+                                        day = "";
+                                    }
+                                    &nbsp;@day
+                                </td>
+                                <td rowspan="2" style="font-size: 18px;">
+                                    @if (ViewBag.St4Day == "Sun")
+                                    {
+                                        day = "√";
+                                    }
+                                    else
+                                    {
+                                        day = "";
+                                    }
+                                    &nbsp;@day
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" align="right" valign="middle">
+                                    Signature
+                                    <br /><br /><br />
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td>
+                                    @Model.Stage4_WSH_Name
+                                </td>
+                                <td align="right">
+                                    /WSH Personnel
+                                </td>
+                                <td rowspan="2" style="font-size: 18px;">
+                                    @{ 
+                                        day = "";
+                                        if (ViewBag.St4Day == "Mon")
+                                        {
+                                            day = "√";
+                                        }
+                                        else
+                                        {
+                                            day = "";
+                                        }
+                                        }
+                                    &nbsp;@day
+                                </td>
+                                <td rowspan="2" style="font-size: 18px;">
+                                   @if (ViewBag.St4Day == "Tue")
+                                   {
+                                       day = "√";
+                                   }
+                                   else
+                                   {
+                                       day = "";
+                                   }
+                                &nbsp;@day
+                                </td>
+                                <td rowspan="2" style="font-size: 18px;">
+                                    @if (ViewBag.St4Day == "Wed")
+                                    {
+                                        day = "√";
+                                    }
+                                    else
+                                    {
+                                        day = "";
+                                    }
+                                    &nbsp;@day
+                                </td>
+                                <td rowspan="2" style="font-size: 18px;">
+                                    @if (ViewBag.St4Day == "Thu")
+                                    {
+                                        day = "√";
+                                    }
+                                    else
+                                    {
+                                        day = "";
+                                    }
+                                    &nbsp;@day
+                                </td>
+                                <td rowspan="2" style="font-size: 18px;">
+                                    @if (ViewBag.St4Day == "Fri")
+                                    {
+                                        day = "√";
+                                    }
+                                    else
+                                    {
+                                        day = "";
+                                    }
+                                    &nbsp;@day
+                                </td>
+                                <td rowspan="2" style="font-size: 18px;">
+                                    @if (ViewBag.St4Day == "Sat")
+                                    {
+                                        day = "√";
+                                    }
+                                    else
+                                    {
+                                        day = "";
+                                    }
+                                    &nbsp;@day
+                                </td>
+                                <td rowspan="2" style="font-size: 18px;">
+                                   @if (ViewBag.St4Day == "Sun")
+                                   {
+                                       day = "√";
+                                   }
+                                   else
+                                   {
+                                       day = "";
+                                   }
+                                &nbsp;@day
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" align="right" valign="middle">
+                                    Signature
+                                    <br /><br /><br />
+                                </td>
+                            </tr>
+
+
+                        </table>
+
+                        <br />
+
+                        <table border="1" width="810" style="border-collapse:collapse;">
+                            <tr>
+                                <td colspan="2" style="font-size: 13px; font-weight: bold;">
+                                    STAGE 5: Permit Closure:
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td width="50%">
+                                    <strong>Notification of Work Complete and area reinstate back to safe condition by Supervisor In-Charge</strong>
+                                    <br /> <br /><br />
+                                    <table border="0" width="100%">
+                                        <tr>
+                                            <td width="55%">
+                                                Signature:
+                                                <u>@Model.Stage5_Sup_Person_Name</u>
+                                            </td>
+                                            <td width="45%">
+                                                @{
+                                                    var dt = "";
+                                                    dt = Convert.ToDateTime(Model.Stage5_Sup_Date_Time).ToString(Eng360Web.Models.Utility.AppSettings.GetDateFormat());
+                                                    if(dt == "01/01/0001")
+                                                    {
+                                                        dt = "";
+                                                    }
+                                                }
+                                                
+                                                
+                                                Date / Time:&nbsp;
+                                                <u>@dt</u>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    
+                                    <span>&nbsp;</span>
+                                </td>
+
+                                <td width="50%">
+                                    <strong>Check by WSH Personnel</strong>
+                                    <br /> <br /><br /><br />
+                                    <table border="0" width="100%">
+                                        <tr>
+                                            <td width="55%">
+                                                Signature:
+                                                <u>@Model.Stage5_Mng_Person_Name</u>
+                                            </td>
+                                            <td width="45%">
+                                                @{
+                                                    dt = "";
+                                                    dt = Convert.ToDateTime(Model.Stage5_Sup_Date_Time).ToString(Eng360Web.Models.Utility.AppSettings.GetDateFormat());
+                                                    if (dt == "01/01/0001")
+                                                    {
+                                                        dt = "";
+                                                    }
+                                                }
+                                                Date / Time:&nbsp;
+                                                <u>@dt</u>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    
+                                    <span>&nbsp;</span>
+                                </td>
+                            </tr>
+
+                        </table>
+                        <br />
+                        <table border="1" width="810" style="border-collapse:collapse;">
+                            <tr>
+                                <td style="font-size: 13px; font-weight: bold;">
+                                    Revoke or cancellation of Permit-to-work (when unsafe for the works to proceed)
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    This permit-to-work is revoked / cancelled due to the below-mentioned reason.<br />
+                                    <table border="1" width="100%" style="padding: 2px; border-collapse: collapse;">
+                                        <tr>
+                                            <td align="center" style="font-weight: bold;">
+                                                Reason for revoke or cancellation & date / time
+                                            </td>
+                                            <td align="center" style="font-weight: bold;">
+                                                Signed by WSH Personnel
+                                            </td>
+                                            <td align="center" style="font-weight: bold;">
+                                                Signed by Project Manager
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                &nbsp; @Model.Revoke_Desc<br />
+                                            </td>
+                                            <td align="center">
+                                                &nbsp; @Model.Revoke_Sup_Name<br />
+                                            </td>
+                                            <td align="center">
+                                                &nbsp; @Model.Revoke_Mng_Name<br />
+                                            </td>
+                                        </tr>
+
+                                    </table>
+
+                                </td>
+                            </tr>
+                        </table>
+                        <br />
+                        <table border="0" width="810" style="border-collapse:collapse;">
+                            <tr>
+                                <td style="font-size: 13px; font-weight: bold;">
+                                    Authorized Team involved in this Activity:
+                                </td>
+                            </tr>
+                        </table>
+
+                        <table border="1" width="810" style="border-collapse:collapse;">
+                            <tr>
+                                <td rowspan="2" style="font-size: 13px; font-weight: bold;" align="center">
+                                    Name
+                                </td>
+                                <td rowspan="2" style="font-size: 13px; font-weight: bold;" align="center">
+                                    Designation
+                                </td>
+                                <td colspan="2" style="font-size: 13px; font-weight: bold;" align="center">
+                                    Acknowledgement
+                                </td>
+                            </tr>
+                            <tr>
+
+                                <td align="center">
+                                    Sign
+                                </td>
+                                <td align="center">
+                                    Date
+                                </td>
+                            </tr>
+                            @foreach (var emp in Model.eng_PTW_Employee_Details)
+                            {
+                            <tr>
+                                <td>
+                                    @emp.EmpName
+                                </td>
+                                <td>
+                                    @emp.Desig
+                                </td>
+                                <td>
+                                    &nbsp;
+                                </td>
+                                <td>
+                                    &nbsp;
+                                </td>
+                            </tr>
+                            }
+                        </table>
+                        <br />
+
+                        <table border="0" width="810" style="border-collapse:collapse;">
+                            <tr>
+                                <td style="font-size: 13px; font-weight: bold;">
+                                    <u>Note:</u>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="font-size: 13px; font-weight: bold;">
+                                    &diams;
+                                </td>
+                                <td align="justify">
+                                    This permit is valid only for the period stated. The conditions of issue must be complied with throughout the duration of work. This permit may be withdrawn at any time. Supervisor In-Charge is responsible for the copy of this permit and must produce it on request.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="font-size: 13px; font-weight: bold;">
+                                    &diams;
+                                </td>
+                                <td align="justify">
+                                    In the event of this permit cancelled / revoked due to non-compliance / unsafe condition arise due to change in work environment, etc, a new Permit should be applied.
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </tdoby>
+        </table>
+
+        
+
+    </center>
+
+
+
+</body>
+</html>

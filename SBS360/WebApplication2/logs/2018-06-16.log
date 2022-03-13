@@ -1,0 +1,104 @@
+2018-06-16 23:41:57.6371|DEBUG|Eng360Web.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: {
+	"ProjectReportID":1,
+	"ProjectID":8,
+	"ReportDate":"31/01/2018",
+	"Start_Date_Time":"08:00",
+	"End_Date_Time":"18:00",
+	"Task_Description":"",
+	"Quantity":1,
+	"TaskStatusID":2,
+	"ProgressPercentage":"50",
+	"Remarks":"Pandees test1 from pandees mobile eng361 no pic",
+	"Resource_name":" Anbu(EMP00149),  Arjunan(EMP00177),  Arul(EMP00024)",
+	"ProjectName":null,
+	"ClientName":null,
+	"Location":null,
+	"TotalHrsReported":null,
+	"TotalOTHrsReported":null,
+	"CreatedDate":"2018-02-01T08:40:10.420372+08:00",
+	"UpdatedDate":"0001-01-01T00:00:00",
+	"CreatedBy":1,
+	"UpdatedBy":null,
+	"files":[]
+}
+2018-06-16 23:41:57.6561|INFO|Eng360Web.Models.Authentication.BasicAuthenticationMessageHandler|UserName:anandh - Type:anandh
+2018-06-16 23:41:57.6682|DEBUG|Eng360Web.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : True
+2018-06-16 23:42:34.6473|DEBUG|Eng360Web.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: {
+	"ProjectReportID":1,
+	"ProjectID":8,
+	"ReportDate":"31/01/2018",
+	"Start_Date_Time":"08:00",
+	"End_Date_Time":"18:00",
+	"Task_Description":"",
+	"Quantity":1,
+	"TaskStatusID":2,
+	"ProgressPercentage":"50",
+	"Remarks":"Pandees test1 from pandees mobile eng361 no pic",
+	"Resource_name":" Anbu(EMP00149),  Arjunan(EMP00177),  Arul(EMP00024)",
+	"ProjectName":null,
+	"ClientName":null,
+	"Location":null,
+	"TotalHrsReported":null,
+	"TotalOTHrsReported":null,
+	"CreatedDate":"2018-02-01T08:40:10.420372+08:00",
+	"UpdatedDate":"0001-01-01T00:00:00",
+	"CreatedBy":1,
+	"UpdatedBy":null,
+	"files":[]
+}
+2018-06-16 23:42:34.6473|INFO|Eng360Web.Models.Authentication.BasicAuthenticationMessageHandler|UserName:anandh - Type:anandh
+2018-06-16 23:42:34.6473|DEBUG|Eng360Web.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : True
+2018-06-16 23:42:34.7201|ERROR|Eng360Web.Filters.UnhandledExceptionFilter|Processing of the HTTP request resulted in an exception. Please see the HTTP response returned by the 'Response' property of this exception for details.
+2018-06-16 23:42:34.7201|ERROR|Eng360Web.Filters.UnhandledExceptionFilter|Processing of the HTTP request resulted in an exception. Please see the HTTP response returned by the 'Response' property of this exception for details.
+2018-06-16 23:43:19.0868|DEBUG|Eng360Web.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: {
+	"ProjectReportID":1,
+	"ProjectID":8,
+	"ReportDate":"31/01/2018",
+	"Start_Date_Time":"08:00",
+	"End_Date_Time":"18:00",
+	"Task_Description":"",
+	"Quantity":1,
+	"TaskStatusID":2,
+	"ProgressPercentage":"50",
+	"Remarks":"Pandees test1 from pandees mobile eng361 no pic",
+	"Resource_name":" Anbu(EMP00149),  Arjunan(EMP00177),  Arul(EMP00024)",
+	"ProjectName":null,
+	"ClientName":null,
+	"Location":null,
+	"TotalHrsReported":null,
+	"TotalOTHrsReported":null,
+	"CreatedDate":"2018-02-01T08:40:10.420372+08:00",
+	"UpdatedDate":"0001-01-01T00:00:00",
+	"CreatedBy":1,
+	"UpdatedBy":null,
+	"files":[]
+}
+2018-06-16 23:43:19.0868|INFO|Eng360Web.Models.Authentication.BasicAuthenticationMessageHandler|UserName:anandh - Type:anandh
+2018-06-16 23:43:19.0868|DEBUG|Eng360Web.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : True
+2018-06-16 23:43:19.0868|ERROR|Eng360Web.Filters.UnhandledExceptionFilter|Processing of the HTTP request resulted in an exception. Please see the HTTP response returned by the 'Response' property of this exception for details.
+2018-06-16 23:43:19.0868|ERROR|Eng360Web.Filters.UnhandledExceptionFilter|Processing of the HTTP request resulted in an exception. Please see the HTTP response returned by the 'Response' property of this exception for details.
+2018-06-16 23:44:38.8084|DEBUG|Eng360Web.Models.Authentication.BasicAuthenticationMessageHandler|Raw Http Message: {
+	"ProjectReportID":1,
+	"ProjectID":8,
+	"ReportDate":"31/01/2018",
+	"Start_Date_Time":"08:00",
+	"End_Date_Time":"18:00",
+	"Task_Description":"",
+	"Quantity":1,
+	"TaskStatusID":2,
+	"ProgressPercentage":"50",
+	"Remarks":"Pandees test1 from pandees mobile eng361 no pic",
+	"Resource_name":" Anbu(EMP00149),  Arjunan(EMP00177),  Arul(EMP00024)",
+	"ProjectName":null,
+	"ClientName":null,
+	"Location":null,
+	"TotalHrsReported":null,
+	"TotalOTHrsReported":null,
+	"CreatedDate":"2018-02-01T08:40:10.420372+08:00",
+	"UpdatedDate":"0001-01-01T00:00:00",
+	"CreatedBy":1,
+	"UpdatedBy":null,
+	"files":[]
+}
+2018-06-16 23:44:38.8084|INFO|Eng360Web.Models.Authentication.BasicAuthenticationMessageHandler|UserName:anandh - Type:anandh
+2018-06-16 23:44:38.8084|DEBUG|Eng360Web.Models.Authentication.BasicAuthenticationMessageHandler|isAuthenticated : True

@@ -1,0 +1,144 @@
+﻿@model Eng360Web.Models.Domain.eng_project_master
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+</head>
+<body>
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        <h4>eng_project_master</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.ProjectNo)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ProjectNo)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.ProjectName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ProjectName)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.DoNo)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.DoNo)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Start_Date)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Start_Date)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.End_Date)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.End_Date)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Key_Milestones)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Key_Milestones)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Service_Desc)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Service_Desc)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Payment_Status)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Payment_Status)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Client_Acceptance_Status)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Client_Acceptance_Status)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Received_Amount)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Received_Amount)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Pending_Amount)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Pending_Amount)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.eng_quote_master.QuoteRefNum)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.eng_quote_master.QuoteRefNum)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.eng_sys_location.LocationName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.eng_sys_location.LocationName)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.eng_sys_project_status.ProjectStatus)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.eng_sys_project_status.ProjectStatus)
+            </dd>
+    
+        </dl>
+    
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+    
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>
+</body>
+</html>

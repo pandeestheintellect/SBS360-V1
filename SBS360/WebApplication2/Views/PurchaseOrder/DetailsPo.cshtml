@@ -1,0 +1,372 @@
+﻿@model Eng360Web.Models.ViewModel.PoViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+
+    <style type="text/css">
+        body, td, th {
+            font-family: Arial;
+            font-size: 13px;
+        }
+
+        body {
+            margin-left: 0px;
+            margin-top: 0px;
+            margin-right: 0px;
+            margin-bottom: 0px;
+        }
+
+        a:link {
+            text-decoration: none;
+        }
+
+        a:visited {
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: none;
+        }
+
+        a:active {
+            text-decoration: none;
+        }
+
+        .tb {
+            border-style: solid;
+            /*border-width:1px;*/
+            border-bottom-width: 1px;
+            border-top-width: 1px;
+            border-left-width: 1px;
+            border-right-width: 1px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+        @@media screen {
+            div#footer_wrapper {
+                display: none;
+            }
+
+            div#header_wrapper {
+                display: none;
+            }
+
+            div#body_wrapper {
+                display: block;
+            }
+        }
+
+        @@media print {
+            tfoot {
+                visibility: hidden;
+            }
+
+            div#footer_wrapper {
+                margin: 0px 2px 0px 2px;
+                position: fixed;
+                bottom: 0;
+            }
+
+            div#footer_content {
+                font-weight: bold;
+            }
+
+            div#header_wrapper {
+                margin: 0px 2px 0px 2px;
+                position: fixed;
+                top: 0;
+            }
+
+            div#header_content {
+                font-weight: bold;
+            }
+
+            div#body_wrapper {
+                height: inherit;
+                margin-top: 100px;
+                margin-bottom: 80px;
+            }
+        }
+    </style>
+</head>
+<body style="font-family: Arial;">
+    <center>
+        <table width="773" border="0" cellspacing="0" cellpadding="0">
+
+            <tr>
+                <td height="1062" align="center" valign="top">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td align="center" valign="top" style="padding:0px;"><img style="width: 750px; height: 90px;" src="~/images/CompanyLogo/Header.jpg" /></td>
+
+                        </tr>
+                    </table>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td align="center" style="font-size: 22px; font-weight: bold;">Purchase Order</td>
+                        </tr>
+                    </table>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td><hr /></td>
+                        </tr>
+                    </table>
+                    <table width="95%" border="0" cellspacing="0" cellpadding="0" style="margin-top:5px;">
+                        <tr>
+                            <td width="55%" align="left" valign="top" style="padding:3px;">
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td width="5%" align="left" valign="top">To:</td>
+                                        <td width="95%">
+                                            <div style="margin-left:10px;">
+                                                <pre style="margin-top:1px; font-family: Arial;font-size: 13px;"><strong>@Model.eng_supplier_master.Company_Name</strong></pre>
+                                                <div style="margin-top:-10px;">
+                                                    @Model.eng_supplier_master.eng_address_master.Address1<br />
+                                                    @Model.eng_supplier_master.eng_address_master.Address2<br />
+                                                    @Model.eng_supplier_master.eng_address_master.City- @Model.eng_supplier_master.eng_address_master.Postal_Code<br />
+                                                    Tel: @Model.eng_supplier_master.eng_address_master.Tel<br />
+                                                    <br />
+
+                                                    Attn : <strong>
+                                                        @Model.Attention
+                                                        <br />
+                                                    </strong>
+
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+
+                            </td>
+                            <td width="45%" align="center" valign="top" style="padding:3px;">
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td width="96" height="11" align="right" valign="middle" style="padding:1px; font-size:13px;">PO No &nbsp; : </td>
+                                        <td width="203" align="left" valign="middle" style="padding:1px; font-size:13px; font-weight: bold;">&nbsp; @Model.PoRefNum</td>
+                                    </tr>
+                                    <tr>
+                                        <td width="96" height="11" align="right" valign="middle" style="padding:1px; font-size:13px;">Date &nbsp; : </td>
+                                        <td width="203" align="left" valign="middle" style="padding:1px; font-size:13px; font-weight: bold;">
+                                            &nbsp;
+                                            @{
+                                                var dt = "";
+                                                dt = Convert.ToDateTime(Model.PoDate).ToString("dd-MM-yyyy");
+                                            }
+                                            @dt
+
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="96" align="right" valign="middle" style="padding:1px; font-size:13px;">Your Ref &nbsp; : </td>
+                                        <td width="203" align="left" valign="middle" style="padding:1px; padding-left: 8px;font-size:13px; text-overflow: ellipsis; word-wrap:break-word; word-break:keep-all;">@Model.YourRef </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="96" align="right" valign="middle" style="padding:1px; font-size:13px;">Terms &nbsp; : </td>
+                                        <td width="203" align="left" valign="middle" style="padding:1px; font-size:13px; text-overflow: ellipsis; word-wrap:break-word; word-break:keep-all;">&nbsp; @Model.PaymentTerms</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td width="96" align="right" valign="top" style="padding:1px;font-size:13px;">Deliver to &nbsp; : </td>
+                                        <td width="203" align="left" valign="middle">
+                                            <table border="0" width="100%">
+                                                <tr>
+                                                    <td style="padding:1px; padding-left: 8px; font-size:13px; text-overflow: ellipsis; word-wrap:break-word; word-break:keep-all; ">
+                                                        @Html.Raw(Html.Encode(Model.DeliveryAddress).Replace(Environment.NewLine, "<br />"))
+
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                    <br />
+                    <table width="95%" border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse;">
+                        <tr style="border-bottom: 1px solid #000000 !important;">
+                            <th width="8%" align="center" valign="middle" style="padding:3px; border: 1px solid #000;" height="20">S.NO</th>
+                            <th width="50%" align="center" valign="middle" style="padding:3px; border: 1px solid #000;">PRODUCT DESCRIPTION </th>
+                            <th width="8%" align="center" valign="middle" style="padding:3px; border: 1px solid #000;">UNIT</th>
+                            <th width="10%" align="center" valign="middle" style="padding:3px; border: 1px solid #000;">QTY</th>
+                            <th width="12%" align="center" valign="middle" style="padding:3px; border: 1px solid #000;">PRICE S$</th>
+                            <th width="12%" align="center" valign="middle" style="padding:3px; border: 1px solid #000;">AMOUNT S$</th>
+                        </tr>
+
+                        @{
+                            var i = 1;
+                            decimal subTotal = 0;
+                            decimal total = 0;
+                            decimal gst = 0;
+                            foreach (var desc in Model.eng_po_description)
+                            {
+                                var tempTotal = desc.Quantity * desc.PoPrice;
+                                var st = "";
+
+                                IHtmlString tx = null;
+
+                                tx = Html.Raw(Html.Encode(desc.PODescription).Replace(Environment.NewLine, "<br />"));
+                                tx = Html.Raw(Html.Encode(tx).Replace("\n", "<br />"));
+                                tx = Html.Raw(Html.Encode(tx).Replace("\r", "<br />"));
+
+
+
+                                if (desc.PDID == Model.eng_po_description.Last().PDID)
+                                {
+
+                                    <tr style="border-bottom: 0px solid #000000 !important;">
+                                        <td width="8%" align="center" valign="top" style="padding:3px; border-left: 1px solid #000; border-right: 1px solid #000; border-bottom: 0px solid #000; line-height:15px;" height="20">@i</td>
+
+                                        <td width="50%" align="left" valign="top" style="font-size:13px; text-overflow: ellipsis; padding:3px;">
+                                            <div style="font-size:13px;word-break: keep-all;">
+                                                @*@Html.Raw(Html.Encode(desc.QuoteDescription).Replace(Environment.NewLine, "<br />"))*@
+                                                @tx
+                                            </div>
+                                        </td>
+
+                                        <td width="8%" align="center" valign="top" style="padding:3px; border-left: 1px solid #000; border-right: 1px solid #000; border-bottom: 0px solid #000; line-height:15px;">@desc.UnitOfMeasure</td>
+                                        <td width="10%" align="center" valign="top" style="padding:3px; border-left: 1px solid #000; border-right: 1px solid #000; border-bottom: 0px solid #000; line-height:15px;">@desc.Quantity</td>
+                                        <td width="12%" align="right" valign="top" style="padding:3px; text-align:right; border-left: 1px solid #000; border-right: 1px solid #000; border-bottom: 0px solid #000; line-height:15px;">
+                                            @{
+                                                st = string.Format("{0:0,0.00}", desc.PoPrice);
+                                            }
+                                            @st
+                                        </td>
+                                        <td width="12%" align="right" valign="top" style="padding:3px; text-align:right; border-left: 1px solid #000; border-right: 1px solid #000; border-bottom: 0px solid #000; line-height:15px;">
+                                            @{
+                                                st = string.Format("{0:0,0.00}", tempTotal);
+                                            }
+                                            @st
+
+                                        </td>
+                                    </tr>
+
+                                                }
+                                                else
+                                                {
+
+                                                    <tr style="border-bottom: 1px solid #000000 !important;">
+                                                        <td width="8%" align="center" valign="top" style="padding:3px; border: 1px solid #000; line-height:20px;" height="20">@i</td>
+                                                        <td width="50%" align="left" valign="top" style="font-size:13px; text-overflow: ellipsis; padding:3px;">
+                                                            <div style="font-size:13px;word-break: keep-all;">
+                                                                @*@Html.Raw(Html.Encode(desc.QuoteDescription).Replace(Environment.NewLine, "<br />"))*@
+                                                                @tx
+                                                            </div>
+                                                        </td>
+
+                                                        <td width="8%" align="center" valign="top" style="padding:3px; border: 1px solid #000; line-height:20px;">@desc.UnitOfMeasure </td>
+                                                        <td width="10%" align="center" valign="top" style="padding:3px; border: 1px solid #000; line-height:20px;">@desc.Quantity</td>
+                                                        <td width="12%" align="right" valign="top" style="padding:3px; text-align:right; border: 1px solid #000; line-height:20px;">
+                                                            @{
+                                                                st = string.Format("{0:0,0.00}", desc.PoPrice);
+                                                            }
+                                                            @st
+                                                        </td>
+                                                        <td width="12%" align="right" valign="top" style="padding:3px; text-align:right; border: 1px solid #000; line-height:20px;">
+                                                            @{
+                                                                st = string.Format("{0:0,0.00}", tempTotal);
+                                                            }
+                                                            @st
+
+                                                        </td>
+                                                    </tr>
+
+                                                                    }
+
+
+                                                                    //subTotal = subTotal + (desc.Quantity * Convert.ToDecimal((double)desc.PoPrice));
+
+                                                                    subTotal = subTotal + (desc.Quantity * desc.PoPrice ?? default(decimal));
+
+                                                                    i = i + 1;
+                                                                }
+
+
+                                                                <tr style="border-bottom: 0px solid #000000 !important;">
+                                                                    <td width="8%" align="left" valign="top" style="padding:3px; border-left: 1px solid #000; border-right: 1px solid #000; border-top: 0px solid #000; line-height:15px;"></td>
+                                                                    <td width="50%" align="left" valign="top" style="padding:3px; border-left: 1px solid #000; border-right: 1px solid #000; border-top: 0px solid #000; line-height:15px;"></td>
+                                                                    <td width="8%" align="left" valign="top" style="padding:3px; border-left: 1px solid #000; border-right: 1px solid #000; border-top: 0px solid #000; line-height:15px;"></td>
+                                                                    <td width="10%" align="left" valign="top" style="padding:3px; border-left: 1px solid #000; border-right: 1px solid #000; border-top: 0px solid #000; line-height:15px;"></td>
+                                                                    <td width="12%" align="right" valign="top" style="padding:3px; text-align:right; border-left: 1px solid #000; border-right: 1px solid #000; border-top: 0px solid #000; line-height:15px;"></td>
+                                                                    <td width="12%" align="right" valign="top" style="padding:3px; text-align:right; border-left: 1px solid #000; border-right: 1px solid #000; border-top: 0px solid #000; line-height:15px;"></td>
+                                                                </tr>
+                                                                <tr style="border-bottom: 1px solid #000000 !important; border: 1px solid #000;">
+                                                                    <td colspan="5" align="right" valign="middle" style="padding:3px; text-align:right; border: 1px solid #000;" height="20">Sub Total</td>
+                                                                    <td width="12%" align="right" valign="middle" style="padding:3px; text-align:right; border: 1px solid #000;">
+                                                                        @string.Format("{0:0,0.00}", Math.Round(subTotal, 2))
+                                                                    </td>
+                                                                </tr>
+                                                                if (Model.GTAX == "0")
+                                                                {
+                                                                    <tr style="border-bottom: 1px solid #000000 !important; border: 1px solid #000;">
+                                                                        <td colspan="5" align="right" valign="middle" style="padding:3px; text-align:right; border: 1px solid #000;" height="20">GST 7%</td>
+                                                                        <td width="12%" align="right" valign="middle" style="padding:3px; text-align:right; border: 1px solid #000;">
+                                                                            @string.Format("{0:0,0.00}", Math.Round(Convert.ToDecimal((7.0 / 100.00)) * subTotal, 2))
+                                                                        </td>
+                                                                    </tr>
+                                                                    gst = Math.Round(Convert.ToDecimal((7.0 / 100.00)) * subTotal, 2);
+                                                                }
+                                                                //else
+                                                                //{
+
+                                                                <tr style="border-bottom: 1px solid #000000 !important; border: 1px solid #000;">
+                                                                    <td height="20" colspan="4" align="right" valign="middle" style="padding:3px; text-align:right; border: 1px solid #000; text-align:left; font-size:10px;">&nbsp;</td>
+                                                                    <td align="right" valign="top" style="padding:3px; text-align:right; border: 1px solid #000; font-weight: bold;" height="20">Net Total</td>
+                                                                    <td width="12%" align="right" valign="top" style="padding:3px; text-align:right; border: 1px solid #000; font-weight: bold;">
+                                                                        @string.Format("{0:0,0.00}", Math.Round(gst + subTotal, 2))
+                                                                    </td>
+                                                                </tr>
+
+                                                                <tr style="border-bottom: 1px solid #000000 !important; border: 1px solid #000;">
+                                                                    <td colspan="6" align="right" valign="middle" style="padding:3px; text-align:left; border: 1px solid #000; font-size:13px;" height="20">&nbsp;</td>
+                                                                </tr>
+
+
+                        }
+                        @* }*@
+                    </table>
+                    <br />
+                    <br />
+
+                    <table width="95%" border="0" cellspacing="0" cellpadding="0" style="margin-top:0px; border-collapse: collapse;">
+                        <tr>
+                            <td width="385" align="left" valign="top" style="font-size:13px; border-style:solid; border-bottom-width:0px; border-top-width:0px; border-left-width:0px; border-right-width:0px; padding:0px;">
+                                <table width="390" border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td style="padding:10px;">For Citi Construction & Engineering Pte Ltd</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding:10px;"> &nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding:10px;">Authorised Signature </td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td width="385" align="right" valign="top" style="font-size:13px; border-style:solid; border-bottom-width:0px; border-top-width:0px; border-left-width:0px; border-right-width:0px; padding:0px;">&nbsp;</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+        <div id="footer_wrapper">
+            <div>
+                <img style="width: 750px; height: 90px;" src="~/images/CompanyLogo/Footer.jpg" />
+            </div>
+        </div>
+
+    </center>
+</body>
+</html>

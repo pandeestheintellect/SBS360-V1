@@ -1,0 +1,100 @@
+﻿@model Eng360Web.Models.ViewModel.ClientViewModel
+
+@{
+    Layout = null;
+}
+<div class="inner-page--container view">
+    <div class="modal-footer">
+        @*<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>*@
+        <input type="button" value="Back" id="create-client-dialog-save" class="btn btn-primary Client" />
+
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <b> Client Details</b>
+        </div>
+        <!-- /.panel-heading -->
+        <div class="panel-body">
+
+            <div class="modal-body">
+
+              
+
+
+                @*   <table class="table table-bordered table-responsive table-hover">*@
+
+                <table class="table table-bordered" border="1">
+                    <tr>
+                        <th bgcolor="beige">@Html.LabelFor(model => model.ClientDisplayID) </th>
+                        <th bgcolor="beige">@Html.DisplayNameFor(model => model.Company_Name) </th>
+                        <th bgcolor="beige">@Html.DisplayNameFor(model => model.eng_sys_industry.Industry_Title) </th>
+                    </tr>
+
+                    <tr>
+                        <td>@Html.DisplayFor(model => model.ClientDisplayID)</td>
+                        <td>@Html.DisplayFor(model => model.Company_Name)</td>
+                        <td>@Html.DisplayFor(model => model.eng_sys_industry.Industry_Title)</td>
+                    </tr>
+
+                    <tr>
+                        <th bgcolor="beige">@Html.LabelFor(model => model.eng_sys_function.Fn_Title) </th>
+                        <th bgcolor="beige">@Html.DisplayNameFor(model => model.Reference) </th>
+                        <th bgcolor="beige">@Html.DisplayNameFor(model => model.eng_address_master.Mobile) </th>
+                    </tr>
+
+                    <tr>
+                        <td>@Html.DisplayFor(model => model.eng_sys_function.Fn_Title)</td>
+                        <td>@Html.DisplayFor(model => model.Reference)</td>
+                        <td>@Html.DisplayFor(model => model.eng_address_master.Mobile)</td>
+                    </tr>
+
+                    <tr>
+                        <th bgcolor="beige">@Html.LabelFor(model => model.eng_address_master.Tel) </th>
+                        <th bgcolor="beige">@Html.DisplayNameFor(model => model.eng_address_master.Fax1) </th>
+                        <th bgcolor="beige">@Html.DisplayNameFor(model => model.eng_address_master.Web) </th>
+                    </tr>
+
+                    <tr>
+                        <td>@Html.DisplayFor(model => model.eng_address_master.Tel)</td>
+                        <td>@Html.DisplayFor(model => model.eng_address_master.Fax1)</td>
+                        <td>@Html.DisplayFor(model => model.eng_address_master.Web)</td>
+                    </tr>
+
+                    <tr>
+                        <th bgcolor="beige">@Html.LabelFor(model => model.eng_address_master.Address1) </th>
+                        <th bgcolor="beige">@Html.DisplayNameFor(model => model.eng_address_master.Address2) </th>
+                        <th bgcolor="beige">@Html.DisplayNameFor(model => model.eng_address_master.City) </th>
+                    </tr>
+
+                    <tr>
+                        <td>@Html.DisplayFor(model => model.eng_address_master.Address1)</td>
+                        <td>@Html.DisplayFor(model => model.eng_address_master.Address2)</td>
+                        <td>@Html.DisplayFor(model => model.eng_address_master.City)</td>
+                    </tr>
+
+                    <tr>
+                        <th bgcolor="beige">@Html.LabelFor(model => model.eng_address_master.Country) </th>
+                        <th bgcolor="beige">@Html.DisplayNameFor(model => model.eng_address_master.Email) </th>
+                        <th bgcolor="beige">@Html.DisplayNameFor(model => model.eng_address_master.SkypeID) </th>
+                    </tr>
+
+                    <tr>
+                        <td>@Html.DisplayFor(model => model.eng_address_master.Country)</td>
+                        <td>@Html.DisplayFor(model => model.eng_address_master.Email)</td>
+                        <td>@Html.DisplayFor(model => model.eng_address_master.SkypeID)</td>
+                    </tr>
+
+
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        @*<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>*@
+        <input type="button" value="Back" id="create-client-dialog-save" class="btn btn-primary Client" />
+
+    </div>
+
+    </div>

@@ -1,0 +1,445 @@
+﻿@model Eng360Web.Models.ViewModel.SafetyMasterViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+
+    <style type="text/css">
+
+         input[type='checkbox'] {
+        width: 20px;
+        height: 20px;
+    }
+
+        body, td, th {
+            font-family: Book Antiqua;
+            font-size: 12px;
+            word-wrap: break-word;
+        }
+
+        body {
+            margin-left: 0px;
+            margin-top: 0px;
+            margin-right: 0px;
+            margin-bottom: 0px;
+        }
+
+        a:link {
+            text-decoration: none;
+        }
+
+        a:visited {
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: none;
+        }
+
+        a:active {
+            text-decoration: none;
+        }
+
+        .tb {
+            border-style: solid;
+            /*border-width:1px;*/
+            border-bottom-width: 1px;
+            border-top-width: 1px;
+            border-left-width: 1px;
+            border-right-width: 1px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body style="font-family: Book Antiqua;">
+    <center>
+
+        <table width="873" border="0" cellspacing="0" cellpadding="0">
+            <thead>
+            <tr>
+                <th style="width:100%">
+                @*<img style="width: 850px; height: 75px;" src="~/images/CompanyLogo/Header.jpg" />*@
+                    <table width="773" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+
+                            <td width="100" align="left" valign="top" style="padding:0px;"><img style="width: 130px; height: 130px;" src="~/images/CompanyLogo/logo.png" /></td>
+                            <td width="388" align="left" valign="top" style="padding:2px;">
+                                <span style="font-size:16px; font-weight:bold;">
+                                    @Eng360Web.Models.Utility.AppSession.GetCompanyDetail().CompanyName
+                                </span><br />
+                                <span style="font-weight:bold; font-size:12px;">
+                                    @Eng360Web.Models.Utility.AppSession.GetCompanyDetail().Address1<br />
+                                    @Eng360Web.Models.Utility.AppSession.GetCompanyDetail().Address2 @Eng360Web.Models.Utility.AppSession.GetCompanyDetail().City @Eng360Web.Models.Utility.AppSession.GetCompanyDetail().Pincode	<br />
+                                    Tel : (65) @Eng360Web.Models.Utility.AppSession.GetCompanyDetail().Tel / Fax: (65) @Eng360Web.Models.Utility.AppSession.GetCompanyDetail().Fax	<br />
+                                    E-mail : @Eng360Web.Models.Utility.AppSession.GetCompanyDetail().Email	<br />
+                                    Co. Reg. No : @Eng360Web.Models.Utility.AppSession.GetCompanyDetail().RegNo GST. Reg. No : @Eng360Web.Models.Utility.AppSession.GetCompanyDetail().GstRegNo
+                                </span>
+                            </td>
+                            <td width="240" align="right" valign="top" style="padding-right:5px; line-height:15px;">
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td align="right" valign="top">
+                                            <img style="width: 210px; height: 90px;" src="~/images/CompanyLogo/biz3.png" />
+                                        </td>
+                                    </tr>
+
+                                </table>
+
+                            </td>
+                        </tr>
+                    </table>
+                
+                </th>
+            </tr>
+                   <tr>
+                       <td>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td><hr /></td>
+                        </tr>
+                    </table>
+                    <br />
+                           </td></tr>
+                  </thead>
+            <tr><td>
+
+                    <table width="97%" border="1" cellspacing="0" cellpadding="0" style="margin-top:5px;">
+                        <tr>
+                            <td>Name of Company:</td>
+                            <td>@Model.CompanyName</td>
+                            <td>Report Date & Time:</td>
+                            <td>
+                                @{
+                                    var dt = "";
+                                    dt = Convert.ToDateTime(Model.RepDate).ToString(Eng360Web.Models.Utility.AppSettings.GetDateFormat());
+                                }
+                                @dt & @Model.RepTime
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td> Project Title:</td>
+                            <td colspan="3"> @Model.ProjectTitle</td>
+
+                        </tr>
+                        <tr>
+                            <td> Location of Work:</td>
+                            <td colspan="2"> @Model.LocationOfWork</td>
+                            <td> (give all locations for todays work)</td>
+
+                        </tr>
+
+                        <tr>
+                            @{
+                                var str = "";
+                                str = Model.eng_users.DisplayName + " / " + Model.eng_users.eng_usergroup.GroupName;
+                            }
+
+                            <td colspan="2"> Name / Designation / Signature of Supervisor</td>
+                            <td colspan="2">@str</td>
+
+                        </tr>
+
+                    </table>
+                    <br />
+
+                    @{
+                        var otflag = false;
+                        var n = 0;
+
+                        var x = Model.eng_safety_hazard_list.Count;
+
+                        string[] hazlist = new string[x];
+                        foreach (var tst in Model.eng_safety_hazard_list)
+                        {
+                            hazlist[n] = tst.HazardID.ToString();
+                            n++;
+                        }
+                        ViewBag.hazlist = hazlist;
+
+                        x = Model.eng_safety_ppe_list.Count;
+                        string[] pplist = new string[x];
+                        n = 0;
+                        foreach (var tst in Model.eng_safety_ppe_list)
+                        {
+                            pplist[n] = tst.PPEID.ToString();
+                            n++;
+                        }
+                        ViewBag.pplist = pplist;
+
+                        x = Model.eng_safety_worker_list.Count;
+                        string[] wrklist = new string[x];
+                        n = 0;
+                        foreach (var tst in Model.eng_safety_worker_list)
+                        {
+                            wrklist[n] = tst.EmpID.ToString();
+                            n++;
+                        }
+                        ViewBag.wrklist = wrklist;
+
+
+
+                    }
+
+                    <table width="97%" border="1" cellspacing="0" cellpadding="0" style="margin-top:5px;">
+                        <tr>
+                            <td>
+                                <span style="font-size:16px; font-weight:bold;">
+                                    List of Hazards associated & identified in today's task & its corresponding RA & SWP reminded (Check the box)
+                                    </span>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+
+                                <table>
+
+                                    @for (int i = 0; i < ViewBag.HazardList.Count; i++)
+                                    {
+                                       
+                                        var cells = 4;
+
+
+                                        var checkBoxId = "HazardCheckBoxList_" + ViewBag.HazardList[i].Value;
+                                        var tdId = "td" + ViewBag.HazardList[i].Value;
+
+                                        if ((i % cells) == 0)
+                                        {
+                                            @: <tr>
+                                        }
+
+                                        <td id="@tdId">
+
+                                            @{
+
+                                                int pos = Array.IndexOf(hazlist, ViewBag.HazardList[i].Value);
+                                                if (pos > -1)
+                                                {
+                                                    <input type="checkbox" id="@checkBoxId" class="chkclass" value="@ViewBag.HazardList[i].Value" disabled="disabled" checked />
+                                                    @ViewBag.HazardList[i].Text
+                                                    if (ViewBag.HazardList[i].Text == "Any Other Hazard")
+                                                    {
+                                                        otflag = true;
+
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    <input type="checkbox" id="@checkBoxId" class="chkclass" value="@ViewBag.HazardList[i].Value" disabled="disabled" />
+                                                    @ViewBag.HazardList[i].Text
+                                                }
+                                            }
+
+                                            
+                                        </td>
+
+                                                if (i == (ViewBag.HazardList.Count - 1))
+                                                {
+                                                    while ((i % cells) != 0)
+                                                    {
+                                                        @:
+                                                        <td></td>
+                                                        i++;
+                                                    }
+                                                }
+
+                                                if ((i % cells) == (cells - 1)) // aka: last row cell
+                                                {
+                                                    @: </tr>
+                                        }
+                                                }
+                                    <tr>
+                                        <td>
+                                            @{
+
+                                                if (otflag)
+                                                {
+                                                <span> &nbsp;@Model.OtherHazard </span> 
+                                                    }
+                                                }
+                                        </td>
+                                    </tr>
+
+                                </table>
+
+
+                            </td>
+
+
+                        </tr>
+
+
+                        <tr>
+                            <td sstyle="word-wrap:break-word; text-overflow: ellipsis;"> 
+                                <div style="word-wrap: break-word;">
+                                    <span style="font-size:16px; font-weight:bold;">
+                                        Additional Safety and Health Measures highlighted to comply, if any: <br />
+                                    </span>
+                                    <span style="font-size:16px;">
+                                    @{ 
+                                        IHtmlString tx = null;
+
+                                        tx = Html.Raw(Html.Encode(Model.ASHMeasures).Replace(Environment.NewLine, "<br />"));
+                                        tx = Html.Raw(Html.Encode(tx).Replace("\n", "<br />"));
+                                        tx = Html.Raw(Html.Encode(tx).Replace("\r", "<br />"));
+                                    }
+                                    @tx
+                                      @*@Html.Raw(Html.Encode(Model.ASHMeasures).Replace(Environment.NewLine, "<br />"))*@
+                                    </span> </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                 <span style="font-size:16px; font-weight:bold;">
+                                List of PPR Highlighted and reminded to comply (Check the box)
+                                     </span>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+
+                                <table>
+
+                                    @for (int i = 0; i < ViewBag.PPEList.Count; i++)
+                                    {
+                                        var cells = 5;
+
+
+                                        var checkBoxId = "PPECheckBoxList_" + ViewBag.PPEList[i].Value;
+                                        var tdId = "ppetd" + ViewBag.PPEList[i].Value;
+
+                                        if ((i % cells) == 0)
+                                        {
+                                            @:   <tr>
+                                        }
+
+                                        <td width="300px" id="@tdId">
+                                            @{
+
+                                                int pos = Array.IndexOf(pplist, ViewBag.PPEList[i].Value);
+                                                if (pos > -1)
+                                                {
+                                                    <input type="checkbox" id="@checkBoxId" class="ppeclass" value="@ViewBag.PPEList[i].Value" disabled="disabled" checked />
+                                                }
+                                                else
+                                                {
+                                                    <input type="checkbox" id="@checkBoxId" class="ppeclass" value="@ViewBag.PPEList[i].Value" disabled="disabled" />
+                                                }
+                                            }
+
+                                            @ViewBag.PPEList[i].Text
+                                        </td>
+
+                                                if (i == (ViewBag.PPEList.Count - 1))
+                                                {
+                                                    while ((i % cells) != 0)
+                                                    {
+                                                        @:
+                                                        <td></td>
+                                                        i++;
+                                                    }
+                                                }
+
+                                                if ((i % cells) == (cells - 1)) // aka: last row cell
+                                                {
+                                                    @:      </tr>
+                                        }
+                                                }
+                                </table>
+
+
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                 <span style="font-size:16px; font-weight:bold;">
+                                Acknowledgement and undertaking by emplyees attending this Toolbox Talk (Supervisor to highlight this)
+                                     </span>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <span style="font-size:16px;">
+                                We, the undersigned, herewith acknowledge that we have been already briefed on all necessary RA, SWP & MOS for
+                                the variuos activities and reminded to us today as above. We undertake to comply all ncessary Safety & Health measures.
+                            </span>
+                            </td>
+                        </tr>
+
+                    </table>
+
+                    <table width="97%" border="0" cellspacing="0" cellpadding="0" style="margin-top:5px;">
+                        <tr>
+                            <td> <span style="font-size:16px; font-weight:bold;">Worker List </span></td>
+
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <table width = "100%" border="1" style="border-collapse: collapse">
+                                    <thead>
+                                        <tr>
+
+                                            <td><span style="font-size:16px; font-weight:bold;">Sl No. </span> </td>
+                                            <td><span style="font-size:16px; font-weight:bold;">Name of Worker </span></td>
+                                            <td><span style="font-size:16px; font-weight:bold;">WP / IC No </span></td>
+                                            <td><span style="font-size:16px; font-weight:bold;">Signature </span></td>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @{
+                                            var y = 0;
+                                            foreach (var emp in Model.eng_safety_worker_list)
+                                            {
+                                                y++;
+                                                <tr>
+                                                    <td> @y</td>
+                                                    <td>@emp.eng_employee_profile.FirstName @emp.eng_employee_profile.LastName</td>
+                                                    <td>@emp.eng_employee_profile.ID_Number</td>
+                                                    <td>&nbsp;</td>
+                                                </tr>
+
+                                            }
+                                        }
+                                    </tbody>
+
+                                </table>
+
+
+
+                            </td>
+                        </tr>
+
+                    </table>
+
+
+                </td>
+            </tr>
+        </table>
+
+        <table id="footer" width="870">
+            <tr>
+                <td width="100%">
+                    @*<img style="width: 850px; height: 80px;" src="~/images/CompanyLogo/Footer.jpg" />*@
+                </td>
+            </tr>
+        </table>
+                        
+    </center>
+                        
+</body>
+</html>

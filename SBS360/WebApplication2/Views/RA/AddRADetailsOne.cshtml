@@ -1,0 +1,281 @@
+﻿@model Eng360Web.Models.ViewModel.RATransMasterViewModel
+
+@{
+    Layout = null;
+    //  ViewBag.TermsAndCond = "TERMS & CONDITIONS : \n PRICE: All in Singapore dollars \n VALIDITY: Two Month from dated this quotation \n DELIVERY    : One week from upon order confirmation \n PAYMENT: 30 days from the date of invoice \n NOTE: Any others work NOT mentioned here will be additional charged.";
+
+}
+
+<script src="~/Scripts/moment.js"></script>
+<script src="~/Scripts/bootstrap-datetimepicker.js"></script>
+<link href="~/Content/bootstrap-datetimepicker.css" rel="stylesheet" />
+
+<style>
+    .table-condensed tbody > tr > td > a {
+        color: #4eb1ba !important;
+    }
+
+    input[type='checkbox'] {
+        width: 20px;
+        height: 20px;
+    }
+
+    .required::after {
+        content: "*";
+        font-weight: bold;
+        color: red;
+    }
+</style>
+
+
+
+<div class="row inner-page--container">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <b> Inventory of Work Activities  </b>
+
+                @*<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>*@
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+
+
+                @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "riskForm" }))
+                {
+                    @Html.AntiForgeryToken()
+
+                    @Html.HiddenFor(model=>model.RAID)
+                    @Html.HiddenFor(model => model.LocString)
+                    @Html.HiddenFor(model => model.ProString)
+                    @Html.HiddenFor(model => model.WacString)
+
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    
+                    <div class="row">
+
+                        <div class="col-md-12">
+                            @Html.LabelFor(model => model.ProjectID, "Project Name", htmlAttributes: new { @class = "control-label" }) 
+                            
+                            <div>
+                                @Html.EditorFor(model => model.eng_project_master.ProjectName, new { htmlAttributes = new { @class = "form-control", @disabled="disabled"} })
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.ContractNumber, htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.EditorFor(model => model.ContractNumber, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                                @Html.ValidationMessageFor(model => model.ContractNumber, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.RARefNum, htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.EditorFor(model => model.RARefNum, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                                @Html.ValidationMessageFor(model => model.RARefNum, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.RARefNum, "Locations", htmlAttributes: new { @class = "control-label" })
+                            <div>                                
+                                @Html.DropDownList("LocAll", null, htmlAttributes: new { @class = "form-control", @onchange= "OnLocationChange(this)" })
+                                
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.dummyLoc, "Locations", htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.TextAreaFor(model => model.dummyLoc, 2, 40, new { @class = "form-control" })
+                                
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.RARefNum, "Process", htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.DropDownList("ProcessAll", null, htmlAttributes: new { @class = "form-control", @onchange = "OnProcessChange(this)" })
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.dummyPro, "Process", htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.TextAreaFor(model => model.dummyPro, 2, 40, new { @class = "form-control" })
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.RARefNum, "Work Activities", htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.DropDownList("WorkAll", null, htmlAttributes: new { @class = "form-control", @onchange = "OnWorkActivityChange(this)" })
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.dummyPro, "Work Activities", htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.TextAreaFor(model => model.dummyWac, 2, 40, new { @class = "form-control" })
+
+                            </div>
+                        </div>
+
+
+                        </div>
+                        <br />
+
+                        <div class="row">
+
+                            <div class="col-md-12">
+
+                                <table class="table table-striped table-bordered" id="tableWADetailOne">
+
+                                    <thead>
+                                        <tr>
+                                            <th>Locations</th>
+                                            <th>Process</th>
+                                            <th>Work Activities</th>
+                                            <th>Actions</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var obj in Model.eng_ra_trans_detail1)
+                                        {
+                                            <tr id="@obj.RAWADetID">
+                                                <td>
+                                                    @obj.Locations
+                                                </td>
+                                                <td>
+                                                    @obj.Process
+                                                </td>
+                                                <td>
+                                                    @obj.WorkActivities
+                                                </td>
+                                                
+                                                <td></td>
+                                            </tr>
+                                        }
+
+                                    </tbody>
+
+                                </table>
+
+                            </div>
+
+                        </div>
+
+                }
+
+            </div>
+            <div class="modal-footer">
+
+                <input type="button" value="Save" id="create-raDetail1-dialog-save" style="float:right" class="btn btn-primary" /><span style="float:right">&nbsp;</span><input type="button" value="Back" id="create-raDetail1-back" style="float:right" class="btn btn-primary RA" />
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+
+    var contacts = [];
+    var deleteIDs = [];
+    var radescTable;
+    $(document).ready(function () {
+
+        radescTable = $('#tableWADetailOne').DataTable({
+            "autoWidth": true,
+            "order": [],
+            dom: 'Bfrtipl',
+            buttons: [
+                'copyHtml5',
+                'excelHtml5',
+                'csvHtml5',
+                'pdfHtml5',
+
+            ],
+            "columnDefs": [
+                   {
+                       
+                       "render": function (data, type, row) {
+                           
+                           return '<a class="btn" onclick="removeDataFromDT(this)" title="Delete Item" > <i class="fa fa-trash" aria-hidden="true" ></i> </a>';
+                       },
+                       "targets": 3
+                   }]
+        });
+    });
+    $('.dt-buttons').prepend('<a style="margin-bottom:10px;"  onclick="AddDesc()" class="dt-button  buttons-html5" tabindex="0" aria-controls="radescTable" href="#"><span>Add Items</span></a>')
+         
+    $('.dt-button').addClass('btn btn-primary').removeClass('dt-button').css('margin-right', '5px')
+    $('.buttons-copy').css('display', 'none');
+    $('.buttons-excel').css('display', 'none');
+    $('.buttons-csv').css('display', 'none');
+    $('.buttons-pdf').css('display', 'none');
+
+
+    function OnLocationChange(val) {
+       
+      var thisval = $("#LocAll option:selected").text();
+      $('#dummyLoc').val(thisval);
+    }
+
+    function OnProcessChange(val) {
+
+        var thisval = $("#ProcessAll option:selected").text();
+        $('#dummyPro').val(thisval);
+    }
+
+    function OnWorkActivityChange(val) {
+
+        var thisval = $("#WorkAll option:selected").text();
+        $('#dummyWac').val(thisval);
+    }
+
+    function removeDataFromDT(btn) {
+
+        $(btn.closest('tr')).addClass('remove')
+        radescTable.row('.remove').remove().draw(false);
+        
+    }
+
+    function AddDesc() {
+
+        var loc = $('#dummyLoc').val().trim();
+        var pro = $('#dummyPro').val().trim();
+        var wac = $('#dummyWac').val().trim();
+
+        if (loc == null || loc == '')
+        {
+            alert("Please fill location");
+            return;
+        }
+        if (pro == null || pro == '') {
+            alert("Please fill Process");
+            return;
+        }
+        if (wac == null || wac == '') {
+            alert("Please fill Work Activity");
+            return;
+        }
+
+        radescTable.row.add([loc, pro, wac, '' ]).draw(false)
+        
+        $('#dummyLoc').val(null);
+        $('#dummyPro').val(null);
+        $('#dummyWac').val(null);
+        $('#LocAll').val(0);
+        $('#ProcessAll').val(0);
+        $('#WorkAll').val(0);
+        
+    }
+
+</script>

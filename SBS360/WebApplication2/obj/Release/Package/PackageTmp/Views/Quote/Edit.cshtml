@@ -1,0 +1,486 @@
+﻿@model Eng360Web.Models.ViewModel.QuoteViewModel
+
+@{
+    Layout = null;
+}
+
+<script src="~/Scripts/moment.js"></script>
+<script src="~/Scripts/bootstrap-datetimepicker.js"></script>
+<link href="~/Content/bootstrap-datetimepicker.css" rel="stylesheet" />
+
+
+
+<style>
+    .table-condensed tbody > tr > td > a {
+        color: #4eb1ba !important;
+    }
+    input[type='checkbox'] {
+        width: 20px;
+        height: 20px;
+    }
+    
+</style>
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <b> Edit Quotation - @Model.QuoteRefNum  </b>
+
+                @*<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>*@
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+
+
+
+                @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "quotationEditForm" }))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="row">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.HiddenFor(model => model.QuoteID)
+                        @Html.HiddenFor(model => model.QuoteRefNum)
+                        @Html.HiddenFor(model => model.QuoteCategory)
+                        @Html.HiddenFor(model => model.InvoiceNo)
+                        @Html.HiddenFor(model => model.DoNo)
+                        @Html.HiddenFor(model => model.DODate)
+                        @Html.HiddenFor(model => model.InvoiceDate)
+                        @Html.HiddenFor(model => model.RevFlag)
+                        @Html.HiddenFor(model => model.RvFlag)
+                        @Html.HiddenFor(model => model.FinalAmount)
+                        @Html.HiddenFor(model => model.isFullyPaid)
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.QuoteDate, htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.EditorFor(model => model.QuoteDate, new { htmlAttributes = new { @class = "form-control", @Value = Convert.ToDateTime(Model.QuoteDate).ToString("dd/MM/yyyy") } })
+                                
+                                @Html.ValidationMessageFor(model => model.QuoteDate, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.ValidTill, "Valid Till", htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.DropDownListFor(model => model.ValidTill, new SelectList(
+                                    new List<Object>{
+                                    new { value = "COD" , text = "COD"  },
+                                    new { value = "3 Days" , text = "3 Days"  },
+                                    new { value = "7 Days" , text = "7 Days"  },
+                                    new { value = "15 Days" , text = "15 Days"  },
+                                    new { value = "30 Days" , text = "30 Days" },
+                                    new { value = "45 Days" , text = "45 Days" },
+                                    new { value = "60 Days" , text = "60 Days" }
+                                   
+
+                                    }, "value", "text", 2), htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.ValidTill, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.ClientID, htmlAttributes: new { @class = "control-label" }) @Html.ValidationMessageFor(model => model.ClientID, "", new { @class = "text-danger" })
+                            <div>
+                                @Html.DropDownList("ClientID", null, htmlAttributes: new { @class = "form-control", @onchange = "onclientChange(this)" })
+
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.Attention_CCID, htmlAttributes: new { @class = "control-label" }) @Html.ValidationMessageFor(model => model.Attention_CCID, "", new { @class = "text-danger" })
+                            <div>
+
+                                <select id="Attention_CCID" name="Attention_CCID" class="form-control" onchange="setAttentionID(this)">
+                                    @foreach (var att in Model.attention)
+                                    {
+
+                                        if (Model.attention.First().CCID == att.CCID)
+                                        {
+                                            <option id="@att.CCID" class="@att.eng_client_master.ClientID" value="@att.CCID">@att.SPOCName</option>
+                                        }
+                                        else
+                                        {
+                                            <option style="display:none" id="@att.CCID" class="@att.eng_client_master.ClientID" value="@att.CCID">@att.SPOCName</option>
+                                        }
+
+                                    }
+                                </select>
+
+                            </div>
+                        </div>
+
+
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.YourRef, htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.EditorFor(model => model.YourRef, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.YourRef, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.QuoteStatusID, "Status", htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.DropDownList("QuoteStatusID", null, htmlAttributes: new { @class = "form-control", @onchange = "ShowHideAutoApproval(this.value)" })
+                                @Html.ValidationMessageFor(model => model.QuoteStatusID, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.GTAX, "GST", htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.DropDownListFor(model => model.GTAX, new SelectList(
+                                    new List<Object>{
+                                    new { value = 0 , text = "Yes"  },
+                                    new { value = 1 , text = "No" }
+
+                    }, "value", "text", 2), htmlAttributes: new { @class = "form-control", onchange = "OnDiscountEntry(this)" })
+                                @Html.ValidationMessageFor(model => model.GTAX, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        @*<div class="col-md-6">
+                            @Html.LabelFor(model => model.PaymentTerms, htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.EditorFor(model => model.PaymentTerms, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.PaymentTerms, "", new { @class = "text-danger" })
+                            </div>
+                        </div>*@
+
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.PaymentTerms, "Payment Terms", htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.DropDownListFor(model => model.PaymentTerms, new SelectList(
+                                    new List<Object>{
+                                    new { value = "COD" , text = "COD"  },
+                                    new { value = "3 Days" , text = "3 Days"  },
+                                    new { value = "7 Days" , text = "7 Days"  },
+                                    new { value = "15 Days" , text = "15 Days"  },
+                                    new { value = "30 Days" , text = "30 Days" },
+                                    new { value = "45 Days" , text = "45 Days" },
+                                    new { value = "60 Days" , text = "60 Days" }
+                                   
+
+
+                                    }, "value", "text", 2), htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.PaymentTerms, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.QuoteTitle, "Subject Remarks", htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.TextAreaFor(model => model.QuoteTitle, 7, 40, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.QuoteTitle, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.TermsAndCond, "Terms & Conditions", htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.TextAreaFor(model => model.TermsAndCond, 7, 40, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.PaymentTerms, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.ProjectTitle, "Project Title", htmlAttributes: new { @class = "control-label required" })
+                            <div>
+                                @Html.TextAreaFor(model => model.ProjectTitle, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.ProjectTitle, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.Discount, htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.EditorFor(model => model.Discount, new { htmlAttributes = new { onchange = "OnDiscountEntry(this)", @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Discount, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+
+                        <div id="show-auto-approval" style="display: none" class="col-md-3">
+                            @Html.LabelFor(model => model.isAutoApproved)
+                            <div>
+                                @Html.CheckBoxFor(model => model.isAutoApproved, htmlAttributes: new { @class = "form-control", onclick = "ShowHideMulti(this)" })
+
+                            </div>
+                        </div>
+                        <div id="show-multi-project" style="display: none" class="col-md-3">
+                            @Html.LabelFor(model => model.isProjectCreated)
+                            <div>
+                                @Html.CheckBoxFor(model => model.isProjectCreated)
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                    <div class="col-md-12">
+
+                        @Html.Label("Quote Amount")
+                        <div>
+                            @Html.TextBox("QuoteValue", Model.QuoteAmount, new { @class = "form-control", style = "width: 200px", @readonly = "readonly" })
+                        </div>
+                    </div>
+
+                        <div class="col-md-12" style="min-height:300px !important;padding-top:25px;padding-left:0px;padding-right:0px;">
+
+                            <table class="table table-striped table-bordered" id="tableQuoteDescriptions">
+
+                                <thead>
+                                    <tr>
+                                        <th>Quote Desc</th>
+                                        <th>Quantity</th>
+                                        <th>UoM</th>
+                                        <th>Quote Price</th>
+                                        
+                                        <th>track</th>
+                                        <th>Actions</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var obj in Model.eng_quote_description)
+                                    {
+                                        <tr id="@obj.QDID">
+                                            <td>
+                                                @obj.QuoteDescription
+                                            </td>
+                                            <td>
+                                                @obj.Quantity
+                                            </td>
+                                            <td>
+                                                @obj.UnitOfMeasure
+                                            </td>
+                                           
+                                            <td>@obj.QuotePrice</td>
+                                            <td>-1</td>
+                                            <td></td>
+                                        </tr>
+                                    }
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+
+                }
+
+            </div>
+            <div class="modal-footer">
+
+                <button type="button" id="create-quoteEdit-dialog-save" style="float:right" class="btn btn-primary">Save</button><span style="float:right">&nbsp;</span><input type="button" value="Back" id="create-quote1-dialog1-back" style="float:right" class="btn btn-primary Quotation" />
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+
+    $(function () {
+
+        $('#QuoteDate').datetimepicker({ format: 'DD/MM/YYYY', maxDate: new Date() });
+        //$('#ValidTill').datetimepicker({
+        //    format: 'MM/DD/YYYY',
+        //    useCurrent: false //Important! See issue #1075
+        //});
+        //$("#QuoteDate").on("dp.change", function (e) {
+        //    $('#ValidTill').data("DateTimePicker").minDate(e.date);
+        //});
+
+        //$("#ValidTill").on("dp.change", function (e) {
+        //    $('#QuoteDate').data("DateTimePicker").maxDate(e.date);
+        //});
+
+    });
+    var contacts = [];
+    var deleteIDs = [];
+        var quotedescTable;
+        $(document).ready(function () {
+
+            quotedescTable = $('#tableQuoteDescriptions').DataTable({
+                "autoWidth": true,
+                "order": [],
+                dom: 'Bfrtipl',
+                buttons: [
+                    'copyHtml5',
+                    'excelHtml5',
+                    'csvHtml5',
+                    'pdfHtml5',
+
+                ],
+                "columnDefs": [
+                       {
+                           // The `data` parameter refers to the data for the cell (defined by the
+                           // `data` option, which defaults to the column being worked with, in
+                           // this case `data: 0`.
+                           "render": function (data, type, row) {
+                               // return '<a class="btn" onclick="removeDataFromDT(this)"> <img src="Content/images/delete.png" /> </a>';
+                               return ' <a class="btn" title="Edit Description"  onclick="EditDesc(this)"> <i class="fa fa-pencil" aria-hidden="true" ></i>   </a><a class="btn" onclick="removeDataFromDT(this)" title="Delete QuoteDescription" > <i class="fa fa-trash" aria-hidden="true" ></i> </a>';
+                           },
+                           "targets": 5
+                       }]
+            });
+        });
+        var column = quotedescTable.column(4);
+        var column1 = quotedescTable.column(5);
+        debugger;
+        calcAmount();
+        column.visible(false);
+        column1.visible(false);
+        if ("@Model.QuoteStatusID" == "1") {
+            $('.dt-buttons').prepend('<a style="margin-bottom:10px;"  onclick="CreateQuoteDesc()" class="dt-button  buttons-html5" tabindex="0" aria-controls="quoteTable" href="#"><span>Add Description</span></a>')
+
+            column1.visible(true);
+        }
+        $('.dt-button').addClass('btn btn-primary').removeClass('dt-button').css('margin-right', '5px')
+        $('.buttons-copy').css('display', 'none');
+        $('.buttons-excel').css('display', 'none');
+        $('.buttons-csv').css('display', 'none');
+        $('.buttons-pdf').css('display', 'none');
+
+        function EditDesc(btn)
+        {
+            debugger;
+            var id = btn.closest('tr').id;
+            $(btn.closest('tr')).addClass('selectedRow')
+            CreateQuoteDescEdit(id);
+        }
+        function removeDataFromDT(btn) {
+
+            $(btn.closest('tr')).addClass('remove')
+
+            deleteIDs.push(btn.closest('tr').id);
+            quotedescTable.row('.remove').remove().draw(false);
+            calcAmount();
+        }
+
+        function OnDiscountEntry(val) {
+            calcAmount();
+        }
+
+        function calcAmount() {
+            var amt = 0;
+            var disc = $('#Discount').val();
+            var gst = parseInt($('#GTAX').val());
+            quotedescTable.rows().every(function (rowIdx, tableLoop, rowLoop) {
+                var data = this.data();
+
+                var object = { QuoteDescription: data[0], Quantity: parseInt(data[1]), UnitOfMeasure: data[2], QuotePrice: parseFloat(data[3]) }
+                //contacts.push(object);
+                amt = amt + data[1] * data[3];
+
+            });
+            amt = amt - disc;
+            if (gst == 0) {
+                amt = amt + amt * 7 / 100;
+            }
+
+            $('#QuoteValue').val(amt);
+            $('#FinalAmount').val(amt.toFixed(2));
+        }
+
+               
+
+    function onclientChange(selectedObject) {
+        var myflag = false;
+        debugger;
+        $("#Attention_CCID > option").each(function () {
+            $('option#' + this.value).removeAttr("selected");
+        });
+
+        $("#Attention_CCID > option").each(function () {
+            if ($(this).hasClass(selectedObject.value)) {
+
+
+                $(this).show();
+
+                if (myflag == false) {
+
+                    $('option#' + this.value).attr("selected", "true");
+
+                    // $("#Attention_CCID > [value=" + this.value + "]").attr("selected", "true");
+                    // $('#Attention_CCID option[value=' + this.value + ']').attr('selected', 'true');
+                    // $('#Attention_CCID option[value=' + this.value + ']').prop('selected', 'true');
+
+                    myflag = true;
+                }
+            }
+            else {
+
+                $(this).hide();
+            }
+        });
+    }
+
+        function setAttentionID(selectedObject) {
+
+            $('#Attention_CCID').val(selectedObject.value)
+        }
+        $("form").removeData("validator");
+        $("form").removeData("unobtrusiveValidation");
+        $.validator.unobtrusive.parse("form");
+
+
+
+        $("#ClientID > option").each(function () {
+            if (this.selected) {
+                onclientChange(this);
+                return false;
+            }
+        });
+
+        $("#Attention_CCID > option").each(function () {
+            if (this.id == "@Model.Attention_CCID") {
+                this.selected = true;
+                return false;
+            }
+        });
+
+
+
+    function ShowHideMulti(isAutoApproved) {
+        debugger;
+        var dvMultiProj = document.getElementById("show-multi-project");
+        dvMultiProj.style.display = isAutoApproved.checked ? "block" : "none";
+        $('#isProjectCreated').prop('checked', false)
+    }
+
+    function ShowHideAutoApproval(val) {
+        debugger;
+        if ("@Model.QuoteCategory" == "N") {
+            var element = document.getElementById('show-auto-approval');
+            var element1 = document.getElementById('show-multi-project');
+            if (val == 2) {
+                $('#isAutoApproved').prop('checked', false)
+                $('#isProjectCreated').prop('checked', false)
+                element.style.display = 'block';
+
+            }
+            else {
+                $('#isAutoApproved').prop('checked', false)
+                $('#isProjectCreated').prop('checked', false)
+                element.style.display = 'none';
+                element1.style.display = 'none';
+            }
+
+        }
+
+    }
+
+</script>

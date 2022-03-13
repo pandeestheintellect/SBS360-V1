@@ -1,0 +1,215 @@
+﻿@model IEnumerable<Eng360Web.Models.ViewModel.PTWConspcMasterViewModel>
+
+@{
+    Layout = null;
+}
+
+<script src="~/Scripts/moment.js"></script>
+<script src="~/Scripts/bootstrap-datetimepicker.js"></script>
+<link href="~/Content/bootstrap-datetimepicker.css" rel="stylesheet" />
+
+
+<style>
+    .table-condensed tbody > tr > td > a {
+        color: #4eb1ba !important;
+    }
+
+    <style > .dropbtn {
+        background-color: #3498DB;
+        color: white;
+        padding: 16px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+    }
+
+    .dropbtn:hover, .dropbtn:focus {
+        background-color: #2980B9;
+    }
+
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        overflow: auto;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+    .dropdown a:hover {
+        background-color: #f1f1f1
+    }
+
+    .show {
+        display: block;
+    }
+</style>
+</style>
+
+
+
+
+<div class="row inner-page--container">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <b> Permit To Work Details </b>
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <input id="quoteid" type="hidden" />
+                <table class="table table-striped table-bordered" id="conspcTable">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.PTW_type)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.ProjectTitle)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Start_Date_Time)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.End_Date_Time)
+                            </th>
+
+                            <th>
+                                @Html.DisplayNameFor(model => model.Applicant_Name)
+                            </th>
+
+
+                            <th>
+                                Status
+                            </th>
+
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            var dt = "";
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.PTW_type)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ProjectTitle)
+
+                                </td>
+                                <td>
+                                    @{
+
+                                        dt = Convert.ToDateTime(item.Start_Date_Time).ToString(Eng360Web.Models.Utility.AppSettings.GetDateFormat());
+                                    }
+                                    @dt
+                                </td>
+
+                                <td>
+                                    @{
+
+                                        dt = Convert.ToDateTime(item.End_Date_Time).ToString(Eng360Web.Models.Utility.AppSettings.GetDateFormat());
+                                    }
+                                    @dt
+                                </td>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Applicant_Name)
+                                </td>
+                                <td>
+                                    @if (item.CompletedStage == 1)
+                                    {
+                                        @Html.Raw("Stage 1 Completed")
+                                    }
+
+                                    @if (item.CompletedStage == 2)
+                                    {@Html.Raw("Stage 2 Completed")}
+
+                                    @if (item.CompletedStage == 3)
+                                    {@Html.Raw("Stage 3 Completed")}
+
+                                    @if (item.CompletedStage == 4)
+                                    {@Html.Raw("Stage 4 Completed")}
+
+                                    @if (item.CompletedStage == 5)
+                                    {@Html.Raw("Stage 5 in progress")}
+
+                                    @if (item.CompletedStage == 6)
+                                    {@Html.Raw("Completed")}
+
+                                    @if (item.CompletedStage == 7)
+                                    {@Html.Raw("Revoked")}
+
+                                </td>
+                                <td>
+
+                                    @if (item.CompletedStage <= 5)
+                                    {
+                                    <a class="btn" title="Edit PTW"  onclick="EditPTWCONSPC(@item.PTW_master_ID)"> <i class="fa fa-pencil" aria-hidden="true" ></i>   </a>
+                                    }
+                                    <a class="btn" title="PTW Reports"  onclick="ViewPTWConspcIndex(@item.PTW_master_ID)"> <i class="fa fa-mixcloud" aria-hidden="true" ></i>   </a>
+                                    @if (item.CompletedStage == 4)
+                                    {
+                                    <a class="btn" href="PTW/ViewPTWConspc?id=@item.PTW_master_ID&dt=check" target="_blank" title="View PTW" > <i class="fa fa-file-o" aria-hidden="true" ></i> </a>
+                                    }
+
+                                    @if (item.CompletedStage >= 6)
+                                    {
+                                    @*<a class="btn" href="PTW/ViewPTW/@item.PTW_master_ID" target="_blank" title="Final Report" > <i class="fa fa-gear" aria-hidden="true" ></i> </a>*@
+                                    <a class="btn" title="ReCreate" onclick="RevokePTWConspc(@item.PTW_master_ID)"> <i class="fa fa-check-circle-o" aria-hidden="true" ></i>   </a>
+                                   }
+                                </td>
+
+                            </tr>
+                        }
+                    </tbody>
+
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+
+        $('#conspcTable').DataTable({
+            "autoWidth": true,
+            //"scrollX": true,
+            dom: 'Bfrtipl',
+            buttons: [
+                'copyHtml5',
+                'excelHtml5',
+                'csvHtml5',
+                'pdfHtml5',
+
+            ]
+        });
+
+
+    });
+    $('.dt-buttons').prepend('<a  onclick="CreatePTWCONSPC()" class="dt-button buttons-copy buttons-html5" tabindex="0" aria-controls="conspcTable" href="#"><span>Create</span></a>')
+    $('.dt-button').addClass('btn btn-primary').removeClass('dt-button').css('margin-right', '5px')
+
+
+    function myFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+</script>
+

@@ -1,0 +1,399 @@
+﻿@model IEnumerable<Eng360Web.Models.ViewModel.ClaimViewModel>
+
+@{
+    Layout = null;
+}
+
+
+<div class="row inner-page--container">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <b> Expenses Index</b>
+            </div>
+            <!-- /.panel-heading -->
+
+
+            <div class="panel-body">
+
+                <div id="tabsClaim">
+                    <ul>
+                        <li><a href="#tabs-1">Pending Expenses</a></li>
+                        <li><a href="#tabs-2">Approved Expenses</a></li>
+                        <li><a href="#tabs-3">Rejected Expenses</a></li>
+
+                    </ul>
+
+                    <div id="tabs-1">
+
+                        <table class="table table-striped table-bordered" id="claimTablePending">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Claim No
+                                    </th>
+                                    <th>
+                                        Employee Name
+                                    </th>
+
+                                    <th>
+                                        Claim Against
+                                    </th>
+                                    <th>
+                                        Submitted On
+                                    </th>
+                                    <th>
+                                        Claim Amount
+                                    </th>
+                                    <th>
+                                        Submitted By
+                                    </th>
+
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    if (item.Status == 0)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.ClaimDisplayID)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.eng_employee_profile.FirstName) @Html.DisplayFor(modelItem => item.eng_employee_profile.LastName)
+                                            </td>
+
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.ClaimAgainst)
+                                            </td>
+                                            <td>
+                                                @{
+                                                    var dt = Convert.ToString(item.SubmittedDate);
+                                                    var condt = DateTime.Parse(dt).ToString(Eng360Web.Models.Utility.AppSettings.GetDateFormat());
+                                                }
+                                                @condt
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.ClaimAmount)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.eng_users1.DisplayName)
+                                            </td>
+
+                                            <td>
+                                                @if (Eng360Web.Models.Utility.AppSession.GetCurrentUserGroup() == 3)
+                                                {
+                                                    <a class="btn" title="Edit Claim" onclick="EditClaim(@item.ClaimID)"> <i class="fa fa-pencil action-pencil" aria-hidden="true"></i>   </a>
+                                                }
+                                                else
+                                                {
+                                                    <a class="btn" title="Approve/Reject Claim" onclick="EditClaim(@item.ClaimID)"> <i class="fa fa-pencil action-pencil" aria-hidden="true"></i>   </a>
+                                                }
+
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                    <div id="tabs-2">
+
+                        <table class="table table-striped table-bordered" id="claimTableApproved">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Claim No
+                                    </th>
+                                    <th>
+                                        Employee Name
+                                    </th>
+
+
+                                    <th>
+                                        Submitted On
+                                    </th>
+                                    <th>
+                                        Amount
+                                    </th>
+                                    <th>
+                                        Approved on
+                                    </th>
+                                    <th>
+                                        Paid Status
+                                    </th>
+
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    if (item.Status == 1)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.ClaimDisplayID)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.eng_employee_profile.FirstName) @Html.DisplayFor(modelItem => item.eng_employee_profile.LastName)
+                                            </td>
+
+
+                                            <td>
+                                                @{
+                                                    var dt = Convert.ToString(item.SubmittedDate);
+                                                    var condt = DateTime.Parse(dt).ToString(Eng360Web.Models.Utility.AppSettings.GetDateFormat());
+                                                }
+                                                @condt
+
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.ClaimAmount)
+                                            </td>
+                                            <td>
+                                                @{
+                                                    var adt = Convert.ToString(item.ApprovedDate);
+                                                    var acondt = DateTime.Parse(adt).ToString(Eng360Web.Models.Utility.AppSettings.GetDateFormat());
+                                                }
+                                                @acondt
+
+                                            </td>
+
+                                            <td>
+                                                @{
+                                                    var stat = "";
+                                                    if (item.isFullyPaid == 1)
+                                                    {
+                                                        stat = "Paid";
+                                                    }
+                                                    else
+                                                    {
+                                                        stat = "Pending";
+                                                    }
+                                                    if (item.PaymentSource == "Company")
+                                                    {
+                                                        stat = "Company Paid";
+                                                    }
+                                                }
+                                                @stat
+                                            </td>
+
+                                            <td>
+
+                                                <a class="btn" title="View Claim Details" onclick="EditClaim(@item.ClaimID)"> <i class="fa fa-search action-search" aria-hidden="true"></i> </a>
+
+
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                    <div id="tabs-3">
+
+                        <table class="table table-striped table-bordered" id="claimTableRejected">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Claim No
+                                    </th>
+                                    <th>
+                                        Employee Name
+                                    </th>
+
+                                    <th>
+                                        Claim Against
+                                    </th>
+                                    <th>
+                                        Submitted On
+                                    </th>
+                                    <th>
+                                        Amount
+                                    </th>
+                                    <th>
+                                        Rejected on
+                                    </th>
+
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    if (item.Status == 2)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.ClaimDisplayID)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.eng_employee_profile.FirstName) @Html.DisplayFor(modelItem => item.eng_employee_profile.LastName)
+                                            </td>
+
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.ClaimAgainst)
+                                            </td>
+                                            <td>
+                                                @{
+                                                    var dt = Convert.ToString(item.SubmittedDate);
+                                                    var condt = DateTime.Parse(dt).ToString(Eng360Web.Models.Utility.AppSettings.GetDateFormat());
+                                                }
+                                                @condt
+
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.ClaimAmount)
+                                            </td>
+                                            <td>
+                                                @{
+                                                    var adt = Convert.ToString(item.ApprovedDate);
+                                                    var acondt = DateTime.Parse(adt).ToString(Eng360Web.Models.Utility.AppSettings.GetDateFormat());
+                                                }
+                                                @acondt
+
+                                            </td>
+
+                                            <td>
+                                                @if (Eng360Web.Models.Utility.AppSession.GetCurrentUserGroup() == 3)
+                                                {
+                                                    <a class="btn" title="Edit Claim" onclick="EditClaim(@item.ClaimID)"> <i class="fa fa-pencil action-pencil" aria-hidden="true"></i>   </a>
+                                                }
+                                                else
+                                                {
+                                                    <a class="btn" title="Edit Claim" onclick="EditClaim(@item.ClaimID)"> <i class="fa fa-pencil action-pencil" aria-hidden="true"></i>   </a>
+                                                    <a id=""></a>
+                                                }
+
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+
+    $(function () {
+        $("#tabsClaim").tabs();
+    });
+
+    $(document).ready(function () {
+
+        $('#claimTablePending').DataTable({
+            dom: 'Bfrtipl',
+            buttons: [
+                {
+                    extend: 'copyHtml5',
+                    text: '<i class="fa fa-files-o"></i>',
+                    titleAttr: 'Copy'
+                },
+                {
+                    extend: 'excelHtml5',
+                    text: '<i class="fa fa-file-excel-o"></i>',
+                    titleAttr: 'Excel'
+                },
+                {
+                    extend: 'csvHtml5',
+                    text: '<i class="fa fa-file-text-o"></i>',
+                    titleAttr: 'CSV'
+                },
+                {
+                    extend: 'pdfHtml5',
+                    text: '<i class="fa fa-file-pdf-o"></i>',
+                    titleAttr: 'PDF'
+                }
+
+            ]
+        });
+    });
+    if ("@Eng360Web.Models.Utility.AppSession.GetCurrentUserGroup()" != "1") {
+        $('#claimTablePending_wrapper .dt-buttons').prepend('<a  onclick="CreateClaim()" class="dt-button buttons-create buttons-html5" tabindex="0" aria-controls="emplyeeTable" href="#" title="Create" ><i class="fa fa-plus"></i></a>')
+    }
+    $('#claimTablePending_wrapper .dt-button').addClass('btn btn-primary').removeClass('dt-button')
+
+
+    $(document).ready(function () {
+
+        $('#claimTableApproved').DataTable({
+            "autoWidth": true,
+            //"scrollX": true,
+            dom: 'Bfrtipl',
+            buttons: [
+                {
+                    extend: 'copyHtml5',
+                    text: '<i class="fa fa-files-o"></i>',
+                    titleAttr: 'Copy'
+                },
+                {
+                    extend: 'excelHtml5',
+                    text: '<i class="fa fa-file-excel-o"></i>',
+                    titleAttr: 'Excel'
+                },
+                {
+                    extend: 'csvHtml5',
+                    text: '<i class="fa fa-file-text-o"></i>',
+                    titleAttr: 'CSV'
+                },
+                {
+                    extend: 'pdfHtml5',
+                    text: '<i class="fa fa-file-pdf-o"></i>',
+                    titleAttr: 'PDF'
+                }
+
+            ]
+        });
+    });
+
+    $('#claimTableApproved_wrapper .dt-button').addClass('btn btn-primary').removeClass('dt-button')
+
+    $(document).ready(function () {
+
+        $('#claimTableRejected').DataTable({
+            dom: 'Bfrtipl',
+            buttons: [
+                {
+                    extend: 'copyHtml5',
+                    text: '<i class="fa fa-files-o"></i>',
+                    titleAttr: 'Copy'
+                },
+                {
+                    extend: 'excelHtml5',
+                    text: '<i class="fa fa-file-excel-o"></i>',
+                    titleAttr: 'Excel'
+                },
+                {
+                    extend: 'csvHtml5',
+                    text: '<i class="fa fa-file-text-o"></i>',
+                    titleAttr: 'CSV'
+                },
+                {
+                    extend: 'pdfHtml5',
+                    text: '<i class="fa fa-file-pdf-o"></i>',
+                    titleAttr: 'PDF'
+                }
+
+            ]
+        });
+    });
+
+    $('#claimTableRejected_wrapper .dt-button').addClass('btn btn-primary').removeClass('dt-button')
+
+
+</script>

@@ -1,0 +1,179 @@
+﻿@model Eng360Web.Models.ViewModel.FilterViewModel
+
+@{
+    Layout = null;
+}
+
+<script src="~/Scripts/moment.js"></script>
+<script src="~/Scripts/bootstrap-datetimepicker.js"></script>
+<link href="~/Content/bootstrap-datetimepicker.css" rel="stylesheet" />
+
+
+<style>
+    .table-condensed tbody > tr > td > a {
+        color: #4eb1ba !important;
+    }
+</style>
+
+
+
+
+
+<div class="row inner-page--container">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <b> Purchase Order Details </b>
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                
+                @using (Html.BeginForm(null, null, FormMethod.Post, new { role = "form", id = "poReportForm" }))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            @Html.Label("PO Number", htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @*Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })*@
+                                @Html.DropDownList("PoRefNum", null, htmlAttributes: new { @class = "form-control" })
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            @Html.Label("Supplier Name", htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.DropDownList("SupplierID", null, htmlAttributes: new { @class = "form-control" })
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            @Html.Label("Date From", htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.EditorFor(model => model.dateFrom, new { htmlAttributes = new { @class = "form-control" } })
+
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-4">
+                            @Html.Label("Date To", htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.EditorFor(model => model.dateTo, new { htmlAttributes = new { @class = "form-control" } })
+
+                            </div>
+                        </div>
+
+                       
+                        <div class="col-md-4">
+                            @Html.Label("Month", htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.DropDownListFor(model => model.Month, new SelectList(
+                                    new List<Object>{
+                                    new { value = 0 , text = "Select"  },
+                                    new { value = 1 , text = "Current" },
+                                    new { value = 2 , text = "Last" }
+
+                    }, "value", "text", 0), htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Month, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <div class="modal-footer">
+
+                        <button type="button" id="report-poIndex-search" class="btn btn-primary">Search</button>
+
+                    </div>
+
+                }
+
+                <table class="table table-striped table-bordered" id="poTable">
+                    <thead>
+                        <tr>
+                            <th>Sl No</th>
+                            <th>PO Number</th>
+                            <th>PO Date</th>
+                            <th>Supplier Name</th>
+                            <th>PO Amount</th>
+  
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{ var i = 0;}
+                        @foreach (var item in Model.eng_po_master)
+                        {
+                            var dt = "";
+                            i = i + 1;
+                            <tr>
+                                <td>@i</td>
+                                <td>@Html.DisplayFor(modelItem => item.PoRefNum)</td>
+                                <td>@{
+                                    dt = Convert.ToDateTime(item.PoDate).ToString(Eng360Web.Models.Utility.AppSettings.GetDateFormat());
+                                }                                
+                                @dt
+                                </td>
+                                <td>@Html.DisplayFor(modelItem => item.eng_supplier_master.Company_Name)</td>
+                                <td>@Html.DisplayFor(modelItem => item.PoValue)</td>
+                               
+                                   
+                            </tr>
+                        }
+                    </tbody>
+
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        var currentdate = new Date();
+        var datetime = currentdate.getDate() + ""
+                    + (currentdate.getMonth() + 1) + ""
+                    + currentdate.getFullYear() + " "
+                    + currentdate.getHours() + ""
+                    + currentdate.getMinutes() + ""
+                    + currentdate.getSeconds();
+
+        $('#poTable').DataTable({
+            "autoWidth": false,
+            "scrollX": true,
+            dom: 'Bfrtipl',
+            buttons: [
+                {
+                    extend: 'excelHtml5',
+                    text: '<i class="fa fa-file-excel-o"></i>',
+                    title: 'PO Details-' + datetime
+                },
+                {
+                    extend: 'csvHtml5',
+                    text: '<i class="fa fa-file-text-o"></i>',
+                    title: 'PO Details-' + datetime
+                }
+
+            ]
+        });
+
+
+    });
+    
+    $('.dt-button').addClass('btn btn-primary').removeClass('dt-button').css('margin-right', '0px')
+
+    $(function () {
+
+        $('#dateFrom').datetimepicker({ format: 'DD/MM/YYYY' });
+        $('#dateTo').datetimepicker({ format: 'DD/MM/YYYY' });
+
+    });
+
+</script>
+

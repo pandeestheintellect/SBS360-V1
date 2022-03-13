@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="22111ea2a9354ad5a6ed9f3536153b1e" Name="Diagram1" ZoomLevel="52">
+        <EntityTypeShape EntityType="Eng360Model.eng_address_master" Width="1.5" PointX="0.75" PointY="61.875" />
+        <EntityTypeShape EntityType="Eng360Model.eng_claim" Width="1.5" PointX="16.5" PointY="63.625" />
+        <EntityTypeShape EntityType="Eng360Model.eng_claim_description" Width="1.5" PointX="23.75" PointY="68.875" />
+        <EntityTypeShape EntityType="Eng360Model.eng_claim_files" Width="1.5" PointX="18.75" PointY="60.25" />
+        <EntityTypeShape EntityType="Eng360Model.eng_client_contact" Width="1.5" PointX="5.25" PointY="74.5" />
+        <EntityTypeShape EntityType="Eng360Model.eng_client_master" Width="1.5" PointX="3" PointY="61.625" />
+        <EntityTypeShape EntityType="Eng360Model.eng_company" Width="1.5" PointX="10.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Eng360Model.eng_company_cert" Width="1.5" PointX="10.75" PointY="6.75" />
+        <EntityTypeShape EntityType="Eng360Model.eng_custom_invoice" Width="1.5" PointX="12.75" PointY="71.5" />
+        <EntityTypeShape EntityType="Eng360Model.eng_custom_invoice_details" Width="1.5" PointX="15" PointY="71.625" />
+        <EntityTypeShape EntityType="Eng360Model.eng_do_seqnum" Width="1.5" PointX="10.75" PointY="10.75" />
+        <EntityTypeShape EntityType="Eng360Model.eng_employee_profile" Width="1.5" PointX="6" PointY="57.5" />
+        <EntityTypeShape EntityType="Eng360Model.eng_inv_seqnum" Width="1.5" PointX="2.75" PointY="11.75" />
+        <EntityTypeShape EntityType="Eng360Model.eng_invoice_details" Width="1.5" PointX="12.75" PointY="100.75" />
+        <EntityTypeShape EntityType="Eng360Model.eng_invoice_master" Width="1.5" PointX="10.5" PointY="99.25" />
+        <EntityTypeShape EntityType="Eng360Model.eng_inward" Width="1.5" PointX="14.25" PointY="55.75" />
+        <EntityTypeShape EntityType="Eng360Model.eng_mm_inwdesc" Width="1.5" PointX="16.5" PointY="56.75" />
+        <EntityTypeShape EntityType="Eng360Model.eng_mm_outdesc" Width="1.5" PointX="13.5" PointY="67.625" />
+        <EntityTypeShape EntityType="Eng360Model.eng_mm_stockadj_master" Width="1.5" PointX="14.25" PointY="61.625" />
+        <EntityTypeShape EntityType="Eng360Model.eng_mm_trmaster" Width="1.5" PointX="13.5" PointY="84.625" />
+        <EntityTypeShape EntityType="Eng360Model.eng_module" Width="1.5" PointX="3.75" PointY="78.75" />
+        <EntityTypeShape EntityType="Eng360Model.eng_outward" Width="1.5" PointX="8.25" PointY="61.25" />
+        <EntityTypeShape EntityType="Eng360Model.eng_permission" Width="1.5" PointX="6" PointY="78.875" />
+        <EntityTypeShape EntityType="Eng360Model.eng_po_description" Width="1.5" PointX="10.5" PointY="51.375" />
+        <EntityTypeShape EntityType="Eng360Model.eng_po_master" Width="1.5" PointX="8.25" PointY="55.375" />
+        <EntityTypeShape EntityType="Eng360Model.eng_product_master" Width="1.5" PointX="11.25" PointY="81.5" />
+        <EntityTypeShape EntityType="Eng360Model.eng_project_master" Width="1.5" PointX="10.5" PointY="70.875" />
+        <EntityTypeShape EntityType="Eng360Model.eng_project_report" Width="1.5" PointX="12.75" PointY="75.75" />
+        <EntityTypeShape EntityType="Eng360Model.eng_project_report_files" Width="1.5" PointX="15" PointY="80.875" />
+        <EntityTypeShape EntityType="Eng360Model.eng_PTW_Conspc_Detail_Stage1" Width="1.5" PointX="8" PointY="2.625" />
+        <EntityTypeShape EntityType="Eng360Model.eng_PTW_Conspc_Detail_Stage5" Width="1.5" PointX="8" PointY="6.875" />
+        <EntityTypeShape EntityType="Eng360Model.eng_PTW_Conspc_Employee_Details" Width="1.5" PointX="8" PointY="10.75" />
+        <EntityTypeShape EntityType="Eng360Model.eng_ptw_conspc_master" Width="1.5" PointX="5.75" PointY="1.375" />
+        <EntityTypeShape EntityType="Eng360Model.eng_PTW_Detail_Satge1" Width="1.5" PointX="3" PointY="5.25" />
+        <EntityTypeShape EntityType="Eng360Model.eng_PTW_Detail_Satge4" Width="1.5" PointX="3" PointY="8.125" />
+        <EntityTypeShape EntityType="Eng360Model.eng_PTW_Employee_Details" Width="1.5" PointX="3" PointY="2.75" />
+        <EntityTypeShape EntityType="Eng360Model.eng_ptw_master" Width="1.5" PointX="0.75" PointY="1.25" />
+        <EntityTypeShape EntityType="Eng360Model.eng_pymt_payable" Width="1.5" PointX="21.75" PointY="53.5" />
+        <EntityTypeShape EntityType="Eng360Model.eng_pymt_receivable" Width="1.5" PointX="11.25" PointY="61.25" />
+        <EntityTypeShape EntityType="Eng360Model.eng_qa_defect" Width="1.5" PointX="18.75" PointY="63.375" />
+        <EntityTypeShape EntityType="Eng360Model.eng_qa_defect_cpa" Width="1.5" PointX="23.25" PointY="61.875" />
+        <EntityTypeShape EntityType="Eng360Model.eng_qa_defect_cpa_files" Width="1.5" PointX="25.5" PointY="63.75" />
+        <EntityTypeShape EntityType="Eng360Model.eng_qa_defect_detail" Width="1.5" PointX="21" PointY="63.5" />
+        <EntityTypeShape EntityType="Eng360Model.eng_qa_defect_files" Width="1.5" PointX="21" PointY="68.625" />
+        <EntityTypeShape EntityType="Eng360Model.eng_quote_description" Width="1.5" PointX="15.75" PointY="76.375" />
+        <EntityTypeShape EntityType="Eng360Model.eng_quote_master" Width="1.5" PointX="8.25" PointY="67.25" />
+        <EntityTypeShape EntityType="Eng360Model.eng_ra_control_measures" Width="1.5" PointX="12.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Eng360Model.eng_ra_hazardlist" Width="1.5" PointX="12.75" PointY="3.75" />
+        <EntityTypeShape EntityType="Eng360Model.eng_ra_location" Width="1.5" PointX="4.75" PointY="12.75" />
+        <EntityTypeShape EntityType="Eng360Model.eng_ra_possible_accident_health" Width="1.5" PointX="12.75" PointY="6.75" />
+        <EntityTypeShape EntityType="Eng360Model.eng_ra_process" Width="1.5" PointX="12.75" PointY="9.75" />
+        <EntityTypeShape EntityType="Eng360Model.eng_ra_trans_detail1" Width="1.5" PointX="15" PointY="111.125" />
+        <EntityTypeShape EntityType="Eng360Model.eng_ra_trans_master" Width="1.5" PointX="12.75" PointY="111.875" />
+        <EntityTypeShape EntityType="Eng360Model.eng_ra_trans_racm" Width="1.5" PointX="15" PointY="114" />
+        <EntityTypeShape EntityType="Eng360Model.eng_ra_work_activity" Width="1.5" PointX="12.75" PointY="12.75" />
+        <EntityTypeShape EntityType="Eng360Model.eng_safety_esh" Width="1.5" PointX="12.75" PointY="105.25" />
+        <EntityTypeShape EntityType="Eng360Model.eng_safety_esh_files" Width="1.5" PointX="15" PointY="106.125" />
+        <EntityTypeShape EntityType="Eng360Model.eng_safety_hazard_list" Width="1.5" PointX="15.75" PointY="48" />
+        <EntityTypeShape EntityType="Eng360Model.eng_safety_insp_detail" Width="1.5" PointX="15" PointY="92.875" />
+        <EntityTypeShape EntityType="Eng360Model.eng_safety_insp_master" Width="1.5" PointX="12.75" PointY="88.875" />
+        <EntityTypeShape EntityType="Eng360Model.eng_safety_master" Width="1.5" PointX="13.5" PointY="49.75" />
+        <EntityTypeShape EntityType="Eng360Model.eng_safety_ppe_list" Width="1.5" PointX="15.75" PointY="51" />
+        <EntityTypeShape EntityType="Eng360Model.eng_safety_worker_list" Width="1.5" PointX="11.25" PointY="68" />
+        <EntityTypeShape EntityType="Eng360Model.eng_screens" Width="1.5" PointX="6" PointY="82.75" />
+        <EntityTypeShape EntityType="Eng360Model.eng_store_master" Width="1.5" PointX="6" PointY="48.25" />
+        <EntityTypeShape EntityType="Eng360Model.eng_supplier_master" Width="1.5" PointX="3" PointY="55.75" />
+        <EntityTypeShape EntityType="Eng360Model.eng_sys_claimtype" Width="1.5" PointX="21.5" PointY="72.5" />
+        <EntityTypeShape EntityType="Eng360Model.eng_sys_country" Width="1.5" PointX="6.75" PointY="13.75" />
+        <EntityTypeShape EntityType="Eng360Model.eng_sys_function" Width="1.5" PointX="0.75" PointY="67" />
+        <EntityTypeShape EntityType="Eng360Model.eng_sys_industry" Width="1.5" PointX="0.75" PointY="57" />
+        <EntityTypeShape EntityType="Eng360Model.eng_sys_location" Width="1.5" PointX="8.25" PointY="78" />
+        <EntityTypeShape EntityType="Eng360Model.eng_sys_project_status" Width="1.5" PointX="8.25" PointY="80.25" />
+        <EntityTypeShape EntityType="Eng360Model.eng_sys_ptw_stage1_config" Width="1.5" PointX="0.75" PointY="10.125" />
+        <EntityTypeShape EntityType="Eng360Model.eng_sys_ptw_stages" Width="1.5" PointX="8.75" PointY="13.75" />
+        <EntityTypeShape EntityType="Eng360Model.eng_sys_pymt_status" Width="1.5" PointX="9" PointY="47.875" />
+        <EntityTypeShape EntityType="Eng360Model.eng_sys_quotestatus" Width="1.5" PointX="6" PointY="54" />
+        <EntityTypeShape EntityType="Eng360Model.eng_sys_riskmatrix" Width="1.5" PointX="14.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Eng360Model.eng_sys_rm_likelihood" Width="1.5" PointX="0.75" PointY="14.75" />
+        <EntityTypeShape EntityType="Eng360Model.eng_sys_rm_severity" Width="1.5" PointX="14.75" PointY="3.75" />
+        <EntityTypeShape EntityType="Eng360Model.eng_sys_safety_hazard" Width="1.5" PointX="13.5" PointY="47.125" />
+        <EntityTypeShape EntityType="Eng360Model.eng_sys_safety_insp_items" Width="1.5" PointX="12.75" PointY="119.125" />
+        <EntityTypeShape EntityType="Eng360Model.eng_sys_safety_ppelist" Width="1.5" PointX="13.5" PointY="44.125" />
+        <EntityTypeShape EntityType="Eng360Model.eng_sys_task_status" Width="1.5" PointX="10.5" PointY="87.125" />
+        <EntityTypeShape EntityType="Eng360Model.eng_time_entry" Width="1.5" PointX="18.5" PointY="70.625" />
+        <EntityTypeShape EntityType="Eng360Model.eng_transport_master" Width="1.5" PointX="14.75" PointY="6.75" />
+        <EntityTypeShape EntityType="Eng360Model.eng_usergroup" Width="1.5" PointX="3.75" PointY="68" />
+        <EntityTypeShape EntityType="Eng360Model.eng_users" Width="1.5" PointX="11.25" PointY="55.625" />
+        <EntityTypeShape EntityType="Eng360Model.sysdiagram" Width="1.5" PointX="14.75" PointY="13.75" />
+        <AssociationConnector Association="Eng360Model.FK_eng_client_master_eng_address_master" />
+        <AssociationConnector Association="Eng360Model.FK_eng_employee_profile_eng_address_master" />
+        <AssociationConnector Association="Eng360Model.FK_eng_supplier_master_eng_address_master" />
+        <AssociationConnector Association="Eng360Model.FK_eng_claim_description_eng_claim" />
+        <AssociationConnector Association="Eng360Model.FK_eng_claim_eng_employee_profile" />
+        <AssociationConnector Association="Eng360Model.FK_eng_claim_eng_project_master" />
+        <AssociationConnector Association="Eng360Model.FK_eng_claim_eng_users" />
+        <AssociationConnector Association="Eng360Model.FK_eng_claim_eng_users1" />
+        <AssociationConnector Association="Eng360Model.FK_eng_claim_files_eng_claim" />
+        <AssociationConnector Association="Eng360Model.FK_eng_pymt_payable_eng_claim" />
+        <AssociationConnector Association="Eng360Model.FK_eng_claim_description_eng_sys_claimtype" />
+        <AssociationConnector Association="Eng360Model.FK_eng_client_contact_eng_client_master" />
+        <AssociationConnector Association="Eng360Model.FK_eng_client_master_eng_sys_function" />
+        <AssociationConnector Association="Eng360Model.FK_eng_client_master_eng_sys_industry" />
+        <AssociationConnector Association="Eng360Model.FK_eng_outward_eng_client_master" />
+        <AssociationConnector Association="Eng360Model.FK_eng_pymt_receivable_eng_client_master" />
+        <AssociationConnector Association="Eng360Model.FK_eng_quote_master_eng_client_master" />
+        <AssociationConnector Association="Eng360Model.FK_eng_custom_invoice_details_eng_custom_invoice" />
+        <AssociationConnector Association="Eng360Model.FK_eng_custom_invoice_eng_project_master" />
+        <AssociationConnector Association="Eng360Model.FK_eng_custom_invoice_eng_quote_master" />
+        <AssociationConnector Association="Eng360Model.FK_eng_employee_profile_eng_usergroup" />
+        <AssociationConnector Association="Eng360Model.FK_eng_inward_eng_employee_profile" />
+        <AssociationConnector Association="Eng360Model.FK_eng_mm_stockadj_master_eng_employee_profile" />
+        <AssociationConnector Association="Eng360Model.FK_eng_outward_eng_employee_profile" />
+        <AssociationConnector Association="Eng360Model.FK_eng_pymt_payable_eng_employee_profile" />
+        <AssociationConnector Association="Eng360Model.FK_eng_qa_defect_eng_employee_profile" />
+        <AssociationConnector Association="Eng360Model.FK_eng_qa_defect_eng_employee_profile1" />
+        <AssociationConnector Association="Eng360Model.FK_eng_safety_worker_list_eng_employee_profile" />
+        <AssociationConnector Association="Eng360Model.FK_eng_time_entry_eng_employee_profile" />
+        <AssociationConnector Association="Eng360Model.FK_eng_users_eng_employee_profile" />
+        <AssociationConnector Association="Eng360Model.FK_eng_invoice_details_eng_invoice_master" />
+        <AssociationConnector Association="Eng360Model.FK_eng_invoice_master_eng_quote_master" />
+        <AssociationConnector Association="Eng360Model.FK_eng_inward_eng_store_master" />
+        <AssociationConnector Association="Eng360Model.FK_eng_inward_eng_supplier_master" />
+        <AssociationConnector Association="Eng360Model.FK_eng_mm_inwdesc_eng_inward" />
+        <AssociationConnector Association="Eng360Model.FK_eng_mm_inwdesc_eng_product_master" />
+        <AssociationConnector Association="Eng360Model.FK_eng_mm_outdesc_eng_outward" />
+        <AssociationConnector Association="Eng360Model.FK_eng_mm_outdesc_eng_product_master" />
+        <AssociationConnector Association="Eng360Model.FK_eng_mm_stockadj_master_eng_product_master" />
+        <AssociationConnector Association="Eng360Model.FK_eng_mm_stockadj_master_eng_store_master" />
+        <AssociationConnector Association="Eng360Model.FK_eng_mm_trmaster_eng_product_master" />
+        <AssociationConnector Association="Eng360Model.FK_eng_permission_eng_module" />
+        <AssociationConnector Association="Eng360Model.FK_eng_screens_eng_module" />
+        <AssociationConnector Association="Eng360Model.FK_eng_outward_eng_store_master" />
+        <AssociationConnector Association="Eng360Model.FK_eng_permission_eng_usergroup" />
+        <AssociationConnector Association="Eng360Model.FK_eng_po_decription_eng_po_master" />
+        <AssociationConnector Association="Eng360Model.FK_eng_po_master_eng_supplier_master" />
+        <AssociationConnector Association="Eng360Model.FK_eng_po_master_eng_sys_quotestatus" />
+        <AssociationConnector Association="Eng360Model.FK_eng_pymt_payable_eng_po_master" />
+        <AssociationConnector Association="Eng360Model.FK_eng_project_master_eng_quote_master" />
+        <AssociationConnector Association="Eng360Model.FK_eng_project_master_eng_sys_location" />
+        <AssociationConnector Association="Eng360Model.FK_eng_project_master_eng_sys_project_status" />
+        <AssociationConnector Association="Eng360Model.FK_eng_project_report_eng_project_master" />
+        <AssociationConnector Association="Eng360Model.FK_eng_qa_defect_eng_project_master" />
+        <AssociationConnector Association="Eng360Model.FK_eng_quote_description_eng_project_master" />
+        <AssociationConnector Association="Eng360Model.FK_eng_ra_team_eng_project_master" />
+        <AssociationConnector Association="Eng360Model.FK_eng_safety_esh_eng_project_master" />
+        <AssociationConnector Association="Eng360Model.FK_eng_safety_insp_master_eng_project_master" />
+        <AssociationConnector Association="Eng360Model.FK_eng_time_entry_eng_project_master" />
+        <AssociationConnector Association="Eng360Model.FK_eng_project_report_eng_project_report" />
+        <AssociationConnector Association="Eng360Model.FK_eng_project_report_files_eng_project_report" />
+        <AssociationConnector Association="Eng360Model.FK_eng_PTW_Conspc_Detail_Stage1_eng_ptw_conspc_master" />
+        <AssociationConnector Association="Eng360Model.FK_eng_PTW_Conspc_Detail_Stage1_eng_sys_ptw_stage1_config" />
+        <AssociationConnector Association="Eng360Model.FK_eng_PTW_Conspc_Detail_Stage5_eng_ptw_conspc_master" />
+        <AssociationConnector Association="Eng360Model.FK_eng_PTW_Conspc_Employee_Details_eng_ptw_conspc_master" />
+        <AssociationConnector Association="Eng360Model.FK_eng_PTW_Detail_Satge1_eng_ptw_master" />
+        <AssociationConnector Association="Eng360Model.FK_eng_PTW_Detail_Satge1_eng_sys_ptw_stage1_config" />
+        <AssociationConnector Association="Eng360Model.FK_eng_PTW_Detail_Satge4_eng_ptw_master" />
+        <AssociationConnector Association="Eng360Model.FK_eng_PTW_Employee_Details_eng_ptw_master" />
+        <AssociationConnector Association="Eng360Model.FK_eng_pymt_payable_eng_sys_pymt_status" />
+        <AssociationConnector Association="Eng360Model.FK_eng_pymt_receivable_eng_sys_pymt_status" />
+        <AssociationConnector Association="Eng360Model.FK_eng_qa_defect_details_eng_qa_defect" />
+        <AssociationConnector Association="Eng360Model.FK_eng_qa_defect_eng_supplier_master" />
+        <AssociationConnector Association="Eng360Model.FK_eng_qa_defect_files_eng_qa_defect" />
+        <AssociationConnector Association="Eng360Model.FK_eng_qa_defect_cpa_eng_qa_defect_detail" />
+        <AssociationConnector Association="Eng360Model.FK_eng_qa_defect_cpa_files_eng_qa_defect_cpa" />
+        <AssociationConnector Association="Eng360Model.FK_eng_quote_description_eng_quote_master" />
+        <AssociationConnector Association="Eng360Model.FK_eng_quote_master_eng_sys_quotestatus" />
+        <AssociationConnector Association="Eng360Model.FK_eng_ra_trans_detail1_eng_ra_trans_master" />
+        <AssociationConnector Association="Eng360Model.FK_eng_ra_trans_racm_eng_ra_trans_master" />
+        <AssociationConnector Association="Eng360Model.FK_eng_safety_esh_files_eng_safety_esh_files" />
+        <AssociationConnector Association="Eng360Model.FK_eng_safety_hazard_list_eng_safety_master" />
+        <AssociationConnector Association="Eng360Model.FK_eng_safety_hazard_list_eng_sys_safety_hazard" />
+        <AssociationConnector Association="Eng360Model.FK_eng_safety_insp_detail_eng_safety_insp_master" />
+        <AssociationConnector Association="Eng360Model.FK_eng_safety_insp_detail_eng_sys_safety_insp_items" />
+        <AssociationConnector Association="Eng360Model.FK_eng_safety_master_eng_users" />
+        <AssociationConnector Association="Eng360Model.FK_eng_safety_ppe_list_eng_safety_master" />
+        <AssociationConnector Association="Eng360Model.FK_eng_safety_worker_list_eng_safety_master" />
+        <AssociationConnector Association="Eng360Model.FK_eng_safety_ppe_list_eng_sys_safety_ppelist" />
+        <AssociationConnector Association="Eng360Model.FK_eng_supplier_master_eng_sys_industry" />
+        <AssociationConnector Association="Eng360Model.FK_eng_sys_pymt_status_eng_sys_pymt_status" />
+        <AssociationConnector Association="Eng360Model.FK_eng_time_entry_eng_users" />
+        <AssociationConnector Association="Eng360Model.FK_eng_users_eng_usergroup" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

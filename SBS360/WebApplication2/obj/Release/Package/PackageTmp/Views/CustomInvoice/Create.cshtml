@@ -1,0 +1,267 @@
+﻿@model Eng360Web.Models.ViewModel.CustomInvoiceViewModel
+
+@{
+    Layout = null;
+}
+
+<script src="~/Scripts/moment.js"></script>
+<script src="~/Scripts/bootstrap-datetimepicker.js"></script>
+<link href="~/Content/bootstrap-datetimepicker.css" rel="stylesheet" />
+
+<style>
+    .table-condensed tbody > tr > td > a {
+        color: #4eb1ba !important;
+    }
+
+    .required::after {
+        content: "*";
+        font-weight: bold;
+        color: red;
+    }
+
+    
+</style>
+
+
+
+<div class="row inner-page--container">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <b> Add Custom Invoice  </b>
+
+                @*<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>*@
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "invoiceForm" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.HiddenFor(model => model.ProjectID)
+                    @Html.HiddenFor(model => model.QuotationID)
+
+                    @Html.HiddenFor(model => model.prjAmt)
+                    @Html.HiddenFor(model => model.invAmt)
+
+                    @Html.HiddenFor(model => model.QuoteFinalAmount)
+                    @Html.HiddenFor(model => model.Discount)
+
+                    @Html.HiddenFor(model => model.GTAX)
+
+                    @Html.HiddenFor(model => model.FinalInvoiceAmount)
+                    decimal qfamt = 0;
+
+                    if (Model.Discount != 0)
+                    {
+                        qfamt = (decimal) Model.QuoteFinalAmount;
+                    } else
+                    {
+                        qfamt = Model.prjAmt;
+                    }
+                    var dis = Model.Discount;
+                    var raisedamt = Model.invAmt;
+
+                    var maxLimAmt = qfamt - raisedamt;
+
+
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="row">
+                        <div class="col-md-4">
+                            @Html.LabelFor(model => model.ProjectNo, htmlAttributes: new { @class = "control-label" })
+                            <div class="">
+                                @Html.EditorFor(model => model.ProjectNo, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.ProjectNo, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            @Html.LabelFor(model => model.QuoteNo, htmlAttributes: new { @class = "control-label" })
+                            <div class="">
+                                @Html.EditorFor(model => model.QuoteNo, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.QuoteNo, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-4">
+                            @Html.LabelFor(model => model.InvoiceDate, htmlAttributes: new { @class = "control-label required" })
+                            <div class="">
+                                @Html.EditorFor(model => model.InvoiceDate, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.InvoiceDate, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        @if (Model.Discount != 0)
+                        {
+                            <div class="col-md-6">
+                                @Html.LabelFor(model => model.QuoteFinalAmount, "Quote Cost after Discount", htmlAttributes: new { @class = "control-label" })
+                                <div class="">
+                                    @Html.EditorFor(model => model.QuoteFinalAmount, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                @Html.LabelFor(model => model.Discount, "Discount in Quotation", htmlAttributes: new { @class = "control-label" })
+                                <div class="">
+                                    @Html.EditorFor(model => model.Discount, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+
+                                </div>
+                            </div>
+
+                        }
+                        else
+                        {
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.prjAmt, "Project Cost", htmlAttributes: new { @class = "control-label" })
+                            <div class="">
+                                @Html.EditorFor(model => model.prjAmt, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                                
+                            </div>
+                        </div>
+
+                        }
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.invAmt, "Total Invoice Amount raised so far", htmlAttributes: new { @class = "control-label" })
+                            <div class="">
+                                @Html.EditorFor(model => model.invAmt, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.Label("Max Limit of Invoice Amount")
+                            <div class="">
+                                
+                            @Html.TextBox("MaxAmt", maxLimAmt.ToString(), new {  @class = "form-control", @readonly = "readonly" } )
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-12">
+                            <table class="table table-striped table-bordered" id="tableCIDescriptions">
+
+                                <thead>
+                                    <tr>
+                                        <th>Quote Desc</th>
+                                        <th>Quantity</th>
+                                        <th>UoM</th>
+                                        <th>Quote Price</th>
+
+                                        <th>track</th>
+                                        <th>Actions</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var obj in Model.eng_quote_description)
+                                    {
+                                        <tr id="@obj.QDID">
+                                            <td>
+                                                @obj.QuoteDescription
+                                            </td>
+                                            <td>
+                                                @obj.Quantity
+                                            </td>
+                                            <td>
+                                                @obj.UnitOfMeasure
+                                            </td>
+
+                                            <td>@obj.QuotePrice</td>
+                                            <td>0</td>
+                                            <td></td>
+                                        </tr>
+                                    }
+
+                                </tbody>
+
+                            </table>
+                            </div>
+
+                        </div>
+                }
+
+            </div>
+
+            <div class="modal-footer">
+
+                <input type="button" value="Create" id="create-Custominvoice-dialog-save" style="float:right" class="btn btn-primary" /><span style="float:right">&nbsp;</span><button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    var contacts = [];
+    var deleteIDs = [];
+    var quotedescTable;
+    $(document).ready(function () {
+
+        quotedescTable = $('#tableCIDescriptions').DataTable({
+            dom: 'Brti',
+            buttons: [
+                'copyHtml5',
+                'excelHtml5',
+                'csvHtml5',
+                'pdfHtml5',
+
+            ],
+            "columnDefs": [
+                   {
+                       // The `data` parameter refers to the data for the cell (defined by the
+                       // `data` option, which defaults to the column being worked with, in
+                       // this case `data: 0`.
+                       "render": function (data, type, row) {
+                           // return '<a class="btn" onclick="removeDataFromDT(this)"> <img src="Content/images/delete.png" /> </a>';
+                           return '<a class="btn" onclick="removeDataFromDT(this)" title="Delete InvoiceDescription" style="padding: 0px 0px;"> <i class="fa fa-trash" aria-hidden="true" style="color:orangered;font-size:20px"></i> </a>';
+                       },
+                       "targets": 5
+                   }]
+        });
+    });
+    var column = quotedescTable.column(4);
+    column.visible(false);
+                    $('#tableCIDescriptions_wrapper .dt-buttons').prepend('<a style="margin-bottom:10px;"  onclick="CreateCIDesc()" class="dt-button  buttons-html5" tabindex="0" aria-controls="quotedescTable" href="#"><span>Add Description</span></a>')
+                    $('#tableCIDescriptions_wrapper .dt-button').addClass('btn btn-primary').removeClass('dt-button').css('margin-right', '5px')
+                    $('#tableCIDescriptions_wrapper .buttons-copy').css('display', 'none');
+                    $('#tableCIDescriptions_wrapper .buttons-excel').css('display', 'none');
+                    $('#tableCIDescriptions_wrapper .buttons-csv').css('display', 'none');
+                    $('#tableCIDescriptions_wrapper .buttons-pdf').css('display', 'none');
+                    quotedescTable.row('.remove').remove().draw(false);
+
+
+                    function removeDataFromDT(btn) {
+
+                        $(btn.closest('tr')).addClass('remove')
+
+                        deleteIDs.push(btn.closest('tr').id);
+                        quotedescTable.row('.remove').remove().draw(false);
+                        
+                    }
+                  
+                   
+
+    $(function () {
+
+        $('#InvoiceDate').datetimepicker({ format: 'DD/MM/YYYY' });
+
+    });
+                
+
+        
+                    $("form").removeData("validator");
+                    $("form").removeData("unobtrusiveValidation");
+                    $.validator.unobtrusive.parse("form");
+
+                    function calcAmount() {
+                        var amt = 0;
+                        
+                    }
+
+
+
+</script>

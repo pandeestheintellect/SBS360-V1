@@ -1,0 +1,526 @@
+﻿@model Eng360Web.Models.ViewModel.InvoiceMasterViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+
+    <style type="text/css">
+        body, td, th {
+            font-family: Calibri;
+            font-size: 15px;
+            word-wrap: break-word;
+        }
+
+        body {
+            margin-left: 0px;
+            margin-top: 0px;
+            margin-right: 0px;
+            margin-bottom: 0px;
+        }
+
+        a:link {
+            text-decoration: none;
+        }
+
+        a:visited {
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: none;
+        }
+
+        a:active {
+            text-decoration: none;
+        }
+
+        .tb {
+            border-style: solid;
+            /*border-width:1px;*/
+            border-bottom-width: 1px;
+            border-top-width: 1px;
+            border-left-width: 1px;
+            border-right-width: 1px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body style="font-family: Calibri;">
+    <center>
+        <table width="773" border="0" cellspacing="0" cellpadding="0">
+
+            <tr>
+                <td height="1062" align="center" valign="top">
+                    <table width="773" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+
+                            <td width="100" align="left" valign="top" style="padding:0px;"><img src="~/images/CompanyLogo/logo.png" /></td>
+                            <td width="328" align="left" valign="top" style="padding:2px;">
+                                <span style="font-size:26px; font-weight:bold; color: red;">
+                                    @Eng360Web.Models.Utility.AppSession.GetCompanyDetail().CompanyName.ToUpper()
+                                </span><br />
+                                <span style="font-weight:bold; font-size:14px;">
+                                    @Eng360Web.Models.Utility.AppSession.GetCompanyDetail().Address1<br />
+                                    @Eng360Web.Models.Utility.AppSession.GetCompanyDetail().Address2 @Eng360Web.Models.Utility.AppSession.GetCompanyDetail().City @Eng360Web.Models.Utility.AppSession.GetCompanyDetail().Pincode	<br />
+                                    Tel : (65) @Eng360Web.Models.Utility.AppSession.GetCompanyDetail().Tel <br />
+                                    @{
+                                        var fax = Eng360Web.Models.Utility.AppSession.GetCompanyDetail().Fax;
+                                        if (fax == null || fax == "")
+                                        {
+                                            fax = "";
+                                        }
+                                        else
+                                        {
+                                            fax = "Fax : (65)" + @Eng360Web.Models.Utility.AppSession.GetCompanyDetail().Fax;
+                                        }
+
+                                    }
+
+                                    @fax
+                                    <br />
+                                    E-mail : @Eng360Web.Models.Utility.AppSession.GetCompanyDetail().Email	<br />
+                                    Co. Reg. No : @Eng360Web.Models.Utility.AppSession.GetCompanyDetail().RegNo
+                                </span>
+                            </td>
+                            <td width="300" align="right" valign="middle" style="padding-right:5px; line-height:15px;">
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td align="right" valign="middle" colspan="2">
+                                            <span style="font-size:26px; font-weight:bold; padding-right:5px; color: forestgreen">INVOICE</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td height="25" colspan="2">&nbsp;</td>
+                                    </tr>
+                                    <tr>
+
+                                        <td align="right" valign="middle" style="padding:1px; font-size:16px;font-weight: bold;">Invoice No &nbsp; : </td>
+                                        <td align="right" valign="middle" style="padding:1px; font-size:16px;font-weight: bold;">&nbsp; @Model.InvoiceNum</td>
+                                    </tr>
+                                    <tr>
+                                        <td height="12" colspan="2">&nbsp;</td>
+                                    </tr>
+                                    <tr>
+
+                                        <td align="right" valign="middle" style="padding:1px; font-size:16px;font-weight: bold;">Invoice Date &nbsp; : </td>
+                                        <td align="right" valign="middle" style="padding:1px; font-size:16px;font-weight: bold;">
+                                            &nbsp;
+                                            @{
+                                                var dt = "";
+                                                dt = Convert.ToDateTime(Model.InvoiceDate).ToString(Eng360Web.Models.Utility.AppSettings.GetDateFormat());
+                                            }
+                                            @dt
+
+                                        </td>
+                                    </tr>
+                                </table>
+
+                            </td>
+                        </tr>
+                    </table>
+
+                    <table width="98%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td><hr /></td>
+                        </tr>
+                    </table>
+
+                    @{
+                        var y = 1;
+                        decimal suTot = 0;
+                        decimal tot = 0;
+                        decimal fgst = 0;
+
+                        var typ = Model.InvoiceType;
+
+                        int itemcount = Model.eng_invoice_details.Count;
+                        int pages = (int)Math.Ceiling((double)itemcount / 5);
+
+                        foreach (var desc in Model.eng_invoice_details)
+                        {
+                            var tempTot = desc.Quantity * desc.Price;
+                            suTot = suTot + (decimal) (desc.Quantity * Convert.ToDecimal(desc.Price));
+
+                            y = y + 1;
+                        }
+
+                        if (Model.GST == "0")
+                        {
+                            fgst = Math.Round(Convert.ToDecimal((7.0 / 100.00)) * (suTot - (decimal)Model.Discount), 2);
+
+                        }
+
+                        //var word = Eng360Web.Models.Utility.AppSettings.changeCurrencyToWords((double)Math.Round(fgst + suTot, 2), true, "Singapore Dollars", "");
+                        decimal numamt = Math.Round(fgst + suTot - (decimal)Model.Discount, 2);
+                        var word = Eng360Web.Models.Utility.AppSettings.NumberToCurrencyText((decimal)Math.Round(fgst + suTot - (decimal)Model.Discount, 2), MidpointRounding.AwayFromZero);
+                    }
+                    <table width="95%" border="0" cellspacing="0" cellpadding="0" style="margin-top:5px;">
+                        <tr>
+                            <td width="470" align="left" valign="top" style="padding:3px;">
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td align="justify" style="background-color: darkseagreen;">
+                                            <span style="margin-top:3px; text-align: left; font-family: Calibri;font-size: 18px;">
+                                                <strong>
+                                                    Services For
+                                                </strong>
+                                            </span>
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="word-wrap:break-word; text-overflow: ellipsis; ">
+                                            @{
+                                                var nam = Model.AttentionTo;
+                                                var serv = "";
+                                                if(typ == "Quotation")
+                                                {
+                                                    serv = Model.eng_quote_master.QuoteTitle;
+                                                }
+                                                else
+                                                {
+                                                    serv = Model.ServicesFor;
+                                                }
+
+                                            }
+                                            <div style="margin-left:10px; text-align: justify; font-size: 15px;">
+                                                @serv
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+
+                            </td>
+                            <td width="50">&nbsp;</td>
+                            <td width="230" align="center" valign="top" style="padding:3px;">
+                                <table width="230" border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td style="background-color: darkseagreen;">
+                                            <span style="margin-top:3px; font-family: Calibri;font-size: 18px;">
+                                                <strong>
+                                                    To
+                                                </strong>
+                                            </span><br />
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        @if (typ == "Quotation")
+                                        {
+                                        <td>
+                                            <span style="margin-top:3px; font-family:Calibri;font-size: 15px;">
+                                                <strong>@Model.eng_quote_master.eng_client_master.Company_Name</strong>
+                                            </span>
+                                            <div>
+                                                <span style="margin-top:3px; font-family: Calibri;font-size: 15px;">
+                                                    @Model.eng_quote_master.eng_client_master.eng_address_master.Address1<br />
+                                                    @if (Model.eng_quote_master.eng_client_master.eng_address_master.Address2 != null && Model.eng_quote_master.eng_client_master.eng_address_master.Address2 != "")
+                                                    {
+                                                        @Model.eng_quote_master.eng_client_master.eng_address_master.Address2<br />
+                                                    }
+                                                    @Model.eng_quote_master.eng_client_master.eng_address_master.City  @Model.eng_quote_master.eng_client_master.eng_address_master.Postal_Code<br />
+                                                    Tel: @Model.eng_quote_master.eng_client_master.eng_address_master.Tel<br />
+
+                                                    <strong>Attn : @nam </strong><br />
+                                                </span>
+                                            </div>
+                                        </td>
+                                        }
+                                        else
+                                        {
+                                            <td>
+                                                <span style="margin-top:3px; font-family:Calibri;font-size: 15px;">
+                                                    <strong>
+                                                    @Html.Raw(Html.Encode(Model.ClientOthers).Replace(Environment.NewLine, "<br />"))
+                                                   </strong><br />
+                                                </span>
+                                                <strong>Attn : @nam </strong><br />
+                                            </td>
+                                        }
+                                    </tr>
+
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+
+
+                    <br />
+
+                    <table width="95%" border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse; table-layout:fixed; word-break: break-all;" height="370">
+
+                        <tr style="border-bottom: 1px solid #000000 !important;">
+                            <th width="7%" align="center" valign="middle" style="padding:3px; border: 1px solid #000;" height="20">S.NO</th>
+                            <th width="50%" align="center" valign="middle" style="padding:3px; border: 1px solid #000;word-break: break-word;">JOB DESCRIPTION </th>
+                            <th width="10%" align="center" valign="middle" style="padding:3px; border: 1px solid #000;">UNIT</th>
+                            <th width="8%" align="center" valign="middle" style="padding:3px; border: 1px solid #000;">QTY</th>
+                            <th width="12%" align="center" valign="middle" style="padding:3px; border: 1px solid #000;">PRICE S$</th>
+                            <th width="13%" align="center" valign="middle" style="padding:3px; border: 1px solid #000;">AMOUNT S$</th>
+                        </tr>
+
+                        @{
+                            var st = "";
+                            var i = 1;
+                            decimal subTotal = 0;
+                            decimal total = 0;
+                            decimal gst = 0;
+                            decimal disc = (decimal)Model.Discount;
+
+                            foreach (var desc in Model.eng_invoice_details)
+                            {
+                                var tempTotal = desc.Quantity * desc.Price;
+                                IHtmlString tx = null;
+
+                                tx = Html.Raw(Html.Encode(desc.Description).Replace(Environment.NewLine, "<br />"));
+                                tx = Html.Raw(Html.Encode(tx).Replace("\n", "<br />"));
+                                tx = Html.Raw(Html.Encode(tx).Replace("\r", "<br />"));
+                                if (desc.InvoiceDescID == Model.eng_invoice_details.Last().InvoiceDescID)
+                                {
+
+                                    <tr style="border-bottom: 0px solid #000000 !important;">
+                                        <td width="7%" align="center" valign="top" style="font-size:15px;padding:3px; border-left: 1px solid #000; border-right: 1px solid #000; border-bottom: 0px solid #000; line-height:15px;" height="20">@i</td>
+                                        <td width="50%" align="justify" valign="top" style="font-size:15px;word-wrap:break-word; text-overflow: ellipsis; ">
+                                            <div style="font-size:15px;word-break:keep-all; text-overflow: ellipsis;">
+                                                @*@Html.Raw(Html.Encode(desc.QuoteDescription).Replace(Environment.NewLine, "<br />"))*@
+                                                @tx
+                                            </div>
+                                        </td>
+                                        <td width="10%" align="center" valign="top" style="font-size:15px;padding:3px; border-left: 1px solid #000; border-right: 1px solid #000; border-bottom: 0px solid #000; line-height:15px;">@desc.UnitOfMeasure</td>
+                                        <td width="8%" align="center" valign="top" style="font-size:15px;padding:3px; border-left: 1px solid #000; border-right: 1px solid #000; border-bottom: 0px solid #000; line-height:15px;">@desc.Quantity</td>
+                                        <td width="12%" align="right" valign="top" style="font-size:15px;padding:3px; text-align:right; border-left: 1px solid #000; border-right: 1px solid #000; border-bottom: 0px solid #000; line-height:15px;">
+                                            @{
+                                                if (desc.Price != 0)
+                                                {
+                                                    st = "$" + string.Format("{0:0,0.00}", desc.Price);
+                                                }
+                                                else
+                                                {
+                                                    st = "";
+                                                }
+                                            }
+                                            @st
+                                        </td>
+                                        <td width="13%" align="right" valign="top" style="font-size:15px;padding:3px; text-align:right; border-left: 1px solid #000; border-right: 1px solid #000; border-bottom: 0px solid #000; line-height:15px;">
+                                            @{
+                                                if (tempTotal != 0)
+                                                {
+                                                    st = "$" + string.Format("{0:0,0.00}", tempTotal);
+                                                }
+                                                else
+                                                {
+                                                    st = "";
+                                                }
+                                            }
+                                            @st
+                                        </td>
+                                    </tr>
+
+                                                }
+                                                else
+                                                {
+
+                                                    <tr style="border-bottom: 1px solid #000000 !important;">
+                                                        <td width="7%" align="center" valign="top" style="font-size:15px;padding:3px; border: 1px solid #000; line-height:20px;" height="20">@i</td>
+                                                        <td width="50%" align="justify" valign="top" style="font-size:15px;padding-left:3px; padding-right:3px; padding-bottom:3px; padding-top:3px; border: 1px solid #000; line-height:15px; word-wrap: break-word; overflow: hidden;">
+                                                            <div style="font-size:15px;word-break:keep-all; text-overflow: ellipsis;">
+                                                                @*@Html.Raw(Html.Encode(desc.QuoteDescription).Replace(Environment.NewLine, "<br />"))*@
+                                                                @tx
+                                                            </div>
+                                                        </td>
+                                                        <td width="10%" align="center" valign="top" style="font-size:15px;padding:3px; border: 1px solid #000; line-height:20px;">@desc.UnitOfMeasure </td>
+                                                        <td width="8%" align="center" valign="top" style="font-size:15px;padding:3px; border: 1px solid #000; line-height:20px;">@desc.Quantity</td>
+                                                        <td width="12%" align="right" valign="top" style="font-size:15px;padding:3px; text-align:right; border: 1px solid #000; line-height:20px;">
+                                                            @{
+                                                                if (desc.Price != 0)
+                                                                {
+                                                                    st = "$" + string.Format("{0:0,0.00}", desc.Price);
+                                                                }
+                                                                else
+                                                                {
+                                                                    st = "";
+                                                                }
+                                                            }
+                                                            @st
+
+
+                                                        </td>
+                                                        <td width="13%" align="right" valign="top" style="font-size:15px;padding:3px; text-align:right; border: 1px solid #000; line-height:20px;">
+                                                            @{
+                                                                if (tempTotal != 0)
+                                                                {
+                                                                    st = "$" + string.Format("{0:0,0.00}", tempTotal);
+                                                                }
+                                                                else
+                                                                {
+                                                                    st = "";
+                                                                }
+                                                            }
+                                                            @st
+                                                        </td>
+                                                    </tr>
+
+                                                                    }
+
+
+                                                                    subTotal = subTotal + (decimal)(desc.Quantity * Convert.ToDecimal(desc.Price));
+
+                                                                    i = i + 1;
+                                                                }
+
+
+                                                                <tr style="border-bottom: 1px solid #000000 !important;">
+                                                                    <td width="10%" align="left" valign="top" style="padding:3px; border-left: 1px solid #000; border-right: 1px solid #000; border-top: 0px solid #000; line-height:15px;"></td>
+                                                                    <td width="50%" align="left" valign="top" style="padding:3px; border-left: 1px solid #000; border-right: 1px solid #000; border-top: 0px solid #000; line-height:15px;"></td>
+                                                                    <td width="10%" align="left" valign="top" style="padding:3px; border-left: 1px solid #000; border-right: 1px solid #000; border-top: 0px solid #000; line-height:15px;"></td>
+                                                                    <td width="10%" align="left" valign="top" style="padding:3px; border-left: 1px solid #000; border-right: 1px solid #000; border-top: 0px solid #000; line-height:15px;"></td>
+                                                                    <td width="10%" align="right" valign="top" style="padding:3px; text-align:right; border-left: 1px solid #000; border-right: 1px solid #000; border-top: 0px solid #000; line-height:15px;"></td>
+                                                                    <td align="right" valign="top" style="padding:3px; text-align:right; border-left: 1px solid #000; border-right: 1px solid #000; border-top: 0px solid #000; line-height:15px;"></td>
+                                                                </tr>
+                        }
+
+
+                    </table>
+
+                    <br />
+
+
+                    <table width="95%" border="0" cellspacing="0" cellpadding="0" style="margin-top:5px;">
+                        <tr>
+                            <td width="470" align="left" valign="top" style="padding:3px;">
+                                <table width="100%" border="1" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td style="background-color: darkseagreen; font-size: 15px;">
+
+                                            <strong>
+                                                Notes
+                                            </strong>
+
+                                        </td>
+                                    </tr>
+                                    <tr height="70">
+                                        <td align="justify" style="font-size: 14px;" valign="top">&nbsp;@Html.Raw(Html.Encode(Model.InvTermandCond).Replace(Environment.NewLine, "<br />"))</td>
+                                    </tr>
+                                </table>
+
+                            </td>
+                            <td width="50">&nbsp;</td>
+                            <td width="230" align="center" valign="top" style="padding:3px;">
+                                <table width="230" border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td width="60%" align="right" style="margin-top:3px; font-family: Calibri;font-size: 16px;">
+                                            Sub Total&nbsp;
+                                        </td>
+                                        <td width="40%" align="right" style="margin-top:3px; font-family: Calibri;font-size: 16px;">
+                                            <span>
+                                                $@Math.Round(subTotal, 2)
+                                            </span>
+                                        </td>
+                                    </tr>
+
+                                    @if (disc > 0)
+                                    {
+                                        <tr>
+                                            <td width="60%" align="right" style="margin-top:3px; font-family: Calibri;font-size: 16px;">
+                                                Discount&nbsp;
+                                            </td>
+                                            <td width="40%" align="right" style="margin-top:3px; font-family: Calibri;font-size: 16px;">
+                                                <span>
+                                                    $@Math.Round(disc, 2)
+                                                </span>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td width="60%" align="right" style="margin-top:3px; font-family: Calibri;font-size: 16px;">
+                                                Total &nbsp;
+                                            </td>
+                                            <td width="40%" align="right" style="margin-top:3px; font-family: Calibri;font-size: 16px;">
+                                                <span>
+                                                    $@Math.Round((subTotal - (decimal)Model.Discount), 2)
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    }
+
+                                    @if (Model.GST == "0")
+                                    {
+
+                                        <tr>
+                                            <td width="60%" align="right" style="margin-top:3px; font-family: Calibri;font-size: 16px;">
+                                                GST&nbsp;
+                                            </td>
+                                            <td width="40%" align="right" style="margin-top:3px; font-family: Calibri;font-size: 16px;">
+                                                <span>
+                                                    $@Math.Round(Convert.ToDecimal((7.0 / 100.00)) * (subTotal - (decimal)Model.Discount), 2)
+                                                </span>
+                                            </td>
+                                        </tr>
+
+                                        gst = Math.Round(Convert.ToDecimal((7.0 / 100.00)) * (subTotal - (decimal)Model.Discount), 2);
+                                    }
+
+                                    <tr>
+                                        <td width="60%" align="right" style="margin-top:3px; font-weight: bold; font-family: Calibri;font-size: 18px;">
+                                            Grand Total&nbsp;
+                                        </td>
+                                        <td width="40%" align="right" style="margin-top:3px; font-weight: bold; font-family: Calibri;font-size: 18px;">
+                                            <span>
+                                                $@Math.Round(gst + subTotal - (decimal)Model.Discount, 2)
+                                            </span>
+                                        </td>
+                                    </tr>
+
+                                </table>
+
+
+                            </td>
+                        </tr>
+                    </table>
+                    <br />
+                    <table width="95%" border="0" cellspacing="0" cellpadding="0" style="margin-top:5px;">
+                        <tr>
+                            <td style="font-size:16px;" align="center"><strong>(Singapore Dollars @word Only)</strong></td>
+                        </tr>
+                    </table>
+                    <br />
+
+                    <table width="95%" border="0" cellspacing="0" cellpadding="0" style="margin-top:0px; border-collapse: collapse;">
+                        <tr>
+                            <td width="385" align="left" valign="top" style="font-size:13px; border-style:solid; border-bottom-width:0px; border-top-width:0px; border-left-width:0px; border-right-width:0px; padding:0px;">
+                                <table width="350" border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td style="padding:10px; font-weight: bold;">For and Behalf of KNT ENGINEERING PTE LTD.</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding:10px; padding-bottom:5px;"> ____________________________________</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding:10px; padding-top:-10px; font-weight: bold;">Authorised Signature </td>
+                                    </tr>
+                                </table>
+                            </td>
+
+                        </tr>
+                    </table>
+
+                    <table width="87%" border="0" cellspacing="0" cellpadding="0" style="margin-top:5px;">
+                        <tr>
+                            <td style="font-size:20px; color: darkviolet" align="center"><strong>THANK YOU FOR YOUR BUSINESS !!!</strong></td>
+                        </tr>
+                    </table>
+
+                </td>
+            </tr>
+        </table>
+
+    </center>
+</body>
+</html>

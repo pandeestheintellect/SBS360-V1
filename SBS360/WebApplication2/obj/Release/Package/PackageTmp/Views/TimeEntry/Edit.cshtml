@@ -1,0 +1,230 @@
+﻿@model Eng360Web.Models.ViewModel.TimeEntryViewModel
+
+@{
+    Layout = null;
+}
+
+<script src="~/Scripts/moment.js"></script>
+<script src="~/Scripts/bootstrap-datetimepicker.js"></script>
+<link href="~/Content/bootstrap-datetimepicker.css" rel="stylesheet" />
+
+<style>
+    .table-condensed tbody > tr > td > a {
+        color: #4eb1ba !important;
+    }
+
+    .required::after {
+        content: "*";
+        font-weight: bold;
+        color: red;
+    }
+</style>
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+
+            <div class="panel-heading">
+                <b> Add Time Entry  </b>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+
+                <div class="modal-body">
+                    @using (Html.BeginForm("Edit", "TimeEntry", FormMethod.Post, new { role = "form", id = "timeentryEditForm" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+
+                        @Html.HiddenFor(model => model.TEID)
+                        @Html.HiddenFor(model => model.SubmittedBy)
+                        @Html.HiddenFor(model => model.SubmittedDate)
+                        @Html.HiddenFor(model => model.EmpID)
+
+
+                        <div class="row">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    @Html.LabelFor(model => model.EmpID, "EmpID", htmlAttributes: new { @class = "control-label required" })
+                                    <div class="">
+                                        @Html.DropDownList("EmpID", null, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
+                                        @Html.ValidationMessageFor(model => model.EmpID, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    @Html.LabelFor(model => model.ProjectID, "ProjectID", htmlAttributes: new { @class = "control-label required" })
+                                    <div class="">
+                                        @Html.DropDownList("ProjectID", null, htmlAttributes: new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.ProjectID, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    @Html.LabelFor(model => model.ReportDate, "Report Start Date", htmlAttributes: new { @class = "control-label" })
+                                    <div class="">
+                                        @{
+                                            var dt = "";
+                                            dt = Convert.ToDateTime(@Model.ReportDate).ToString("yyyy/MM/dd");
+
+                                        }
+
+                                        @Html.EditorFor(model => model.ReportDate, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", @Value = @dt } })
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    @Html.LabelFor(model => model.ReportDate, "Report End Date", htmlAttributes: new { @class = "control-label required" })
+                                    <div class="">
+                                        @{
+                                            dt = "";
+                                            dt = Convert.ToDateTime(@Model.ReportEndDate).ToString("yyyy/MM/dd");
+
+                                        }
+                                        @Html.EditorFor(model => model.ReportEndDate, new { htmlAttributes = new { @class = "form-control", @Value = @dt } })
+                                        @Html.ValidationMessageFor(model => model.ReportEndDate, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+
+                                <div class="col-md-6" style="padding-top: 10px;">
+                                    @Html.LabelFor(model => model.Work_Start_Time, htmlAttributes: new { @class = "control-label" })
+                                    <div class="">
+                                        @Html.EditorFor(model => model.Work_Start_Time, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Work_Start_Time, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6" style="padding-top: 10px;">
+                                    @Html.LabelFor(model => model.Work_End_Time, htmlAttributes: new { @class = "control-label" })
+                                    <div class="">
+                                        @Html.EditorFor(model => model.Work_End_Time, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Work_End_Time, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    @Html.LabelFor(model => model.Leave, "Leave", htmlAttributes: new { @class = "control-label" })
+                                    <div>
+                                        @Html.DropDownListFor(model => model.Leave, new SelectList(
+                                    new List<Object>{
+                                    new { value = 0 , text = "Select"  },
+                                    new { value = 1 , text = "Annual Leave" },
+                                    new { value = 2 , text = "Medical Leave" },
+                                    new { value = 3 , text = "Other Leaves" }
+
+
+                                }, "value", "text", 0), htmlAttributes: new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.Leave, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-6" style="padding-top: 10px;">
+                                    @Html.LabelFor(model => model.WEHflag, "Week End/Public Holiday", htmlAttributes: new { @class = "control-label" })
+                                    <div class="">
+                                        @Html.CheckBoxFor(model => model.WEHflag, new { htmlAttributes = new { @class = "form-control" } })
+
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6" style="padding-top: 10px;">
+                                    @Html.LabelFor(model => model.LBflag, "Lunch Break(Unchek to Include)", htmlAttributes: new { @class = "control-label" })
+                                    <div class="">
+                                        @Html.CheckBoxFor(model => model.LBflag, new { htmlAttributes = new { @class = "form-control" } })
+
+                                    </div>
+                                </div>
+
+
+
+                                @*<div class="col-md-6">
+                                        @Html.LabelFor(model => model.Ot_Start_Time, htmlAttributes: new { @class = "control-label" })
+                                        <div class="">
+                                            @Html.EditorFor(model => model.Ot_Start_Time, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.Ot_Start_Time, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        @Html.LabelFor(model => model.Ot_End_Time, htmlAttributes: new { @class = "control-label" })
+                                        <div class="">
+                                            @Html.EditorFor(model => model.Ot_End_Time, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.Ot_End_Time, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>*@
+
+                            </div>
+                            <div class="col-md-12">
+                                @Html.LabelFor(model => model.Remarks, htmlAttributes: new { @class = "control-label" })
+                                <div class="">
+                                    @Html.EditorFor(model => model.Remarks, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Remarks, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="modal-footer">
+                            <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+
+                            <button type="button" id="create-timeentry-Editdialog-save" class="btn btn-primary">Save</button>
+
+                        </div>
+                                            }
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+
+    $(function () {
+
+        $('#ReportDate').datetimepicker({ format: 'YYYY/MM/DD' });
+        $('#ReportEndDate').datetimepicker({ format: 'YYYY/MM/DD', maxDate: new Date() });
+
+        $('#Work_Start_Time').datetimepicker({format: 'HH:mm'});
+        $('#Work_End_Time').datetimepicker({
+            format: 'HH:mm',
+            useCurrent: false //Important! See issue #1075
+        });
+        //$("#Work_Start_Time").on("dp.change", function (e) {
+        //    $('#Work_End_Time').data("DateTimePicker").minDate(e.date);
+        //});
+
+        //$("#Work_End_Time").on("dp.change", function (e) {
+        //    $('#Work_Start_Time').data("DateTimePicker").maxDate(e.date);
+        //});
+
+
+        //$('#Ot_Start_Time').datetimepicker({ format: 'LT' });
+        //$('#Ot_End_Time').datetimepicker({
+        //    format: 'LT',
+        //    useCurrent: false //Important! See issue #1075
+        //});
+        //$("#Ot_Start_Time").on("dp.change", function (e) {
+        //    $('#Ot_End_Time').data("DateTimePicker").minDate(e.date);
+        //});
+
+        //$("#Ot_End_Time").on("dp.change", function (e) {
+        //    $('#Ot_Start_Time').data("DateTimePicker").maxDate(e.date);
+        //});
+
+
+    });
+    $("form").removeData("validator");
+    $("form").removeData("unobtrusiveValidation");
+    $.validator.unobtrusive.parse("form");
+
+</script>

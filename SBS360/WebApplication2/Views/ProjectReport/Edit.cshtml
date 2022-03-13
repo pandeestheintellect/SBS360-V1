@@ -1,0 +1,326 @@
+﻿@model Eng360Web.Models.ViewModel.ProjectReportViewModel
+
+@{
+    Layout = null;
+}
+<script src="~/Scripts/moment.js"></script>
+<script src="~/Scripts/bootstrap-datetimepicker.js"></script>
+<link href="~/Content/bootstrap-datetimepicker.css" rel="stylesheet" />
+<script src="~/Scripts/tagit/tag-it.js"></script>
+<link href="~/Content/tagit/jquery.tagit.css" rel="stylesheet" />
+
+<style>
+    .ui-front {
+        z-index: 9999 !important;
+    }
+
+    .ui-autocomplete {
+        max-height: 10em !important;
+        overflow: auto !important;
+    }
+
+    .ui-menu-item {
+        max-width: 280px !important;
+    }
+
+
+    .table-condensed tbody > tr > td > a {
+        color: #4eb1ba !important;
+    }
+</style>
+
+<div class="row inner-page--container">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <b> Edit Project Report  </b>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "formProjectEditReport" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.HiddenFor(model => model.ReportDate)
+                    @Html.HiddenFor(model => model.ProjectID)
+                    @Html.HiddenFor(model => model.ProjectReportID)
+
+                    @Html.HiddenFor(model => model.CreatedBy)
+                    @Html.HiddenFor(model => model.CreatedDate)
+
+                    <div class="row">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="col-md-4">
+                            @Html.LabelFor(model => model.ProjectName, htmlAttributes: new { @class = "control-label" })
+                            <div class="">
+
+                                @Html.DisplayFor(model => model.ProjectName)
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            @Html.LabelFor(model => model.Location)
+                            <div class="">
+
+                                @Html.DisplayFor(model => model.Location)
+
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            @Html.LabelFor(model => model.ClientName, htmlAttributes: new { @class = "control-label" })
+                            <div class="">
+
+                                @Html.DisplayFor(model => model.ClientName)
+
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-12">
+                            @Html.LabelFor(model => model.ReportDate, htmlAttributes: new { @class = "control-label" })
+                            <div class="">
+                                @{
+                                    var dt = "";
+                                    dt = Convert.ToDateTime(@Model.ReportDate).ToString(Eng360Web.Models.Utility.AppSettings.GetDateFormat());
+
+                                }
+
+                                @Html.Editor("Test", new { htmlAttributes = new { @class = "form-control", @disabled = "disabled", @Value = @dt } })
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-6" style="padding-top: 10px;">
+                            @Html.LabelFor(model => model.Start_Date_Time, htmlAttributes: new { @class = "control-label" })
+                            <div class="">
+                                @Html.EditorFor(model => model.Start_Date_Time, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Start_Date_Time, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-6" style="padding-top: 10px;">
+                            @Html.LabelFor(model => model.End_Date_Time, htmlAttributes: new { @class = "control-label" })
+                            <div class="">
+                                @Html.EditorFor(model => model.End_Date_Time, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.End_Date_Time, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            @Html.LabelFor(model => model.Task_Description, htmlAttributes: new { @class = "control-label" })
+                            <div class="">
+                                @Html.TextAreaFor(model => model.Task_Description, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Task_Description, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.Quantity, htmlAttributes: new { @class = "control-label" })
+                            <div class="">
+                                @Html.EditorFor(model => model.Quantity, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Quantity, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.TaskStatusID, "TaskStatusID", htmlAttributes: new { @class = "control-label" })
+                            <div class="">
+                                @Html.DropDownList("TaskStatusID", null, htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.TaskStatusID, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.ProgressPercentage, "Progress(%)", htmlAttributes: new { @class = "control-label" })
+                            <div class="">
+                                @Html.EditorFor(model => model.ProgressPercentage, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.ProgressPercentage, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.Remarks, htmlAttributes: new { @class = "control-label" })
+                            <div class="">
+                                @Html.EditorFor(model => model.Remarks, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Remarks, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.Resource_name, "Manpower", htmlAttributes: new { @class = "control-label" })
+                            <div class="">
+                                @Html.EditorFor(model => model.Resource_name, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Resource_name, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.files, htmlAttributes: new { @class = "control-label" })
+                            <div class="">
+                                @Html.TextBoxFor(model => model.files, "", new { @type = "file", @multiple = "multiple" })
+                                @Html.ValidationMessageFor(model => model.files, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-12">
+                            <table class="table table-striped table-bordered" id="tableFiles">
+
+                                <thead>
+                                    <tr>
+
+                                        <th>File Name</th>
+
+                                        <th>Image</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var file in Model.eng_project_report_files)
+                                    {
+                                        <tr id="@file.ProjectSupportFileID">
+
+                                            <td>
+                                                @file.FileName
+                                            </td>
+                                            <td>
+                                                <a href="@file.FilePath" target="_blank">
+                                                    <img src="@file.FilePath" height="20" width="20" />
+                                                </a>
+                                            </td>
+                                            <td>
+                                                @* <a class="btn" title="Delete Project" style="padding: 0px 0px;"> <i class="fa fa-trash" aria-hidden="true" style="color:orangered;font-size:24px"></i> </a>*@
+
+                                            </td>
+
+                                        </tr>
+                                    }
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+
+
+                        <div class="modal-footer">
+                            <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                            <input type="button" value="Save" id="create-projectreport-dialog-Edit" class="btn btn-primary" />
+
+                        </div>
+                }
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var empTags = [];
+    var contactTable;
+        $(document).ready(function () {
+            debugger;
+            contactTable = $('#tableFiles').DataTable({
+                dom: 'Brti',
+                //buttons: [
+                //    'copyHtml5',
+                //    'excelHtml5',
+                //    'csvHtml5',
+                //    'pdfHtml5',
+
+                //],
+                "columnDefs": [
+            {
+            //    // The `data` parameter refers to the data for the cell (defined by the
+            //    // `data` option, which defaults to the column being worked with, in
+            //    // this case `data: 0`.
+                "render": function ( data, type, row ) {
+            //        //  return '<a class="btn" onclick="removeDataFromDT(this)"> <img src="Content/images/delete.png" /> </a>';
+                    return '<a class="btn" onclick="removeDataFromDT(this)" title="Delete File" style="padding: 0px 0px;"> <i class="fa fa-trash" aria-hidden="true" style="color:orangered;font-size:24px"></i> </a>';
+                },
+
+                "targets": 2
+            }]
+            });
+        });
+
+        //$('.dt-buttons').prepend('<a  onclick="CreateContact()" class="dt-button  buttons-html5" tabindex="0" aria-controls="emplyeeTable" href="#"><span>Add Contacts</span></a>')
+        $('.dt-button').addClass('btn btn-primary').removeClass('dt-button').css('margin-right', '5px')
+        $('.buttons-copy').css('display', 'none');
+        $('.buttons-excel').css('display', 'none');
+        $('.buttons-csv').css('display', 'none');
+        $('.buttons-pdf').css('display', 'none');
+        $('.buttons-print').css('display', 'none');
+
+
+
+        function removeDataFromDT(btn)
+        {
+            debugger;
+            var id = btn.closest('tr').id;
+            $(btn.closest('tr')).addClass('remove')
+            DeleteReportFile(id);
+            //contactTable.row('.remove').remove().draw(false);
+
+        }
+
+        $(function () {
+            $('#ReportDate').datetimepicker({ format: 'MM/DD/YYYY' });
+
+            $('#Start_Date_Time').datetimepicker({ format: 'LT' });
+            $('#End_Date_Time').datetimepicker({
+                format: 'LT',
+                useCurrent: false //Important! See issue #1075
+            });
+            $("#Start_Date_Time").on("dp.change", function (e) {
+                $('#End_Date_Time').data("DateTimePicker").minDate(e.date);
+            });
+
+            $("#End_Date_Time").on("dp.change", function (e) {
+                $('#Start_Date_Time').data("DateTimePicker").maxDate(e.date);
+            });
+
+            $.post("Employee/getAllEmployees",{@Html.AntiForgeryTokenForAjaxPost()},function (data){
+                debugger;
+                $.each(data, function (index, item) {
+                    empTags.push(item)
+                })
+
+                $("#Resource_name").tagit({
+                    availableTags: data,
+                    beforeTagAdded: function (event, ui) {
+                        // do something special
+                        console.log(ui.tag);
+                    }
+                });
+            });
+
+
+        });
+
+        function DeleteReportFile(id)
+        {
+
+            confirmDialogYesorNo("Are you sure to delete this File?", DeleteReportFileConfirmed, null, id)
+        }
+
+        function DeleteReportFileConfirmed(id)
+        {
+            debugger;
+
+            $.post("ProjectReport/Delete/", { id: id, @Html.AntiForgeryTokenForAjaxPost()}, function (data) {
+                if (data.value == "OK") {
+                    //removeDataFromDT(btn);
+                    contactTable.row('.remove').remove().draw(false);
+                    return;
+
+                }
+                else {
+                    alertDialog("Delete File failed")
+                }
+            });
+        }
+
+</script>

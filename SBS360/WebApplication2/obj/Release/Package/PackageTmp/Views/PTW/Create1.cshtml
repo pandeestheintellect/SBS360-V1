@@ -1,0 +1,773 @@
+﻿@model Eng360Web.Models.ViewModel.PTWMasterViewModel
+
+@{
+    Layout = null;
+}
+
+<script src="~/Scripts/moment.js"></script>
+
+<link href="~/Content/jquery.steps.css" rel="stylesheet" />
+
+<script src="~/Scripts/jquery.steps.js"></script>
+<script src="~/Scripts/bootstrap-datetimepicker.js"></script>
+<link href="~/Content/bootstrap-datetimepicker.css" rel="stylesheet" />
+
+
+<style>
+
+        .table-condensed tbody > tr > td > a {
+        color: #4eb1ba !important;
+    }
+
+    .wizard > .content {
+        min-height: 400px !important;
+        overflow: auto;
+        /*position:inherit !important;*/  
+       
+     }
+
+    .panel-body {
+        
+        overflow: auto;
+    }
+ 
+
+   
+    .required::after {
+        content: "*";
+        font-weight: bold;
+        color: red;
+    }
+</style>
+
+<div class="row inner-page--container">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <b> Add New PTW  </b>
+
+                @*<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>*@
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <form id="formStage1" action="#">
+                    @Html.HiddenFor(a => a.stage1String)
+                    @Html.HiddenFor(a => a.EmpString)
+                    @Html.HiddenFor(a => a.PTW_type)
+                    @Html.HiddenFor(a => a.PTW_master_ID)
+                    @Html.HiddenFor(a => a.CompletedStage)
+                    @Html.AntiForgeryToken()
+
+
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <h3><small>@Model.stages.FirstOrDefault().Stages</small></h3>
+                    <section>
+                        <div class="row">
+
+                            <div class="col-md-6">
+                                @Html.LabelFor(model => model.CompanyName, htmlAttributes: new { @class = "control-label" })
+                                @Html.ValidationMessageFor(model => model.CompanyName, "", new { @class = "text-danger" })
+                                <div>
+                                    @Html.DropDownListFor(model => model.CompanyName, new SelectList(
+                            new List<Object>{
+                            new { value = "CITI CONSTRUCTION  ENGINEERING PTE. LTD." , text = "CITI CONSTRUCTION  ENGINEERING PTE. LTD."  }
+
+                                    }, "value", "text", 1), htmlAttributes: new { @class = "form-control" })
+
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                @Html.LabelFor(model => model.ProjectTitle, htmlAttributes: new { @class = "control-label required" })
+                                <div>
+                                    @Html.DropDownList("ProjectID", null, htmlAttributes: new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.ProjectID, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                @Html.LabelFor(model => model.NameOfApplicant, htmlAttributes: new { @class = "control-label required" })
+                                <div>
+                                    @Html.EditorFor(model => model.NameOfApplicant, new { htmlAttributes = new { @class = "form-control required" } })
+                                    @Html.ValidationMessageFor(model => model.NameOfApplicant, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                @Html.LabelFor(model => model.Date_Time, htmlAttributes: new { @class = "control-label required" })
+
+                                <div>
+                                    @Html.EditorFor(model => model.Date_Time, new { htmlAttributes = new { @class = "form-control required" } })
+                                    @Html.ValidationMessageFor(model => model.Date_Time, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                           
+                            <div class="col-md-6">
+                                @Html.LabelFor(model => model.Sub_con_Name, htmlAttributes: new { @class = "control-label" })
+                                <div>
+                                    @Html.EditorFor(model => model.Sub_con_Name, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Sub_con_Name, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                @Html.LabelFor(model => model.Loc_or_GridLineNo, htmlAttributes: new { @class = "control-label" })
+                                <div>
+                                    @Html.EditorFor(model => model.Loc_or_GridLineNo, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Loc_or_GridLineNo, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                @Html.LabelFor(model => model.Start_Date_Time, htmlAttributes: new { @class = "control-label required" })
+                                <div>
+                                    @Html.EditorFor(model => model.Start_Date_Time, new { htmlAttributes = new { @class = "form-control required" } })
+                                    @Html.ValidationMessageFor(model => model.Start_Date_Time, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                @Html.LabelFor(model => model.End_Date_Time, htmlAttributes: new { @class = "control-label required" })
+                                <div>
+                                    @Html.EditorFor(model => model.End_Date_Time, new { htmlAttributes = new { @class = "form-control required" } })
+                                    @Html.ValidationMessageFor(model => model.End_Date_Time, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Checklist items to implement    Tick box  -  Legend:   √ = Yes    X = No     NA = Not Applicable</th>
+                                            <th>Yes</th>
+                                            <th>No</th>
+                                            <th>NA</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var stage1 in Model.stage1Config)
+                                        {
+                                            var yesID = "yes_" + stage1.PTW_Stage_One_ID;
+                                            var noID = "no_" + stage1.PTW_Stage_One_ID;
+                                            var naID = "na_" + stage1.PTW_Stage_One_ID;
+                                            var stageDetail = new Eng360Web.Models.ViewModel.PTWStage1ViewModel();
+                                            if (Model.eng_PTW_Detail_Satge1 != null)
+                                            {
+                                                stageDetail = Model.eng_PTW_Detail_Satge1.Where(a => a.PTW_Stage_One_ID == stage1.PTW_Stage_One_ID).FirstOrDefault();
+                                            }
+
+
+                                            <tr>
+                                                <td>@stage1.Item</td>
+                                                <td>
+                                                    @if (stageDetail.Is_Applicable == 1)
+                                                    {
+                                                        <input type="checkbox" checked="checked" id="@yesID" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="checkbox" id="@yesID" />
+                                                    }
+                                                </td>
+                                                <td>
+                                                    @if (stageDetail.Is_Applicable == 2)
+                                                    {
+                                                        <input type="checkbox" checked="checked" id="@noID" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="checkbox" id="@noID" />
+                                                    }
+
+                                                </td>
+                                                <td>
+                                                    @if (stageDetail.Is_Applicable == 3)
+                                                    {
+                                                        <input type="checkbox" checked="checked" id="@naID" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="checkbox" id="@naID" />
+                                                    }
+
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+
+                                <div style="background-color:#ffffff">
+                                    &nbsp;I have checked and confirmed that the above safety requirements have been complied with and will be maintained. I will supervise the works and undertake to stop / &nbsp; cease the operation should there be any unsafe condition or potentially hazardous situation arose during the course of work.
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    @Html.LabelFor(model => model.Stage1_Person_Name, "Supervisor", htmlAttributes: new { @class = "control-label required" })
+                                    <div>
+                                        @Html.EditorFor(model => model.Stage1_Person_Name, new { htmlAttributes = new { @class = "form-control required" } })
+                                        @Html.ValidationMessageFor(model => model.Stage1_Person_Name, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    @Html.LabelFor(model => model.Stage1_Date_Time, htmlAttributes: new { @class = "control-label  required" })
+                                    <div>
+                                        @Html.EditorFor(model => model.Stage1_Date_Time, new { htmlAttributes = new { @class = "form-control required" } })
+                                        @Html.ValidationMessageFor(model => model.Stage1_Date_Time, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <table>
+                                    @for (int i = 0; i < ViewBag.WorkerList.Count; i++)
+                                    {
+                                        var cells = 4;
+
+
+                                        var checkBoxId = "emp_" + ViewBag.WorkerList[i].Value;
+                                        var tdId = "td" + ViewBag.WorkerList[i].Value;
+                                        var strChecked = "";
+                                        if (Model.eng_PTW_Employee_Details != null)
+                                        {
+                                            if (Model.eng_PTW_Employee_Details.Where(a => a.EmployeeID.ToString() == ViewBag.WorkerList[i].Value).FirstOrDefault() != null)
+                                            {
+                                                strChecked = "checked";
+                                            }
+                                            else
+                                            {
+                                                strChecked = "";
+                                            }
+                                        }
+                                        if ((i % cells) == 0)
+                                        {
+                                            @:<tr>
+                                            }
+
+                                        <td width="350px" id="@tdId">
+                                            <input type="checkbox" id="@checkBoxId" @(strChecked == "" ? "" : "checked=\"checked\"" ) class="chkclass" value="@ViewBag.WorkerList[i].Value" />
+                                            @ViewBag.WorkerList[i].Text
+                                        </td>
+
+                                        if (i == (ViewBag.WorkerList.Count - 1))
+                                        {
+                                            while ((i % cells) != 0)
+                                            {
+                                                @:<td></td>
+                                                i++;
+                                            }
+                                        }
+
+                                        if ((i % cells) == (cells - 1)) // aka: last row cell
+                                        {
+                                            @:</tr>
+                        }
+                                    }
+
+                                </table>
+                            </div>
+                        </div>
+                    </section>
+
+                    <h3><small>@Model.stages.Skip(1).Take(1).FirstOrDefault().Stages</small></h3>
+                    <section>
+                        <div class="row">
+                            <div style="background-color:#ffffff">
+                                I have inspected the above-stated location & confirmed that the recommended safety measures are in place and the said location is safe for work
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.Stage2_Person_Name, "WSH Assessor", htmlAttributes: new { @class = "control-label required" })
+                            <div>
+                                @Html.EditorFor(model => model.Stage2_Person_Name, new { htmlAttributes = new { @class = "form-control required" } })
+                                @Html.ValidationMessageFor(model => model.Stage2_Person_Name, "", new { @class = "text-danger " })
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.Stage2_Date_Time, htmlAttributes: new { @class = "control-label required" })
+                            <div>
+                                @Html.EditorFor(model => model.Stage2_Date_Time, new { htmlAttributes = new { @class = "form-control required" } })
+                                @Html.ValidationMessageFor(model => model.Stage2_Date_Time, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                    </section>
+
+                    <h3><small>@Model.stages.Skip(2).Take(1).FirstOrDefault().Stages</small></h3>
+                    <section>
+                        <div class="row">
+                            <div style="background-color:#ffffff">
+                                I am fully satisfied that a through inspection and proper assessment of the work area and its surrounding have been conducted and the work at Height can be carried out safely.
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.Stage3_Person_Name, "Project Manager", htmlAttributes: new { @class = "control-label required" })
+                            <div>
+                                @Html.EditorFor(model => model.Stage3_Person_Name, new { htmlAttributes = new { @class = "form-control required" } })
+                                @Html.ValidationMessageFor(model => model.Stage3_Person_Name, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.Stage3_Date_Time, htmlAttributes: new { @class = "control-label required" })
+                            <div>
+                                @Html.EditorFor(model => model.Stage3_Date_Time, new { htmlAttributes = new { @class = "form-control required" } })
+                                @Html.ValidationMessageFor(model => model.Stage3_Date_Time, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                    </section>
+                    @if (Model.PTW_master_ID != 0 && Model.CompletedStage >= 3)
+                    {
+                        <h3><small>@Model.stages.Skip(3).Take(1).FirstOrDefault().Stages</small></h3>
+                        <section>
+                            <div class="row" id="divStage4">
+                                <table width="100%">
+                                    <thead>
+                                        <tr>
+                                            <th>Mon</th>
+                                            <th>Tue</th>
+                                            <th>Wed</th>
+                                            <th>Thu</th>
+                                            <th>Fri</th>
+                                            <th>Sat</th>
+                                            <th>Sun</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @if (DateTime.Today >= Convert.ToDateTime(Model.New_Start_Date_Time) && DateTime.Today <= Convert.ToDateTime(Model.New_End_Date_Time))
+                                        {
+                                            var strDay = DateTime.Today.ToString("dddd").Substring(0, 3);
+
+                                            <tr>
+                                                <td>
+
+                                                    @if (strDay == "Mon")
+                                                    {
+
+                                                        <input type="checkbox" @(Model.is_already_created ? "checked=\"checked\"" : "") @(Model.is_already_created ? "disabled=\"disabled\"" : "") id="chk_mon" />
+                                                    }
+                                                    else
+                                                    {
+
+
+                                                        <input type="checkbox" disabled="disabled" id="chk_mon" />
+                                                    }
+                                                </td>
+                                                <td>
+                                                    .
+
+                                                    @if (strDay == "Tue")
+                                                    {
+                                                        <input type="checkbox" id="chk_tue" @(Model.is_already_created ? "checked=\"checked\"" : "") @(Model.is_already_created ? "disabled=\"disabled\"" : "") />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="checkbox" disabled="disabled" id="chk_tue" />
+                                                    }
+                                                </td>
+                                                <td>
+
+                                                    @if (strDay == "Wed")
+                                                    {
+                                                        <input type="checkbox" id="chk_wed" @(Model.is_already_created ? "checked=\"checked\"" : "") @(Model.is_already_created ? "disabled=\"disabled\"" : "") />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="checkbox" disabled="disabled" id="chk_wed" />
+                                                    }
+                                                </td>
+                                                <td>
+
+                                                    @if (strDay == "Thu")
+                                                    {
+                                                        <input type="checkbox" id="chk_thu" @(Model.is_already_created ? "checked=\"checked\"" : "") @(Model.is_already_created ? "disabled=\"disabled\"" : "") />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="checkbox" disabled="disabled" id="chk_thu" />
+                                                    }
+                                                </td>
+                                                <td>
+
+                                                    @if (strDay == "Fri")
+                                                    {
+                                                        <input type="checkbox" id="chk_fri" @(Model.is_already_created ? "checked=\"checked\"" : "") @(Model.is_already_created ? "disabled=\"disabled\"" : "") />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="checkbox" disabled="disabled" id="chk_fri" />
+                                                    }
+                                                </td>
+                                                <td>
+
+                                                    @if (strDay == "Sat")
+                                                    {
+                                                        <input type="checkbox" id="chk_sat" @(Model.is_already_created ? "checked=\"checked\"" : "") @(Model.is_already_created ? "disabled=\"disabled\"" : "") />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="checkbox" disabled="disabled" id="chk_sat" />
+                                                    }
+                                                </td>
+                                                <td>
+
+                                                    @if (strDay == "Sun")
+                                                    {
+                                                        <input type="checkbox" id="chk_sun" @(Model.is_already_created ? "checked=\"checked\"" : "") @(Model.is_already_created ? "disabled=\"disabled\"" : "") />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="checkbox" disabled="disabled" id="chk_sun" />
+                                                    }
+                                                </td>
+                                            </tr>
+                                        }
+                                        else
+                                        {
+                                            <tr>
+                                                <td>
+
+                                                    @Html.Label("Activity yet to Start")
+
+                                                </td>
+                                            </tr>
+
+
+                                        }
+
+                                    </tbody>
+                                </table>
+                                <div class="col-md-6">
+                                    @Html.LabelFor(model => model.Stage4_Sup_Name, "Supervisor Incharge", htmlAttributes: new { @class = "control-label required" })
+                                    <div>
+                                        @Html.EditorFor(model => model.Stage4_Sup_Name, new { htmlAttributes = new { @class = "form-control required" } })
+                                        @Html.ValidationMessageFor(model => model.Stage4_Sup_Name, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    @Html.LabelFor(model => model.Stage4_WSH_Name, "WSH Personnel", htmlAttributes: new { @class = "control-label required" })
+                                    <div>
+                                        @Html.EditorFor(model => model.Stage4_WSH_Name, new { htmlAttributes = new { @class = "form-control required" } })
+                                        @Html.ValidationMessageFor(model => model.Stage4_WSH_Name, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+                    </section>
+
+                        <h3><small>@Model.stages.Skip(4).Take(1).FirstOrDefault().Stages</small></h3>
+                        <section>
+                            <div class="row" id="divStage5">
+                                <span>
+                                    <label> Close<input type="radio" checked="checked" name="common" id="r1" /> </label>&nbsp;&nbsp;<label>Revoke <input id="r2" type="radio" name="common" /> </label>
+                                </span>
+                                <div id="divClose">
+                                    <div class="col-md-6">
+                                        @Html.LabelFor(model => model.Stage5_Sup_Person_Name, "Supervisor Incharge", htmlAttributes: new { @class = "control-label" })
+                                        <div>
+                                            @Html.EditorFor(model => model.Stage5_Sup_Person_Name, new { htmlAttributes = new { @class = "form-control required" } })
+                                            @Html.ValidationMessageFor(model => model.Stage5_Sup_Person_Name, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        @Html.LabelFor(model => model.Stage5_Sup_Date_Time, htmlAttributes: new { @class = "control-label" })
+                                        <div>
+                                            @Html.EditorFor(model => model.Stage5_Sup_Date_Time, new { htmlAttributes = new { @class = "form-control required" } })
+                                            @Html.ValidationMessageFor(model => model.Stage5_Sup_Date_Time, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        @Html.LabelFor(model => model.Stage5_Mng_Person_Name, "WSH Personnel", htmlAttributes: new { @class = "control-label" })
+                                        <div>
+                                            @Html.EditorFor(model => model.Stage5_Mng_Person_Name, new { htmlAttributes = new { @class = "form-control required" } })
+                                            @Html.ValidationMessageFor(model => model.Stage5_Mng_Person_Name, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        @Html.LabelFor(model => model.Stage5_Mng_Date_Time, htmlAttributes: new { @class = "control-label" })
+                                        <div>
+                                            @Html.EditorFor(model => model.Stage5_Mng_Date_Time, new { htmlAttributes = new { @class = "form-control required" } })
+                                            @Html.ValidationMessageFor(model => model.Stage5_Mng_Date_Time, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <div id="divRevoke" style="display:none">
+                                    <div class="col-md-6">
+                                        @Html.LabelFor(model => model.Revoke_Desc, htmlAttributes: new { @class = "control-label" })
+                                        <div>
+                                            @Html.EditorFor(model => model.Revoke_Desc, new { htmlAttributes = new { @class = "form-control required" } })
+                                            @Html.ValidationMessageFor(model => model.Revoke_Desc, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        @Html.LabelFor(model => model.Revoke_Sup_Name, "WSH Personnel", htmlAttributes: new { @class = "control-label" })
+                                        <div>
+                                            @Html.EditorFor(model => model.Revoke_Sup_Name, new { htmlAttributes = new { @class = "form-control required" } })
+                                            @Html.ValidationMessageFor(model => model.Revoke_Sup_Name, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        @Html.LabelFor(model => model.Revoke_Mng_Name, "Project Manager", htmlAttributes: new { @class = "control-label" })
+                                        <div>
+                                            @Html.EditorFor(model => model.Revoke_Mng_Name, new { htmlAttributes = new { @class = "form-control required" } })
+                                            @Html.ValidationMessageFor(model => model.Revoke_Mng_Name, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </div>
+                                @*<div class="col-md-6">
+                                        @Html.LabelFor(model => model.re, htmlAttributes: new { @class = "control-label" })
+                                        <div>
+                                            @Html.EditorFor(model => model.Stage5_Sup_Date_Time, new { htmlAttributes = new { @class = "form-control required" } })
+                                            @Html.ValidationMessageFor(model => model.Stage5_Sup_Date_Time, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>*@
+                            </div>
+                        </section>
+                                        }
+                </form>
+                <div>
+                    @Html.ActionLink("Back to List", "Index")
+                </div>
+            </div>
+            @*<div class="modal-footer">
+
+
+                    <input type="button" value="Create" id="create-safety-dialog-save" style="float:right" class="btn btn-primary" /><span style="float:right">&nbsp;</span><input type="button" value="Back" id="create-safety-back" style="float:right" class="btn btn-primary DTTR" />
+                </div>*@
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+
+
+    $(document).on('focusin', '#Date_Time', function () {
+        $(this).datetimepicker({
+            format: 'DD/MM/YYYY', maxDate: new Date()
+        });
+    });
+
+    $(document).on('focusin', '#Start_Date_Time', function () {
+        $(this).datetimepicker({
+            format: 'DD/MM/YYYY'
+        });
+    });
+
+    $(document).on('focusin', '#End_Date_Time', function () {
+        $(this).datetimepicker({
+            format: 'DD/MM/YYYY'
+        });
+    });
+
+    $(document).on('focusin', '#Stage1_Date_Time', function () {
+        $(this).datetimepicker({
+            format: 'DD/MM/YYYY', maxDate: new Date()
+        });
+    });
+
+    $(document).on('focusin', '#Stage2_Date_Time', function () {
+        $(this).datetimepicker({
+            format: 'DD/MM/YYYY', maxDate: new Date()
+        });
+    });
+
+    $(document).on('focusin', '#Stage3_Date_Time', function () {
+        $(this).datetimepicker({
+            format: 'DD/MM/YYYY', maxDate: new Date()
+        });
+    });
+
+    $(document).on('focusin', '#Stage5_Sup_Date_Time', function () {
+        $(this).datetimepicker({
+            format: 'DD/MM/YYYY', maxDate: new Date()
+        });
+    });
+
+    $(document).on('focusin', '#Stage5_Mng_Date_Time', function () {
+        $(this).datetimepicker({
+            format: 'DD/MM/YYYY', maxDate: new Date()
+        });
+    });
+
+    $(document).ready(function () {
+
+        $(document).on("change", "#r1", function () {
+            $('#divRevoke').hide();
+            $('#divClose').show();
+        });
+
+        $(document).on("change", "#r2", function () {
+            $('#divRevoke').show();
+            $('#divClose').hide();
+        });
+
+    })
+
+
+
+
+    var flag = '@Model.is_already_created' == 'False' ? true : false;
+    var startindex = @Model.CompletedStage;
+    if (startindex == 1) {
+        $("#divStage1 :input").prop("disabled", true);
+    }
+    else if (startindex!=0 &&  startindex <= 2) {
+        $("#divStage1 :input").prop("disabled", true);
+        $("#divStage2 :input").prop("disabled", true);
+    }
+    else if (startindex != 0 &&startindex <= 3) {
+        $("#divStage1 :input").prop("disabled", true);
+        $("#divStage2 :input").prop("disabled", true);
+        $("#divStage3 :input").prop("disabled", true);
+    }
+    else if (startindex != 0 && startindex <= 6) {
+        $("#divStage1 :input").prop("disabled", true);
+        $("#divStage2 :input").prop("disabled", true);
+        $("#divStage3 :input").prop("disabled", true);
+        $("#divStage4 :input").prop("disabled", true);
+    }
+    if (!flag) {
+        $("#divStage4 :input").prop("disabled", true);
+    }
+
+    debugger;
+    var form = $("#formStage1").show();
+
+    form.steps({
+        headerTag: "h3",
+        bodyTag: "section",
+        transitionEffect: "slideLeft",
+        enableCancelButton: true,
+        showFinishButtonAlways: flag,
+        //enableFinishButton: flag,
+        labels: {
+            cancel: "Cancel",
+            current: "current step:",
+            pagination: "Pagination",
+            finish: "Save",
+            next: "Next",
+            previous: "Previous",
+            loading: "Loading ..."
+        },
+        startIndex: startindex,
+        onStepChanging: function (event, currentIndex, newIndex) {
+            // Allways allow previous action even if the current form is not valid!
+            if (currentIndex > newIndex) {
+                return true;
+            }
+
+            // Needed in some cases if the user went back (clean up)
+            if (currentIndex < newIndex) {
+                // To remove error styles
+                form.find(".body:eq(" + newIndex + ") label.error").remove();
+                form.find(".body:eq(" + newIndex + ") .error").removeClass("error");
+            }
+            form.validate().settings.ignore = ":disabled,:hidden";
+            return form.valid();
+        },
+        onStepChanged: function (event, currentIndex, priorIndex) {
+            // Used to skip the "Warning" step if the user is old enough.
+            if (currentIndex === 2 && Number($("#age-2").val()) >= 18) {
+                form.steps("next");
+            }
+            // Used to skip the "Warning" step if the user is old enough and wants to the previous step.
+            if (currentIndex === 2 && priorIndex === 3) {
+                form.steps("previous");
+            }
+        },
+        onFinishing: function (event, currentIndex) {
+            debugger;
+
+            var stringSelection = [];
+            $.each($("input:checkbox[id^=yes_]"), function (i, v) {
+                var idstring = v.id;
+                var intID = idstring.split('_')[1]
+                if (v.checked) {
+                    stringSelection.push(intID + ':' + 1)
+                }
+                else {
+
+                    if ($('#no_' + intID).prop("checked")) {
+                        stringSelection.push(intID + ':' + 2)
+                    }
+                    else if ($('#na_' + intID).prop("checked")) {
+                        stringSelection.push(intID + ':' + 3)
+                    }
+                    else {
+                        stringSelection.push(intID + ':' + 0)
+                    }
+                }
+
+            });
+
+            $('#stage1String').val(stringSelection);
+            ///emp
+            var empSelection = []
+            $.each($("input:checkbox[id^=emp_]"), function (i, v) {
+                var idstring = v.id;
+                var intID = idstring.split('_')[1]
+                if (v.checked) {
+                    empSelection.push(intID)
+                }
+
+            });
+            $('#EmpString').val(empSelection);
+
+            //var weekflag = [];
+            //$.each($("input:checkbox[id^=chk_]"), function (i, v) {
+            //    var dstring = v.id;
+            //    var itID = dstring.split('_')[1]
+            //    if (v.checked) {
+            //        weekflag.push(itID)
+            //    }
+
+            //});
+            //if (weekflag.length == 0) {
+            //    alert("Please tick the day");
+            //    return false;
+            //}
+
+            form.validate().settings.ignore = ":disabled,:hidden";
+            return form.valid();
+        },
+        onFinished: function (event, currentIndex) {
+
+            //stage1String
+
+          
+            $.post("PTW/Create", form.serialize(), function (data) {
+
+                if (data.value == "OK") {
+                    $('.PTW').click();
+                    $('#create-PTW-dialog').modal('hide');
+                }
+                else if (data.value == "Failed") {
+                    alertDialog("PTW Creation Failed!");
+                }
+                else {
+                    alertDialog(data.value);
+                }
+
+            });
+
+            alert("Submitted!");
+        }, onCanceled: function (event) {
+            $('#create-PTW-dialog').modal('hide');
+        },
+    }).validate({
+        errorPlacement: function errorPlacement(error, element) {
+
+            element.after(error);
+        },
+        rules: {
+            confirm: {
+                equalTo: "#password-2"
+            }
+        }
+    });
+
+
+
+</script>
+

@@ -1,0 +1,183 @@
+﻿@model IEnumerable<Eng360Web.Models.ViewModel.NewSafetyInspectionViewModel>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+
+    <style type="text/css">
+        @@media print
+        {
+        #footer {
+         display: block;
+         position: fixed;
+         bottom: 0;
+            }
+        }
+
+        body, td, th {
+            font-family: Arial;
+            font-size: 13px;
+            word-wrap:break-word;
+        }
+
+       
+    </style>
+</head>
+<body style="font-family: Book Antiqua;">
+    <center>
+
+        <table border="0" width="1110">
+            <thead>
+                <tr>
+                    <th style="width:100%">
+                    @*<img style="width: 790px; height: 75px;" src="~/images/CompanyLogo/Header.jpg" />*@
+                        <table width="773" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+
+                                <td width="100" align="left" valign="top" style="padding:0px;"><img style="width: 130px; height: 130px;" src="~/images/CompanyLogo/logo.png" /></td>
+                                <td width="388" align="left" valign="top" style="padding:2px;">
+                                    <span style="font-size:16px; font-weight:bold;">
+                                        @Eng360Web.Models.Utility.AppSession.GetCompanyDetail().CompanyName
+                                    </span><br />
+                                    <span style="font-weight:bold; font-size:12px;">
+                                        @Eng360Web.Models.Utility.AppSession.GetCompanyDetail().Address1<br />
+                                        @Eng360Web.Models.Utility.AppSession.GetCompanyDetail().Address2 @Eng360Web.Models.Utility.AppSession.GetCompanyDetail().City @Eng360Web.Models.Utility.AppSession.GetCompanyDetail().Pincode	<br />
+                                        Tel : (65) @Eng360Web.Models.Utility.AppSession.GetCompanyDetail().Tel / Fax: (65) @Eng360Web.Models.Utility.AppSession.GetCompanyDetail().Fax	<br />
+                                        E-mail : @Eng360Web.Models.Utility.AppSession.GetCompanyDetail().Email	<br />
+                                        Co. Reg. No : @Eng360Web.Models.Utility.AppSession.GetCompanyDetail().RegNo GST. Reg. No : @Eng360Web.Models.Utility.AppSession.GetCompanyDetail().GstRegNo
+                                    </span>
+                                </td>
+                                <td width="240" align="right" valign="top" style="padding-right:5px; line-height:15px;">
+                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                        <tr>
+                                            <td align="right" valign="top">
+                                                <img style="width: 210px; height: 90px;" src="~/images/CompanyLogo/biz3.png" />
+                                            </td>
+                                        </tr>
+
+                                    </table>
+
+                                </td>
+                            </tr>
+                        </table>
+                    
+                    </th>
+                </tr>
+                <tr>
+                    <th><hr /></th>
+                </tr>
+
+            </thead>   
+            
+            <tfoot>
+                <tr>
+                    <td width="100%">
+                        <table width="100%" border="0" height="30">
+                            <tr>
+                                <td><br />&nbsp;</td>
+                            </tr>
+                        </table>
+            </tfoot>         
+
+            <tdoby>
+                <tr>
+                    <td align="center" style="font-size: 24px; font-weight: bolder; color: white; background-color: black;">
+                    EHS INSPECTION REPORT                                             
+
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td>
+                        <table width="100%">
+                            <tr>
+                                <td width="50%" style="font-weight: bold;">PROJECT: @Model.FirstOrDefault().eng_project_master.ProjectName &nbsp;<br /></td>
+                                @{
+                                    var dt = "";
+                                    dt = Convert.ToDateTime(@Model.FirstOrDefault().InspectionDate).ToString("dd-MM-yyyy");
+                                }
+                                <td width="50%" align="right" style="font-weight: bold;">Inspection Date: @dt&nbsp;<br /></td>
+                            </tr>
+
+                            <tr>
+                                <td width="50%" style="font-weight: bold;">PROJECT LOCATION: @Model.FirstOrDefault().ProjectLocation&nbsp;<br /></td>
+                               
+                                <td width="50%" align="right" style="font-weight: bold;">&nbsp;<br /></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+                
+                <tr>
+                    <td>&nbsp;<br /></td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <table width="100%" border="1" style="border-collapse: collapse;">
+                            <thead>
+                                <tr>
+                                    <th>Sl No</th>
+                                    <th>Photograph Taken</th>
+                                    <th>Observation</th>
+                                    <th>Remedial Action</th>
+                                    <th>Action By & Deadline</th>
+                                    <th>Rectification / Remarks</th>
+                                    <th>Status</th>
+                                    <th>Inspected By</th>
+
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{
+                                    var i = 0;
+                                }
+                                @foreach (var item in Model)
+                                {
+                                    i = i + 1;
+                                    <tr>
+                                        <td>@i</td>
+
+                                        <td align="center">
+                                            <img src="@item.FilePath" height="120" width="180" />
+
+
+                                        </td>
+                                        <td>@item.Observation</td>
+                                        <td>@item.RemedialAction</td>
+                                        <td>@item.ActionBy_Deadline</td>
+                                        <td>@item.Rectification_Remarks</td>
+                                        <td>@item.Status</td>
+                                        <td>@item.InspectedBy</td>
+
+                                    </tr>
+
+
+                                }
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+
+                
+            </tdoby>
+        </table>
+
+        
+
+    </center>
+
+
+
+</body>
+</html>

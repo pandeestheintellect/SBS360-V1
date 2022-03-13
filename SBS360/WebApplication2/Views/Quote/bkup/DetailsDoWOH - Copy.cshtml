@@ -1,0 +1,265 @@
+﻿@model Eng360Web.Models.ViewModel.QuoteViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+
+    <style type="text/css">
+     
+        body, td, th {
+            font-family: Arial;
+            font-size: 13px;
+        }
+
+        body {
+            margin-left: 0px;
+            margin-top: 0px;
+            margin-right: 0px;
+            margin-bottom: 0px;
+        }
+
+        a:link {
+            text-decoration: none;
+        }
+
+        a:visited {
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: none;
+        }
+
+        a:active {
+            text-decoration: none;
+        }
+      
+        .tb {
+            border-style: solid;
+            /*border-width:1px;*/
+            border-bottom-width: 1px;
+            border-top-width: 1px;
+            border-left-width: 1px;
+            border-right-width: 1px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body style="font-family: Arial;">
+    <center>
+        <table width="773" border="0" cellspacing="0" cellpadding="0">
+
+            <tr>
+                <td height="1062" align="center" valign="top">
+                    <table width="773" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                         
+                            <td width="100" align="left" valign="top" style="padding:0px;">&nbsp;</td>
+                            <td width="328" align="left" valign="top" style="padding:2px;">
+                                <span style="font-size:16px; font-weight:bold;">
+                                    &nbsp;
+                                </span><br />
+                                <span style="font-weight:bold; font-size:12px;">
+                                    
+                                    &nbsp;	<br />
+                                    &nbsp;
+                                </span>
+                            </td>
+                            <td width="300" align="center" valign="top" style="padding-right:5px; line-height:15px;">
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td align="right" valign="top">
+                                            &nbsp;
+                                        </td>
+                                    </tr>
+                                    @*<tr>
+                    <td height="25">&nbsp;</td>
+                </tr>*@
+                                    <tr>
+                                        <td align="left" valign="bottom" height="35">&nbsp;</td>
+                                    </tr>
+                                </table>
+
+                            </td>
+                        </tr>
+                    </table>
+                    <table width="98%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td align="center"><span style="font-size:26px; font-weight:bold; padding-right:5px;">WORK COMPLETION</span></td">
+                        </tr>
+                    </table>
+                    <table width="98%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td ><hr /></td>
+                        </tr>
+                    </table>
+                    <table width="95%" border="0" cellspacing="0" cellpadding="0" style="margin-top:5px;">
+                        <tr>
+                            <td width="412" align="left" valign="top" style="padding:3px;">
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td width="5%" align="left" valign="top">To:</td>
+                                        <td width="95%">
+                                            <div style="margin-left:10px;">
+                                                <pre style="margin-top:3px; font-family: Arial;font-size: 13px;font-weight: bold;">@Model.eng_client_master.Company_Name</pre>
+                                                <div style="margin-top:-10px;">
+                                                    @Model.eng_client_master.eng_address_master.Address1<br />
+                                                    @Model.eng_client_master.eng_address_master.Address2<br />
+                                                    @Model.eng_client_master.eng_address_master.City- @Model.eng_client_master.eng_address_master.Postal_Code<br />
+                                                    Tel: @Model.eng_client_master.eng_address_master.Tel<br />
+                                                    Fax: @Model.eng_client_master.eng_address_master.Fax1<br />
+                                                   
+                                                  <strong>Attn : @Model.eng_client_master.eng_client_contact.Where(a => a.CCID == Model.Attention_CCID).First().SPOCName 
+                                                    <br />(HP: @Model.eng_client_master.eng_client_contact.Where(a => a.CCID == Model.Attention_CCID).First().Mobile)</strong><br />
+
+                                                    Email: @Model.eng_client_master.eng_address_master.Email	<br />
+                                                   
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+
+                            </td>
+                            <td width="289" align="center" valign="top" style="padding:3px;">
+                                <table width="299"  border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td width="166" height="11" align="right" valign="middle" style="padding:1px; font-size:13px; font-weight:bold;">WC NO &nbsp; : </td>
+                                        <td width="133" align="left" valign="middle" style="padding:1px; font-size:13px;font-weight:bold;">&nbsp; @Model.DoNo</td>
+                                    </tr>
+                                    <tr>
+                                        <td width="166" height="11" align="right" valign="middle" style="padding:1px; font-size:13px;font-weight:bold;">Date &nbsp; : </td>
+                                        <td width="133" align="left" valign="middle" style="padding:1px; font-size:13px;font-weight:bold;">
+                                            &nbsp; 
+                                            @{
+                                                var dt = "";
+                                                dt = Convert.ToDateTime(Model.DODate).ToString("dd-MM-yyyy");
+                                            }
+                                            @dt                                           
+                                            
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td height="166" align="right" valign="top" style="padding:1px; font-size:13px;">Our Ref &nbsp; : </td>
+                                        <td width="133" align="left" valign="top" style="padding:1px;font-size:13px;">&nbsp; @Model.QuoteRefNum </td>
+                                    </tr>
+                                    
+                                </table>
+                            </td>
+                        </tr>
+                    </table>	
+                    <br />
+
+
+
+
+                    <table width="95%" border="1" cellspacing="0" cellpadding="0" style="border-collapse: collapse; table-layout:fixed; word-break: break-all;" >
+                        <tr style="border-bottom: 1px solid #000000 !important;">
+                            <th width="10%" align="center" valign="middle" style="padding:3px; border: 1px solid #000;" height="20">S.NO</th>
+                            <th width="50%" align="center" valign="middle" style="padding:3px; border: 1px solid #000;">JOB DESCRIPTION </th>
+                            <th width="10%" align="center" valign="middle" style="padding:3px; border: 1px solid #000;">UNIT</th>
+                            <th width="10%" align="center" valign="middle" style="padding:3px; border: 1px solid #000;">QTY</th>
+                            @*<th width="10%" align="center" valign="middle" style="padding:3px; border: 1px solid #000;">UNIT PRICE</th>
+                            <th width="10%" align="center" valign="middle" style="padding:3px; border: 1px solid #000;">AMOUNT</th>*@
+                        </tr>
+
+                        @{ 
+                            var i = 1;
+                            decimal subTotal = 0;
+                            decimal total = 0;
+                            decimal gst = 0;
+                            foreach (var desc in Model.eng_quote_description)
+                            {
+                                var tempTotal = desc.Quantity * desc.QuotePrice;
+                                IHtmlString tx = null;
+
+                                tx = Html.Raw(Html.Encode(desc.QuoteDescription).Replace(Environment.NewLine, "<br />"));
+                                tx = Html.Raw(Html.Encode(tx).Replace("\n", "<br />"));
+                                tx = Html.Raw(Html.Encode(tx).Replace("\r", "<br />"));
+                                if (desc.QDID == Model.eng_quote_description.Last().QDID)
+                                {
+
+                        <tr style="border-bottom: 0px solid #000000 !important;">
+                            <td width="10%" align="center" valign="top" style="font-size: 13px; padding:3px; border-left: 1px solid #000; border-right: 1px solid #000; border-bottom: 0px solid #000; line-height:15px;" height="20">@i</td>
+                            <td align="left" valign="top" style="font-size: 13px;word-wrap: normal; text-overflow: ellipsis;text-align: justify; padding:3px; ">
+                                <div style="word-break:keep-all;text-align: justify;"> @tx </div> </td>
+                            <td width="10%" align="center" valign="top" style="font-size: 13px;padding:3px; border-left: 1px solid #000; border-right: 1px solid #000; border-bottom: 0px solid #000; line-height:15px;">@desc.UnitOfMeasure</td>
+                            <td width="10%" align="center" valign="top" style="font-size: 13px;padding:3px; border-left: 1px solid #000; border-right: 1px solid #000; border-bottom: 0px solid #000; line-height:15px;">@desc.Quantity</td>		
+                        </tr>
+
+                                }
+                                else
+                                {
+
+                        <tr style="border-bottom: 1px solid #000000 !important;">
+                            <td width="10%" align="center" valign="top" style="font-size: 13px;padding:3px; border: 1px solid #000; line-height:20px;" height="20">@i</td>
+                            <td align="left" valign="top" style="font-size: 13px;word-wrap:normal; text-overflow: ellipsis;text-align: justify; padding:3px; ">
+                                <div style="word-break:keep-all; text-align: justify;"> @tx </div> </td>
+                            <td width="10%" align="center" valign="top" style="font-size: 13px;padding:3px; border: 1px solid #000; line-height:20px;">@desc.UnitOfMeasure </td>
+                            <td width="10%" align="center" valign="top" style="font-size: 13px;padding:3px; border: 1px solid #000; line-height:20px;">@desc.Quantity </td>	
+                        </tr>
+
+                                }
+
+
+                                subTotal = subTotal + (desc.Quantity * Convert.ToDecimal(desc.QuotePrice));
+
+                                i = i + 1;
+                            }
+
+                    
+                            }
+                          
+                    </table>
+
+
+                    <br /><br />
+                    <table width="97%" border="0" cellspacing="0" cellpadding="0" style="margin-top:0px; border-collapse: collapse; padding: 10px; ">
+                        <tr>
+                            <td width="430" align="left" valign="top" style="font-size:13px;border-style:solid; border-bottom-width:0px; border-top-width:0px; border-left-width:0px; border-right-width:0px; padding:0px;">
+                                <table width="510" border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td style="padding:10px;">
+                                            <strong>Pls Ref the Invoice No : @Model.InvoiceNo</strong><br /><br />
+                                            For and Behalf  of @Model.CompanyName
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding:10px;"> &nbsp;<!-- ____________________________________--><br /></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding:10px;">Authorised Signature </td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td width="260" align="right" valign="top" style="font-size: 13px;border-style:solid; border-bottom-width:0px; border-top-width:0px; border-left-width:0px; border-right-width:0px; padding:0px;">
+                                <br />
+                                <table width="330" border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td style="padding:10px;" align="center">Confirmed and Accepted by Client</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding:10px;"> &nbsp;<!-- ____________________________________--></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding:10px;" align="center">Authorised Signature and Co's Stamp </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+
+    </center>
+</body>
+</html>

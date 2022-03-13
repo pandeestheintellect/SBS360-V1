@@ -1,0 +1,175 @@
+﻿@model IEnumerable<Eng360Web.Models.ViewModel.TimeEntryViewModel>
+
+@{
+    Layout = null;
+}
+
+
+<div class="row inner-page--container">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <b> TimeEntry Summary - Employee/Date wise </b>
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <table class="table table-striped table-bordered" id="timeentryTable">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.eng_employee_profile.FirstName)
+                            </th>
+                            @*<th>
+                                @Html.DisplayNameFor(model => model.ProjectID)
+                            </th>*@
+                            <th>
+                                @Html.DisplayNameFor(model => model.ReportDate)
+                            </th>
+                            @*<th>
+                                @Html.DisplayNameFor(model => model.Work_Start_Time)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Work_End_Time)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Ot_Start_Time)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Ot_end_Time)
+                            </th>*@
+                            <th>
+                                @Html.DisplayNameFor(model => model.No_of_WorkHours)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.No_of_OtHours)
+                            </th>
+                           @* <th>
+                                @Html.DisplayNameFor(model => model.Remarks)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SubmittedBy)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SubmittedDate)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.UpdatedBy)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.UpdatedDate)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.eng_employee_profile.UserName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.eng_project_master.ProjectNo)
+                            </th>*@
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @item.FirstName
+                                </td>
+                                @*<td>
+                                    @Html.DisplayFor(modelItem => item.ProjectID)
+                                </td>*@
+                                <td>
+                                    @*Html.DisplayFor(modelItem => item.ReportDate.Split(new string[] { " " }, StringSplitOptions.None)[0])*@
+                                @{ 
+                                    var dt = "";
+                                    dt = Convert.ToDateTime(item.ReportDate).ToString(Eng360Web.Models.Utility.AppSettings.GetDateFormat());
+                                 }                                    
+                                
+                                @dt
+                                </td>
+                               @* <td>.
+                                    @Html.DisplayFor(modelItem => item.Work_Start_Time)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Work_End_Time)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Ot_Start_Time)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Ot_end_Time)
+                                </td>*@
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.No_of_WorkHours)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.No_of_OtHours)
+                                </td>
+                                @*<td>
+                                    @Html.DisplayFor(modelItem => item.Remarks)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SubmittedBy)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SubmittedDate)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.UpdatedBy)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.UpdatedDate)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.eng_employee_profile.UserName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.eng_project_master.ProjectNo)
+                                </td>*@
+                                <td>
+                                    
+                                    <a class="btn" title="Time Entry Details"  onclick="ViewTimeEntries('@item.EmpID','@item.ReportDate')"> <i class="fa fa-search action-search" aria-hidden="true" ></i> </a>
+                                    
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        debugger;
+        $('#timeentryTable').DataTable({
+            "autoWidth": true,
+            //"scrollX": true,
+            dom: 'Bfrtipl',
+            buttons: [
+                {
+                    extend: 'copyHtml5',
+                    text: '<i class="fa fa-files-o"></i>',
+                    titleAttr: 'Copy'
+                },
+                {
+                    extend: 'excelHtml5',
+                    text: '<i class="fa fa-file-excel-o"></i>',
+                    titleAttr: 'Excel'
+                },
+                {
+                    extend: 'csvHtml5',
+                    text: '<i class="fa fa-file-text-o"></i>',
+                    titleAttr: 'CSV'
+                },
+                {
+                    extend: 'pdfHtml5',
+                    text: '<i class="fa fa-file-pdf-o"></i>',
+                    titleAttr: 'PDF'
+                }
+
+            ]
+        });
+    });
+    $('.dt-buttons').prepend('<a  onclick="CreateTimeEntry()" class="dt-button buttons-create buttons-html5" tabindex="0" aria-controls="emplyeeTable" href="#" title="Add TimeEntry"><i class="fa fa-plus"></i></a>')
+    $('.dt-button').addClass('btn btn-primary').removeClass('dt-button')
+</script>

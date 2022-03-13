@@ -1,0 +1,277 @@
+﻿@model Eng360Web.Models.ViewModel.PoViewModel
+
+@{
+    Layout = null;
+    //  ViewBag.TermsAndCond = "TERMS & CONDITIONS : \n PRICE: All in Singapore dollars \n VALIDITY: Two Month from dated this quotation \n DELIVERY    : One week from upon order confirmation \n PAYMENT: 30 days from the date of invoice \n NOTE: Any others work NOT mentioned here will be additional charged.";
+
+}
+
+<script src="~/Scripts/moment.js"></script>
+<script src="~/Scripts/bootstrap-datetimepicker.js"></script>
+<link href="~/Content/bootstrap-datetimepicker.css" rel="stylesheet" />
+
+
+<style>
+     .table-condensed tbody > tr > td > a {
+        color: #4eb1ba !important;
+    }
+    input[type='checkbox'] {
+        width: 20px;
+        height: 20px;
+    }
+    .required::after {
+        content: "*";
+        font-weight: bold;
+        color: red;
+    }
+   
+</style>
+
+
+
+<div class="row inner-page--container">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <b> Add New PO  </b>
+
+                @*<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>*@
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+
+
+                @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "poForm" }))
+                {
+                    @Html.AntiForgeryToken()
+
+
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    @Html.HiddenFor(model => model.FinalAmount)
+
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.PoDate, htmlAttributes: new { @class = "control-label required" }) @Html.ValidationMessageFor(model => model.PoDate, "", new { @class = "text-danger" })
+                            <div>
+                                @Html.EditorFor(model => model.PoDate, new { htmlAttributes = new { @class = "form-control" } })
+
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.SupplierID, htmlAttributes: new { @class = "control-label required" }) @Html.ValidationMessageFor(model => model.SupplierID, "", new { @class = "text-danger" })
+                            <div>
+                                @Html.DropDownList("SupplierID", null, htmlAttributes: new { @class = "form-control" })
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.Attention, htmlAttributes: new { @class = "control-label" }) @Html.ValidationMessageFor(model => model.Attention, "", new { @class = "text-danger" })
+                            <div>
+
+                             @Html.EditorFor(model => model.Attention, new { htmlAttributes = new { @class = "form-control" } })   
+
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.YourRef, htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.EditorFor(model => model.YourRef, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.YourRef, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.OrderStatusID, "Status", htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.DropDownList("OrderStatusID", null, htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.OrderStatusID, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.GTAX, "GST", htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.DropDownListFor(model => model.GTAX, new SelectList(
+                                    new List<Object>{
+                                    new { value = 0 , text = "Yes"  },
+                                    new { value = 1 , text = "No" }
+
+                    }, "value", "text", 2), htmlAttributes: new { @class = "form-control", onchange = "OnGstEntry(this)" })
+                                @Html.ValidationMessageFor(model => model.GTAX, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.PaymentTerms, htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.EditorFor(model => model.PaymentTerms, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.PaymentTerms, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                       
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.DeliveryAddress,  htmlAttributes: new { @class = "control-label required" })
+                            <div>
+                                @Html.TextAreaFor(model => model.DeliveryAddress, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.DeliveryAddress, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+
+                            @Html.Label("PO Amount")
+                            <div>
+                                @Html.TextBox("POValue", Model.PoValue, new { @class = "form-control", style = "width: 200px", @readonly = "readonly" })
+                            </div>
+                        </div>
+
+                        </div>
+                    <div class="col-md-12" style="min-height:300px !important;padding-top:25px;padding-left:0px;padding-right:0px;">
+
+                        <table class="table table-striped table-bordered" id="tablePODescriptions">
+
+                            <thead>
+                                <tr>
+                                    <th>PO Desc</th>
+                                    <th>Quantity</th>
+                                    <th>UoM</th>
+                                    <th>PO Price</th>
+                                   
+                                    <th>Actions</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="remove">
+                                    <td>
+                                        sdsd
+                                    </td>
+                                    <td>
+                                        sds
+                                    </td>
+                                    <td>
+                                        sdas
+                                    </td>
+                                    <td>sds</td>
+                                    
+                                    <td>kdsd</td>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+
+
+                }
+
+            </div>
+            <div class="modal-footer">
+                
+                
+
+                <input type="button" value="Create" id="create-po-dialog-save" style="float:right" class="btn btn-primary" /><span style="float:right">&nbsp;</span><input type="button" value="Back" id="create-po-dialog-back" style="float:right" class="btn btn-primary PurchaseOrder" />
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+
+
+    var contacts = [];
+
+                    var podescTable;
+                    $(document).ready(function () {
+
+                        podescTable = $('#tablePODescriptions').DataTable({
+                            "autoWidth": true,
+                            "order": [],
+                            dom: 'Brti',
+                            buttons: [
+                                'copyHtml5',
+                                'excelHtml5',
+                                'csvHtml5',
+                                'pdfHtml5',
+
+                            ],
+                            "columnDefs": [
+                        {
+                            // The `data` parameter refers to the data for the cell (defined by the
+                            // `data` option, which defaults to the column being worked with, in
+                            // this case `data: 0`.
+                            "render": function (data, type, row) {
+                               // return '<a class="btn" onclick="removeDataFromDT(this)"> <img src="Content/images/delete.png" /> </a>';
+                                return '<a class="btn" onclick="removeDataFromDT(this)" title="Delete PoDescription" style="padding: 0px 0px;"> <i class="fa fa-trash" aria-hidden="true" style="color:orangered;font-size:20px"></i> </a>';
+                            },
+                            "targets": 4
+                        }]
+                        });
+                    });
+
+                    $('.dt-buttons').prepend('<a style="margin-bottom: 10px; background: rgb(111, 157, 205) !important; border-radius: 50px !important; margin-right: 5px;"  onclick="CreatePoDesc()" class="dt-button  buttons-html5" tabindex="0" aria-controls="poTable" href="#"><span>Add Description</span></a>')
+                    $('.dt-button').addClass('btn btn-primary').removeClass('dt-button').css('margin-right', '5px')
+                    $('.buttons-copy').css('display', 'none');
+                    $('.buttons-excel').css('display', 'none');
+                    $('.buttons-csv').css('display', 'none');
+                    $('.buttons-pdf').css('display', 'none');
+                    podescTable.row('.remove').remove().draw(false);
+
+
+                    function removeDataFromDT(btn) {
+
+                        $(btn.closest('tr')).addClass('remove')
+                        podescTable.row('.remove').remove().draw(false);
+                        calcAmount();
+                    }
+
+                    function OnGstEntry(val) {
+                        calcAmount();
+                    }
+
+
+                    function calcAmount() {
+                        var amt = 0;
+                        var gst = parseInt($('#GTAX').val());
+                    podescTable.rows().every(function (rowIdx, tableLoop, rowLoop) {
+                        var data = this.data();
+
+                        var object = { QuoteDescription: data[0], Quantity: parseInt(data[1]), UnitOfMeasure: data[2], QuotePrice: parseFloat(data[3]) }
+                        //contacts.push(object);
+                        amt = amt + data[1] * data[3];
+
+                    });
+                   
+                    if (gst == 0) {
+                        amt = amt + amt * 7 / 100;
+                    }
+                  
+                    $('#POValue').val(amt);
+                    $('#FinalAmount').val(amt.toFixed(2));
+                    }
+
+                   
+    $(function () {
+
+        $('#PoDate').datetimepicker({ format: 'DD/MM/YYYY' });
+       
+
+    });
+                  
+                    $("form").removeData("validator");
+                    $("form").removeData("unobtrusiveValidation");
+                    $.validator.unobtrusive.parse("form");
+
+
+</script>

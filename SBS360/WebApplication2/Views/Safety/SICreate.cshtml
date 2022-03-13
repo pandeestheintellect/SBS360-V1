@@ -1,0 +1,1900 @@
+﻿@model Eng360Web.Models.ViewModel.SafetyInspectionMasterViewModel
+
+@{
+    Layout = null;
+}
+
+<script src="~/Scripts/moment.js"></script>
+
+<link href="~/Content/jquery.steps.css" rel="stylesheet" />
+
+<script src="~/Scripts/jquery.steps.js"></script>
+<script src="~/Scripts/bootstrap-datetimepicker.js"></script>
+<link href="~/Content/bootstrap-datetimepicker.css" rel="stylesheet" />
+
+
+<style>
+        .table-condensed tbody > tr > td > a {
+        color: #4eb1ba !important;
+    }
+
+    .wizard > .content {
+        min-height: 400px !important;
+        overflow: auto;
+        /*position:inherit !important;*/  
+       
+     }
+
+    .panel-body {
+       
+        overflow: auto;
+    }   
+    .required::after {
+        content: "*";
+        font-weight: bold;
+        color: red;
+    }
+</style>
+
+<div class="row inner-page--container">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <b> Add New - Safety Inspection Report  </b>
+
+                @*<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>*@
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <form id="formStage1" action="#">
+                                        
+                    @Html.HiddenFor(a => a.SAFINSID)
+                    @Html.HiddenFor(a => a.stage1String)
+                    @Html.HiddenFor(a => a.SafetyRefNum)
+                    @Html.HiddenFor(a => a.CreatedBy)
+                    @Html.HiddenFor(a => a.CreatedDate)
+                    
+                    @Html.AntiForgeryToken()
+
+
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <h3><small>Site Safety Inspection Check List</small></h3>
+                    <section>
+                        <div class="row" id="divStage1">
+
+                           
+                            <div class="col-md-6">
+                                @Html.LabelFor(model => model.ProjectID, "Project Name", htmlAttributes: new { @class = "control-label required" })
+                                <div>
+                                    @Html.DropDownList("ProjectID", null, htmlAttributes: new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.ProjectID, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                @Html.LabelFor(model => model.SIDate, "Inspection Date", htmlAttributes: new { @class = "control-label" })
+                                <div>
+                                    @Html.EditorFor(model => model.SIDate, new { htmlAttributes = new { @class = "form-control required" } })
+                                    @Html.ValidationMessageFor(model => model.SIDate, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                @Html.LabelFor(model => model.ProjectLocation, htmlAttributes: new { @class = "control-label" })
+                                <div>
+                                    @Html.EditorFor(model => model.ProjectLocation, new { htmlAttributes = new { @class = "form-control required" } })
+                                    @Html.ValidationMessageFor(model => model.ProjectLocation, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-6">
+                                @Html.LabelFor(model => model.InspectedBy, htmlAttributes: new { @class = "control-label" })
+                                <div>
+                                    @*@Html.EditorFor(model => model.Applicant_Name, new { htmlAttributes = new { @class = "form-control required" } })*@
+                                    @Html.DropDownListFor(model => model.InspectedBy, new SelectList(ViewBag.MNGList, "Value", "Text"), htmlAttributes: new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.InspectedBy, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            
+                            <div class="col-md-6">
+                                @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label" })
+                                <div>
+                                    @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                @Html.LabelFor(model => model.Safety_Cert_Info, "Safety Certificate Information", htmlAttributes: new { @class = "control-label" })
+                                <div>
+                                    @Html.EditorFor(model => model.Safety_Cert_Info, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Safety_Cert_Info, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            
+
+                            <div class="row">
+                                <table>
+                                    <thead>
+                                        
+                                        <tr>
+                                            <th style="padding: 10px;">HOUSEKEEPING</th>
+                                            <th>G</th>
+                                            <th>A</th>
+                                            <th>P</th>
+                                            <th>NA</th>
+                                            <th>Recommendation</th>
+                                            <th>Responsible Person</th>
+                                            <th align="center">Anticipated Completion Date</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        
+                                        @foreach (var stage1 in Model.Items.Where(a=>a.SIHeaderID=="H1"))
+                                        {
+                                            var gID = "good_" + stage1.SIItemID;
+                                            var aID = "avg_" + stage1.SIItemID;
+                                            var pID = "poor_" + stage1.SIItemID;
+                                            var naID = "na_" + stage1.SIItemID;
+
+                                            var remID = "rem_" + stage1.SIItemID;
+                                            var acdID = "acd_" + stage1.SIItemID;
+                                            var repID = "rep_" + stage1.SIItemID;
+
+                                            var stageDetail = new Eng360Web.Models.ViewModel.SafetyInspectionDetailViewModel();
+                                            if (Model.eng_safety_insp_detail != null)
+                                            {
+                                                stageDetail = Model.eng_safety_insp_detail.Where(a => a.SIItemID == stage1.SIItemID).FirstOrDefault();
+                                            }
+
+                                            <tr>
+                                                <td style="padding: 10px;">@stage1.SIItemDescription</td>
+                                                <td>
+                                                    @if (stageDetail.Is_Applicable == 1)
+                                                    {
+                                                        <input type="checkbox" checked="checked" id="@gID" class="chkstage1" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="checkbox" id="@gID" class="chkstage1" />
+                                                    }
+                                                </td>
+                                                <td>
+                                                    @if (stageDetail.Is_Applicable == 2)
+                                                    {
+                                                        <input type="checkbox" checked="checked" id="@aID" class="chkstage1" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="checkbox" id="@aID" class="chkstage1" />
+                                                    }
+
+                                                </td>
+                                                <td>
+                                                    @if (stageDetail.Is_Applicable == 3)
+                                                    {
+                                                        <input type="checkbox" checked="checked" id="@pID" class="chkstage1" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="checkbox" id="@pID" class="chkstage1" />
+                                                    }
+
+                                                </td>
+                                                <td >
+                                                    @if (stageDetail.Is_Applicable == 4)
+                                                    {
+                                                        <input type="checkbox" checked="checked" id="@naID" class="chkstage1" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="checkbox" id="@naID" class="chkstage1" />
+                                                    }
+                                                  
+                                                </td>
+                                                
+                                                <td>
+                                                    <input type="text" id="@remID" value="@stageDetail.Recommendation"/>
+                                                </td>
+                                                <td>
+                                                    <input type="text" id="@repID" value="@stageDetail.ResponsiblePerson" />
+                                                </td>
+                                                <td>
+                                                    @{
+                                                        var acdt = "";
+                                                        if (stageDetail.ACDate != null)
+                                                        {
+                                                            var stdt = stageDetail.ACDate.ToString();
+                                                            acdt = Convert.ToDateTime(stdt).ToString("dd/MM/yyyy");
+                                                        }
+                                                    }
+                                                    <input type="text" id="@acdID" value="@acdt" class="acdChk"/>
+                                                </td>
+                                            </tr>
+                                        }
+                                        
+                                        <tr>
+                                            <th style="padding: 10px;">ELECTRICAL EQUIPMENT</th>
+                                            <th>G</th>
+                                            <th>A</th>
+                                            <th>P</th>
+                                            <th>NA</th>
+                                            <th>Recommendation</th>
+                                            <th>Responsible Person</th>
+                                            <th align="center">Anticipated Completion Date</th>
+                                        </tr>
+
+                                        @foreach (var stage1 in Model.Items.Where(a => a.SIHeaderID == "H2"))
+                                        {
+                                            var gID = "good_" + stage1.SIItemID;
+                                            var aID = "avg_" + stage1.SIItemID;
+                                            var pID = "poor_" + stage1.SIItemID;
+                                            var naID = "na_" + stage1.SIItemID;
+
+                                            var remID = "rem_" + stage1.SIItemID;
+                                            var acdID = "acd_" + stage1.SIItemID;
+                                            var repID = "rep_" + stage1.SIItemID;
+
+                                            var stageDetail = new Eng360Web.Models.ViewModel.SafetyInspectionDetailViewModel();
+                                            if (Model.eng_safety_insp_detail != null)
+                                            {
+                                                stageDetail = Model.eng_safety_insp_detail.Where(a => a.SIItemID == stage1.SIItemID).FirstOrDefault();
+                                            }
+
+
+                                            <tr>
+                                                <td style="padding: 10px;">@stage1.SIItemDescription</td>
+                                                <td>
+                                                    @if (stageDetail.Is_Applicable == 1)
+                                                    {
+                                                        <input type="checkbox" checked="checked" id="@gID" class="chkstage1" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="checkbox" id="@gID" class="chkstage1" />
+                                                    }
+                                                </td>
+                                                <td>
+                                                    @if (stageDetail.Is_Applicable == 2)
+                                                    {
+                                                        <input type="checkbox" checked="checked" id="@aID" class="chkstage1" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="checkbox" id="@aID" class="chkstage1" />
+                                                    }
+
+                                                </td>
+                                                <td>
+                                                    @if (stageDetail.Is_Applicable == 3)
+                                                    {
+                                                        <input type="checkbox" checked="checked" id="@pID" class="chkstage1" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="checkbox" id="@pID" class="chkstage1" />
+                                                    }
+
+                                                </td>
+                                                <td>
+                                                    @if (stageDetail.Is_Applicable == 4)
+                                                    {
+                                                        <input type="checkbox" checked="checked" id="@naID" class="chkstage1" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="checkbox" id="@naID" class="chkstage1" />
+                                                    }
+
+                                                </td>
+
+                                                <td>
+                                                    <input type="text" id="@remID" value="@stageDetail.Recommendation" />
+                                                </td>
+                                                <td>
+                                                    <input type="text" id="@repID" value="@stageDetail.ResponsiblePerson" />
+                                                </td>
+                                                <td>
+                                                    @{
+                                                        var acdt = "";
+                                                        if (stageDetail.ACDate != null)
+                                                        {
+                                                            var stdt = stageDetail.ACDate.ToString();
+                                                            acdt = Convert.ToDateTime(stdt).ToString("dd/MM/yyyy");
+                                                        }
+                                                    }
+                                                    <input type="text" id="@acdID" value="@acdt" class="acdChk" />
+                                                </td>
+                                            </tr>
+                                        }
+
+                                        <tr>
+                                            <th style="padding: 10px;">HIGHLY FLAMMABLE LIQUIDS & GASES</th>
+                                            <th>G</th>
+                                            <th>A</th>
+                                            <th>P</th>
+                                            <th>NA</th>
+                                            <th>Recommendation</th>
+                                            <th>Responsible Person</th>
+                                            <th align="center">Anticipated Completion Date</th>
+                                        </tr>
+
+                                        @foreach (var stage1 in Model.Items.Where(a => a.SIHeaderID == "H3"))
+                                        {
+                                            var gID = "good_" + stage1.SIItemID;
+                                            var aID = "avg_" + stage1.SIItemID;
+                                            var pID = "poor_" + stage1.SIItemID;
+                                            var naID = "na_" + stage1.SIItemID;
+
+                                            var remID = "rem_" + stage1.SIItemID;
+                                            var acdID = "acd_" + stage1.SIItemID;
+                                            var repID = "rep_" + stage1.SIItemID;
+
+                                            var stageDetail = new Eng360Web.Models.ViewModel.SafetyInspectionDetailViewModel();
+                                            if (Model.eng_safety_insp_detail != null)
+                                            {
+                                                stageDetail = Model.eng_safety_insp_detail.Where(a => a.SIItemID == stage1.SIItemID).FirstOrDefault();
+                                            }
+
+
+                                            <tr>
+                                                <td style="padding: 10px;">@stage1.SIItemDescription</td>
+                                                <td>
+                                                    @if (stageDetail.Is_Applicable == 1)
+                                                    {
+                                                        <input type="checkbox" checked="checked" id="@gID" class="chkstage1" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="checkbox" id="@gID" class="chkstage1" />
+                                                    }
+                                                </td>
+                                                <td>
+                                                    @if (stageDetail.Is_Applicable == 2)
+                                                    {
+                                                        <input type="checkbox" checked="checked" id="@aID" class="chkstage1" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="checkbox" id="@aID" class="chkstage1" />
+                                                    }
+
+                                                </td>
+                                                <td>
+                                                    @if (stageDetail.Is_Applicable == 3)
+                                                    {
+                                                        <input type="checkbox" checked="checked" id="@pID" class="chkstage1" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="checkbox" id="@pID" class="chkstage1" />
+                                                    }
+
+                                                </td>
+                                                <td>
+                                                    @if (stageDetail.Is_Applicable == 4)
+                                                    {
+                                                        <input type="checkbox" checked="checked" id="@naID" class="chkstage1" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="checkbox" id="@naID" class="chkstage1" />
+                                                    }
+
+                                                </td>
+
+                                                <td>
+                                                    <input type="text" id="@remID" value="@stageDetail.Recommendation" />
+                                                </td>
+                                                <td>
+                                                    <input type="text" id="@repID" value="@stageDetail.ResponsiblePerson" />
+                                                </td>
+                                                <td>
+                                                    @{
+                                                        var acdt = "";
+                                                        if (stageDetail.ACDate != null)
+                                                        {
+                                                            var stdt = stageDetail.ACDate.ToString();
+                                                            acdt = Convert.ToDateTime(stdt).ToString("dd/MM/yyyy");
+                                                        }
+                                                    }
+                                                    <input type="text" id="@acdID" value="@acdt" class="acdChk" />
+                                                </td>
+                                            </tr>
+                                        }
+
+                                        
+                                        <tr>
+                                            <th style="padding: 10px;">SLOPE WORK</th>
+                                            <th>G</th>
+                                            <th>A</th>
+                                            <th>P</th>
+                                            <th>NA</th>
+                                            <th>Recommendation</th>
+                                            <th>Responsible Person</th>
+                                            <th align="center">Anticipated Completion Date</th>
+                                        </tr>
+
+                                        @foreach (var stage1 in Model.Items.Where(a => a.SIHeaderID == "H4"))
+                                        {
+                                            var gID = "good_" + stage1.SIItemID;
+                                            var aID = "avg_" + stage1.SIItemID;
+                                            var pID = "poor_" + stage1.SIItemID;
+                                            var naID = "na_" + stage1.SIItemID;
+
+                                            var remID = "rem_" + stage1.SIItemID;
+                                            var acdID = "acd_" + stage1.SIItemID;
+                                            var repID = "rep_" + stage1.SIItemID;
+
+                                            var stageDetail = new Eng360Web.Models.ViewModel.SafetyInspectionDetailViewModel();
+                                            if (Model.eng_safety_insp_detail != null)
+                                            {
+                                                stageDetail = Model.eng_safety_insp_detail.Where(a => a.SIItemID == stage1.SIItemID).FirstOrDefault();
+                                            }
+
+
+                                            <tr>
+                                                <td style="padding: 10px;">@stage1.SIItemDescription</td>
+                                                <td>
+                                                    @if (stageDetail.Is_Applicable == 1)
+                                                    {
+                                                        <input type="checkbox" checked="checked" id="@gID" class="chkstage1" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="checkbox" id="@gID" class="chkstage1" />
+                                                    }
+                                                </td>
+                                                <td>
+                                                    @if (stageDetail.Is_Applicable == 2)
+                                                    {
+                                                        <input type="checkbox" checked="checked" id="@aID" class="chkstage1" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="checkbox" id="@aID" class="chkstage1" />
+                                                    }
+
+                                                </td>
+                                                <td>
+                                                    @if (stageDetail.Is_Applicable == 3)
+                                                    {
+                                                        <input type="checkbox" checked="checked" id="@pID" class="chkstage1" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="checkbox" id="@pID" class="chkstage1" />
+                                                    }
+
+                                                </td>
+                                                <td>
+                                                    @if (stageDetail.Is_Applicable == 4)
+                                                    {
+                                                        <input type="checkbox" checked="checked" id="@naID" class="chkstage1" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="checkbox" id="@naID" class="chkstage1" />
+                                                    }
+
+                                                </td>
+
+                                                <td>
+                                                    <input type="text" id="@remID" value="@stageDetail.Recommendation" />
+                                                </td>
+                                                <td>
+                                                    <input type="text" id="@repID" value="@stageDetail.ResponsiblePerson" />
+                                                </td>
+                                                <td>
+                                                   @{
+                                                       var acdt = "";
+                                                       if (stageDetail.ACDate != null)
+                                                       {
+                                                           var stdt = stageDetail.ACDate.ToString();
+                                                           acdt = Convert.ToDateTime(stdt).ToString("dd/MM/yyyy");
+                                                       }
+                                                }
+                                                <input type="text" id="@acdID" value="@acdt" class="acdChk" />
+                                                </td>
+                                            </tr>
+                                        }
+
+                                       
+                                        <tr>
+                                            <th style="padding: 10px;">FIRE ARRANGEMENTS</th>
+                                            <th>G</th>
+                                            <th>A</th>
+                                            <th>P</th>
+                                            <th>NA</th>
+                                            <th>Recommendation</th>
+                                            <th>Responsible Person</th>
+                                            <th align="center">Anticipated Completion Date</th>
+                                        </tr>
+
+                                        @foreach (var stage1 in Model.Items.Where(a => a.SIHeaderID == "H5"))
+                                        {
+                                            var gID = "good_" + stage1.SIItemID;
+                                            var aID = "avg_" + stage1.SIItemID;
+                                            var pID = "poor_" + stage1.SIItemID;
+                                            var naID = "na_" + stage1.SIItemID;
+
+                                            var remID = "rem_" + stage1.SIItemID;
+                                            var acdID = "acd_" + stage1.SIItemID;
+                                            var repID = "rep_" + stage1.SIItemID;
+
+                                            var stageDetail = new Eng360Web.Models.ViewModel.SafetyInspectionDetailViewModel();
+                                            if (Model.eng_safety_insp_detail != null)
+                                            {
+                                                stageDetail = Model.eng_safety_insp_detail.Where(a => a.SIItemID == stage1.SIItemID).FirstOrDefault();
+                                            }
+
+
+                                            <tr>
+                                                <td style="padding: 10px;">@stage1.SIItemDescription</td>
+                                                <td>
+                                                    @if (stageDetail.Is_Applicable == 1)
+                                                    {
+                                                        <input type="checkbox" checked="checked" id="@gID" class="chkstage1" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="checkbox" id="@gID" class="chkstage1" />
+                                                    }
+                                                </td>
+                                                <td>
+                                                    @if (stageDetail.Is_Applicable == 2)
+                                                    {
+                                                        <input type="checkbox" checked="checked" id="@aID" class="chkstage1" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="checkbox" id="@aID" class="chkstage1" />
+                                                    }
+
+                                                </td>
+                                                <td>
+                                                    @if (stageDetail.Is_Applicable == 3)
+                                                    {
+                                                        <input type="checkbox" checked="checked" id="@pID" class="chkstage1" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="checkbox" id="@pID" class="chkstage1" />
+                                                    }
+
+                                                </td>
+                                                <td>
+                                                    @if (stageDetail.Is_Applicable == 4)
+                                                    {
+                                                        <input type="checkbox" checked="checked" id="@naID" class="chkstage1" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="checkbox" id="@naID" class="chkstage1" />
+                                                    }
+
+                                                </td>
+
+                                                <td>
+                                                    <input type="text" id="@remID" value="@stageDetail.Recommendation" />
+                                                </td>
+                                                <td>
+                                                    <input type="text" id="@repID" value="@stageDetail.ResponsiblePerson" />
+                                                </td>
+                                                <td>
+                                                    @{
+                                                        var acdt = "";
+                                                        if (stageDetail.ACDate != null)
+                                                        {
+                                                            var stdt = stageDetail.ACDate.ToString();
+                                                            acdt = Convert.ToDateTime(stdt).ToString("dd/MM/yyyy");
+                                                        }
+                                                    }
+                                                    <input type="text" id="@acdID" value="@acdt" class="acdChk" />
+                                                </td>
+                                            </tr>
+                                        }
+
+                                        <tr>
+                                            <th style="padding: 10px;">WORKING AT HEIGHTS</th>
+                                            <th>G</th>
+                                            <th>A</th>
+                                            <th>P</th>
+                                            <th>NA</th>
+                                            <th>Recommendation</th>
+                                            <th>Responsible Person</th>
+                                            <th align="center">Anticipated Completion Date</th>
+                                        </tr>
+
+                                        @foreach (var stage1 in Model.Items.Where(a => a.SIHeaderID == "H6"))
+                                        {
+                                            var gID = "good_" + stage1.SIItemID;
+                                            var aID = "avg_" + stage1.SIItemID;
+                                            var pID = "poor_" + stage1.SIItemID;
+                                            var naID = "na_" + stage1.SIItemID;
+
+                                            var remID = "rem_" + stage1.SIItemID;
+                                            var acdID = "acd_" + stage1.SIItemID;
+                                            var repID = "rep_" + stage1.SIItemID;
+
+                                            var stageDetail = new Eng360Web.Models.ViewModel.SafetyInspectionDetailViewModel();
+                                            if (Model.eng_safety_insp_detail != null)
+                                            {
+                                                stageDetail = Model.eng_safety_insp_detail.Where(a => a.SIItemID == stage1.SIItemID).FirstOrDefault();
+                                            }
+
+
+                                            <tr>
+                                                <td style="padding: 10px;">@stage1.SIItemDescription</td>
+                                                <td>
+                                                    @if (stageDetail.Is_Applicable == 1)
+                                                    {
+                                                        <input type="checkbox" checked="checked" id="@gID" class="chkstage1" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="checkbox" id="@gID" class="chkstage1" />
+                                                    }
+                                                </td>
+                                                <td>
+                                                    @if (stageDetail.Is_Applicable == 2)
+                                                    {
+                                                        <input type="checkbox" checked="checked" id="@aID" class="chkstage1" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="checkbox" id="@aID" class="chkstage1" />
+                                                    }
+
+                                                </td>
+                                                <td>
+                                                    @if (stageDetail.Is_Applicable == 3)
+                                                    {
+                                                        <input type="checkbox" checked="checked" id="@pID" class="chkstage1" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="checkbox" id="@pID" class="chkstage1" />
+                                                    }
+
+                                                </td>
+                                                <td>
+                                                    @if (stageDetail.Is_Applicable == 4)
+                                                    {
+                                                        <input type="checkbox" checked="checked" id="@naID" class="chkstage1" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="checkbox" id="@naID" class="chkstage1" />
+                                                    }
+
+                                                </td>
+
+                                                <td>
+                                                    <input type="text" id="@remID" value="@stageDetail.Recommendation" />
+                                                </td>
+                                                <td>
+                                                    <input type="text" id="@repID" value="@stageDetail.ResponsiblePerson" />
+                                                </td>
+                                                <td>
+                                                   @{
+                                                       var acdt = "";
+                                                       if (stageDetail.ACDate != null)
+                                                       {
+                                                           var stdt = stageDetail.ACDate.ToString();
+                                                           acdt = Convert.ToDateTime(stdt).ToString("dd/MM/yyyy");
+                                                       }
+                                                }
+                                                <input type="text" id="@acdID" value="@acdt" class="acdChk" />
+                                                </td>
+                                            </tr>
+                                        }
+
+                                        <tr>
+                                            <th style="padding: 10px;">PROTECTION AGAINST A FALLING OBJECTS</th>
+                                            <th>G</th>
+                                            <th>A</th>
+                                            <th>P</th>
+                                            <th>NA</th>
+                                            <th>Recommendation</th>
+                                            <th>Responsible Person</th>
+                                            <th align="center">Anticipated Completion Date</th>
+                                        </tr>
+
+                                        @foreach (var stage1 in Model.Items.Where(a => a.SIHeaderID == "H7"))
+                                        {
+                                            var gID = "good_" + stage1.SIItemID;
+                                            var aID = "avg_" + stage1.SIItemID;
+                                            var pID = "poor_" + stage1.SIItemID;
+                                            var naID = "na_" + stage1.SIItemID;
+
+                                            var remID = "rem_" + stage1.SIItemID;
+                                            var acdID = "acd_" + stage1.SIItemID;
+                                            var repID = "rep_" + stage1.SIItemID;
+
+                                            var stageDetail = new Eng360Web.Models.ViewModel.SafetyInspectionDetailViewModel();
+                                            if (Model.eng_safety_insp_detail != null)
+                                            {
+                                                stageDetail = Model.eng_safety_insp_detail.Where(a => a.SIItemID == stage1.SIItemID).FirstOrDefault();
+                                            }
+
+
+                                            <tr>
+                                                <td style="padding: 10px;">@stage1.SIItemDescription</td>
+                                                <td>
+                                                    @if (stageDetail.Is_Applicable == 1)
+                                                    {
+                                                        <input type="checkbox" checked="checked" id="@gID" class="chkstage1" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="checkbox" id="@gID" class="chkstage1" />
+                                                    }
+                                                </td>
+                                                <td>
+                                                    @if (stageDetail.Is_Applicable == 2)
+                                                    {
+                                                        <input type="checkbox" checked="checked" id="@aID" class="chkstage1" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="checkbox" id="@aID" class="chkstage1" />
+                                                    }
+
+                                                </td>
+                                                <td>
+                                                    @if (stageDetail.Is_Applicable == 3)
+                                                    {
+                                                        <input type="checkbox" checked="checked" id="@pID" class="chkstage1" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="checkbox" id="@pID" class="chkstage1" />
+                                                    }
+
+                                                </td>
+                                                <td>
+                                                    @if (stageDetail.Is_Applicable == 4)
+                                                    {
+                                                        <input type="checkbox" checked="checked" id="@naID" class="chkstage1" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="checkbox" id="@naID" class="chkstage1" />
+                                                    }
+
+                                                </td>
+
+                                                <td>
+                                                    <input type="text" id="@remID" value="@stageDetail.Recommendation" />
+                                                </td>
+                                                <td>
+                                                    <input type="text" id="@repID" value="@stageDetail.ResponsiblePerson" />
+                                                </td>
+                                                <td>
+                                                    @{
+                                                        var acdt = "";
+                                                        if (stageDetail.ACDate != null)
+                                                        {
+                                                            var stdt = stageDetail.ACDate.ToString();
+                                                            acdt = Convert.ToDateTime(stdt).ToString("dd/MM/yyyy");
+                                                        }
+                                                    }
+                                                    <input type="text" id="@acdID" value="@acdt" class="acdChk" />
+                                                </td>
+                                            </tr>
+                                        }
+
+                                       
+                                        <tr>
+                                            <th style="padding: 10px;">EXCAVATION</th>
+                                            <th>G</th>
+                                            <th>A</th>
+                                            <th>P</th>
+                                            <th>NA</th>
+                                            <th>Recommendation</th>
+                                            <th>Responsible Person</th>
+                                            <th align="center">Anticipated Completion Date</th>
+                                        </tr>
+
+                                        @foreach (var stage1 in Model.Items.Where(a => a.SIHeaderID == "H8"))
+                                        {
+                                            var gID = "good_" + stage1.SIItemID;
+                                            var aID = "avg_" + stage1.SIItemID;
+                                            var pID = "poor_" + stage1.SIItemID;
+                                            var naID = "na_" + stage1.SIItemID;
+
+                                            var remID = "rem_" + stage1.SIItemID;
+                                            var acdID = "acd_" + stage1.SIItemID;
+                                            var repID = "rep_" + stage1.SIItemID;
+
+                                            var stageDetail = new Eng360Web.Models.ViewModel.SafetyInspectionDetailViewModel();
+                                            if (Model.eng_safety_insp_detail != null)
+                                            {
+                                                stageDetail = Model.eng_safety_insp_detail.Where(a => a.SIItemID == stage1.SIItemID).FirstOrDefault();
+                                            }
+
+
+                                            <tr>
+                                                <td style="padding: 10px;">@stage1.SIItemDescription</td>
+                                                <td>
+                                                    @if (stageDetail.Is_Applicable == 1)
+                                                    {
+                                                        <input type="checkbox" checked="checked" id="@gID" class="chkstage1" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="checkbox" id="@gID" class="chkstage1" />
+                                                    }
+                                                </td>
+                                                <td>
+                                                    @if (stageDetail.Is_Applicable == 2)
+                                                    {
+                                                        <input type="checkbox" checked="checked" id="@aID" class="chkstage1" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="checkbox" id="@aID" class="chkstage1" />
+                                                    }
+
+                                                </td>
+                                                <td>
+                                                    @if (stageDetail.Is_Applicable == 3)
+                                                    {
+                                                        <input type="checkbox" checked="checked" id="@pID" class="chkstage1" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="checkbox" id="@pID" class="chkstage1" />
+                                                    }
+
+                                                </td>
+                                                <td>
+                                                    @if (stageDetail.Is_Applicable == 4)
+                                                    {
+                                                        <input type="checkbox" checked="checked" id="@naID" class="chkstage1" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="checkbox" id="@naID" class="chkstage1" />
+                                                    }
+
+                                                </td>
+
+                                                <td>
+                                                    <input type="text" id="@remID" value="@stageDetail.Recommendation" />
+                                                </td>
+                                                <td>
+                                                    <input type="text" id="@repID" value="@stageDetail.ResponsiblePerson" />
+                                                </td>
+                                                <td>
+                                                    @{
+                                                        var acdt = "";
+                                                        if (stageDetail.ACDate != null)
+                                                        {
+                                                            var stdt = stageDetail.ACDate.ToString();
+                                                            acdt = Convert.ToDateTime(stdt).ToString("dd/MM/yyyy");
+                                                        }
+                                                    }
+                                                    <input type="text" id="@acdID" value="@acdt" class="acdChk" />
+                                                </td>
+                                            </tr>
+                                        }
+
+                                        <tr>
+                                            <th style="padding: 10px;">LIFTING OPERATIONS</th>
+                                            <th>G</th>
+                                            <th>A</th>
+                                            <th>P</th>
+                                            <th>NA</th>
+                                            <th>Recommendation</th>
+                                            <th>Responsible Person</th>
+                                            <th align="center">Anticipated Completion Date</th>
+                                        </tr>
+
+                                        @foreach (var stage1 in Model.Items.Where(a => a.SIHeaderID == "H9"))
+                                        {
+                                            var gID = "good_" + stage1.SIItemID;
+                                            var aID = "avg_" + stage1.SIItemID;
+                                            var pID = "poor_" + stage1.SIItemID;
+                                            var naID = "na_" + stage1.SIItemID;
+
+                                            var remID = "rem_" + stage1.SIItemID;
+                                            var acdID = "acd_" + stage1.SIItemID;
+                                            var repID = "rep_" + stage1.SIItemID;
+
+                                            var stageDetail = new Eng360Web.Models.ViewModel.SafetyInspectionDetailViewModel();
+                                            if (Model.eng_safety_insp_detail != null)
+                                            {
+                                                stageDetail = Model.eng_safety_insp_detail.Where(a => a.SIItemID == stage1.SIItemID).FirstOrDefault();
+                                            }
+
+
+                                            <tr>
+                                                <td style="padding: 10px;">@stage1.SIItemDescription</td>
+                                                <td>
+                                                    @if (stageDetail.Is_Applicable == 1)
+                                                    {
+                                                        <input type="checkbox" checked="checked" id="@gID" class="chkstage1" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="checkbox" id="@gID" class="chkstage1" />
+                                                    }
+                                                </td>
+                                                <td>
+                                                    @if (stageDetail.Is_Applicable == 2)
+                                                    {
+                                                        <input type="checkbox" checked="checked" id="@aID" class="chkstage1" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="checkbox" id="@aID" class="chkstage1" />
+                                                    }
+
+                                                </td>
+                                                <td>
+                                                    @if (stageDetail.Is_Applicable == 3)
+                                                    {
+                                                        <input type="checkbox" checked="checked" id="@pID" class="chkstage1" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="checkbox" id="@pID" class="chkstage1" />
+                                                    }
+
+                                                </td>
+                                                <td>
+                                                    @if (stageDetail.Is_Applicable == 4)
+                                                    {
+                                                        <input type="checkbox" checked="checked" id="@naID" class="chkstage1" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="checkbox" id="@naID" class="chkstage1" />
+                                                    }
+
+                                                </td>
+
+                                                <td>
+                                                    <input type="text" id="@remID" value="@stageDetail.Recommendation" />
+                                                </td>
+                                                <td>
+                                                    <input type="text" id="@repID" value="@stageDetail.ResponsiblePerson" />
+                                                </td>
+                                                <td>
+                                                    @{
+                                                        var acdt = "";
+                                                        if (stageDetail.ACDate != null)
+                                                        {
+                                                            var stdt = stageDetail.ACDate.ToString();
+                                                            acdt = Convert.ToDateTime(stdt).ToString("dd/MM/yyyy");
+                                                        }
+                                                    }
+                                                    <input type="text" id="@acdID" value="@acdt" class="acdChk" />
+                                                </td>
+                                            </tr>
+                                        }
+
+                                        <tr>
+                                            <th style="padding: 10px;">WELDING/ CUTTING OPERATIONS & EQUIPMENT</th>
+                                            <th>G</th>
+                                            <th>A</th>
+                                            <th>P</th>
+                                            <th>NA</th>
+                                            <th>Recommendation</th>
+                                            <th>Responsible Person</th>
+                                            <th align="center">Anticipated Completion Date</th>
+                                        </tr>
+
+                                        @foreach (var stage1 in Model.Items.Where(a => a.SIHeaderID == "H10"))
+                                        {
+                                            var gID = "good_" + stage1.SIItemID;
+                                            var aID = "avg_" + stage1.SIItemID;
+                                            var pID = "poor_" + stage1.SIItemID;
+                                            var naID = "na_" + stage1.SIItemID;
+
+                                            var remID = "rem_" + stage1.SIItemID;
+                                            var acdID = "acd_" + stage1.SIItemID;
+                                            var repID = "rep_" + stage1.SIItemID;
+
+                                            var stageDetail = new Eng360Web.Models.ViewModel.SafetyInspectionDetailViewModel();
+                                            if (Model.eng_safety_insp_detail != null)
+                                            {
+                                                stageDetail = Model.eng_safety_insp_detail.Where(a => a.SIItemID == stage1.SIItemID).FirstOrDefault();
+                                            }
+
+                                            <tr>
+                                                <td style="padding: 10px;">@stage1.SIItemDescription</td>
+                                                <td>
+                                                    @if (stageDetail.Is_Applicable == 1)
+                                                    {
+                                                        <input type="checkbox" checked="checked" id="@gID" class="chkstage1" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="checkbox" id="@gID" class="chkstage1" />
+                                                    }
+                                                </td>
+                                                <td>
+                                                    @if (stageDetail.Is_Applicable == 2)
+                                                    {
+                                                        <input type="checkbox" checked="checked" id="@aID" class="chkstage1" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="checkbox" id="@aID" class="chkstage1" />
+                                                    }
+
+                                                </td>
+                                                <td>
+                                                    @if (stageDetail.Is_Applicable == 3)
+                                                    {
+                                                        <input type="checkbox" checked="checked" id="@pID" class="chkstage1" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="checkbox" id="@pID" class="chkstage1" />
+                                                    }
+
+                                                </td>
+                                                <td>
+                                                    @if (stageDetail.Is_Applicable == 4)
+                                                    {
+                                                        <input type="checkbox" checked="checked" id="@naID" class="chkstage1" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="checkbox" id="@naID" class="chkstage1" />
+                                                    }
+
+                                                </td>
+
+                                                <td>
+                                                    <input type="text" id="@remID" value="@stageDetail.Recommendation" />
+                                                </td>
+                                                <td>
+                                                    <input type="text" id="@repID" value="@stageDetail.ResponsiblePerson" />
+                                                </td>
+                                                <td>
+                                                    @{
+                                                        var acdt = "";
+                                                        if (stageDetail.ACDate != null)
+                                                        {
+                                                            var stdt = stageDetail.ACDate.ToString();
+                                                            acdt = Convert.ToDateTime(stdt).ToString("dd/MM/yyyy");
+                                                        }
+                                                    }
+                                                    <input type="text" id="@acdID" value="@acdt" class="acdChk" />
+                                                </td>
+                                            </tr>
+                                        }
+
+                                       <tr>
+                                            <th style="padding: 10px;">SITE TRAFFIC</th>
+                                            <th>G</th>
+                                            <th>A</th>
+                                            <th>P</th>
+                                            <th>NA</th>
+                                            <th>Recommendation</th>
+                                            <th>Responsible Person</th>
+                                            <th align="center">Anticipated Completion Date</th>
+                                        </tr>
+
+                                        @foreach (var stage1 in Model.Items.Where(a => a.SIHeaderID == "H11"))
+                                        {
+                                            var gID = "good_" + stage1.SIItemID;
+                                            var aID = "avg_" + stage1.SIItemID;
+                                            var pID = "poor_" + stage1.SIItemID;
+                                            var naID = "na_" + stage1.SIItemID;
+
+                                            var remID = "rem_" + stage1.SIItemID;
+                                            var acdID = "acd_" + stage1.SIItemID;
+                                            var repID = "rep_" + stage1.SIItemID;
+
+                                            var stageDetail = new Eng360Web.Models.ViewModel.SafetyInspectionDetailViewModel();
+                                            if (Model.eng_safety_insp_detail != null)
+                                            {
+                                                stageDetail = Model.eng_safety_insp_detail.Where(a => a.SIItemID == stage1.SIItemID).FirstOrDefault();
+                                            }
+
+                                            <tr>
+                                                <td style="padding: 10px;">@stage1.SIItemDescription</td>
+                                                <td>
+                                                    @if (stageDetail.Is_Applicable == 1)
+                                                    {
+                                                        <input type="checkbox" checked="checked" id="@gID" class="chkstage1" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="checkbox" id="@gID" class="chkstage1" />
+                                                    }
+                                                </td>
+                                                <td>
+                                                    @if (stageDetail.Is_Applicable == 2)
+                                                    {
+                                                        <input type="checkbox" checked="checked" id="@aID" class="chkstage1" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="checkbox" id="@aID" class="chkstage1" />
+                                                    }
+
+                                                </td>
+                                                <td>
+                                                    @if (stageDetail.Is_Applicable == 3)
+                                                    {
+                                                        <input type="checkbox" checked="checked" id="@pID" class="chkstage1" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="checkbox" id="@pID" class="chkstage1" />
+                                                    }
+
+                                                </td>
+                                                <td>
+                                                    @if (stageDetail.Is_Applicable == 4)
+                                                    {
+                                                        <input type="checkbox" checked="checked" id="@naID" class="chkstage1" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="checkbox" id="@naID" class="chkstage1" />
+                                                    }
+
+                                                </td>
+
+                                                <td>
+                                                    <input type="text" id="@remID" value="@stageDetail.Recommendation" />
+                                                </td>
+                                                <td>
+                                                    <input type="text" id="@repID" value="@stageDetail.ResponsiblePerson" />
+                                                </td>
+                                                <td>
+                                                    @{
+                                                        var acdt = "";
+                                                        if (stageDetail.ACDate != null)
+                                                        {
+                                                            var stdt = stageDetail.ACDate.ToString();
+                                                            acdt = Convert.ToDateTime(stdt).ToString("dd/MM/yyyy");
+                                                        }
+                                                    }
+                                                    <input type="text" id="@acdID" value="@acdt" class="acdChk" />
+                                                </td>
+                                            </tr>
+                                        }
+
+                                        <tr>
+                                            <th style="padding: 10px;">SCAFFOLD</th>
+                                            <th>G</th>
+                                            <th>A</th>
+                                            <th>P</th>
+                                            <th>NA</th>
+                                            <th>Recommendation</th>
+                                            <th>Responsible Person</th>
+                                            <th align="center">Anticipated Completion Date</th>
+                                        </tr>
+
+                                        @foreach (var stage1 in Model.Items.Where(a => a.SIHeaderID == "H12"))
+                                        {
+                                            var gID = "good_" + stage1.SIItemID;
+                                            var aID = "avg_" + stage1.SIItemID;
+                                            var pID = "poor_" + stage1.SIItemID;
+                                            var naID = "na_" + stage1.SIItemID;
+
+                                            var remID = "rem_" + stage1.SIItemID;
+                                            var acdID = "acd_" + stage1.SIItemID;
+                                            var repID = "rep_" + stage1.SIItemID;
+
+                                            var stageDetail = new Eng360Web.Models.ViewModel.SafetyInspectionDetailViewModel();
+                                            if (Model.eng_safety_insp_detail != null)
+                                            {
+                                                stageDetail = Model.eng_safety_insp_detail.Where(a => a.SIItemID == stage1.SIItemID).FirstOrDefault();
+                                            }
+
+                                            <tr>
+                                                <td style="padding: 10px;">@stage1.SIItemDescription</td>
+                                                <td>
+                                                    @if (stageDetail.Is_Applicable == 1)
+                                                    {
+                                                        <input type="checkbox" checked="checked" id="@gID" class="chkstage1" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="checkbox" id="@gID" class="chkstage1" />
+                                                    }
+                                                </td>
+                                                <td>
+                                                    @if (stageDetail.Is_Applicable == 2)
+                                                    {
+                                                        <input type="checkbox" checked="checked" id="@aID" class="chkstage1" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="checkbox" id="@aID" class="chkstage1" />
+                                                    }
+
+                                                </td>
+                                                <td>
+                                                    @if (stageDetail.Is_Applicable == 3)
+                                                    {
+                                                        <input type="checkbox" checked="checked" id="@pID" class="chkstage1" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="checkbox" id="@pID" class="chkstage1" />
+                                                    }
+
+                                                </td>
+                                                <td>
+                                                    @if (stageDetail.Is_Applicable == 4)
+                                                    {
+                                                        <input type="checkbox" checked="checked" id="@naID" class="chkstage1" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="checkbox" id="@naID" class="chkstage1" />
+                                                    }
+
+                                                </td>
+
+                                                <td>
+                                                    <input type="text" id="@remID" value="@stageDetail.Recommendation" />
+                                                </td>
+                                                <td>
+                                                    <input type="text" id="@repID" value="@stageDetail.ResponsiblePerson" />
+                                                </td>
+                                                <td>
+                                                    @{
+                                                        var acdt = "";
+                                                        if (stageDetail.ACDate != null)
+                                                        {
+                                                            var stdt = stageDetail.ACDate.ToString();
+                                                            acdt = Convert.ToDateTime(stdt).ToString("dd/MM/yyyy");
+                                                        }
+                                                    }
+                                                    <input type="text" id="@acdID" value="@acdt" class="acdChk" />
+                                                </td>
+                                            </tr>
+                                        }
+                                                                                
+                                        <tr>
+                                            <th style="padding: 10px;">ELECTRICITY</th>
+                                            <th>G</th>
+                                            <th>A</th>
+                                            <th>P</th>
+                                            <th>NA</th>
+                                            <th>Recommendation</th>
+                                            <th>Responsible Person</th>
+                                            <th align="center">Anticipated Completion Date</th>
+                                        </tr>
+
+                                        @foreach (var stage1 in Model.Items.Where(a => a.SIHeaderID == "H13"))
+                                        {
+                                            var gID = "good_" + stage1.SIItemID;
+                                            var aID = "avg_" + stage1.SIItemID;
+                                            var pID = "poor_" + stage1.SIItemID;
+                                            var naID = "na_" + stage1.SIItemID;
+
+                                            var remID = "rem_" + stage1.SIItemID;
+                                            var acdID = "acd_" + stage1.SIItemID;
+                                            var repID = "rep_" + stage1.SIItemID;
+
+                                            var stageDetail = new Eng360Web.Models.ViewModel.SafetyInspectionDetailViewModel();
+                                            if (Model.eng_safety_insp_detail != null)
+                                            {
+                                                stageDetail = Model.eng_safety_insp_detail.Where(a => a.SIItemID == stage1.SIItemID).FirstOrDefault();
+                                            }
+
+                                            <tr>
+                                                <td style="padding: 10px;">@stage1.SIItemDescription</td>
+                                                <td>
+                                                    @if (stageDetail.Is_Applicable == 1)
+                                                    {
+                                                        <input type="checkbox" checked="checked" id="@gID" class="chkstage1" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="checkbox" id="@gID" class="chkstage1" />
+                                                    }
+                                                </td>
+                                                <td>
+                                                    @if (stageDetail.Is_Applicable == 2)
+                                                    {
+                                                        <input type="checkbox" checked="checked" id="@aID" class="chkstage1" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="checkbox" id="@aID" class="chkstage1" />
+                                                    }
+
+                                                </td>
+                                                <td>
+                                                    @if (stageDetail.Is_Applicable == 3)
+                                                    {
+                                                        <input type="checkbox" checked="checked" id="@pID" class="chkstage1" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="checkbox" id="@pID" class="chkstage1" />
+                                                    }
+
+                                                </td>
+                                                <td>
+                                                    @if (stageDetail.Is_Applicable == 4)
+                                                    {
+                                                        <input type="checkbox" checked="checked" id="@naID" class="chkstage1" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="checkbox" id="@naID" class="chkstage1" />
+                                                    }
+
+                                                </td>
+
+                                                <td>
+                                                    <input type="text" id="@remID" value="@stageDetail.Recommendation" />
+                                                </td>
+                                                <td>
+                                                    <input type="text" id="@repID" value="@stageDetail.ResponsiblePerson" />
+                                                </td>
+                                                <td>
+                                                    @{
+                                                        var acdt = "";
+                                                        if (stageDetail.ACDate != null)
+                                                        {
+                                                            var stdt = stageDetail.ACDate.ToString();
+                                                            acdt = Convert.ToDateTime(stdt).ToString("dd/MM/yyyy");
+                                                        }
+                                                    }
+                                                    <input type="text" id="@acdID" value="@acdt" class="acdChk" />
+                                                </td>
+                                            </tr>
+                                        }
+
+                                        <tr>
+                                            <th style="padding: 10px;">COMPRESSED AIR TOOLS</th>
+                                            <th>G</th>
+                                            <th>A</th>
+                                            <th>P</th>
+                                            <th>NA</th>
+                                            <th>Recommendation</th>
+                                            <th>Responsible Person</th>
+                                            <th align="center">Anticipated Completion Date</th>
+                                        </tr>
+
+                                        @foreach (var stage1 in Model.Items.Where(a => a.SIHeaderID == "H14"))
+                                        {
+                                            var gID = "good_" + stage1.SIItemID;
+                                            var aID = "avg_" + stage1.SIItemID;
+                                            var pID = "poor_" + stage1.SIItemID;
+                                            var naID = "na_" + stage1.SIItemID;
+
+                                            var remID = "rem_" + stage1.SIItemID;
+                                            var acdID = "acd_" + stage1.SIItemID;
+                                            var repID = "rep_" + stage1.SIItemID;
+
+                                            var stageDetail = new Eng360Web.Models.ViewModel.SafetyInspectionDetailViewModel();
+                                            if (Model.eng_safety_insp_detail != null)
+                                            {
+                                                stageDetail = Model.eng_safety_insp_detail.Where(a => a.SIItemID == stage1.SIItemID).FirstOrDefault();
+                                            }
+
+                                            <tr>
+                                                <td style="padding: 10px;">@stage1.SIItemDescription</td>
+                                                <td>
+                                                    @if (stageDetail.Is_Applicable == 1)
+                                                    {
+                                                        <input type="checkbox" checked="checked" id="@gID" class="chkstage1" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="checkbox" id="@gID" class="chkstage1" />
+                                                    }
+                                                </td>
+                                                <td>
+                                                    @if (stageDetail.Is_Applicable == 2)
+                                                    {
+                                                        <input type="checkbox" checked="checked" id="@aID" class="chkstage1" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="checkbox" id="@aID" class="chkstage1" />
+                                                    }
+
+                                                </td>
+                                                <td>
+                                                    @if (stageDetail.Is_Applicable == 3)
+                                                    {
+                                                        <input type="checkbox" checked="checked" id="@pID" class="chkstage1" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="checkbox" id="@pID" class="chkstage1" />
+                                                    }
+
+                                                </td>
+                                                <td>
+                                                    @if (stageDetail.Is_Applicable == 4)
+                                                    {
+                                                        <input type="checkbox" checked="checked" id="@naID" class="chkstage1" />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input type="checkbox" id="@naID" class="chkstage1" />
+                                                    }
+
+                                                </td>
+
+                                                <td>
+                                                    <input type="text" id="@remID" value="@stageDetail.Recommendation" />
+                                                </td>
+                                                <td>
+                                                    <input type="text" id="@repID" value="@stageDetail.ResponsiblePerson" />
+                                                </td>
+                                                <td>
+                                                    @{
+                                                        var acdt = "";
+                                                        if (stageDetail.ACDate != null)
+                                                        {
+                                                            var stdt = stageDetail.ACDate.ToString();
+                                                            acdt = Convert.ToDateTime(stdt).ToString("dd/MM/yyyy");
+                                                        }
+                                                    }
+                                                    <input type="text" id="@acdID" value="@acdt" class="acdChk" />
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                                                                
+                                </div>
+                            <div class="row">
+                                
+                                </div>
+                            <br />
+
+                                <div class="col-md-12"  style="font-weight: bold; ">
+                                   <table border="1">
+                                       <tr>
+                                           <td colspan="2">Others</td>
+                                           <td>Responsible Person</td>
+                                           <td>Anticipated Completion Date</td>
+                                           
+                                       </tr>
+                                       <tr>
+                                           <td>1</td>
+                                           <td>@Html.EditorFor(model => model.Others1, new { htmlAttributes = new { @class = "form-control" } })</td>
+                                           <td>@Html.EditorFor(model => model.RP1, new { htmlAttributes = new { @class = "form-control" } })</td>
+                                           <td>@Html.EditorFor(model => model.ACDate1, new { htmlAttributes = new { @class = "form-control" } })</td>
+                                       </tr>
+                                       <tr>
+                                           <td>2</td>
+                                           <td>@Html.EditorFor(model => model.Others2, new { htmlAttributes = new { @class = "form-control" } })</td>
+                                           <td>@Html.EditorFor(model => model.RP2, new { htmlAttributes = new { @class = "form-control" } })</td>
+                                           <td>@Html.EditorFor(model => model.ACDate2, new { htmlAttributes = new { @class = "form-control" } })</td>
+                                       </tr>
+                                       <tr>
+                                           <td>3</td>
+                                           <td>@Html.EditorFor(model => model.Others3, new { htmlAttributes = new { @class = "form-control" } })</td>
+                                           <td>@Html.EditorFor(model => model.RP3, new { htmlAttributes = new { @class = "form-control" } })</td>
+                                           <td>@Html.EditorFor(model => model.ACDate3, new { htmlAttributes = new { @class = "form-control" } })</td>
+                                       </tr>
+                                       <tr>
+                                           <td>4</td>
+                                           <td>@Html.EditorFor(model => model.Others4, new { htmlAttributes = new { @class = "form-control" } })</td>
+                                           <td>@Html.EditorFor(model => model.RP4, new { htmlAttributes = new { @class = "form-control" } })</td>
+                                           <td>@Html.EditorFor(model => model.ACDate4, new { htmlAttributes = new { @class = "form-control" } })</td>
+                                       </tr>
+                                       <tr>
+                                           <td>5</td>
+                                           <td>@Html.EditorFor(model => model.Others5, new { htmlAttributes = new { @class = "form-control" } })</td>
+                                           <td>@Html.EditorFor(model => model.RP5, new { htmlAttributes = new { @class = "form-control" } })</td>
+                                           <td>@Html.EditorFor(model => model.ACDate5, new { htmlAttributes = new { @class = "form-control" } })</td>
+                                       </tr>
+                                       <tr>
+                                           <td>6</td>
+                                           <td>@Html.EditorFor(model => model.Others6, new { htmlAttributes = new { @class = "form-control" } })</td>
+                                           <td>@Html.EditorFor(model => model.RP6, new { htmlAttributes = new { @class = "form-control" } })</td>
+                                           <td>@Html.EditorFor(model => model.ACDate6, new { htmlAttributes = new { @class = "form-control" } })</td>
+                                       </tr>
+                                       <tr>
+                                           <td>7</td>
+                                           <td>@Html.EditorFor(model => model.Others7, new { htmlAttributes = new { @class = "form-control" } })</td>
+                                           <td>@Html.EditorFor(model => model.RP7, new { htmlAttributes = new { @class = "form-control" } })</td>
+                                           <td>@Html.EditorFor(model => model.ACDate7, new { htmlAttributes = new { @class = "form-control" } })</td>
+                                       </tr>
+                                       <tr>
+                                           <td>8</td>
+                                           <td>@Html.EditorFor(model => model.Others8, new { htmlAttributes = new { @class = "form-control" } })</td>
+                                           <td>@Html.EditorFor(model => model.RP8, new { htmlAttributes = new { @class = "form-control" } })</td>
+                                           <td>@Html.EditorFor(model => model.ACDate8, new { htmlAttributes = new { @class = "form-control" } })</td>
+                                       </tr>
+                                       <tr>
+                                           <td>9</td>
+                                           <td>@Html.EditorFor(model => model.Others9, new { htmlAttributes = new { @class = "form-control" } })</td>
+                                           <td>@Html.EditorFor(model => model.RP9, new { htmlAttributes = new { @class = "form-control" } })</td>
+                                           <td>@Html.EditorFor(model => model.ACDate9, new { htmlAttributes = new { @class = "form-control" } })</td>
+                                       </tr>
+                                       <tr>
+                                           <td>10</td>
+                                           <td>@Html.EditorFor(model => model.Others10, new { htmlAttributes = new { @class = "form-control" } })</td>
+                                           <td>@Html.EditorFor(model => model.RP10, new { htmlAttributes = new { @class = "form-control" } })</td>
+                                           <td>@Html.EditorFor(model => model.ACDate10, new { htmlAttributes = new { @class = "form-control" } })</td>
+                                       </tr>
+
+                                   </table>
+
+                                </div>
+                            
+                            <div class="row">
+
+                            </div>
+                            <br />
+                            <div class="col-md-12">
+
+                                <table border="1">
+                                    <tr>                                        
+                                        <td>Senior Construction Manager</td>
+                                        <td>@Html.EditorFor(model => model.Senior_Construction_Manager, new { htmlAttributes = new { @class = "form-control" } })</td>
+
+                                    </tr>
+                                    <tr>                                        
+                                        <td>Project Manager</td>
+                                        <td>@Html.EditorFor(model => model.Project_Manager, new { htmlAttributes = new { @class = "form-control" } })</td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td>Site Manager</td>
+                                        <td>@Html.EditorFor(model => model.Site_Manager, new { htmlAttributes = new { @class = "form-control" } })</td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>Zone Construction Manager</td>
+                                        <td>@Html.EditorFor(model => model.Zone_Construction_Manager, new { htmlAttributes = new { @class = "form-control" } })</td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>Safety Manager</td>
+                                        <td>@Html.EditorFor(model => model.Safety_Manager, new { htmlAttributes = new { @class = "form-control" } })</td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>Safety Officer</td>
+                                        <td>@Html.EditorFor(model => model.Safety_Officer, new { htmlAttributes = new { @class = "form-control" } })</td>
+
+                                    </tr>
+                                 </table>
+
+
+</div>
+
+                                
+                            </div>
+                    </section>
+
+                   
+                </form>
+                <div>
+                    @Html.ActionLink("Back to List", "Index")
+                </div>
+            </div>
+           
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    $(document).on('focusin', '#SIDate', function () {
+        $(this).datetimepicker({
+            format: 'DD/MM/YYYY'
+           
+        });
+    });
+
+    $(document).on('focusin', '.acdChk', function () {
+        $(this).datetimepicker({
+            format: 'DD/MM/YYYY'
+
+        });
+    });
+
+    $(document).on('focusin', '#ACDate1', function () {
+        $(this).datetimepicker({
+            format: 'DD/MM/YYYY'
+
+        });
+    });
+    $(document).on('focusin', '#ACDate2', function () {
+        $(this).datetimepicker({
+            format: 'DD/MM/YYYY'
+
+        });
+    });
+    $(document).on('focusin', '#ACDate3', function () {
+        $(this).datetimepicker({
+            format: 'DD/MM/YYYY'
+
+        });
+    });
+    $(document).on('focusin', '#ACDate4', function () {
+        $(this).datetimepicker({
+            format: 'DD/MM/YYYY'
+
+        });
+    });
+    $(document).on('focusin', '#ACDate5', function () {
+        $(this).datetimepicker({
+            format: 'DD/MM/YYYY'
+
+        });
+    });
+    $(document).on('focusin', '#ACDate6', function () {
+        $(this).datetimepicker({
+            format: 'DD/MM/YYYY'
+
+        });
+    });
+    $(document).on('focusin', '#ACDate7', function () {
+        $(this).datetimepicker({
+            format: 'DD/MM/YYYY'
+
+        });
+    });
+    $(document).on('focusin', '#ACDate8', function () {
+        $(this).datetimepicker({
+            format: 'DD/MM/YYYY'
+
+        });
+    });
+    $(document).on('focusin', '#ACDate9', function () {
+        $(this).datetimepicker({
+            format: 'DD/MM/YYYY'
+
+        });
+    });
+    $(document).on('focusin', '#ACDate10', function () {
+        $(this).datetimepicker({
+            format: 'DD/MM/YYYY'
+
+        });
+    });
+
+   
+
+   
+    var flag = true;
+    var startindex = 0;
+    if (startindex == 1) {
+        //$("#divStage1 :input").prop("disabled", true);
+    }      
+    if (!flag) {
+        $("#divStage4 :input").prop("disabled", true);
+    }
+
+    debugger;
+    var form = $("#formStage1").show();
+
+    form.steps({
+        headerTag: "h3",
+        bodyTag: "section",
+        transitionEffect: "slideLeft",
+        enableCancelButton: true,
+        showFinishButtonAlways: flag,
+        //enableFinishButton: flag,
+        labels: {
+            cancel: "Cancel",
+            current: "current step:",
+            pagination: "Pagination",
+            finish: "Save",
+            next: "Next",
+            previous: "Previous",
+            loading: "Loading ..."
+        },
+        startIndex: startindex,
+        onStepChanging: function (event, currentIndex, newIndex) {
+            // Allways allow previous action even if the current form is not valid!
+            if (currentIndex > newIndex) {
+                if(startindex >= 3)
+                {
+                    $("#formStage1 .actions a[href='#finish']").hide();
+                }
+
+                return true;
+            }
+
+                      
+
+            // Needed in some cases if the user went back (clean up)
+            if (currentIndex < newIndex) {
+                // To remove error styles
+                form.find(".body:eq(" + newIndex + ") label.error").remove();
+                form.find(".body:eq(" + newIndex + ") .error").removeClass("error");
+                
+            }            
+           
+            form.validate().settings.ignore = ":disabled,:hidden";
+            return form.valid();
+        },
+        onStepChanged: function (event, currentIndex, priorIndex) {
+            // Used to skip the "Warning" step if the user is old enough.
+            if (currentIndex === 5 && Number($("#age-2").val()) >= 18) {
+                form.steps("next");
+            }
+            // Used to skip the "Warning" step if the user is old enough and wants to the previous step.
+            if (currentIndex === 5 && priorIndex === 6) {
+                form.steps("previous");
+            }
+            if(currentIndex == startindex)
+            {
+                $("#formStage1 .actions a[href='#finish']").show();
+            }
+            
+        },
+        onFinishing: function (event, currentIndex) {
+            debugger;
+
+            var stringSelection = [];
+            $.each($("input:checkbox[id^=good_]"), function (i, v) {
+                
+                var idstring = v.id;
+                var intID = idstring.split('_')[1]
+                if (v.checked) {
+                    stringSelection.push(intID + '*' + 1)
+                }
+                else {
+
+                    if ($('#avg_' + intID).prop("checked")) {
+                        stringSelection.push(intID + '*' + 2)
+                    }
+                    else if ($('#poor_' + intID).prop("checked")) {
+                        stringSelection.push(intID + '*' + 3)
+                    }
+                    else if ($('#na_' + intID).prop("checked")) {
+                        stringSelection.push(intID + '*' + 4)
+                    }
+                    else {
+                        stringSelection.push(intID + '*' + 0)
+                    }
+                }
+
+            });
+
+           // $('#stage1String').val(stringSelection);
+
+            //$('#stage1asrString').val(asrstringSelection);
+            
+            var remstringSelection = [];
+            $.each($("input:text[id^=rem_]"), function (i, v) {
+                
+                var idstring = v.id;                
+                remstringSelection.push($('#' + idstring).val())               
+
+            });
+
+            var repstringSelection = [];
+            $.each($("input:text[id^=rep_]"), function (i, v) {
+
+                var idstring = v.id;
+                repstringSelection.push($('#' + idstring).val())
+
+            });
+
+            var acdstringSelection = [];
+            $.each($("input:text[id^=acd_]"), function (i, v) {
+
+                var idstring = v.id;
+
+                acdstringSelection.push($('#' + idstring).val())
+
+            });
+
+            //$('#stage1remString').val(remstringSelection);
+
+            var final_array= [];
+            for(var i=0,j=stringSelection.length; i<j; i++) {
+                debugger;
+                final_array.push(stringSelection[i] + "*" + remstringSelection[i] + "*" + repstringSelection[i] + "*" + acdstringSelection[i]);
+            }
+
+            $('#stage1String').val(final_array);
+
+            form.validate().settings.ignore = ":disabled,:hidden";
+            return form.valid();
+        },
+        onFinished: function (event, currentIndex) {
+
+            var appid = $("#InspectedBy").val();
+            if(appid == null || appid=="Select")
+            {
+                alert("Please select Inspected By Name");
+                return false;
+            }            
+
+            $.post("Safety/SICreate", form.serialize(), function (data) {
+
+                if (data.value == "OK") {
+                    $('.SafIns').click();
+                    $('#create-SI-dialog').modal('hide');
+                }
+                else if (data.value == "Failed") {
+                    alertDialog("Safety Inspection Creation Failed!");
+                }
+                else {
+                    alertDialog(data.value);
+                }
+
+            });
+
+            alert("Submitted!");
+        }, onCanceled: function (event) {
+            $('#create-SI-dialog').modal('hide');
+        },
+    }).validate({
+        errorPlacement: function errorPlacement(error, element) {
+
+            element.after(error);
+        },
+        rules: {
+            confirm: {
+                equalTo: "#password-2"
+            }
+        }
+    });
+
+
+    $(document).ready(function () {
+        $('.chkstage1').click(function () {
+            debugger;
+            var getchkid = $(this).attr('id');
+            var tid = getchkid.split('_')[1];
+            var gid = "good_" + tid;
+            var aid = "avg_" + tid;
+            var pid = "poor_" + tid;
+            var naid = "na_" + tid;
+
+            if (getchkid == gid)
+            {               
+                var isChecked = $('#' + getchkid).is(':checked');
+                if ($('#' + getchkid).is(':checked') == true) {                    
+                    $('#' + aid).prop('checked', false);
+                    $('#' + pid).prop('checked', false);
+                    $('#' + naid).prop('checked', false);
+                }
+            }
+            if (getchkid == aid)
+            {               
+                var isChecked = $('#' + getchkid).is(':checked');
+                if ($('#' + getchkid).is(':checked') == true) {                   
+                    $('#' + gid).prop('checked', false);
+                    $('#' + pid).prop('checked', false);
+                    $('#' + naid).prop('checked', false);
+                }          
+            }
+            if (getchkid == pid) {
+                var isChecked = $('#' + getchkid).is(':checked');
+                if ($('#' + getchkid).is(':checked') == true) {
+                    $('#' + gid).prop('checked', false);
+                    $('#' + aid).prop('checked', false);
+                    $('#' + naid).prop('checked', false);
+                }
+            }
+            if (getchkid == naid)
+            {               
+                var isChecked = $('#' + getchkid).is(':checked');
+                if ($('#' + getchkid).is(':checked') == true) {                    
+                    $('#' + gid).prop('checked', false);
+                    $('#' + aid).prop('checked', false);
+                    $('#' + pid).prop('checked', false);
+                }          
+            }
+
+        });
+
+    });
+
+
+</script>
+

@@ -1,0 +1,163 @@
+﻿@model  IEnumerable<Eng360Web.Models.ViewModel.QuoteDescriptionViewModel>
+
+@{
+    Layout = null;
+
+
+}
+
+<script src="~/Scripts/moment.js"></script>
+<script src="~/Scripts/bootstrap-datetimepicker.js"></script>
+<link href="~/Content/bootstrap-datetimepicker.css" rel="stylesheet" />
+
+
+
+<style>
+    .table-condensed tbody > tr > td > a {
+        color: #4eb1ba !important;
+    }
+
+       .required::after {
+        content: "*";
+        font-weight: bold;
+        color: red;
+    }
+</style>
+
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h4 class="modal-title">Create Proejct</h4>
+</div>
+<div class="modal-body">
+    <div class="row">
+        <div class="col-md-12">
+
+            <div class="col-md-12" style="padding-bottom:10px">
+                @Html.Label("Project Name", htmlAttributes: new { @class = "control-label required" })
+                <div class="">
+                    @Html.TextBox("ProjectName",  "", htmlAttributes: new { @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="col-md-4" style="padding-bottom:10px">
+                @Html.Label("LocationId", htmlAttributes: new { @class = "control-label" })
+                <div class="">
+                    @Html.DropDownList("LocationId", null, htmlAttributes: new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="col-md-4" style="padding-bottom:10px">
+                @Html.Label("Start Date", htmlAttributes: new { @class = "control-label required" })
+                <div class="">
+                    @Html.TextBox("startDate", "", htmlAttributes: new { @class = "form-control" })
+
+                </div>
+            </div>
+
+            <div class="col-md-4" style="padding-bottom:10px">
+                @Html.Label("End Date", htmlAttributes: new { @class = "control-label" })
+                <div class="">
+                    @Html.TextBox("EndDate", "", htmlAttributes: new { @class = "form-control" })
+
+                </div>
+            </div>
+
+
+            <table style="" class="table table-striped table-bordered" id="tableCreateProject">
+
+                <thead>
+                    <tr>
+                        <th><input type="checkbox" id="ckbCheckAll" /></th>
+                        <th>Quote Desc</th>
+                        <th>Quantity</th>
+                        <th>UoM</th>
+                        <th>Quote Price</th>
+                       
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var obj in Model)
+            {
+                        <tr>
+                            <td style="text-align:center"><input id="@obj.QDID" type="checkbox" class="checkBoxClass" /></td>
+                            <td>
+                                @obj.QuoteDescription
+                            </td>
+                            <td>
+                                @obj.Quantity
+                            </td>
+                            <td>
+                                @obj.UnitOfMeasure
+                            </td>
+                            <td>@obj.QuotePrice</td>
+                            
+
+                        </tr>
+                    }
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    <button type="button" id="create-projectCreateselection-dialog-save" class="btn btn-primary">Create Project</button>
+
+</div>
+<script>
+        $(document).ready(function () {
+
+            $('#tableCreateProject').DataTable({
+                dom: 'Brti',
+                ordering: false,
+                buttons: [
+                    'copyHtml5',
+                    'excelHtml5',
+                    'csvHtml5',
+                    'pdfHtml5',
+
+                ],
+                columnDefs: [
+                { "orderable": false, "targets": 0 }
+                ]
+
+            });
+
+
+        });
+
+        $('.buttons-copy').css('display', 'none');
+        $('.buttons-excel').css('display', 'none');
+        $('.buttons-csv').css('display', 'none');
+        $('.buttons-pdf').css('display', 'none');
+
+        $(function () {
+            $("#ckbCheckAll").click(function () {
+                debugger;
+                $(".checkBoxClass").prop('checked', $(this).prop('checked'));
+            });
+
+            $(".checkBoxClass").change(function () {
+                if (!$(this).prop("checked")) {
+                    $("#ckbCheckAll").prop("checked", false);
+                }
+            });
+        });
+
+        $(function () {
+
+            $('#startDate').datetimepicker({ format: 'DD/MM/YYYY' });
+
+            $('#EndDate').datetimepicker({ format: 'DD/MM/YYYY' });
+
+
+    });
+
+
+</script>

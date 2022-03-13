@@ -1,0 +1,1430 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F99BF517-F498-49E9-92EB-1436FF0DA5FB}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Eng360Web</RootNamespace>
+    <AssemblyName>Eng360Web</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort>44306</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=2.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.2.2.1\lib\net40\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.0.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Eng360_V16_API\WebApplication2\WebApplication2\bin\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=59d6d24383174ac4, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocation.1.0.0\lib\Microsoft.Practices.ServiceLocation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.2.0.0\lib\net45-full\Ninject.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject.Web.Common, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.Web.Common.3.2.1.0\lib\net45-full\Ninject.Web.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject.Web.Mvc, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Ninject.MVC5.3.2.1.0\lib\net45-full\Ninject.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject.Web.WebApi, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.Web.WebApi.3.2.4.0\lib\net45-full\Ninject.Web.WebApi.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.4.12\lib\net45\NLog.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebActivator, Version=1.5.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivator.1.5.3\lib\net40\WebActivator.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivatorEx.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\NinjectDependencyResolver.cs" />
+    <Compile Include="App_Start\NinjectWebCommon.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AddressController.cs" />
+    <Compile Include="Controllers\ClaimController.cs" />
+    <Compile Include="Controllers\ClientController.cs" />
+    <Compile Include="Controllers\CustomInvoiceController.cs" />
+    <Compile Include="Controllers\EmployeeController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\CompanyController.cs" />
+    <Compile Include="Controllers\InvoiceController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MaterialManagementController.cs" />
+    <Compile Include="Controllers\MobileLoginController.cs" />
+    <Compile Include="Controllers\PaymentPayableController.cs" />
+    <Compile Include="Controllers\PaymentReceivableController.cs" />
+    <Compile Include="Controllers\RAController.cs" />
+    <Compile Include="Controllers\PTWController.cs" />
+    <Compile Include="Controllers\PurchaseOrderController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\ProjectController.cs" />
+    <Compile Include="Controllers\ProjectReportController.cs" />
+    <Compile Include="Controllers\QualityDefectController.cs" />
+    <Compile Include="Controllers\QuoteController.cs" />
+    <Compile Include="Controllers\SafetyController.cs" />
+    <Compile Include="Controllers\SuperBaseController.cs" />
+    <Compile Include="Controllers\SupplierController.cs" />
+    <Compile Include="Controllers\TimeEntryController.cs" />
+    <Compile Include="Controllers\TransportController..cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Filters\RequireHttpsAttribute.cs" />
+    <Compile Include="Filters\UnhandledExceptionFilter.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Authentication\BasicAuthenticationMessageHandler.cs" />
+    <Compile Include="Models\Domain\DB_Company1_Result.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\DB_Company_Result.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\DB_Company_Result1.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\DB_Director_Project1_Result.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\DB_Director_Project2_Result.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\DB_Director_Project_Result.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\DB_Emp1_Result.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\DB_Emp_Result.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\DB_Emp_Result1.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\DB_Operation1_Result.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\DB_Operation_Result.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\DB_Operation_Result1.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\DB_Payable1_Result.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\DB_Payable_Result.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\DB_Payable_Result1.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\DB_Receivable1_Result.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\DB_Receivable_Result.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\DB_Receivable_Result1.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\DB_SVMan_DTTR1_Result.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\DB_SVMan_DTTR2_Result.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\DB_SVMan_DTTR_Result.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\DB_SVMan_Project1_Result.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\DB_SVMan_Project2_Result.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\DB_SVMan_Project_Result.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\DB_SVMan_Quality1_Result.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\DB_SVMan_Quality2_Result.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\DB_SVMan_Quality_Result.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\DB_Vehicle1_Result.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\DB_Vehicle_Result.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\DB_Vehicle_Result1.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\Eng360DB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Eng360DB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\Eng360DB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\Eng360DB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Eng360DB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_address_master.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_claim.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_claim_description.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_claim_files.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_client_contact.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_client_master.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_company.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_company_cert.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_custom_invoice.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_custom_invoice_details.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_do_seqnum.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_employee_profile.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_invoice_details.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_invoice_master.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_inv_seqnum.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_inward.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_mm_inwdesc.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_mm_outdesc.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_mm_stockadj_master.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_mm_trmaster.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_module.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_outward.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_permission.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_po_description.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_po_master.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_product_master.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_project_master.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_project_report.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_project_report_files.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_PTW_Conspc_Detail_Stage1.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_PTW_Conspc_Detail_Stage5.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_PTW_Conspc_Employee_Details.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_ptw_conspc_master.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_PTW_Detail_Satge1.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_PTW_Detail_Satge4.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_PTW_Employee_Details.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_ptw_master.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_pymt_payable.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_pymt_receivable.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_qa_defect.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_qa_defect_cpa.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_qa_defect_cpa_files.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_qa_defect_detail.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_qa_defect_files.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_quote_description.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_quote_master.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_ra_control_measures.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_ra_hazardlist.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_ra_location.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_ra_possible_accident_health.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_ra_process.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_ra_trans_detail1.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_ra_trans_master.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_ra_trans_racm.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_ra_work_activity.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_safety_esh.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_safety_esh_files.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_safety_hazard_list.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_safety_insp_detail.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_safety_insp_master.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_safety_master.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_safety_ppe_list.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_safety_worker_list.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_screens.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_store_master.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_supplier_master.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_sys_claimtype.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_sys_country.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_sys_function.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_sys_industry.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_sys_location.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_sys_project_status.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_sys_ptw_stage1_config.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_sys_ptw_stages.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_sys_pymt_status.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_sys_quotestatus.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_sys_riskmatrix.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_sys_rm_likelihood.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_sys_rm_severity.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_sys_safety_hazard.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_sys_safety_insp_items.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_sys_safety_ppelist.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_sys_task_status.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_time_entry.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_transport_master.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_usergroup.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\eng_users.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\getProjectReport1_Result.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\getProjectReport_Result.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\getProjectReport_Result1.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\GetStock1_Result.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\GetStock_Result.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\GetStock_Result1.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\getTimeReport1_Result.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\getTimeReport_Result.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\getTimeReport_Result1.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\sp_helpdiagrams_Result.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\sysdiagram.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\TimeEntry1_Result.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\TimeEntry_Result.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Domain\TimeEntry_Result1.cs">
+      <DependentUpon>Eng360DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Repository\Imp\InvoiceRepository.cs" />
+    <Compile Include="Models\Repository\Imp\MaterialManagementRepository.cs" />
+    <Compile Include="Models\Repository\Imp\RARepository.cs" />
+    <Compile Include="Models\Repository\Imp\PTWRepository.cs" />
+    <Compile Include="Models\Repository\Imp\SafetyRepository.cs" />
+    <Compile Include="Models\Repository\Imp\QualityDefectRepository.cs" />
+    <Compile Include="Models\Repository\Imp\TransportRepository.cs" />
+    <Compile Include="Models\Repository\Imp\UserRepository.cs" />
+    <Compile Include="Models\Repository\Imp\TimeEntryRepository.cs" />
+    <Compile Include="Models\Repository\Imp\ClaimRepository.cs" />
+    <Compile Include="Models\Repository\Imp\CompanyRepository.cs" />
+    <Compile Include="Models\Repository\Imp\PaymentRepository.cs" />
+    <Compile Include="Models\Repository\Imp\PoRepository.cs" />
+    <Compile Include="Models\Repository\Imp\ProjectRepository.cs" />
+    <Compile Include="Models\Repository\Imp\ProjectReportRepository.cs" />
+    <Compile Include="Models\Repository\Imp\QuoteRepository.cs" />
+    <Compile Include="Models\Repository\Imp\ClientRepository.cs" />
+    <Compile Include="Models\Repository\Imp\SupplierRepository.cs" />
+    <Compile Include="Models\Repository\Imp\ProductRepository.cs" />
+    <Compile Include="Models\Repository\Interface\IInvoiceRepository.cs" />
+    <Compile Include="Models\Repository\Interface\IMaterialManagement.cs" />
+    <Compile Include="Models\Repository\Interface\IRARepository.cs" />
+    <Compile Include="Models\Repository\Interface\IPTWRepository.cs" />
+    <Compile Include="Models\Repository\Interface\ISafetyRepository.cs" />
+    <Compile Include="Models\Repository\Interface\IQualityDefectRepository.cs" />
+    <Compile Include="Models\Repository\Interface\ITransportRepository.cs" />
+    <Compile Include="Models\Repository\Interface\IUserRepository.cs" />
+    <Compile Include="Models\Repository\Interface\ITimeEntryRepository.cs" />
+    <Compile Include="Models\Repository\Interface\IClaimRepository.cs" />
+    <Compile Include="Models\Repository\Interface\ICompanyRepository.cs" />
+    <Compile Include="Models\Repository\Interface\IPaymentRepository.cs" />
+    <Compile Include="Models\Repository\Interface\IProductRepository.cs" />
+    <Compile Include="Models\Repository\Interface\IProjectRepository.cs" />
+    <Compile Include="Models\Repository\Interface\IProjectReportRepository.cs" />
+    <Compile Include="Models\Repository\Interface\IQuoteRepository.cs" />
+    <Compile Include="Models\Repository\Interface\IClientRepository.cs" />
+    <Compile Include="Models\Repository\Interface\ISupplierRepository.cs" />
+    <Compile Include="Models\Repository\Interface\IPoRepository.cs" />
+    <Compile Include="Models\Repository\Interface\IEmployeeRepository.cs" />
+    <Compile Include="Models\Repository\Imp\EmployeeRepository.cs" />
+    <Compile Include="Models\Security\AccessDeniedAuthorizeAttribute.cs" />
+    <Compile Include="Models\Service\Imp\InvoiceServices.cs" />
+    <Compile Include="Models\Service\Imp\MaterialManagementServices.cs" />
+    <Compile Include="Models\Service\Imp\RAServices.cs" />
+    <Compile Include="Models\Service\Imp\PTWServices.cs" />
+    <Compile Include="Models\Service\Imp\SafetyServices.cs" />
+    <Compile Include="Models\Service\Imp\QualityDefectServices.cs" />
+    <Compile Include="Models\Service\Imp\TransportServices.cs" />
+    <Compile Include="Models\Service\Imp\UserServices.cs" />
+    <Compile Include="Models\Service\Imp\TimeEntryServices.cs" />
+    <Compile Include="Models\Service\Imp\ClaimServices.cs" />
+    <Compile Include="Models\Service\Imp\CompanyServices.cs" />
+    <Compile Include="Models\Service\Imp\PaymentServices.cs" />
+    <Compile Include="Models\Service\Imp\PoServices.cs" />
+    <Compile Include="Models\Service\Imp\ProjectServices.cs" />
+    <Compile Include="Models\Service\Imp\ProjectReportService.cs" />
+    <Compile Include="Models\Service\Imp\QuoteServices.cs" />
+    <Compile Include="Models\Service\Imp\ClientServices.cs" />
+    <Compile Include="Models\Service\Imp\SupplierServices.cs" />
+    <Compile Include="Models\Service\Imp\ProductServices.cs" />
+    <Compile Include="Models\Service\Interface\IInvoiceServices.cs" />
+    <Compile Include="Models\Service\Interface\IMaterialManagementServices.cs" />
+    <Compile Include="Models\Service\Interface\IRAServices.cs" />
+    <Compile Include="Models\Service\Interface\IPTWServices.cs" />
+    <Compile Include="Models\Service\Interface\ISafetyServices.cs" />
+    <Compile Include="Models\Service\Interface\IQualityDefectServices.cs" />
+    <Compile Include="Models\Service\Interface\ITransportServices.cs" />
+    <Compile Include="Models\Service\Interface\IUserServices.cs" />
+    <Compile Include="Models\Service\Interface\ITimeEntryServices.cs" />
+    <Compile Include="Models\Service\Interface\IClaimServices.cs" />
+    <Compile Include="Models\Service\Interface\ICompanyServices.cs" />
+    <Compile Include="Models\Service\Interface\IPaymentServices.cs" />
+    <Compile Include="Models\Service\Interface\IPoServices.cs" />
+    <Compile Include="Models\Service\Interface\IProjectServices.cs" />
+    <Compile Include="Models\Service\Interface\IProjectReportService.cs" />
+    <Compile Include="Models\Service\Interface\IQuoteServices.cs" />
+    <Compile Include="Models\Service\Interface\IClientServices.cs" />
+    <Compile Include="Models\Service\Interface\ISupplierServices.cs" />
+    <Compile Include="Models\Service\Interface\IProductServices.cs" />
+    <Compile Include="Models\Service\Interface\IEmployeeServices.cs" />
+    <Compile Include="Models\Service\Imp\EmployeeServices.cs" />
+    <Compile Include="Models\Utility\AppSession.cs" />
+    <Compile Include="Models\Utility\AppSettings.cs" />
+    <Compile Include="Models\Utility\HtmlHelperExtensions.cs" />
+    <Compile Include="Models\Utility\LocalizationHelper.cs" />
+    <Compile Include="Models\ViewModel\AddressViewModel.cs" />
+    <Compile Include="Models\ViewModel\DashBoardSVManQualityViewModel.cs" />
+    <Compile Include="Models\ViewModel\DashBoardSVManDTTRViewModel.cs" />
+    <Compile Include="Models\ViewModel\DashBoardSVManProjectViewModel.cs" />
+    <Compile Include="Models\ViewModel\DashBoardOperationViewModel.cs" />
+    <Compile Include="Models\ViewModel\DashBoardDirectorProjectViewModel.cs" />
+    <Compile Include="Models\ViewModel\DashBoardReceivableViewModel.cs" />
+    <Compile Include="Models\ViewModel\DashBoardPayableViewModel.cs" />
+    <Compile Include="Models\ViewModel\DashBoardCompanyViewModel.cs" />
+    <Compile Include="Models\ViewModel\DashBoardVehicleViewModel.cs" />
+    <Compile Include="Models\ViewModel\DashBoardHREmpViewModel.cs" />
+    <Compile Include="Models\ViewModel\IndexViewModel.cs" />
+    <Compile Include="Models\ViewModel\FilterViewModel.cs" />
+    <Compile Include="Models\ViewModel\InvoiceDescriptionViewModel.cs" />
+    <Compile Include="Models\ViewModel\InvoiceMasterViewModel.cs" />
+    <Compile Include="Models\ViewModel\LoginResponseViewModel.cs" />
+    <Compile Include="Models\ViewModel\MMStockAdjustViewModel.cs" />
+    <Compile Include="Models\ViewModel\MMStockViewModel.cs" />
+    <Compile Include="Models\ViewModel\MMTransMasterViewModel.cs" />
+    <Compile Include="Models\ViewModel\MMOutwardViewModel.cs" />
+    <Compile Include="Models\ViewModel\MMOutwardDescViewModel.cs" />
+    <Compile Include="Models\ViewModel\MMInwardDescViewModel.cs" />
+    <Compile Include="Models\ViewModel\InvoiceInfoViewModel.cs" />
+    <Compile Include="Models\ViewModel\PaymentInfoViewModel.cs" />
+    <Compile Include="Models\ViewModel\NewSafetyInspectionDetailViewModel.cs" />
+    <Compile Include="Models\ViewModel\RASeverityViewModel.cs" />
+    <Compile Include="Models\ViewModel\RALikelihoodViewModel.cs" />
+    <Compile Include="Models\ViewModel\RATransRACMViewModel.cs" />
+    <Compile Include="Models\ViewModel\RATransDetail1ViewModel.cs" />
+    <Compile Include="Models\ViewModel\RATransMasterViewModel.cs" />
+    <Compile Include="Models\ViewModel\RAMastersViewModel.cs" />
+    <Compile Include="Models\ViewModel\PTWConspcEmployeeViewModel.cs" />
+    <Compile Include="Models\ViewModel\PTWEmployeeViewModel.cs" />
+    <Compile Include="Models\ViewModel\PTWConspcMasterViewModel.cs" />
+    <Compile Include="Models\ViewModel\PTWMasterViewModel.cs" />
+    <Compile Include="Models\ViewModel\PTWConspcStage1ViewModel.cs" />
+    <Compile Include="Models\ViewModel\PTWStage1ViewModel.cs" />
+    <Compile Include="Models\ViewModel\PTWConspcStage5ViewModel.cs" />
+    <Compile Include="Models\ViewModel\PTWStage4ViewModel.cs" />
+    <Compile Include="Models\ViewModel\SafetyChildPPEListViewModel.cs" />
+    <Compile Include="Models\ViewModel\SafetyChildWorkerListViewModel.cs" />
+    <Compile Include="Models\ViewModel\SafetyChildHazardListViewModel.cs" />
+    <Compile Include="Models\ViewModel\NewSafetyInspectionViewModel.cs" />
+    <Compile Include="Models\ViewModel\SafetyInspectionDetailViewModel.cs" />
+    <Compile Include="Models\ViewModel\SafetyInspectionMasterViewModel.cs" />
+    <Compile Include="Models\ViewModel\SafetyInspectionItemsViewModel.cs" />
+    <Compile Include="Models\ViewModel\SafetyMasterViewModel.cs" />
+    <Compile Include="Models\ViewModel\SafetyPPEListViewModel.cs" />
+    <Compile Include="Models\ViewModel\SafetyHazardListViewModel.cs" />
+    <Compile Include="Models\ViewModel\ProjectMobileViewModel.cs" />
+    <Compile Include="Models\ViewModel\QualityDefectCPAFilesViewModel.cs" />
+    <Compile Include="Models\ViewModel\QualityDefectCPAViewModel.cs" />
+    <Compile Include="Models\ViewModel\QualityDefectDetailViewModel.cs" />
+    <Compile Include="Models\ViewModel\QualityDefectFilesViewMode.cs" />
+    <Compile Include="Models\ViewModel\ClaimTypeViewModel.cs" />
+    <Compile Include="Models\ViewModel\ClaimDescriptionViewModel.cs" />
+    <Compile Include="Models\ViewModel\ClaimFilesViewModel.cs" />
+    <Compile Include="Models\ViewModel\QualityDefectViewModel.cs" />
+    <Compile Include="Models\ViewModel\MMInwardViewModel.cs" />
+    <Compile Include="Models\ViewModel\StoreMasterViewModel.cs" />
+    <Compile Include="Models\ViewModel\TransportViewModel.cs" />
+    <Compile Include="Models\ViewModel\UserViewModel.cs" />
+    <Compile Include="Models\ViewModel\TimeEntryViewModel.cs" />
+    <Compile Include="Models\ViewModel\ClaimViewModel.cs" />
+    <Compile Include="Models\ViewModel\CustomInvoiceViewModel.cs" />
+    <Compile Include="Models\ViewModel\LocationViewModel.cs" />
+    <Compile Include="Models\ViewModel\PaymentPayableViewModel.cs" />
+    <Compile Include="Models\ViewModel\PaymentReceivableViewModel.cs" />
+    <Compile Include="Models\ViewModel\PaymentStatusViewModel.cs" />
+    <Compile Include="Models\ViewModel\CompanyViewModel.cs" />
+    <Compile Include="Models\ViewModel\ProjectReportTaskStatusViewModel.cs" />
+    <Compile Include="Models\ViewModel\ProjectStatusViewModel.cs" />
+    <Compile Include="Models\ViewModel\ProjectReportViewModel.cs" />
+    <Compile Include="Models\ViewModel\ProjectReportFilesViewModel.cs" />
+    <Compile Include="Models\ViewModel\ProjectViewModel.cs" />
+    <Compile Include="Models\ViewModel\PoDescriptionViewModel.cs" />
+    <Compile Include="Models\ViewModel\QuoteStatusViewModel.cs" />
+    <Compile Include="Models\ViewModel\QuoteDescriptionViewModel.cs" />
+    <Compile Include="Models\ViewModel\ClientContactViewModel.cs" />
+    <Compile Include="Models\ViewModel\ClientViewModel.cs" />
+    <Compile Include="Models\ViewModel\EmployeeViewModel.cs" />
+    <Compile Include="Models\ViewModel\FunctionViewModel.cs" />
+    <Compile Include="Models\ViewModel\GroupViewModel.cs" />
+    <Compile Include="Models\ViewModel\IndustryViewModel.cs" />
+    <Compile Include="Models\ViewModel\ModuleViewModel.cs" />
+    <Compile Include="Models\ViewModel\LoginViewModel.cs" />
+    <Compile Include="Models\ViewModel\PermissionViewModel.cs" />
+    <Compile Include="Models\ViewModel\ProductViewModel.cs" />
+    <Compile Include="Models\ViewModel\PoViewModel.cs" />
+    <Compile Include="Models\ViewModel\QuoteViewModel.cs" />
+    <Compile Include="Models\ViewModel\ScreenViewModel.cs" />
+    <Compile Include="Models\ViewModel\SupplierViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-datetimepicker.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\datatables-plugins\dataTables.bootstrap.css" />
+    <Content Include="Content\datatables-responsive\dataTables.responsive.css" />
+    <Content Include="Content\datatables\css\buttons.dataTables.min.css" />
+    <Content Include="Content\datatables\css\dataTables.bootstrap.css" />
+    <Content Include="Content\datatables\css\dataTables.bootstrap.min.css" />
+    <Content Include="Content\datatables\css\dataTables.bootstrap4.css" />
+    <Content Include="Content\datatables\css\dataTables.bootstrap4.min.css" />
+    <Content Include="Content\datatables\css\dataTables.foundation.css" />
+    <Content Include="Content\datatables\css\dataTables.foundation.min.css" />
+    <Content Include="Content\datatables\css\dataTables.jqueryui.css" />
+    <Content Include="Content\datatables\css\dataTables.jqueryui.min.css" />
+    <Content Include="Content\datatables\css\dataTables.material.css" />
+    <Content Include="Content\datatables\css\dataTables.material.min.css" />
+    <Content Include="Content\datatables\css\dataTables.semanticui.css" />
+    <Content Include="Content\datatables\css\dataTables.semanticui.min.css" />
+    <Content Include="Content\datatables\css\dataTables.tableTools.css" />
+    <Content Include="Content\datatables\css\dataTables.tableTools.min.css" />
+    <Content Include="Content\datatables\css\dataTables.uikit.css" />
+    <Content Include="Content\datatables\css\dataTables.uikit.min.css" />
+    <Content Include="Content\datatables\css\jquery.dataTables.css" />
+    <Content Include="Content\datatables\css\jquery.dataTables.min.css" />
+    <Content Include="Content\datatables\css\jquery.dataTables_themeroller.css" />
+    <Content Include="Content\datatables\images\collection.png" />
+    <Content Include="Content\datatables\images\collection_hover.png" />
+    <Content Include="Content\datatables\images\copy.png" />
+    <Content Include="Content\datatables\images\copy_hover.png" />
+    <Content Include="Content\datatables\images\csv.png" />
+    <Content Include="Content\datatables\images\csv_hover.png" />
+    <Content Include="Content\datatables\images\favicon.ico" />
+    <Content Include="Content\datatables\images\pdf.png" />
+    <Content Include="Content\datatables\images\pdf_hover.png" />
+    <Content Include="Content\datatables\images\print.png" />
+    <Content Include="Content\datatables\images\print_hover.png" />
+    <Content Include="Content\datatables\images\sort_asc.png" />
+    <Content Include="Content\datatables\images\sort_asc_disabled.png" />
+    <Content Include="Content\datatables\images\sort_both.png" />
+    <Content Include="Content\datatables\images\sort_desc.png" />
+    <Content Include="Content\datatables\images\sort_desc_disabled.png" />
+    <Content Include="Content\datatables\images\xls.png" />
+    <Content Include="Content\datatables\images\xls_hover.png" />
+    <Content Include="Content\font-awesome\css\font-awesome.css" />
+    <Content Include="Content\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Content\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\font-awesome\HELP-US-OUT.txt" />
+    <Content Include="Content\font\font-awesome-4.7.0\css\font-awesome.css" />
+    <Content Include="Content\font\font-awesome-4.7.0\css\font-awesome.min.css" />
+    <Content Include="Content\font\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\font\font-awesome-4.7.0\HELP-US-OUT.txt" />
+    <Content Include="Content\font\fontawesome-webfont.svg" />
+    <Content Include="Content\font\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\font\iconic\css\material-design-iconic-font.css" />
+    <Content Include="Content\font\iconic\css\material-design-iconic-font.min.css" />
+    <Content Include="Content\font\material-design-iconic-font.min.css" />
+    <Content Include="Content\font\Material-Design-Iconic-Font.svg" />
+    <Content Include="Content\images\delete.png" />
+    <Content Include="Content\images\no-image-icon-md.png" />
+    <Content Include="Content\images\pencil_edit.png" />
+    <Content Include="Content\images\Preview_Icon.png" />
+    <Content Include="Content\images\ui-icons_444444_256x240.png" />
+    <Content Include="Content\images\ui-icons_555555_256x240.png" />
+    <Content Include="Content\images\ui-icons_777620_256x240.png" />
+    <Content Include="Content\images\ui-icons_777777_256x240.png" />
+    <Content Include="Content\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="Content\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\img\ajax-loader1.gif" />
+    <Content Include="Content\jquery-ui.css" />
+    <Content Include="Content\jquery-ui.min.css" />
+    <Content Include="Content\jquery-ui.datepicker.css" />
+    <Content Include="Content\jquery-ui.structure.css" />
+    <Content Include="Content\jquery-ui.structure.min.css" />
+    <Content Include="Content\jquery-ui.theme.css" />
+    <Content Include="Content\jquery-ui.theme.min.css" />
+    <Content Include="Content\jquery.multiselect.css" />
+    <Content Include="Content\jquery.steps.css" />
+    <Content Include="Content\metisMenu\metisMenu.css" />
+    <Content Include="Content\metisMenu\metisMenu.min.css" />
+    <Content Include="Content\morrisjs\morris.css" />
+    <Content Include="Content\pagination\bootstrap-table.min.css" />
+    <Content Include="Content\pagination\bootstrap.min.css" />
+    <Content Include="Content\sb-admin-2.css" />
+    <Content Include="Content\tagit\jquery.tagit.css" />
+    <Content Include="Content\tagit\tagit.ui-zendesk.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="images\CompanyLogo\biz3.png" />
+    <Content Include="images\CompanyLogo\logo.png" />
+    <Content Include="images\ProfilePictures\PID41_2017_2.jpg" />
+    <Content Include="Models\Domain\Eng360DB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Eng360DB.edmx</DependentUpon>
+      <LastGenOutput>Eng360DB.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Domain\Eng360DB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Eng360DB.edmx</DependentUpon>
+      <LastGenOutput>Eng360DB.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\bootstrap-datetimepicker.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\datatables\images\Sorting icons.psd" />
+    <Content Include="Content\font-awesome\css\font-awesome.css.map" />
+    <Content Include="Content\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Content\font-awesome\less\animated.less" />
+    <Content Include="Content\font-awesome\less\bordered-pulled.less" />
+    <Content Include="Content\font-awesome\less\core.less" />
+    <Content Include="Content\font-awesome\less\extras.less" />
+    <Content Include="Content\font-awesome\less\fixed-width.less" />
+    <Content Include="Content\font-awesome\less\font-awesome.less" />
+    <Content Include="Content\font-awesome\less\icons.less" />
+    <Content Include="Content\font-awesome\less\larger.less" />
+    <Content Include="Content\font-awesome\less\list.less" />
+    <Content Include="Content\font-awesome\less\mixins.less" />
+    <Content Include="Content\font-awesome\less\path.less" />
+    <Content Include="Content\font-awesome\less\rotated-flipped.less" />
+    <Content Include="Content\font-awesome\less\screen-reader.less" />
+    <Content Include="Content\font-awesome\less\spinning.less" />
+    <Content Include="Content\font-awesome\less\stacked.less" />
+    <Content Include="Content\font-awesome\less\variables.less" />
+    <Content Include="Content\font-awesome\scss\font-awesome.scss" />
+    <Content Include="Content\font-awesome\scss\_animated.scss" />
+    <Content Include="Content\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="Content\font-awesome\scss\_core.scss" />
+    <Content Include="Content\font-awesome\scss\_extras.scss" />
+    <Content Include="Content\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="Content\font-awesome\scss\_icons.scss" />
+    <Content Include="Content\font-awesome\scss\_larger.scss" />
+    <Content Include="Content\font-awesome\scss\_list.scss" />
+    <Content Include="Content\font-awesome\scss\_mixins.scss" />
+    <Content Include="Content\font-awesome\scss\_path.scss" />
+    <Content Include="Content\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="Content\font-awesome\scss\_screen-reader.scss" />
+    <Content Include="Content\font-awesome\scss\_spinning.scss" />
+    <Content Include="Content\font-awesome\scss\_stacked.scss" />
+    <Content Include="Content\font-awesome\scss\_variables.scss" />
+    <Content Include="NLog.config" />
+    <EntityDeploy Include="Models\Domain\Eng360DB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Eng360DB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Domain\Eng360DB.edmx.diagram">
+      <DependentUpon>Eng360DB.edmx</DependentUpon>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Scripts\datatables-plugins\date-eu.js" />
+    <Content Include="Scripts\datatables\dataTables.tableTools.js" />
+    <Content Include="Scripts\datatables\dataTables.tableTools.min.js" />
+    <Content Include="Scripts\datatables\js\buttons.html5.min.js" />
+    <Content Include="Scripts\datatables\js\dataTables.buttons.min.js" />
+    <Content Include="Scripts\datatables-plugins\dataTables.bootstrap.js" />
+    <Content Include="Scripts\datatables-plugins\dataTables.bootstrap.min.js" />
+    <Content Include="Scripts\datatables-responsive\dataTables.responsive.js" />
+    <Content Include="Scripts\datatables\js\dataTables.bootstrap.js" />
+    <Content Include="Scripts\datatables\js\dataTables.bootstrap.min.js" />
+    <Content Include="Scripts\datatables\js\dataTables.bootstrap4.js" />
+    <Content Include="Scripts\datatables\js\dataTables.bootstrap4.min.js" />
+    <Content Include="Scripts\datatables\js\dataTables.foundation.js" />
+    <Content Include="Scripts\datatables\js\dataTables.foundation.min.js" />
+    <Content Include="Scripts\datatables\js\dataTables.jqueryui.js" />
+    <Content Include="Scripts\datatables\js\dataTables.jqueryui.min.js" />
+    <Content Include="Scripts\datatables\js\dataTables.material.js" />
+    <Content Include="Scripts\datatables\js\dataTables.material.min.js" />
+    <Content Include="Scripts\datatables\js\dataTables.semanticui.js" />
+    <Content Include="Scripts\datatables\js\dataTables.semanticui.min.js" />
+    <Content Include="Scripts\datatables\js\dataTables.uikit.js" />
+    <Content Include="Scripts\datatables\js\dataTables.uikit.min.js" />
+    <Content Include="Scripts\datatables\js\jquery.dataTables.js" />
+    <Content Include="Scripts\datatables\js\jquery.dataTables.min.js" />
+    <Content Include="Scripts\datatables\js\jquery.js" />
+    <Content Include="Content\font\.DS_Store" />
+    <Content Include="Content\font\font-awesome-4.7.0\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\font\font-awesome-4.7.0\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\font\font-awesome-4.7.0\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\font\font-awesome-4.7.0\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\font\font-awesome-4.7.0\fonts\FontAwesome.otf" />
+    <Content Include="Content\font\font-awesome-4.7.0\less\animated.less" />
+    <Content Include="Content\font\font-awesome-4.7.0\less\bordered-pulled.less" />
+    <Content Include="Content\font\font-awesome-4.7.0\less\core.less" />
+    <Content Include="Content\font\font-awesome-4.7.0\less\fixed-width.less" />
+    <Content Include="Content\font\font-awesome-4.7.0\less\font-awesome.less" />
+    <Content Include="Content\font\font-awesome-4.7.0\less\icons.less" />
+    <Content Include="Content\font\font-awesome-4.7.0\less\larger.less" />
+    <Content Include="Content\font\font-awesome-4.7.0\less\list.less" />
+    <Content Include="Content\font\font-awesome-4.7.0\less\mixins.less" />
+    <Content Include="Content\font\font-awesome-4.7.0\less\path.less" />
+    <Content Include="Content\font\font-awesome-4.7.0\less\rotated-flipped.less" />
+    <Content Include="Content\font\font-awesome-4.7.0\less\screen-reader.less" />
+    <Content Include="Content\font\font-awesome-4.7.0\less\stacked.less" />
+    <Content Include="Content\font\font-awesome-4.7.0\less\variables.less" />
+    <Content Include="Content\font\font-awesome-4.7.0\scss\font-awesome.scss" />
+    <Content Include="Content\font\font-awesome-4.7.0\scss\_animated.scss" />
+    <Content Include="Content\font\font-awesome-4.7.0\scss\_bordered-pulled.scss" />
+    <Content Include="Content\font\font-awesome-4.7.0\scss\_core.scss" />
+    <Content Include="Content\font\font-awesome-4.7.0\scss\_fixed-width.scss" />
+    <Content Include="Content\font\font-awesome-4.7.0\scss\_icons.scss" />
+    <Content Include="Content\font\font-awesome-4.7.0\scss\_larger.scss" />
+    <Content Include="Content\font\font-awesome-4.7.0\scss\_list.scss" />
+    <Content Include="Content\font\font-awesome-4.7.0\scss\_mixins.scss" />
+    <Content Include="Content\font\font-awesome-4.7.0\scss\_path.scss" />
+    <Content Include="Content\font\font-awesome-4.7.0\scss\_rotated-flipped.scss" />
+    <Content Include="Content\font\font-awesome-4.7.0\scss\_screen-reader.scss" />
+    <Content Include="Content\font\font-awesome-4.7.0\scss\_stacked.scss" />
+    <Content Include="Content\font\font-awesome-4.7.0\scss\_variables.scss" />
+    <Content Include="Content\font\fontawesome-webfont.eot" />
+    <Content Include="Content\font\fontawesome-webfont.ttf" />
+    <Content Include="Content\font\fontawesome-webfont.woff" />
+    <Content Include="Content\font\fontawesome-webfont.woff2" />
+    <Content Include="Content\font\FontAwesome.otf" />
+    <Content Include="Content\font\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\font\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\font\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\font\iconic\fonts\.DS_Store" />
+    <Content Include="Content\font\Material-Design-Iconic-Font.eot" />
+    <Content Include="Content\font\Material-Design-Iconic-Font.ttf" />
+    <Content Include="Content\font\Material-Design-Iconic-Font.woff" />
+    <Content Include="Content\font\Material-Design-Iconic-Font.woff2" />
+    <Content Include="Content\font\poppins\Poppins-Black.ttf" />
+    <Content Include="Content\font\poppins\Poppins-BlackItalic.ttf" />
+    <Content Include="Content\font\poppins\Poppins-Bold.ttf" />
+    <Content Include="Content\font\poppins\Poppins-BoldItalic.ttf" />
+    <Content Include="Content\font\poppins\Poppins-ExtraBold.ttf" />
+    <Content Include="Content\font\poppins\Poppins-ExtraBoldItalic.ttf" />
+    <Content Include="Content\font\poppins\Poppins-ExtraLight.ttf" />
+    <Content Include="Content\font\poppins\Poppins-ExtraLightItalic.ttf" />
+    <Content Include="Content\font\poppins\Poppins-Italic.ttf" />
+    <Content Include="Content\font\poppins\Poppins-Light.ttf" />
+    <Content Include="Content\font\poppins\Poppins-LightItalic.ttf" />
+    <Content Include="Content\font\poppins\Poppins-Medium.ttf" />
+    <Content Include="Content\font\poppins\Poppins-MediumItalic.ttf" />
+    <Content Include="Content\font\poppins\Poppins-Regular.ttf" />
+    <Content Include="Content\font\poppins\Poppins-SemiBold.ttf" />
+    <Content Include="Content\font\poppins\Poppins-SemiBoldItalic.ttf" />
+    <Content Include="Content\font\poppins\Poppins-Thin.ttf" />
+    <Content Include="Content\font\poppins\Poppins-ThinItalic.ttf" />
+    <None Include="Properties\PublishProfiles\Publish.pubxml" />
+    <None Include="Scripts\jquery-1.12.4.intellisense.js" />
+    <Content Include="Scripts\jquery-1.12.4.js" />
+    <Content Include="Scripts\jquery-1.12.4.min.js" />
+    <Content Include="Scripts\jquery-1.12.4.min.map" />
+    <Content Include="Scripts\jquery-ui.js" />
+    <Content Include="Scripts\jquery-ui.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.multiselect.js" />
+    <Content Include="Scripts\jquery.steps.js" />
+    <Content Include="Scripts\jquery.steps.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\jszip.min.js" />
+    <Content Include="Scripts\MessageBoxs.js" />
+    <Content Include="Scripts\metisMenu\metisMenu.js" />
+    <Content Include="Scripts\metisMenu\metisMenu.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\moment.js" />
+    <Content Include="Scripts\morrisjs\morris.js" />
+    <Content Include="Scripts\morrisjs\morris.min.js" />
+    <Content Include="Scripts\pagination\bootstrap-table.min.js" />
+    <Content Include="Scripts\pagination\bootstrap.min.js" />
+    <Content Include="Scripts\pagination\jquery.min.js" />
+    <Content Include="Scripts\pdfmake.min.js" />
+    <Content Include="Scripts\raphael\raphael.js" />
+    <Content Include="Scripts\raphael\raphael.min.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\tagit\tag-it.js" />
+    <Content Include="Scripts\tagit\tag-it.min.js" />
+    <Content Include="Scripts\vfs_fonts.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutLogin.cshtml" />
+    <Content Include="Views\Home\LeftMenu.cshtml" />
+    <Content Include="Views\Employee\Create.cshtml" />
+    <Content Include="Views\Employee\Delete.cshtml" />
+    <Content Include="Views\Employee\Details.cshtml" />
+    <Content Include="Views\Employee\Edit.cshtml" />
+    <Content Include="Views\Employee\Index.cshtml" />
+    <Content Include="Views\Address\Create.cshtml" />
+    <Content Include="Views\Address\Delete.cshtml" />
+    <Content Include="Views\Address\Details.cshtml" />
+    <Content Include="Views\Address\Edit.cshtml" />
+    <Content Include="Views\Address\Index.cshtml" />
+    <Content Include="Views\Client\Create.cshtml" />
+    <Content Include="Views\Client\Delete.cshtml" />
+    <Content Include="Views\Client\Details.cshtml" />
+    <Content Include="Views\Client\Edit.cshtml" />
+    <Content Include="Views\Client\Index.cshtml" />
+    <Content Include="Views\Product\Create.cshtml" />
+    <Content Include="Views\Product\Delete.cshtml" />
+    <Content Include="Views\Product\Details.cshtml" />
+    <Content Include="Views\Product\Edit.cshtml" />
+    <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\Supplier\Create.cshtml" />
+    <Content Include="Views\Supplier\Delete.cshtml" />
+    <Content Include="Views\Supplier\Details.cshtml" />
+    <Content Include="Views\Supplier\Edit.cshtml" />
+    <Content Include="Views\Supplier\Index.cshtml" />
+    <Content Include="Views\Client\CreateContact.cshtml" />
+    <Content Include="Views\Quote\Create.cshtml" />
+    <Content Include="Views\Quote\Delete.cshtml" />
+    <Content Include="Views\Quote\Details.cshtml" />
+    <Content Include="Views\Quote\Edit.cshtml" />
+    <Content Include="Views\Quote\Index.cshtml" />
+    <Content Include="Views\Quote\CreateQuoteDesc.cshtml" />
+    <Content Include="Views\Project\Create.cshtml" />
+    <Content Include="Views\Project\Delete.cshtml" />
+    <Content Include="Views\Project\Details.cshtml" />
+    <Content Include="Views\Project\Edit.cshtml" />
+    <Content Include="Views\Project\Index.cshtml" />
+    <Content Include="Views\Quote\CreateProjectSelection.cshtml" />
+    <Content Include="Views\ProjectReport\Create.cshtml" />
+    <Content Include="Views\ProjectReport\Delete.cshtml" />
+    <Content Include="Views\ProjectReport\Details.cshtml" />
+    <Content Include="Views\ProjectReport\Edit.cshtml" />
+    <Content Include="Views\ProjectReport\Index.cshtml" />
+    <Content Include="Views\Quote\DetailsDo.cshtml" />
+    <Content Include="Views\Quote\DetailsInv.cshtml" />
+    <Content Include="Views\CustomInvoice\Create.cshtml" />
+    <Content Include="Views\CustomInvoice\Delete.cshtml" />
+    <Content Include="Views\CustomInvoice\Details.cshtml" />
+    <Content Include="Views\CustomInvoice\Edit.cshtml" />
+    <Content Include="Views\CustomInvoice\Index.cshtml" />
+    <Content Include="Views\PaymentPayable\Create.cshtml" />
+    <Content Include="Views\PaymentPayable\Delete.cshtml" />
+    <Content Include="Views\PaymentPayable\Details.cshtml" />
+    <Content Include="Views\PaymentPayable\Edit.cshtml" />
+    <Content Include="Views\PaymentPayable\Index.cshtml" />
+    <Content Include="Views\PaymentReceivable\Create.cshtml" />
+    <Content Include="Views\PaymentReceivable\Delete.cshtml" />
+    <Content Include="Views\PaymentReceivable\Details.cshtml" />
+    <Content Include="Views\PaymentReceivable\Edit.cshtml" />
+    <Content Include="Views\PaymentReceivable\Index.cshtml" />
+    <Content Include="Views\PurchaseOrder\Create.cshtml" />
+    <Content Include="Views\PurchaseOrder\Delete.cshtml" />
+    <Content Include="Views\PurchaseOrder\Details.cshtml" />
+    <Content Include="Views\PurchaseOrder\DetailsPo.cshtml" />
+    <Content Include="Views\PurchaseOrder\Edit.cshtml" />
+    <Content Include="Views\PurchaseOrder\Index.cshtml" />
+    <Content Include="Views\PurchaseOrder\CreatePoDesc.cshtml" />
+    <Content Include="Views\Company\Index.cshtml" />
+    <Content Include="Views\Claim\Create.cshtml" />
+    <Content Include="Views\Claim\Delete.cshtml" />
+    <Content Include="Views\Claim\Details.cshtml" />
+    <Content Include="Views\Claim\Edit.cshtml" />
+    <Content Include="Views\TimeEntry\Create.cshtml" />
+    <Content Include="Views\TimeEntry\Delete.cshtml" />
+    <Content Include="Views\TimeEntry\Details.cshtml" />
+    <Content Include="Views\TimeEntry\Edit.cshtml" />
+    <Content Include="Views\TimeEntry\Index.cshtml" />
+    <Content Include="Views\TimeEntry\TeDetail.cshtml" />
+    <Content Include="Views\Claim\Index.cshtml" />
+    <Content Include="Views\Claim\CreateClaimDesc.cshtml" />
+    <Content Include="Views\User\Create.cshtml" />
+    <Content Include="Views\User\Delete.cshtml" />
+    <Content Include="Views\User\Details.cshtml" />
+    <Content Include="Views\User\Edit.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\QualityDefect\Create.cshtml" />
+    <Content Include="Views\QualityDefect\Delete.cshtml" />
+    <Content Include="Views\QualityDefect\Details.cshtml" />
+    <Content Include="Views\QualityDefect\Edit.cshtml" />
+    <Content Include="Views\QualityDefect\Index.cshtml" />
+    <Content Include="Views\QualityDefect\CreateDefectDetail.cshtml" />
+    <Content Include="Views\QualityDefect\DTIndex.cshtml" />
+    <Content Include="Views\QualityDefect\DTEdit.cshtml" />
+    <Content Include="Views\Client\ReportIndex.cshtml" />
+    <Content Include="Views\Employee\ReportIndex.cshtml" />
+    <Content Include="Views\Product\ReportIndex.cshtml" />
+    <Content Include="Views\Project\ReportIndex.cshtml" />
+    <Content Include="Views\ProjectReport\ReportIndex.cshtml" />
+    <Content Include="Views\Quote\DOReportIndex.cshtml" />
+    <Content Include="Views\Quote\InvReportIndex.cshtml" />
+    <Content Include="Views\Quote\ReportIndex.cshtml" />
+    <Content Include="Views\QualityDefect\Detailsnew.cshtml" />
+    <Content Include="Views\QualityDefect\DTDetails.cshtml" />
+    <Content Include="Views\QualityDefect\DTPdf.cshtml" />
+    <Content Include="Views\PurchaseOrder\ReportIndex.cshtml" />
+    <Content Include="Views\Supplier\ReportIndex.cshtml" />
+    <Content Include="Views\Claim\ReportIndex.cshtml" />
+    <Content Include="Views\TimeEntry\ReportIndex.cshtml" />
+    <Content Include="Views\Quote\DetailsInvWOH.cshtml" />
+    <Content Include="Views\Quote\DetailsDoWOH.cshtml" />
+    <Content Include="Views\Safety\Create.cshtml" />
+    <Content Include="Views\Safety\Delete.cshtml" />
+    <Content Include="Views\Safety\Details.cshtml" />
+    <Content Include="Views\Safety\Edit.cshtml" />
+    <Content Include="Views\Safety\Index.cshtml" />
+    <Content Include="Views\MaterialManagement\CreateStore.cshtml" />
+    <Content Include="Views\MaterialManagement\Delete.cshtml" />
+    <Content Include="Views\MaterialManagement\Details.cshtml" />
+    <Content Include="Views\MaterialManagement\EditStore.cshtml" />
+    <Content Include="Views\MaterialManagement\Index.cshtml" />
+    <Content Include="Views\MaterialManagement\IndexInward.cshtml" />
+    <Content Include="Views\MaterialManagement\IndexOutward.cshtml" />
+    <Content Include="Views\MaterialManagement\CreateInward.cshtml" />
+    <Content Include="Views\MaterialManagement\EditOutward.cshtml" />
+    <Content Include="Views\MaterialManagement\IndexStock.cshtml" />
+    <Content Include="Views\MaterialManagement\StockTaking.cshtml" />
+    <Content Include="Views\MaterialManagement\EditInward.cshtml" />
+    <Content Include="Views\MaterialManagement\ViewInward.cshtml" />
+    <Content Include="Views\MaterialManagement\CreateOutward.cshtml" />
+    <Content Include="Views\MaterialManagement\ViewOutward.cshtml" />
+    <Content Include="Views\MaterialManagement\IndexStockAdjust.cshtml" />
+    <Content Include="Views\MaterialManagement\CreateStockAdjust.cshtml" />
+    <Content Include="Views\MaterialManagement\ViewStockAdjust.cshtml" />
+    <Content Include="Views\Quote\ViewQLPayment.cshtml" />
+    <Content Include="Views\Quote\DetailsWOH.cshtml" />
+    <Content Include="Views\Quote\Details - Copy.cshtml" />
+    <Content Include="Views\TimeEntry\Index - Copy.cshtml" />
+    <Content Include="Views\PTW\Create1.cshtml" />
+    <Content Include="Views\PTW\Index_View.cshtml" />
+    <Content Include="Views\PTW\ViewPTW.cshtml" />
+    <Content Include="Views\PTW\Index.cshtml" />
+    <Content Include="Views\PTW\Create.cshtml" />
+    <Content Include="Views\PTW\IndexConspc.cshtml" />
+    <Content Include="Views\PTW\CreateConspc.cshtml" />
+    <Content Include="Views\PTW\Index_Conspc_View.cshtml" />
+    <Content Include="Views\PTW\ViewPTWConspc.cshtml" />
+    <Content Include="Views\RA\Create.cshtml" />
+    <Content Include="Views\RA\Edit.cshtml" />
+    <Content Include="Views\RA\IndexRAWA.cshtml" />
+    <Content Include="Views\RA\IndexRAPS.cshtml" />
+    <Content Include="Views\RA\IndexRALN.cshtml" />
+    <Content Include="Views\RA\IndexRAPA.cshtml" />
+    <Content Include="Views\RA\IndexRAHZ.cshtml" />
+    <Content Include="Views\RA\IndexRACM.cshtml" />
+    <Content Include="Views\RA\Index.cshtml" />
+    <Content Include="Views\RA\CreateRA.cshtml" />
+    <Content Include="Views\RA\EditRA.cshtml" />
+    <Content Include="Views\RA\AddRADetailsOne.cshtml" />
+    <Content Include="Views\RA\AddRACM.cshtml" />
+    <Content Include="Views\RA\Details.cshtml" />
+    <Content Include="Views\Safety\SIIndex.cshtml" />
+    <Content Include="Views\Safety\SICreate.cshtml" />
+    <Content Include="Views\Safety\NewSIIndex.cshtml" />
+    <Content Include="Views\Safety\NewSICreate.cshtml" />
+    <Content Include="Views\Safety\NewSIEdit.cshtml" />
+    <Content Include="Views\Safety\NewSIView.cshtml" />
+    <Content Include="Views\Invoice\Create.cshtml" />
+    <Content Include="Views\Invoice\CreateInvoiceDesc.cshtml" />
+    <Content Include="Views\Invoice\Delete.cshtml" />
+    <Content Include="Views\Invoice\Details.cshtml" />
+    <Content Include="Views\Invoice\Edit.cshtml" />
+    <Content Include="Views\Invoice\Index.cshtml" />
+    <Content Include="Views\Invoice\InvReportIndex.cshtml" />
+    <Content Include="Views\Invoice\ViewInvPayment.cshtml" />
+    <Content Include="Views\User\IndexMenu.cshtml" />
+    <Content Include="Views\User\CreateMenu.cshtml" />
+    <Content Include="Views\User\IndexMenu - Copy.cshtml" />
+    <Content Include="Views\MaterialManagement\ReportIndexInw.cshtml" />
+    <Content Include="Views\MaterialManagement\ReportIndexOut.cshtml" />
+    <Content Include="Views\Transport\Create.cshtml" />
+    <Content Include="Views\Transport\Delete.cshtml" />
+    <Content Include="Views\Transport\Details.cshtml" />
+    <Content Include="Views\Transport\Edit.cshtml" />
+    <Content Include="Views\Transport\Index.cshtml" />
+    <Content Include="Views\Transport\ReportIndex.cshtml" />
+    <Content Include="Views\Login\Index - Copy.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Content\datatables\images\psd\" />
+    <Folder Include="images\ClaimFiles\" />
+    <Folder Include="images\QualityFiles\" />
+    <Folder Include="images\UploadedFiles\" />
+    <Folder Include="Models\Attributes\" />
+    <Folder Include="Models\Integration\" />
+    <Folder Include="Scripts\LoginPage\css\" />
+    <Folder Include="Scripts\LoginPage\fonts\" />
+    <Folder Include="Scripts\LoginPage\images\" />
+    <Folder Include="Scripts\LoginPage\js\" />
+    <Folder Include="Scripts\LoginPage\vendor\" />
+    <Folder Include="Views\SuperBase\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>60477</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:60477/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

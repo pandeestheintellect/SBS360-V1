@@ -1,0 +1,148 @@
+﻿@model Eng360Web.Models.ViewModel.FilterViewModel
+
+@{
+    Layout = null;
+}
+
+
+
+<div class="row inner-page--container">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <b> Client Details </b>
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+
+                @using (Html.BeginForm(null, null, FormMethod.Post, new { role = "form", id = "clientReportForm" }))
+                {
+                    @Html.AntiForgeryToken()
+
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            @Html.Label("Client Name", htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                
+                                @Html.DropDownList("Company_Name", null, htmlAttributes: new { @class = "form-control" })
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                        <div class="modal-footer">
+
+                            <button type="button" id="report-clientIndex-search" class="btn btn-primary">Search</button>
+
+                        </div>
+
+
+                }
+
+                <br />
+
+                <table class="table table-striped table-bordered" id="clientTable">
+                    <thead>
+                        <tr>
+                            <th>Client ID</th>
+                            <th>Company Name</th>
+                            <th>Type of Industry</th>
+                            <th>Function</th>
+                            <th>Reference</th>
+                            <th>Mobile</th>
+                            <th>Tel</th>
+                            <th>Fax</th>
+                            <th>Web</th>
+                            <th>Address1</th>
+                            <th>Address2</th>
+                            <th>City</th>
+                            <th>Country</th>
+                            <th>Postal Code</th>
+                            <th>Email</th>
+                            <th>Skype ID</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.eng_client_master)
+                        {
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.ClientDisplayID)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Company_Name)</td>
+                                <td>@Html.DisplayFor(modelItem => item.eng_sys_industry.Industry_Title)</td>
+                                <td>@Html.DisplayFor(modelItem => item.eng_sys_function.Fn_Title)</td>                                
+                                <td>@Html.DisplayFor(modelItem => item.Reference)</td> 
+                                <td>@Html.DisplayFor(modelItem => item.eng_address_master.Mobile)</td>
+                                <td>@Html.DisplayFor(modelItem => item.eng_address_master.Tel)</td>
+                                <td>@Html.DisplayFor(modelItem => item.eng_address_master.Fax1)</td>
+                                <td>@Html.DisplayFor(modelItem => item.eng_address_master.Web)</td>
+                                <td>@Html.DisplayFor(modelItem => item.eng_address_master.Address1)</td>
+                                <td>@Html.DisplayFor(modelItem => item.eng_address_master.Address2)</td>
+                                <td>@Html.DisplayFor(modelItem => item.eng_address_master.City)</td>
+                                <td>@Html.DisplayFor(modelItem => item.eng_address_master.Country)</td>
+                                <td>@Html.DisplayFor(modelItem => item.eng_address_master.Postal_Code)</td>
+                                <td>@Html.DisplayFor(modelItem => item.eng_address_master.Email)</td>
+                                <td>@Html.DisplayFor(modelItem => item.eng_address_master.SkypeID)</td>
+
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+
+    var clientTable;
+
+    $(document).ready(function () {
+        var currentdate = new Date();
+        var datetime = currentdate.getDate() + ""
+                    + (currentdate.getMonth() + 1) + ""
+                    + currentdate.getFullYear() + " "
+                    + currentdate.getHours() + ""
+                    + currentdate.getMinutes() + ""
+                    + currentdate.getSeconds();
+
+
+        clientTable = $('#clientTable').DataTable({
+            "autoWidth": false,
+            "scrollX": true,
+            dom: 'Bfrtipl',
+            buttons: [
+
+                {
+                    extend: 'excelHtml5',
+                    text: '<i class="fa fa-file-excel-o"></i>',
+                    title: 'Client Details-'+datetime
+                },
+                {
+                    extend: 'csvHtml5',
+                    text: '<i class="fa fa-file-text-o"></i>',
+                    title: 'Client Details-'+datetime
+                }
+
+            ]
+        });
+    });
+    
+    $('.dt-button').addClass('btn btn-primary').removeClass('dt-button').css('margin-right', '0px')
+
+    //clientTable.column(3).visible(false);
+    //clientTable.column(4).visible(false);
+        
+    //clientTable.column(7).visible(false);
+    //clientTable.column(8).visible(false);
+    //clientTable.column(9).visible(false);
+    //clientTable.column(10).visible(false);
+    //clientTable.column(11).visible(false);
+    //clientTable.column(12).visible(false);
+    //clientTable.column(13).visible(false);
+    //clientTable.column(15).visible(false);
+
+
+</script>

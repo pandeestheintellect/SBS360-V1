@@ -1,0 +1,671 @@
+﻿@model Eng360Web.Models.ViewModel.PTWConspcMasterViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+
+    <style type="text/css">
+        @@media print
+        {
+        #footer {
+         display: block;
+         position: fixed;
+         bottom: 0;
+            }
+        }
+
+        body, td, th {
+            font-family: Arial;
+            font-size: 13px;
+            word-wrap:break-word;
+        }
+
+       
+    </style>
+</head>
+<body style="font-family: Book Antiqua;">
+    <center>
+
+        <table border="0" width="810">
+            <thead>
+                <tr>
+                    <th style="width:100%">
+                    @*<img style="width: 790px; height: 75px;" src="~/images/CompanyLogo/Header.jpg" />*@
+                        <table width="773" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+
+                                <td width="100" align="left" valign="top" style="padding:0px;"><img style="width: 130px; height: 130px;" src="~/images/CompanyLogo/logo.png" /></td>
+                                <td width="388" align="left" valign="top" style="padding:2px;">
+                                    <span style="font-size:16px; font-weight:bold;">
+                                        @Eng360Web.Models.Utility.AppSession.GetCompanyDetail().CompanyName
+                                    </span><br />
+                                    <span style="font-weight:bold; font-size:12px;">
+                                        @Eng360Web.Models.Utility.AppSession.GetCompanyDetail().Address1<br />
+                                        @Eng360Web.Models.Utility.AppSession.GetCompanyDetail().Address2 @Eng360Web.Models.Utility.AppSession.GetCompanyDetail().City @Eng360Web.Models.Utility.AppSession.GetCompanyDetail().Pincode	<br />
+                                        Tel : (65) @Eng360Web.Models.Utility.AppSession.GetCompanyDetail().Tel / Fax: (65) @Eng360Web.Models.Utility.AppSession.GetCompanyDetail().Fax	<br />
+                                        E-mail : @Eng360Web.Models.Utility.AppSession.GetCompanyDetail().Email	<br />
+                                        Co. Reg. No : @Eng360Web.Models.Utility.AppSession.GetCompanyDetail().RegNo GST. Reg. No : @Eng360Web.Models.Utility.AppSession.GetCompanyDetail().GstRegNo
+                                    </span>
+                                </td>
+                                <td width="240" align="right" valign="top" style="padding-right:5px; line-height:15px;">
+                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                        <tr>
+                                            <td align="right" valign="top">
+                                                <img style="width: 210px; height: 90px;" src="~/images/CompanyLogo/biz3.png" />
+                                            </td>
+                                        </tr>
+
+                                    </table>
+
+                                </td>
+                            </tr>
+                        </table>
+                    
+                    </th>
+                </tr>
+                <tr>
+                    <th><hr /></th>
+                </tr>
+
+            </thead>   
+            
+            <tfoot>
+                <tr>
+                    <td width="100%">
+                        <table width="100%" border="0" height="30">
+                            <tr>
+                                <td><br />&nbsp;</td>
+                            </tr>
+                        </table>
+            </tfoot>         
+
+            <tdoby>
+                <tr>
+
+                    <td>
+
+                        <table border="1" width="810" style="border-collapse:collapse;">
+                            <tr>
+                                <td colspan="6" style="font-size: 22px; font-weight: bold;" align="center">
+                                    CONFINED SPACE PERMIT
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="6">
+                                    <table border="0" width="100%" style="border-collapse:collapse;">
+                                        
+                                        <tr>
+                                            <td width="40px;">
+                                                &nbsp;
+                                            </td>
+                                            <td style="font-size: 13px; font-weight: bold;">
+                                                &diams;
+                                            </td>
+                                            <td align="justify">
+                                                This permit is valid for a max of 7 days from the period stated at Stage 1 of this Permit and for the same location only.
+                                            </td>
+                                            <td width="30px;">
+                                                &nbsp;
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td width="40px;">
+                                                &nbsp;
+                                            </td>
+                                            <td style="font-size: 13px; font-weight: bold;">
+                                                &diams;
+                                            </td>
+                                            <td align="justify">
+                                                The conditions of issue must be complied with throughout the duration of the work.
+                                            </td>
+                                            <td width="30px;">
+                                                &nbsp;
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td width="40px;">
+                                                &nbsp;
+                                            </td>
+                                            <td style="font-size: 13px; font-weight: bold;">
+                                                &diams;
+                                            </td>
+                                            <td align="justify">
+                                                This permit will be void / revoked in the event of non-compliance of the regulation by the applicant. To resume work, a new permit should be applied
+                                            </td>
+                                            <td width="30px;">
+                                                &nbsp;
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td width="40px;">
+                                                &nbsp;
+                                            </td>
+                                            <td style="font-size: 13px; font-weight: bold;">
+                                                &diams;
+                                            </td>
+                                            <td align="justify">
+                                                WORK IN CONFINED SPACE SHALL NOT COMMENCE UNTIL STAGE 1 TO STAGE 4 ARE COMPLETED
+                                            </td>
+                                            <td width="30px;">
+                                                &nbsp;
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td width="40px;">
+                                                &nbsp;
+                                            </td>
+                                            <td style="font-size: 13px; font-weight: bold;">
+                                                &diams;
+                                            </td>
+                                            <td align="justify" style="font-weight: bold;">
+                                                Gas testing should be carried out minimum every 4 hours
+                                            </td>
+                                            <td width="30px;">
+                                                &nbsp;
+                                            </td>
+                                        </tr>
+                                    </table>
+
+                                </td>
+
+                            </tr>
+
+                            <tr>
+                                <td colspan="6" style="font-size: 13px; font-weight: bold;">
+                                    Stage 1: Requested by Supervisor (To Be Filled Up By Applicant / Supervisor In-Charge 
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    Name of Contractor:
+                                </td>
+                                <td>
+                                    @Model.ContractorName
+                                </td>
+                                <td>
+                                    Commencement Date and time
+                                </td>
+                                <td>
+                                    @Model.Start_Date_Time
+                                </td>
+                                <td>
+                                    Projected Date and time
+                                </td>
+                                <td>
+                                    @Model.End_Date_Time
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td >
+                                    Location of Works:
+                                </td>
+                                <td colspan="3">
+                                    @Model.LocationOfWork
+                                </td>
+                                <td>
+                                    No. of Workers:
+                                </td>
+                                <td>
+                                    @{
+                                        var empcnt = Model.eng_PTW_Conspc_Employee_Details.Count;
+                                    }
+                                    @empcnt
+                                </td>
+                            </tr>
+
+                           
+                            <tr>
+                                <td colspan="6" style="font-size: 13px;">
+                                    Description of Work: &nbsp; @Model.Work_Description
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="6">
+                                    <table width="100%" border="1" style="border-collapse: collapse;">
+                                        <tr height="40px">
+                                            <td width="25%">
+                                                Name: &nbsp; @Model.Applicant_Name <br />
+                                            </td>
+                                            <td width="25%">
+                                                Designation: &nbsp; @Model.Applicant_Desig <br />
+                                            </td>
+                                            <td width="25%">
+                                                Signature: &nbsp; <br />
+                                            </td>
+                                            <td width="25%">
+                                                Date and Time: &nbsp; @Model.Applicant_Date_Time <br />
+                                            </td>
+                                        </tr>
+
+                                    </table>
+
+                                </td>
+                            </tr>                 
+                       
+                        </table>
+                        <br />
+
+                        <div style="font-weight: bold;">WatchMen:</div>
+                        <table border="1" width="810" style="border-collapse:collapse;">
+
+                            
+                            <tr height="40px">
+                                <td width="25%">
+                                    Name: &nbsp; @Model.Stage1_Watchman_Name <br />
+                                </td>
+                                <td width="25%">
+                                    ID: &nbsp; @Model.Stage1_Watchman_ID <br />
+                                </td>
+                                <td width="25%">
+                                    Company: &nbsp; @Model.Stage1_Watchman_Company<br />
+                                </td>
+                                <td width="25%">
+                                    Signature: &nbsp;  <br />
+                                </td>
+                            </tr>  
+
+                            
+                        </table>
+                        <br />
+
+                            <table border="1" width="810" style="border-collapse:collapse;">
+
+                                <tr>
+                                    <td colspan="2" style="font-size: 12px;">
+                                        <span style="font-weight: bold;">
+                                            Checklist items to implement &nbsp; &nbsp;
+                                        </span>
+                                        Tick box  -  <span style="font-weight: bold;">Legend:  </span> √ = Yes    X = No     NA = Not Applicable
+                                    </td>
+                                    <td colspan="2" style="font-size: 13px;" align="center">
+                                        <span style="font-weight: bold;">
+                                           Confined Space Assessor Check List
+                                        </span>
+                                        
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td width="450px;" style="font-weight: bold;">
+                                        ITEMS
+                                    </td>
+                                    <td width="60px;" style="font-weight: bold;" align="center">
+                                        Applicant
+                                    </td>
+                                    <td width="60px;" style="font-weight: bold;" align="center">
+                                        Assessor
+                                    </td>
+                                    <td width="240px;" style="font-weight: bold;" align="center">
+                                        Remarks
+                                    </td>
+
+                                </tr>
+
+                                @foreach (var item in Model.eng_PTW_Conspc_Detail_Stage1.OrderBy(a => a.PTW_Stage_One_ID))
+                                {
+                                    <tr>
+                                        <td width="450">
+                                            @item.item
+                                        </td>
+                                        <td width="60" align="center">
+                                            @item.Applicable_Applicant
+                                        </td>
+                                        <td width="60" align="center">
+                                            @item.Applicable_Assessor
+                                        </td>
+                                        <td width="240" >
+                                            @item.Assessor_Remarks
+                                        </td>
+                                    </tr>
+
+
+                                }
+                                
+
+
+                            </table>
+
+                            <br />
+
+                        <div style="font-weight: bold;">Stage 2:  Evaluation by Confined Space Safety Assessor</div>
+                        <div>Initial Gas Check Result</div>
+
+
+                            <table border="1" width="100%" style="border-collapse:collapse;">
+                                
+
+                                <tr>
+                                    <td width="10%">O2</td>
+                                    <td width="10%">@Model.Stage2_O2 &nbsp; %</td>
+                                    <td width="10%">CO2</td>
+                                    <td width="10%">@Model.Stage2_CO2 &nbsp; %</td>
+                                    <td width="10%">LEL</td>
+                                    <td width="10%">@Model.Stage2_LEL &nbsp; ppm</td>
+                                    <td width="10%">H2S</td>
+                                    <td width="10%">@Model.Stage2_H2S &nbsp; ppm</td>
+                                    <td width="13%">Safe for Entry</td>
+                                    <td width="7%">@Model.Safe_for_Entry</td>
+                                    
+                                </tr>
+                                <tr>
+                                    <td colspan="10">
+                                        <table border="1" width="100%" style="border-collapse:collapse;">
+
+
+                                            <tr height="40px">
+                                                <td width="25%">
+                                                    Name: &nbsp; @Model.Stage2_Assessor_Name <br />
+                                                </td>
+                                                <td width="25%">
+                                                    Designation: &nbsp; @Model.Stage2_Assessor_Desig <br />
+                                                </td>
+                                                <td width="25%">
+                                                    Signature: &nbsp; <br />
+                                                </td>
+                                                <td width="25%">
+                                                    Date and Time: &nbsp; @Model.Stage2_Assessor_Date_Time <br />
+                                                </td>
+                                            </tr>
+
+
+                                        </table>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="10">
+                                        Comments: &nbsp; @Model.Stage2_Comments
+                                    </td>
+                                </tr>
+                             </table>
+
+                                        
+                                    </td>
+                                </tr>
+
+                         
+                <tr>
+                    <td>&nbsp;<br /></td>
+                </tr>
+
+                <tr>
+                    <td>
+
+                        <div style="font-weight: bold;">Stage 3:  Acknowledgement by WSHO / WSHC</div>
+                        <div>I’m aware of the intended works & all reasonable practicable EHS provisions are in place & safe work procedure to be complied</div>
+
+                        <table border="1" width="100%" style="border-collapse:collapse;">
+
+
+                            <tr height="40px">
+                                <td width="25%">
+                                    Name: &nbsp; @Model.Stage3_WSH_Name <br />
+                                </td>
+                                <td width="25%">
+                                    Designation: &nbsp; @Model.Stage3_WSH_Desig <br />
+                                </td>
+                                <td width="25%">
+                                    Signature: &nbsp; <br />
+                                </td>
+                                <td width="25%">
+                                    Date and Time: &nbsp; @Model.Stage3_WSH_Date_Time <br />
+                                </td>
+                            </tr>
+                            <tr height="30px">
+                                <td colspan="4">
+                                    Comments: &nbsp; @Model.Stage3_Comments
+                                </td>
+                            </tr>
+
+
+                        </table>
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;<br /></td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div style="font-weight: bold;">Stage 4: Approval by Project Manager</div>
+                        <div>1. I’m satisfied that all reasonably practicable measures have been implemented & enforced and working personnel are informed of the safety hazards & environmental impacts and protection counter measures to be taken.</div>
+                        <div>2. Declared that the above-mentioned work is Approved / Not Approved.</div>
+
+                        <table border="1" width="100%" style="border-collapse:collapse;">
+
+
+                            <tr height="40px">
+                                <td width="25%">
+                                    Name: &nbsp; @Model.Stage4_Mng_Name <br />
+                                </td>
+                                <td width="25%">
+                                    Designation: &nbsp; @Model.Stage4_Mng_Desig <br />
+                                </td>
+                                <td width="25%">
+                                    Signature: &nbsp; <br />
+                                </td>
+                                <td width="25%">
+                                    Date and Time: &nbsp; @Model.Stage4_Date_Time <br />
+                                </td>
+                            </tr>
+                            <tr height="30px">
+                                <td colspan="4">
+                                    Comments: &nbsp; @Model.Stage4_Comments
+                                </td>
+                            </tr>
+
+
+                        </table>
+
+
+                    </td>
+                </tr>
+               
+
+                <tr>
+                    <td>                       
+
+                        <br />
+                        <div style="font-weight: bold;">Stage 5: Daily Gas Checking Checklist by Confined Space Assessor</div>
+                        <div>The Confined Space Assessor shall inspect the environment and safety compliance of the intended work. Work can only proceed upon Confined Space Assessor Signature.</div>
+                        
+                        <table border="1" width="100%" style="border-collapse:collapse;">
+                            <tr>
+                                <td >Date & Time</td>
+                                <td >O2: %</td>
+                                <td >CO2: %</td>
+                                <td >LEL: ppm</td>
+                                <td >H2S: ppm</td>
+                                <td >Safe for Entry?</td>
+                                <td >Signature</td>
+                                <td >Comments</td>
+                                                                
+                            </tr>
+                            @foreach (var stage5 in Model.eng_PTW_Conspc_Detail_Stage5)
+                            {
+                                <tr>
+                                    <td>@stage5.Stage5_Date_Time.Value.ToString("dd/MM/yyyy HH:mm")</td>
+                                    <td>@stage5.O2</td>
+                                    <td>@stage5.CO2</td>
+                                    <td>@stage5.LEL</td>
+                                    <td>@stage5.H2S</td>
+                                    <td>@stage5.Safe_for_Entry</td>
+                                    <td>@stage5.Stage5_Assessor_Name</td>
+                                    <td>@stage5.Assessor_Comments</td>
+                                </tr>
+
+                            }
+                            </table>
+                            <br />
+
+                        <div style="font-weight: bold;">Stage 6: Notification of Completion of Work by Supervisor in charge</div>
+                        <div>a)	I have reinstated the work area and ensure no more work activities are carried out. All personnel are accounted for.</div>
+                        <div>b)	Housekeeping has been carried out to the work area.</div>
+
+                        <table border="1" width="100%" style="border-collapse:collapse;">
+
+
+                            <tr height="40px">
+                                <td width="25%">
+                                    Name: &nbsp; @Model.Stage6_Person_Name <br />
+                                </td>
+                                <td width="25%">
+                                    Designation: &nbsp; @Model.Stage6_Person_Desig <br />
+                                </td>
+                                <td width="25%">
+                                    Signature: &nbsp; <br />
+                                </td>
+                                <td width="25%">
+                                    @{ 
+                                        var stgdt = "";
+                                        if(Model.Stage6_Date_Time != null)
+                                        {
+                                            stgdt = Convert.ToDateTime(Model.Stage6_Date_Time).ToString("dd/MM/yyyy HH:mm");
+                                        }
+                                    }
+                                    Date and Time: &nbsp; @stgdt <br />
+                                </td>
+                            </tr>
+                            </table>
+                        <br />
+                          
+                            <table border="1" width="810" style="border-collapse:collapse;">
+                                <tr>
+                                    <td style="font-size: 13px; font-weight: bold;">
+                                        Revoke or cancellation of Permit-to-work (when unsafe for the works to proceed)
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        This permit-to-work is revoked / cancelled due to the below-mentioned reason.<br />
+                                        <table border="1" width="100%" style="padding: 2px; border-collapse: collapse;">
+                                            <tr>
+                                                <td align="center" style="font-weight: bold;">
+                                                    Reason for revoke or cancellation & date / time
+                                                </td>
+                                                <td align="center" style="font-weight: bold;">
+                                                    Sign by CSSA / WSHO/ WSHC
+                                                </td>
+                                                <td align="center" style="font-weight: bold;">
+                                                    Sign by Project / Authorized Manager
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                    @{
+                                                         stgdt = "";
+                                                        if (Model.Revoke_Date_Time != null)
+                                                        {
+                                                            stgdt = Convert.ToDateTime(Model.Revoke_Date_Time).ToString("dd/MM/yyyy HH:mm");
+                                                        }
+                                                    }
+                                                    &nbsp; @Model.Revoke_Desc<br />
+                                                    &nbsp; @stgdt
+                                                </td>
+                                                <td align="center">
+                                                    &nbsp; @Model.Revoke_WSH_Name<br />
+                                                </td>
+                                                <td align="center">
+                                                    &nbsp; @Model.Revoke_PM_Name<br />
+                                                </td>
+                                            </tr>
+
+                                        </table>
+
+                                    </td>
+                                </tr>
+                            </table>
+                            <br />
+                            <table border="0" width="810" style="border-collapse:collapse;">
+                                <tr>
+                                    <td style="font-size: 13px; font-weight: bold;">
+                                        Authorized Team involved in this Activity:
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <table border="1" width="810" style="border-collapse:collapse;">
+                                <tr>
+                                    <td rowspan="2" style="font-size: 13px; font-weight: bold;" align="center">
+                                        Name
+                                    </td>
+                                    <td rowspan="2" style="font-size: 13px; font-weight: bold;" align="center">
+                                        Designation
+                                    </td>
+                                    <td colspan="2" style="font-size: 13px; font-weight: bold;" align="center">
+                                        Acknowledgement
+                                    </td>
+                                </tr>
+                                <tr>
+
+                                    <td align="center">
+                                        Sign
+                                    </td>
+                                    <td align="center">
+                                        Date
+                                    </td>
+                                </tr>
+                                @foreach (var emp in Model.eng_PTW_Conspc_Employee_Details)
+                                {
+                                    <tr>
+                                        <td>
+                                            @emp.EmpName
+                                        </td>
+                                        <td>
+                                            @emp.Desig
+                                        </td>
+                                        <td>
+                                            &nbsp;
+                                        </td>
+                                        <td>
+                                            &nbsp;
+                                        </td>
+                                    </tr>
+                                }
+                            </table>
+                            <br />
+                        <div style="font-weight: bold; text-align: center;">Permissible gas levels</div>
+                        <table border="1" width="80%" style="border-collapse:collapse;" align="center">
+                            <tr>
+                                <td>Oxygen </td>
+                                <td>19.5 – 23.5 % V/V</td>  
+                            </tr>
+                            <tr>
+                                <td>Toxic Gases (CO, CO2, H2S, Sulphur & others) </td>
+                                <td>< Permissible Exposure Level (in ppm)</td>
+                            </tr>
+                            <tr>
+                                <td>Flammable Gases (Methane & Others) </td>
+                                <td>< 10% of Lower Explosive Limit</td>
+                            </tr>
+                            </table>
+
+
+
+                    </td>
+                </tr>
+            </tdoby>
+        </table>
+
+        
+
+    </center>
+
+
+
+</body>
+</html>

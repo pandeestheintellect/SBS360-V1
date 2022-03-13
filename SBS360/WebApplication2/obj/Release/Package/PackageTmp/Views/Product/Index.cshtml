@@ -1,0 +1,136 @@
+﻿@model IEnumerable<Eng360Web.Models.ViewModel.ProductViewModel>
+<link href="~/Scripts/lobipanel-master/dist/css/lobipanel.min.css" rel="stylesheet" />
+@{
+    Layout = null;
+}
+
+    
+
+    <div class="row inner-page--container">
+        <div class="col-lg-12">
+            <div class="panel panel-default" id="testpanel">
+                <div class="panel-heading">
+                    <b>   Product Details </b>
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <table class="table table-striped table-bordered" id="productTable">
+                        <thead>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Product_Name)
+                                </th>
+                                @*<th>
+                                        @Html.DisplayNameFor(model => model.Product_Type)
+                                    </th>*@
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Product_Company_Name)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Product_Description)
+                                </th>
+                                @*<th>
+                                        @Html.DisplayNameFor(model => model.Dimension)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Measuring_Unit)
+                                    </th>*@
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Unit_Price)
+                                </th>
+                                @*<th>
+                                        @Html.DisplayNameFor(model => model.Product_Code)
+                                    </th>*@
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Product_Name)
+                                    </td>
+                                    @*<td>
+                                            @Html.DisplayFor(modelItem => item.Product_Type)
+                                        </td>*@
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Product_Company_Name)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Product_Description)
+                                    </td>
+                                    @*<td>
+                                            @Html.DisplayFor(modelItem => item.Dimension)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Measuring_Unit)
+                                        </td>*@
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Unit_Price)
+                                    </td>
+                                    @*<td>
+                                            @Html.DisplayFor(modelItem => item.Product_Code)
+                                        </td>*@
+                                    <td>
+                                        @*@Html.ActionLink("Edit", "Edit", new { id = item.ProductID }) |
+                                        @Html.ActionLink("Details", "Details", new { id = item.ProductID }) |
+                                        @Html.ActionLink("Delete", "Delete", new { id = item.ProductID })*@
+                                                                             
+                                        <a class="btn" title="Edit Product"  onclick="EditProduct(@item.ProductID)"> <i class="fa fa-pencil action-pencil" aria-hidden="true" ></i>   </a>
+                                        <a class="btn" title="View Product Details"  onclick="ViewProduct(@item.ProductID)"> <i class="fa fa-search action-search" aria-hidden="true" ></i> </a>
+                                        <a class="btn" title="Delete Product"  onclick="DeleteProduct('@item.ProductID','@item.Product_Name')"> <i class="fa fa-trash action-trash" aria-hidden="true" ></i> </a>
+                                        
+                                    </td>
+                                    
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="~/Scripts/lobipanel-master/dist/js/lobipanel.min.js"></script>
+<script>
+    $(document).ready(function () {
+        
+        $('#productTable').DataTable({
+            "autoWidth": true,
+            //"scrollX": true,
+            dom: 'Bfrtipl',
+            buttons: [
+               
+                {
+                    extend: 'excelHtml5',
+                    text: '<i class="fa fa-file-excel-o"></i>',
+                    titleAttr: 'Excel'
+                },
+                {
+                    extend: 'csvHtml5',
+                    text: '<i class="fa fa-file-text-o"></i>',
+                    titleAttr: 'CSV'
+                },
+                {
+                    extend: 'pdfHtml5',
+                    text: '<i class="fa fa-file-pdf-o"></i>',
+                    titleAttr: 'PDF'
+                }
+
+            ]
+        });
+    });
+    $('.dt-buttons').prepend('<a  onclick="CreateProduct()" class="dt-button buttons-create buttons-html5" tabindex="0" aria-controls="productTable" href="#"><i class="fa fa-plus"></i></a>')
+    $('.dt-button').addClass('btn btn-primary').removeClass('dt-button')
+
+    $(function () {
+        $('#testpanel, #testpanel1').lobiPanel({
+            //Options go here             
+            reload: false,
+            close: false,
+            editTitle: false
+
+        });
+    });
+</script>

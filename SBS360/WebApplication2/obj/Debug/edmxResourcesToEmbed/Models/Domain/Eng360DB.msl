@@ -1,0 +1,1666 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Eng360ModelStoreContainer" CdmEntityContainer="Eng360Entities1">
+    <FunctionImportMapping FunctionImportName="DB_Company" FunctionName="Eng360Model.Store.DB_Company">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Eng360Model.DB_Company_Result">
+          <ScalarProperty Name="Company_Name" ColumnName="Company_Name" />
+          <ScalarProperty Name="Cert_License_Name" ColumnName="Cert_License_Name" />
+          <ScalarProperty Name="Issue_Date" ColumnName="Issue_Date" />
+          <ScalarProperty Name="Expiry_Date" ColumnName="Expiry_Date" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="DB_Director_Project" FunctionName="Eng360Model.Store.DB_Director_Project">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Eng360Model.DB_Director_Project_Result">
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+          <ScalarProperty Name="Start_Date" ColumnName="Start_Date" />
+          <ScalarProperty Name="End_Date" ColumnName="End_Date" />
+          <ScalarProperty Name="ProjectStatus" ColumnName="ProjectStatus" />
+          <ScalarProperty Name="QuoteRefNum" ColumnName="QuoteRefNum" />
+          <ScalarProperty Name="QuoteStatus" ColumnName="QuoteStatus" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="DB_Emp" FunctionName="Eng360Model.Store.DB_Emp">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Eng360Model.DB_Emp_Result">
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="RefNo" ColumnName="RefNo" />
+          <ScalarProperty Name="ExpiryType" ColumnName="ExpiryType" />
+          <ScalarProperty Name="DateofExpiry" ColumnName="DateofExpiry" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="DB_Operation" FunctionName="Eng360Model.Store.DB_Operation">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Eng360Model.DB_Operation_Result">
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="ProjectNo" ColumnName="ProjectNo" />
+          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+          <ScalarProperty Name="TaskStatus" ColumnName="TaskStatus" />
+          <ScalarProperty Name="PR" ColumnName="PR" />
+          <ScalarProperty Name="TE" ColumnName="TE" />
+          <ScalarProperty Name="EE" ColumnName="EE" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="DB_Payable" FunctionName="Eng360Model.Store.DB_Payable">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Eng360Model.DB_Payable_Result">
+          <ScalarProperty Name="PoRefNum" ColumnName="PoRefNum" />
+          <ScalarProperty Name="PoDate" ColumnName="PoDate" />
+          <ScalarProperty Name="Company_Name" ColumnName="Company_Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="DB_Receivable" FunctionName="Eng360Model.Store.DB_Receivable">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Eng360Model.DB_Receivable_Result">
+          <ScalarProperty Name="InvoiceNum" ColumnName="InvoiceNum" />
+          <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+          <ScalarProperty Name="Company_Name" ColumnName="Company_Name" />
+          <ScalarProperty Name="InvoiceType" ColumnName="InvoiceType" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="DB_SVMan_DTTR" FunctionName="Eng360Model.Store.DB_SVMan_DTTR">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Eng360Model.DB_SVMan_DTTR_Result">
+          <ScalarProperty Name="ProjectTitle" ColumnName="ProjectTitle" />
+          <ScalarProperty Name="LocationOfWork" ColumnName="LocationOfWork" />
+          <ScalarProperty Name="RepDate" ColumnName="RepDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="DB_SVMan_Project" FunctionName="Eng360Model.Store.DB_SVMan_Project">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Eng360Model.DB_SVMan_Project_Result">
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+          <ScalarProperty Name="ReportDate" ColumnName="ReportDate" />
+          <ScalarProperty Name="Task_Description" ColumnName="Task_Description" />
+          <ScalarProperty Name="Start_Date_Time" ColumnName="Start_Date_Time" />
+          <ScalarProperty Name="End_Date_Time" ColumnName="End_Date_Time" />
+          <ScalarProperty Name="TaskStatus" ColumnName="TaskStatus" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="DB_SVMan_Quality" FunctionName="Eng360Model.Store.DB_SVMan_Quality">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Eng360Model.DB_SVMan_Quality_Result">
+          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+          <ScalarProperty Name="InspectedDate" ColumnName="InspectedDate" />
+          <ScalarProperty Name="DefStatus" ColumnName="DefStatus" />
+          <ScalarProperty Name="defcnt" ColumnName="defcnt" />
+          <ScalarProperty Name="cmpcnt" ColumnName="cmpcnt" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="DB_Vehicle" FunctionName="Eng360Model.Store.DB_Vehicle">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Eng360Model.DB_Vehicle_Result">
+          <ScalarProperty Name="Vehicle_Number" ColumnName="Vehicle_Number" />
+          <ScalarProperty Name="Vehicle_Type" ColumnName="Vehicle_Type" />
+          <ScalarProperty Name="RefNo" ColumnName="RefNo" />
+          <ScalarProperty Name="CertificateType" ColumnName="CertificateType" />
+          <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="getProjectReport" FunctionName="Eng360Model.Store.getProjectReport">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Eng360Model.getProjectReport_Result">
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="WrkHrs" ColumnName="WrkHrs" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetStock" FunctionName="Eng360Model.Store.GetStock">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Eng360Model.GetStock_Result">
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="Product_Name" ColumnName="Product_Name" />
+          <ScalarProperty Name="Product_Description" ColumnName="Product_Description" />
+          <ScalarProperty Name="Measuring_Unit" ColumnName="Measuring_Unit" />
+          <ScalarProperty Name="Product_Company_Name" ColumnName="Product_Company_Name" />
+          <ScalarProperty Name="Product_Type" ColumnName="Product_Type" />
+          <ScalarProperty Name="Product_Code" ColumnName="Product_Code" />
+          <ScalarProperty Name="Unit_Price" ColumnName="Unit_Price" />
+          <ScalarProperty Name="StoreID" ColumnName="StoreID" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Store_Code" ColumnName="Store_Code" />
+          <ScalarProperty Name="Store_Name" ColumnName="Store_Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="getTimeReport" FunctionName="Eng360Model.Store.getTimeReport">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Eng360Model.getTimeReport_Result">
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="TotalHRS" ColumnName="TotalHRS" />
+          <ScalarProperty Name="totalOtHrs" ColumnName="totalOtHrs" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="Eng360Model.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="Eng360Model.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="Eng360Model.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="Eng360Model.Store.sp_helpdiagramdefinition" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="Eng360Model.Store.sp_helpdiagrams" />
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Eng360Model.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Eng360Model.Store.sp_upgraddiagrams" />
+    <FunctionImportMapping FunctionImportName="TimeEntry" FunctionName="Eng360Model.Store.TimeEntry">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Eng360Model.TimeEntry_Result">
+          <ScalarProperty Name="EmpID" ColumnName="EmpID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="ReportDate" ColumnName="ReportDate" />
+          <ScalarProperty Name="No_of_WorkHours" ColumnName="No_of_WorkHours" />
+          <ScalarProperty Name="No_of_Othours" ColumnName="No_of_Othours" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="eng_address_master">
+      <EntityTypeMapping TypeName="Eng360Model.eng_address_master">
+        <MappingFragment StoreEntitySet="eng_address_master">
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="SkypeID" ColumnName="SkypeID" />
+          <ScalarProperty Name="Fax1" ColumnName="Fax1" />
+          <ScalarProperty Name="Postal_Code" ColumnName="Postal_Code" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="Web" ColumnName="Web" />
+          <ScalarProperty Name="Tel" ColumnName="Tel" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_claim">
+      <EntityTypeMapping TypeName="Eng360Model.eng_claim">
+        <MappingFragment StoreEntitySet="eng_claim">
+          <ScalarProperty Name="PaymentSource" ColumnName="PaymentSource" />
+          <ScalarProperty Name="TotalClaim" ColumnName="TotalClaim" />
+          <ScalarProperty Name="isFullyPaid" ColumnName="isFullyPaid" />
+          <ScalarProperty Name="SubmittedDate" ColumnName="SubmittedDate" />
+          <ScalarProperty Name="SubmittedBy" ColumnName="SubmittedBy" />
+          <ScalarProperty Name="ApprovedDate" ColumnName="ApprovedDate" />
+          <ScalarProperty Name="ApprovedBy" ColumnName="ApprovedBy" />
+          <ScalarProperty Name="RejectRemarks" ColumnName="RejectRemarks" />
+          <ScalarProperty Name="ApprovalRemarks" ColumnName="ApprovalRemarks" />
+          <ScalarProperty Name="SVRemarks" ColumnName="SVRemarks" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ClaimAgainst" ColumnName="ClaimAgainst" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="ClaimDisplayID" ColumnName="ClaimDisplayID" />
+          <ScalarProperty Name="ClaimID" ColumnName="ClaimID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_claim_description">
+      <EntityTypeMapping TypeName="Eng360Model.eng_claim_description">
+        <MappingFragment StoreEntitySet="eng_claim_description">
+          <ScalarProperty Name="GST" ColumnName="GST" />
+          <ScalarProperty Name="RecpAmount" ColumnName="RecpAmount" />
+          <ScalarProperty Name="ClaimDescription" ColumnName="ClaimDescription" />
+          <ScalarProperty Name="RecpDate" ColumnName="RecpDate" />
+          <ScalarProperty Name="ClaimTypeID" ColumnName="ClaimTypeID" />
+          <ScalarProperty Name="ClaimID" ColumnName="ClaimID" />
+          <ScalarProperty Name="ClaimDescID" ColumnName="ClaimDescID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_claim_files">
+      <EntityTypeMapping TypeName="Eng360Model.eng_claim_files">
+        <MappingFragment StoreEntitySet="eng_claim_files">
+          <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="FIleCaption" ColumnName="FIleCaption" />
+          <ScalarProperty Name="ClaimID" ColumnName="ClaimID" />
+          <ScalarProperty Name="ClaimFileID" ColumnName="ClaimFileID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_client_contact">
+      <EntityTypeMapping TypeName="Eng360Model.eng_client_contact">
+        <MappingFragment StoreEntitySet="eng_client_contact">
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="Tel" ColumnName="Tel" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="SPOCName" ColumnName="SPOCName" />
+          <ScalarProperty Name="NamePrefix" ColumnName="NamePrefix" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+          <ScalarProperty Name="CCID" ColumnName="CCID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_client_master">
+      <EntityTypeMapping TypeName="Eng360Model.eng_client_master">
+        <MappingFragment StoreEntitySet="eng_client_master">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+          <ScalarProperty Name="Reference" ColumnName="Reference" />
+          <ScalarProperty Name="FunctionalityID" ColumnName="FunctionalityID" />
+          <ScalarProperty Name="IndustryID" ColumnName="IndustryID" />
+          <ScalarProperty Name="Company_Name" ColumnName="Company_Name" />
+          <ScalarProperty Name="ClientDisplayID" ColumnName="ClientDisplayID" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_company">
+      <EntityTypeMapping TypeName="Eng360Model.eng_company">
+        <MappingFragment StoreEntitySet="eng_company">
+          <ScalarProperty Name="GST" ColumnName="GST" />
+          <ScalarProperty Name="Lunch_Break_Hours" ColumnName="Lunch_Break_Hours" />
+          <ScalarProperty Name="Weekend_Work_Hours" ColumnName="Weekend_Work_Hours" />
+          <ScalarProperty Name="Normal_Work_Hours" ColumnName="Normal_Work_Hours" />
+          <ScalarProperty Name="LogoPath" ColumnName="LogoPath" />
+          <ScalarProperty Name="GstRegNo" ColumnName="GstRegNo" />
+          <ScalarProperty Name="RegNo" ColumnName="RegNo" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="Tel" ColumnName="Tel" />
+          <ScalarProperty Name="Pincode" ColumnName="Pincode" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="InvoiceTerms" ColumnName="InvoiceTerms" />
+          <ScalarProperty Name="Auth_InvoiceName" ColumnName="Auth_InvoiceName" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_company_cert">
+      <EntityTypeMapping TypeName="Eng360Model.eng_company_cert">
+        <MappingFragment StoreEntitySet="eng_company_cert">
+          <ScalarProperty Name="UploadPath" ColumnName="UploadPath" />
+          <ScalarProperty Name="Document_Name" ColumnName="Document_Name" />
+          <ScalarProperty Name="Expiry_Date" ColumnName="Expiry_Date" />
+          <ScalarProperty Name="Issue_Date" ColumnName="Issue_Date" />
+          <ScalarProperty Name="Policy_Cert_Number" ColumnName="Policy_Cert_Number" />
+          <ScalarProperty Name="BoardName" ColumnName="BoardName" />
+          <ScalarProperty Name="Cert_License_Name" ColumnName="Cert_License_Name" />
+          <ScalarProperty Name="Company_Name" ColumnName="Company_Name" />
+          <ScalarProperty Name="Company_ID" ColumnName="Company_ID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_custom_invoice">
+      <EntityTypeMapping TypeName="Eng360Model.eng_custom_invoice">
+        <MappingFragment StoreEntitySet="eng_custom_invoice">
+          <ScalarProperty Name="FinalInvoiceAmount" ColumnName="FinalInvoiceAmount" />
+          <ScalarProperty Name="isFullyPaid" ColumnName="isFullyPaid" />
+          <ScalarProperty Name="DODate" ColumnName="DODate" />
+          <ScalarProperty Name="DoNo" ColumnName="DoNo" />
+          <ScalarProperty Name="InvoiceNo" ColumnName="InvoiceNo" />
+          <ScalarProperty Name="QuotationID" ColumnName="QuotationID" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+          <ScalarProperty Name="InvoiceID" ColumnName="InvoiceID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_custom_invoice_details">
+      <EntityTypeMapping TypeName="Eng360Model.eng_custom_invoice_details">
+        <MappingFragment StoreEntitySet="eng_custom_invoice_details">
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
+          <ScalarProperty Name="QuotePrice" ColumnName="QuotePrice" />
+          <ScalarProperty Name="UnitOfMeasure" ColumnName="UnitOfMeasure" />
+          <ScalarProperty Name="QuoteDescription" ColumnName="QuoteDescription" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="InvoiceID" ColumnName="InvoiceID" />
+          <ScalarProperty Name="InvoiceDetailsID" ColumnName="InvoiceDetailsID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_do_seqnum">
+      <EntityTypeMapping TypeName="Eng360Model.eng_do_seqnum">
+        <MappingFragment StoreEntitySet="eng_do_seqnum">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="DoType" ColumnName="DoType" />
+          <ScalarProperty Name="DoNo" ColumnName="DoNo" />
+          <ScalarProperty Name="DoID" ColumnName="DoID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_employee_profile">
+      <EntityTypeMapping TypeName="Eng360Model.eng_employee_profile">
+        <MappingFragment StoreEntitySet="eng_employee_profile">
+          <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+          <ScalarProperty Name="License_Course_Expiry_Date" ColumnName="License_Course_Expiry_Date" />
+          <ScalarProperty Name="License_Course" ColumnName="License_Course" />
+          <ScalarProperty Name="Safety_Supervisor_Name" ColumnName="Safety_Supervisor_Name" />
+          <ScalarProperty Name="Skilled_Level" ColumnName="Skilled_Level" />
+          <ScalarProperty Name="License_IslandPass_ExpiryDate" ColumnName="License_IslandPass_ExpiryDate" />
+          <ScalarProperty Name="License_IslandPass_Number" ColumnName="License_IslandPass_Number" />
+          <ScalarProperty Name="License_WorkatHeight_ExpiryDate" ColumnName="License_WorkatHeight_ExpiryDate" />
+          <ScalarProperty Name="License_WorkatHeight_Number" ColumnName="License_WorkatHeight_Number" />
+          <ScalarProperty Name="License_Boom_Lift_ExpiryDate" ColumnName="License_Boom_Lift_ExpiryDate" />
+          <ScalarProperty Name="License_Boom_Lift_Number" ColumnName="License_Boom_Lift_Number" />
+          <ScalarProperty Name="License_Scissor_Lift_ExpiryDate" ColumnName="License_Scissor_Lift_ExpiryDate" />
+          <ScalarProperty Name="License_Scissor_Lift_Number" ColumnName="License_Scissor_Lift_Number" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Insurance_Valid_Till" ColumnName="Insurance_Valid_Till" />
+          <ScalarProperty Name="Insurance_Number" ColumnName="Insurance_Number" />
+          <ScalarProperty Name="Licence_Valid_Till" ColumnName="Licence_Valid_Till" />
+          <ScalarProperty Name="Licence_Number" ColumnName="Licence_Number" />
+          <ScalarProperty Name="Permit_Valid_To" ColumnName="Permit_Valid_To" />
+          <ScalarProperty Name="Permit_Valid_From" ColumnName="Permit_Valid_From" />
+          <ScalarProperty Name="Permit_Number" ColumnName="Permit_Number" />
+          <ScalarProperty Name="Passport_Valid_Till" ColumnName="Passport_Valid_Till" />
+          <ScalarProperty Name="Passport_Number" ColumnName="Passport_Number" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="llevel" ColumnName="llevel" />
+          <ScalarProperty Name="Profile_Photo_Path" ColumnName="Profile_Photo_Path" />
+          <ScalarProperty Name="Profile_Desc" ColumnName="Profile_Desc" />
+          <ScalarProperty Name="ID_Number" ColumnName="ID_Number" />
+          <ScalarProperty Name="ID_Type" ColumnName="ID_Type" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="DoR" ColumnName="DoR" />
+          <ScalarProperty Name="DoJ" ColumnName="DoJ" />
+          <ScalarProperty Name="Levy" ColumnName="Levy" />
+          <ScalarProperty Name="Salary" ColumnName="Salary" />
+          <ScalarProperty Name="SOC_Expiry_Date" ColumnName="SOC_Expiry_Date" />
+          <ScalarProperty Name="SOC_Issue_Date" ColumnName="SOC_Issue_Date" />
+          <ScalarProperty Name="SOC_number" ColumnName="SOC_number" />
+          <ScalarProperty Name="DoB" ColumnName="DoB" />
+          <ScalarProperty Name="Nationality" ColumnName="Nationality" />
+          <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="OpBranch" ColumnName="OpBranch" />
+          <ScalarProperty Name="EmpID" ColumnName="EmpID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_inv_seqnum">
+      <EntityTypeMapping TypeName="Eng360Model.eng_inv_seqnum">
+        <MappingFragment StoreEntitySet="eng_inv_seqnum">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="InvoiceType" ColumnName="InvoiceType" />
+          <ScalarProperty Name="InvoiceNo" ColumnName="InvoiceNo" />
+          <ScalarProperty Name="InvoiceID" ColumnName="InvoiceID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_invoice_details">
+      <EntityTypeMapping TypeName="Eng360Model.eng_invoice_details">
+        <MappingFragment StoreEntitySet="eng_invoice_details">
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="UnitOfMeasure" ColumnName="UnitOfMeasure" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="InvoiceID" ColumnName="InvoiceID" />
+          <ScalarProperty Name="InvoiceDescID" ColumnName="InvoiceDescID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_invoice_master">
+      <EntityTypeMapping TypeName="Eng360Model.eng_invoice_master">
+        <MappingFragment StoreEntitySet="eng_invoice_master">
+          <ScalarProperty Name="ServicesFor" ColumnName="ServicesFor" />
+          <ScalarProperty Name="ClientOthers" ColumnName="ClientOthers" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="InvTermandCond" ColumnName="InvTermandCond" />
+          <ScalarProperty Name="InvCategory" ColumnName="InvCategory" />
+          <ScalarProperty Name="InvoiceType" ColumnName="InvoiceType" />
+          <ScalarProperty Name="TotalInvoiceAmount" ColumnName="TotalInvoiceAmount" />
+          <ScalarProperty Name="GST" ColumnName="GST" />
+          <ScalarProperty Name="isFullyPaid" ColumnName="isFullyPaid" />
+          <ScalarProperty Name="AttentionTo" ColumnName="AttentionTo" />
+          <ScalarProperty Name="DoDate" ColumnName="DoDate" />
+          <ScalarProperty Name="DoNo" ColumnName="DoNo" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+          <ScalarProperty Name="QuoteID" ColumnName="QuoteID" />
+          <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+          <ScalarProperty Name="InvoiceNum" ColumnName="InvoiceNum" />
+          <ScalarProperty Name="InvoiceID" ColumnName="InvoiceID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_inward">
+      <EntityTypeMapping TypeName="Eng360Model.eng_inward">
+        <MappingFragment StoreEntitySet="eng_inward">
+          <ScalarProperty Name="DraftFlag" ColumnName="DraftFlag" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ReceivedBy" ColumnName="ReceivedBy" />
+          <ScalarProperty Name="Received_Date" ColumnName="Received_Date" />
+          <ScalarProperty Name="Receipt_Type" ColumnName="Receipt_Type" />
+          <ScalarProperty Name="Invoice_or_DO_Date" ColumnName="Invoice_or_DO_Date" />
+          <ScalarProperty Name="Invoice_or_DO_Number" ColumnName="Invoice_or_DO_Number" />
+          <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
+          <ScalarProperty Name="Branch_Name" ColumnName="Branch_Name" />
+          <ScalarProperty Name="StoreID" ColumnName="StoreID" />
+          <ScalarProperty Name="Inward_Number" ColumnName="Inward_Number" />
+          <ScalarProperty Name="Inward_ID" ColumnName="Inward_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_mm_inwdesc">
+      <EntityTypeMapping TypeName="Eng360Model.eng_mm_inwdesc">
+        <MappingFragment StoreEntitySet="eng_mm_inwdesc">
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="UoM" ColumnName="UoM" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="Inward_ID" ColumnName="Inward_ID" />
+          <ScalarProperty Name="InDescID" ColumnName="InDescID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_mm_outdesc">
+      <EntityTypeMapping TypeName="Eng360Model.eng_mm_outdesc">
+        <MappingFragment StoreEntitySet="eng_mm_outdesc">
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="UoM" ColumnName="UoM" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="Outward_ID" ColumnName="Outward_ID" />
+          <ScalarProperty Name="OutDescID" ColumnName="OutDescID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_mm_stockadj_master">
+      <EntityTypeMapping TypeName="Eng360Model.eng_mm_stockadj_master">
+        <MappingFragment StoreEntitySet="eng_mm_stockadj_master">
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="ActualStock" ColumnName="ActualStock" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="Adj_Ref_Date" ColumnName="Adj_Ref_Date" />
+          <ScalarProperty Name="Adj_Ref_Number" ColumnName="Adj_Ref_Number" />
+          <ScalarProperty Name="AdjType" ColumnName="AdjType" />
+          <ScalarProperty Name="AdjReason" ColumnName="AdjReason" />
+          <ScalarProperty Name="Stock_Taken_By" ColumnName="Stock_Taken_By" />
+          <ScalarProperty Name="Stock_Taking_Date" ColumnName="Stock_Taking_Date" />
+          <ScalarProperty Name="Branch_Name" ColumnName="Branch_Name" />
+          <ScalarProperty Name="StoreID" ColumnName="StoreID" />
+          <ScalarProperty Name="Stock_Taking_Number" ColumnName="Stock_Taking_Number" />
+          <ScalarProperty Name="StockAdjID" ColumnName="StockAdjID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_mm_trmaster">
+      <EntityTypeMapping TypeName="Eng360Model.eng_mm_trmaster">
+        <MappingFragment StoreEntitySet="eng_mm_trmaster">
+          <ScalarProperty Name="Trn_Date" ColumnName="Trn_Date" />
+          <ScalarProperty Name="StoreID" ColumnName="StoreID" />
+          <ScalarProperty Name="UoM" ColumnName="UoM" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="inoutadj_ref" ColumnName="inoutadj_ref" />
+          <ScalarProperty Name="MMTRID" ColumnName="MMTRID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_module">
+      <EntityTypeMapping TypeName="Eng360Model.eng_module">
+        <MappingFragment StoreEntitySet="eng_module">
+          <ScalarProperty Name="Icon" ColumnName="Icon" />
+          <ScalarProperty Name="Order_By" ColumnName="Order_By" />
+          <ScalarProperty Name="ModuleName" ColumnName="ModuleName" />
+          <ScalarProperty Name="AccessType" ColumnName="AccessType" />
+          <ScalarProperty Name="ModuleID" ColumnName="ModuleID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_outward">
+      <EntityTypeMapping TypeName="Eng360Model.eng_outward">
+        <MappingFragment StoreEntitySet="eng_outward">
+          <ScalarProperty Name="DraftFlag" ColumnName="DraftFlag" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="DeliveredBy" ColumnName="DeliveredBy" />
+          <ScalarProperty Name="Project_Location" ColumnName="Project_Location" />
+          <ScalarProperty Name="Delivery_Mode" ColumnName="Delivery_Mode" />
+          <ScalarProperty Name="Vehicle_Number" ColumnName="Vehicle_Number" />
+          <ScalarProperty Name="Delivery_Date" ColumnName="Delivery_Date" />
+          <ScalarProperty Name="Outward_Type" ColumnName="Outward_Type" />
+          <ScalarProperty Name="DO_Date" ColumnName="DO_Date" />
+          <ScalarProperty Name="DO_Number" ColumnName="DO_Number" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+          <ScalarProperty Name="Branch_Name" ColumnName="Branch_Name" />
+          <ScalarProperty Name="StoreID" ColumnName="StoreID" />
+          <ScalarProperty Name="Outward_Number" ColumnName="Outward_Number" />
+          <ScalarProperty Name="Outward_ID" ColumnName="Outward_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_permission">
+      <EntityTypeMapping TypeName="Eng360Model.eng_permission">
+        <MappingFragment StoreEntitySet="eng_permission">
+          <ScalarProperty Name="Access" ColumnName="Access" />
+          <ScalarProperty Name="ModuleID" ColumnName="ModuleID" />
+          <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+          <ScalarProperty Name="PermissionID" ColumnName="PermissionID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_po_description">
+      <EntityTypeMapping TypeName="Eng360Model.eng_po_description">
+        <MappingFragment StoreEntitySet="eng_po_description">
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
+          <ScalarProperty Name="PoPrice" ColumnName="PoPrice" />
+          <ScalarProperty Name="UnitOfMeasure" ColumnName="UnitOfMeasure" />
+          <ScalarProperty Name="PODescription" ColumnName="PODescription" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="PoID" ColumnName="PoID" />
+          <ScalarProperty Name="PDID" ColumnName="PDID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_po_master">
+      <EntityTypeMapping TypeName="Eng360Model.eng_po_master">
+        <MappingFragment StoreEntitySet="eng_po_master">
+          <ScalarProperty Name="isFullyPaid" ColumnName="isFullyPaid" />
+          <ScalarProperty Name="FinalAmount" ColumnName="FinalAmount" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="OrderStatusID" ColumnName="OrderStatusID" />
+          <ScalarProperty Name="GTAX" ColumnName="GTAX" />
+          <ScalarProperty Name="DeliveryAddress" ColumnName="DeliveryAddress" />
+          <ScalarProperty Name="PaymentTerms" ColumnName="PaymentTerms" />
+          <ScalarProperty Name="YourRef" ColumnName="YourRef" />
+          <ScalarProperty Name="Branch_code" ColumnName="Branch_code" />
+          <ScalarProperty Name="Attention" ColumnName="Attention" />
+          <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
+          <ScalarProperty Name="PoDate" ColumnName="PoDate" />
+          <ScalarProperty Name="PoRefNum" ColumnName="PoRefNum" />
+          <ScalarProperty Name="PoID" ColumnName="PoID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_product_master">
+      <EntityTypeMapping TypeName="Eng360Model.eng_product_master">
+        <MappingFragment StoreEntitySet="eng_product_master">
+          <ScalarProperty Name="Barcode2" ColumnName="Barcode2" />
+          <ScalarProperty Name="Barcode1" ColumnName="Barcode1" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Product_Code" ColumnName="Product_Code" />
+          <ScalarProperty Name="Unit_Price" ColumnName="Unit_Price" />
+          <ScalarProperty Name="Measuring_Unit" ColumnName="Measuring_Unit" />
+          <ScalarProperty Name="Dimension" ColumnName="Dimension" />
+          <ScalarProperty Name="Product_Description" ColumnName="Product_Description" />
+          <ScalarProperty Name="Product_Company_Name" ColumnName="Product_Company_Name" />
+          <ScalarProperty Name="Product_Type" ColumnName="Product_Type" />
+          <ScalarProperty Name="Product_Name" ColumnName="Product_Name" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_project_master">
+      <EntityTypeMapping TypeName="Eng360Model.eng_project_master">
+        <MappingFragment StoreEntitySet="eng_project_master">
+          <ScalarProperty Name="Is_Project_level_do" ColumnName="Is_Project_level_do" />
+          <ScalarProperty Name="isFullyPaid" ColumnName="isFullyPaid" />
+          <ScalarProperty Name="Is_Custom_level_inv" ColumnName="Is_Custom_level_inv" />
+          <ScalarProperty Name="Is_Project_level_inv" ColumnName="Is_Project_level_inv" />
+          <ScalarProperty Name="DoDate" ColumnName="DoDate" />
+          <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+          <ScalarProperty Name="InvoiceNo" ColumnName="InvoiceNo" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Project_Cost" ColumnName="Project_Cost" />
+          <ScalarProperty Name="Client_Acceptance_Status" ColumnName="Client_Acceptance_Status" />
+          <ScalarProperty Name="Payment_Status" ColumnName="Payment_Status" />
+          <ScalarProperty Name="Project_Status_ID" ColumnName="Project_Status_ID" />
+          <ScalarProperty Name="Service_Desc" ColumnName="Service_Desc" />
+          <ScalarProperty Name="Key_Milestones" ColumnName="Key_Milestones" />
+          <ScalarProperty Name="End_Date" ColumnName="End_Date" />
+          <ScalarProperty Name="Start_Date" ColumnName="Start_Date" />
+          <ScalarProperty Name="DoNo" ColumnName="DoNo" />
+          <ScalarProperty Name="QuotationID" ColumnName="QuotationID" />
+          <ScalarProperty Name="LocationId" ColumnName="LocationId" />
+          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+          <ScalarProperty Name="ProjectNo" ColumnName="ProjectNo" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_project_report">
+      <EntityTypeMapping TypeName="Eng360Model.eng_project_report">
+        <MappingFragment StoreEntitySet="eng_project_report">
+          <ScalarProperty Name="ProgressPercentage" ColumnName="ProgressPercentage" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Resource_name" ColumnName="Resource_name" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="TaskStatusID" ColumnName="TaskStatusID" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Task_Description" ColumnName="Task_Description" />
+          <ScalarProperty Name="End_Date_Time" ColumnName="End_Date_Time" />
+          <ScalarProperty Name="Start_Date_Time" ColumnName="Start_Date_Time" />
+          <ScalarProperty Name="ReportDate" ColumnName="ReportDate" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="ProjectReportID" ColumnName="ProjectReportID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_project_report_files">
+      <EntityTypeMapping TypeName="Eng360Model.eng_project_report_files">
+        <MappingFragment StoreEntitySet="eng_project_report_files">
+          <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="FIleCaption" ColumnName="FIleCaption" />
+          <ScalarProperty Name="ProjectReportID" ColumnName="ProjectReportID" />
+          <ScalarProperty Name="ProjectSupportFileID" ColumnName="ProjectSupportFileID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_PTW_Conspc_Detail_Stage1">
+      <EntityTypeMapping TypeName="Eng360Model.eng_PTW_Conspc_Detail_Stage1">
+        <MappingFragment StoreEntitySet="eng_PTW_Conspc_Detail_Stage1">
+          <ScalarProperty Name="Assessor_Remarks" ColumnName="Assessor_Remarks" />
+          <ScalarProperty Name="Is_Applicable_Assessor" ColumnName="Is_Applicable_Assessor" />
+          <ScalarProperty Name="Is_Applicable_Applicant" ColumnName="Is_Applicable_Applicant" />
+          <ScalarProperty Name="PTW_Stage_One_ID" ColumnName="PTW_Stage_One_ID" />
+          <ScalarProperty Name="PTW_Master_ID" ColumnName="PTW_Master_ID" />
+          <ScalarProperty Name="PTW_Conspc_Stage1_ID" ColumnName="PTW_Conspc_Stage1_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_PTW_Conspc_Detail_Stage5">
+      <EntityTypeMapping TypeName="Eng360Model.eng_PTW_Conspc_Detail_Stage5">
+        <MappingFragment StoreEntitySet="eng_PTW_Conspc_Detail_Stage5">
+          <ScalarProperty Name="Assessor_Comments" ColumnName="Assessor_Comments" />
+          <ScalarProperty Name="Stage5_Assessor_Name" ColumnName="Stage5_Assessor_Name" />
+          <ScalarProperty Name="Safe_for_Entry" ColumnName="Safe_for_Entry" />
+          <ScalarProperty Name="H2S" ColumnName="H2S" />
+          <ScalarProperty Name="LEL" ColumnName="LEL" />
+          <ScalarProperty Name="CO2" ColumnName="CO2" />
+          <ScalarProperty Name="O2" ColumnName="O2" />
+          <ScalarProperty Name="Stage5_Date_Time" ColumnName="Stage5_Date_Time" />
+          <ScalarProperty Name="PTW_Master_ID" ColumnName="PTW_Master_ID" />
+          <ScalarProperty Name="PTW_Conspc_Stage5_ID" ColumnName="PTW_Conspc_Stage5_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_PTW_Conspc_Employee_Details">
+      <EntityTypeMapping TypeName="Eng360Model.eng_PTW_Conspc_Employee_Details">
+        <MappingFragment StoreEntitySet="eng_PTW_Conspc_Employee_Details">
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="PTW_Master_ID" ColumnName="PTW_Master_ID" />
+          <ScalarProperty Name="PTWEmployeeID" ColumnName="PTWEmployeeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_ptw_conspc_master">
+      <EntityTypeMapping TypeName="Eng360Model.eng_ptw_conspc_master">
+        <MappingFragment StoreEntitySet="eng_ptw_conspc_master">
+          <ScalarProperty Name="CompletedStage" ColumnName="CompletedStage" />
+          <ScalarProperty Name="Updated_Date" ColumnName="Updated_Date" />
+          <ScalarProperty Name="Updated_By" ColumnName="Updated_By" />
+          <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+          <ScalarProperty Name="PTW_type" ColumnName="PTW_type" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="Revoke_Date_Time" ColumnName="Revoke_Date_Time" />
+          <ScalarProperty Name="Revoke_PM_Name" ColumnName="Revoke_PM_Name" />
+          <ScalarProperty Name="Revoke_WSH_Name" ColumnName="Revoke_WSH_Name" />
+          <ScalarProperty Name="Revoke_Desc" ColumnName="Revoke_Desc" />
+          <ScalarProperty Name="Stage6_Date_Time" ColumnName="Stage6_Date_Time" />
+          <ScalarProperty Name="Stage6_Person_Desig" ColumnName="Stage6_Person_Desig" />
+          <ScalarProperty Name="Stage6_Person_Name" ColumnName="Stage6_Person_Name" />
+          <ScalarProperty Name="Stage4_Comments" ColumnName="Stage4_Comments" />
+          <ScalarProperty Name="Stage4_Date_Time" ColumnName="Stage4_Date_Time" />
+          <ScalarProperty Name="Stage4_Mng_Desig" ColumnName="Stage4_Mng_Desig" />
+          <ScalarProperty Name="Stage4_Mng_Name" ColumnName="Stage4_Mng_Name" />
+          <ScalarProperty Name="Stage3_Comments" ColumnName="Stage3_Comments" />
+          <ScalarProperty Name="Stage3_WSH_Date_Time" ColumnName="Stage3_WSH_Date_Time" />
+          <ScalarProperty Name="Stage3_WSH_Desig" ColumnName="Stage3_WSH_Desig" />
+          <ScalarProperty Name="Stage3_WSH_Name" ColumnName="Stage3_WSH_Name" />
+          <ScalarProperty Name="Stage2_Comments" ColumnName="Stage2_Comments" />
+          <ScalarProperty Name="Stage2_Assessor_Date_Time" ColumnName="Stage2_Assessor_Date_Time" />
+          <ScalarProperty Name="Stage2_Assessor_Desig" ColumnName="Stage2_Assessor_Desig" />
+          <ScalarProperty Name="Stage2_Assessor_Name" ColumnName="Stage2_Assessor_Name" />
+          <ScalarProperty Name="Safe_for_Entry" ColumnName="Safe_for_Entry" />
+          <ScalarProperty Name="Stage2_H2S" ColumnName="Stage2_H2S" />
+          <ScalarProperty Name="Stage2_LEL" ColumnName="Stage2_LEL" />
+          <ScalarProperty Name="Stage2_CO2" ColumnName="Stage2_CO2" />
+          <ScalarProperty Name="Stage2_O2" ColumnName="Stage2_O2" />
+          <ScalarProperty Name="Stage1_Watchman_Company" ColumnName="Stage1_Watchman_Company" />
+          <ScalarProperty Name="Stage1_Watchman_ID" ColumnName="Stage1_Watchman_ID" />
+          <ScalarProperty Name="Stage1_Watchman_Name" ColumnName="Stage1_Watchman_Name" />
+          <ScalarProperty Name="No_of_workers_involved" ColumnName="No_of_workers_involved" />
+          <ScalarProperty Name="End_Date_Time" ColumnName="End_Date_Time" />
+          <ScalarProperty Name="Start_Date_Time" ColumnName="Start_Date_Time" />
+          <ScalarProperty Name="LocationOfWork" ColumnName="LocationOfWork" />
+          <ScalarProperty Name="Applicant_Date_Time" ColumnName="Applicant_Date_Time" />
+          <ScalarProperty Name="Applicant_Desig" ColumnName="Applicant_Desig" />
+          <ScalarProperty Name="Applicant_Name" ColumnName="Applicant_Name" />
+          <ScalarProperty Name="Work_Description" ColumnName="Work_Description" />
+          <ScalarProperty Name="ContractorName" ColumnName="ContractorName" />
+          <ScalarProperty Name="PTW_master_ID" ColumnName="PTW_master_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_PTW_Detail_Satge1">
+      <EntityTypeMapping TypeName="Eng360Model.eng_PTW_Detail_Satge1">
+        <MappingFragment StoreEntitySet="eng_PTW_Detail_Satge1">
+          <ScalarProperty Name="Is_Applicable" ColumnName="Is_Applicable" />
+          <ScalarProperty Name="PTW_Stage_One_ID" ColumnName="PTW_Stage_One_ID" />
+          <ScalarProperty Name="PTW_Master_ID" ColumnName="PTW_Master_ID" />
+          <ScalarProperty Name="PTW_Detail_Satge1_ID" ColumnName="PTW_Detail_Satge1_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_PTW_Detail_Satge4">
+      <EntityTypeMapping TypeName="Eng360Model.eng_PTW_Detail_Satge4">
+        <MappingFragment StoreEntitySet="eng_PTW_Detail_Satge4">
+          <ScalarProperty Name="Mng_Sig_Date" ColumnName="Mng_Sig_Date" />
+          <ScalarProperty Name="Mng_Signature" ColumnName="Mng_Signature" />
+          <ScalarProperty Name="Sup_Sig_Date" ColumnName="Sup_Sig_Date" />
+          <ScalarProperty Name="Sup_Signature" ColumnName="Sup_Signature" />
+          <ScalarProperty Name="DayDate" ColumnName="DayDate" />
+          <ScalarProperty Name="Day" ColumnName="Day" />
+          <ScalarProperty Name="PTW_Master_ID" ColumnName="PTW_Master_ID" />
+          <ScalarProperty Name="PTW_Detail_Satge4" ColumnName="PTW_Detail_Satge4" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_PTW_Employee_Details">
+      <EntityTypeMapping TypeName="Eng360Model.eng_PTW_Employee_Details">
+        <MappingFragment StoreEntitySet="eng_PTW_Employee_Details">
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="PTW_Master_ID" ColumnName="PTW_Master_ID" />
+          <ScalarProperty Name="PTWEmployeeID" ColumnName="PTWEmployeeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_ptw_master">
+      <EntityTypeMapping TypeName="Eng360Model.eng_ptw_master">
+        <MappingFragment StoreEntitySet="eng_ptw_master">
+          <ScalarProperty Name="CompletedStage" ColumnName="CompletedStage" />
+          <ScalarProperty Name="Updated_Date" ColumnName="Updated_Date" />
+          <ScalarProperty Name="Updated_By" ColumnName="Updated_By" />
+          <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+          <ScalarProperty Name="PTW_type" ColumnName="PTW_type" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="Revoke_Mng_Name" ColumnName="Revoke_Mng_Name" />
+          <ScalarProperty Name="Revoke_Sup_Name" ColumnName="Revoke_Sup_Name" />
+          <ScalarProperty Name="Revoke_Desc" ColumnName="Revoke_Desc" />
+          <ScalarProperty Name="Stage5_Mng_Date_Time" ColumnName="Stage5_Mng_Date_Time" />
+          <ScalarProperty Name="Stage5_Mng_Person_Name" ColumnName="Stage5_Mng_Person_Name" />
+          <ScalarProperty Name="Stage5_Sup_Date_Time" ColumnName="Stage5_Sup_Date_Time" />
+          <ScalarProperty Name="Stage5_Sup_Person_Name" ColumnName="Stage5_Sup_Person_Name" />
+          <ScalarProperty Name="Stage4_WSH_Date_Time" ColumnName="Stage4_WSH_Date_Time" />
+          <ScalarProperty Name="Stage4_WSH_Name" ColumnName="Stage4_WSH_Name" />
+          <ScalarProperty Name="Stage4_Sup_Date_Time" ColumnName="Stage4_Sup_Date_Time" />
+          <ScalarProperty Name="Stage4_Sup_Name" ColumnName="Stage4_Sup_Name" />
+          <ScalarProperty Name="Stage3_Date_Time" ColumnName="Stage3_Date_Time" />
+          <ScalarProperty Name="Stage3_Person_Name" ColumnName="Stage3_Person_Name" />
+          <ScalarProperty Name="Stage2_Date_Time" ColumnName="Stage2_Date_Time" />
+          <ScalarProperty Name="Stage2_Person_Name" ColumnName="Stage2_Person_Name" />
+          <ScalarProperty Name="Stage1_Date_Time" ColumnName="Stage1_Date_Time" />
+          <ScalarProperty Name="Stage1_Person_Name" ColumnName="Stage1_Person_Name" />
+          <ScalarProperty Name="No_of_workers_involved" ColumnName="No_of_workers_involved" />
+          <ScalarProperty Name="End_Date_Time" ColumnName="End_Date_Time" />
+          <ScalarProperty Name="Start_Date_Time" ColumnName="Start_Date_Time" />
+          <ScalarProperty Name="Loc_or_GridLineNo" ColumnName="Loc_or_GridLineNo" />
+          <ScalarProperty Name="Sub_con_Name" ColumnName="Sub_con_Name" />
+          <ScalarProperty Name="Date_Time" ColumnName="Date_Time" />
+          <ScalarProperty Name="NameOfApplicant" ColumnName="NameOfApplicant" />
+          <ScalarProperty Name="ProjectTitle" ColumnName="ProjectTitle" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="PTW_master_ID" ColumnName="PTW_master_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_pymt_payable">
+      <EntityTypeMapping TypeName="Eng360Model.eng_pymt_payable">
+        <MappingFragment StoreEntitySet="eng_pymt_payable">
+          <ScalarProperty Name="PoID" ColumnName="PoID" />
+          <ScalarProperty Name="ClaimNo" ColumnName="ClaimNo" />
+          <ScalarProperty Name="PayableType" ColumnName="PayableType" />
+          <ScalarProperty Name="ClaimID" ColumnName="ClaimID" />
+          <ScalarProperty Name="EmpID" ColumnName="EmpID" />
+          <ScalarProperty Name="ExpenseFlag" ColumnName="ExpenseFlag" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ReceivedBy" ColumnName="ReceivedBy" />
+          <ScalarProperty Name="ApprovedBy" ColumnName="ApprovedBy" />
+          <ScalarProperty Name="PreparedBy" ColumnName="PreparedBy" />
+          <ScalarProperty Name="GTAX" ColumnName="GTAX" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Particulars" ColumnName="Particulars" />
+          <ScalarProperty Name="FY" ColumnName="FY" />
+          <ScalarProperty Name="reference" ColumnName="reference" />
+          <ScalarProperty Name="Tr_status" ColumnName="Tr_status" />
+          <ScalarProperty Name="PoNo" ColumnName="PoNo" />
+          <ScalarProperty Name="Due_date" ColumnName="Due_date" />
+          <ScalarProperty Name="Tr_date" ColumnName="Tr_date" />
+          <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
+          <ScalarProperty Name="VoucherNo" ColumnName="VoucherNo" />
+          <ScalarProperty Name="PymtID" ColumnName="PymtID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_pymt_receivable">
+      <EntityTypeMapping TypeName="Eng360Model.eng_pymt_receivable">
+        <MappingFragment StoreEntitySet="eng_pymt_receivable">
+          <ScalarProperty Name="InvoiceID" ColumnName="InvoiceID" />
+          <ScalarProperty Name="InvoiceType" ColumnName="InvoiceType" />
+          <ScalarProperty Name="QuoteID" ColumnName="QuoteID" />
+          <ScalarProperty Name="ReceivableType" ColumnName="ReceivableType" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="GTAX" ColumnName="GTAX" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Particulars" ColumnName="Particulars" />
+          <ScalarProperty Name="FY" ColumnName="FY" />
+          <ScalarProperty Name="reference" ColumnName="reference" />
+          <ScalarProperty Name="Tr_status" ColumnName="Tr_status" />
+          <ScalarProperty Name="InvoiceNo" ColumnName="InvoiceNo" />
+          <ScalarProperty Name="Due_date" ColumnName="Due_date" />
+          <ScalarProperty Name="Tr_date" ColumnName="Tr_date" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+          <ScalarProperty Name="VoucherNo" ColumnName="VoucherNo" />
+          <ScalarProperty Name="PymtID" ColumnName="PymtID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_qa_defect">
+      <EntityTypeMapping TypeName="Eng360Model.eng_qa_defect">
+        <MappingFragment StoreEntitySet="eng_qa_defect">
+          <ScalarProperty Name="Ext_Auditor_Desig" ColumnName="Ext_Auditor_Desig" />
+          <ScalarProperty Name="Ext_AuditedBy" ColumnName="Ext_AuditedBy" />
+          <ScalarProperty Name="InspectionType" ColumnName="InspectionType" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="PM_Incharge" ColumnName="PM_Incharge" />
+          <ScalarProperty Name="InspectedDate" ColumnName="InspectedDate" />
+          <ScalarProperty Name="InspectedBy" ColumnName="InspectedBy" />
+          <ScalarProperty Name="DefStatus" ColumnName="DefStatus" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
+          <ScalarProperty Name="SupplierFlag" ColumnName="SupplierFlag" />
+          <ScalarProperty Name="InspectionArea" ColumnName="InspectionArea" />
+          <ScalarProperty Name="DrawingRecordNo" ColumnName="DrawingRecordNo" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="DefectDisplayID" ColumnName="DefectDisplayID" />
+          <ScalarProperty Name="DefectID" ColumnName="DefectID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_qa_defect_cpa">
+      <EntityTypeMapping TypeName="Eng360Model.eng_qa_defect_cpa">
+        <MappingFragment StoreEntitySet="eng_qa_defect_cpa">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="TrackStatus" ColumnName="TrackStatus" />
+          <ScalarProperty Name="ReviewedBy" ColumnName="ReviewedBy" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="FollowupAction" ColumnName="FollowupAction" />
+          <ScalarProperty Name="DoI" ColumnName="DoI" />
+          <ScalarProperty Name="ActionBy" ColumnName="ActionBy" />
+          <ScalarProperty Name="ActionTaken" ColumnName="ActionTaken" />
+          <ScalarProperty Name="ipt_suggestion" ColumnName="ipt_suggestion" />
+          <ScalarProperty Name="ipt_insandops" ColumnName="ipt_insandops" />
+          <ScalarProperty Name="ipt_health" ColumnName="ipt_health" />
+          <ScalarProperty Name="ipt_safety" ColumnName="ipt_safety" />
+          <ScalarProperty Name="ipt_envmt" ColumnName="ipt_envmt" />
+          <ScalarProperty Name="rfp_other_remarks" ColumnName="rfp_other_remarks" />
+          <ScalarProperty Name="rfp_other" ColumnName="rfp_other" />
+          <ScalarProperty Name="rfp_ea" ColumnName="rfp_ea" />
+          <ScalarProperty Name="rfp_cc" ColumnName="rfp_cc" />
+          <ScalarProperty Name="rfp_mgmtreview" ColumnName="rfp_mgmtreview" />
+          <ScalarProperty Name="rfp_ncps" ColumnName="rfp_ncps" />
+          <ScalarProperty Name="CAflag" ColumnName="CAflag" />
+          <ScalarProperty Name="PAflag" ColumnName="PAflag" />
+          <ScalarProperty Name="DefectDetailID" ColumnName="DefectDetailID" />
+          <ScalarProperty Name="DPCID" ColumnName="DPCID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_qa_defect_cpa_files">
+      <EntityTypeMapping TypeName="Eng360Model.eng_qa_defect_cpa_files">
+        <MappingFragment StoreEntitySet="eng_qa_defect_cpa_files">
+          <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="FIleCaption" ColumnName="FIleCaption" />
+          <ScalarProperty Name="DPCID" ColumnName="DPCID" />
+          <ScalarProperty Name="CpaFileID" ColumnName="CpaFileID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_qa_defect_detail">
+      <EntityTypeMapping TypeName="Eng360Model.eng_qa_defect_detail">
+        <MappingFragment StoreEntitySet="eng_qa_defect_detail">
+          <ScalarProperty Name="DefectStatus" ColumnName="DefectStatus" />
+          <ScalarProperty Name="DefectImpactDetails" ColumnName="DefectImpactDetails" />
+          <ScalarProperty Name="DefectTitle" ColumnName="DefectTitle" />
+          <ScalarProperty Name="DefectID" ColumnName="DefectID" />
+          <ScalarProperty Name="DefectTrackNum" ColumnName="DefectTrackNum" />
+          <ScalarProperty Name="DefectDetailID" ColumnName="DefectDetailID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_qa_defect_files">
+      <EntityTypeMapping TypeName="Eng360Model.eng_qa_defect_files">
+        <MappingFragment StoreEntitySet="eng_qa_defect_files">
+          <ScalarProperty Name="DefectType" ColumnName="DefectType" />
+          <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="FIleCaption" ColumnName="FIleCaption" />
+          <ScalarProperty Name="DefectID" ColumnName="DefectID" />
+          <ScalarProperty Name="DefectFileID" ColumnName="DefectFileID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_quote_description">
+      <EntityTypeMapping TypeName="Eng360Model.eng_quote_description">
+        <MappingFragment StoreEntitySet="eng_quote_description">
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
+          <ScalarProperty Name="QuotePrice" ColumnName="QuotePrice" />
+          <ScalarProperty Name="UnitOfMeasure" ColumnName="UnitOfMeasure" />
+          <ScalarProperty Name="QuoteDescription" ColumnName="QuoteDescription" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="QuoteID" ColumnName="QuoteID" />
+          <ScalarProperty Name="QDID" ColumnName="QDID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_quote_master">
+      <EntityTypeMapping TypeName="Eng360Model.eng_quote_master">
+        <MappingFragment StoreEntitySet="eng_quote_master">
+          <ScalarProperty Name="InvoiceFlag" ColumnName="InvoiceFlag" />
+          <ScalarProperty Name="Is_Quote_level_do" ColumnName="Is_Quote_level_do" />
+          <ScalarProperty Name="Is_do_released" ColumnName="Is_do_released" />
+          <ScalarProperty Name="FinalAmount" ColumnName="FinalAmount" />
+          <ScalarProperty Name="isFullyPaid" ColumnName="isFullyPaid" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="Is_Custom_level_inv" ColumnName="Is_Custom_level_inv" />
+          <ScalarProperty Name="Is_Project_level_inv" ColumnName="Is_Project_level_inv" />
+          <ScalarProperty Name="Is_Quote_level_inv" ColumnName="Is_Quote_level_inv" />
+          <ScalarProperty Name="Is_invoice_released" ColumnName="Is_invoice_released" />
+          <ScalarProperty Name="ProjectTitle" ColumnName="ProjectTitle" />
+          <ScalarProperty Name="RvFlag" ColumnName="RvFlag" />
+          <ScalarProperty Name="QuoteTitle" ColumnName="QuoteTitle" />
+          <ScalarProperty Name="DODate" ColumnName="DODate" />
+          <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+          <ScalarProperty Name="DoNo" ColumnName="DoNo" />
+          <ScalarProperty Name="InvoiceNo" ColumnName="InvoiceNo" />
+          <ScalarProperty Name="IsProjectCreated" ColumnName="IsProjectCreated" />
+          <ScalarProperty Name="IsAutoApproved" ColumnName="IsAutoApproved" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="QuoteStatusID" ColumnName="QuoteStatusID" />
+          <ScalarProperty Name="Currency" ColumnName="Currency" />
+          <ScalarProperty Name="GTAX" ColumnName="GTAX" />
+          <ScalarProperty Name="TermsAndCond" ColumnName="TermsAndCond" />
+          <ScalarProperty Name="PaymentTerms" ColumnName="PaymentTerms" />
+          <ScalarProperty Name="YourRef" ColumnName="YourRef" />
+          <ScalarProperty Name="ValidTill" ColumnName="ValidTill" />
+          <ScalarProperty Name="QuoteCategory" ColumnName="QuoteCategory" />
+          <ScalarProperty Name="Branch_code" ColumnName="Branch_code" />
+          <ScalarProperty Name="Attention_CCID" ColumnName="Attention_CCID" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+          <ScalarProperty Name="QuoteDate" ColumnName="QuoteDate" />
+          <ScalarProperty Name="QuoteRefNum" ColumnName="QuoteRefNum" />
+          <ScalarProperty Name="QuoteID" ColumnName="QuoteID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_ra_control_measures">
+      <EntityTypeMapping TypeName="Eng360Model.eng_ra_control_measures">
+        <MappingFragment StoreEntitySet="eng_ra_control_measures">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ItemDescription" ColumnName="ItemDescription" />
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_ra_hazardlist">
+      <EntityTypeMapping TypeName="Eng360Model.eng_ra_hazardlist">
+        <MappingFragment StoreEntitySet="eng_ra_hazardlist">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ItemDescription" ColumnName="ItemDescription" />
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_ra_location">
+      <EntityTypeMapping TypeName="Eng360Model.eng_ra_location">
+        <MappingFragment StoreEntitySet="eng_ra_location">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ItemDescription" ColumnName="ItemDescription" />
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_ra_possible_accident_health">
+      <EntityTypeMapping TypeName="Eng360Model.eng_ra_possible_accident_health">
+        <MappingFragment StoreEntitySet="eng_ra_possible_accident_health">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ItemDescription" ColumnName="ItemDescription" />
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_ra_process">
+      <EntityTypeMapping TypeName="Eng360Model.eng_ra_process">
+        <MappingFragment StoreEntitySet="eng_ra_process">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ItemDescription" ColumnName="ItemDescription" />
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_ra_trans_detail1">
+      <EntityTypeMapping TypeName="Eng360Model.eng_ra_trans_detail1">
+        <MappingFragment StoreEntitySet="eng_ra_trans_detail1">
+          <ScalarProperty Name="WorkActivities" ColumnName="WorkActivities" />
+          <ScalarProperty Name="Process" ColumnName="Process" />
+          <ScalarProperty Name="Locations" ColumnName="Locations" />
+          <ScalarProperty Name="RAID" ColumnName="RAID" />
+          <ScalarProperty Name="RAWADetID" ColumnName="RAWADetID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_ra_trans_master">
+      <EntityTypeMapping TypeName="Eng360Model.eng_ra_trans_master">
+        <MappingFragment StoreEntitySet="eng_ra_trans_master">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="PreparedBy" ColumnName="PreparedBy" />
+          <ScalarProperty Name="Reference_Number" ColumnName="Reference_Number" />
+          <ScalarProperty Name="ApprovedDate" ColumnName="ApprovedDate" />
+          <ScalarProperty Name="ApprovedDesig" ColumnName="ApprovedDesig" />
+          <ScalarProperty Name="ApprovedBy" ColumnName="ApprovedBy" />
+          <ScalarProperty Name="RAMember5" ColumnName="RAMember5" />
+          <ScalarProperty Name="RAMember4" ColumnName="RAMember4" />
+          <ScalarProperty Name="RAMember3" ColumnName="RAMember3" />
+          <ScalarProperty Name="RAMember2" ColumnName="RAMember2" />
+          <ScalarProperty Name="RAMember1" ColumnName="RAMember1" />
+          <ScalarProperty Name="RALeader" ColumnName="RALeader" />
+          <ScalarProperty Name="NextReviewDate" ColumnName="NextReviewDate" />
+          <ScalarProperty Name="LastReviewDate" ColumnName="LastReviewDate" />
+          <ScalarProperty Name="AssessmentDate" ColumnName="AssessmentDate" />
+          <ScalarProperty Name="ActivityLocation" ColumnName="ActivityLocation" />
+          <ScalarProperty Name="Process" ColumnName="Process" />
+          <ScalarProperty Name="ContractNumber" ColumnName="ContractNumber" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="RARefNum" ColumnName="RARefNum" />
+          <ScalarProperty Name="RAID" ColumnName="RAID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_ra_trans_racm">
+      <EntityTypeMapping TypeName="Eng360Model.eng_ra_trans_racm">
+        <MappingFragment StoreEntitySet="eng_ra_trans_racm">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="PreparedBy" ColumnName="PreparedBy" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+          <ScalarProperty Name="ImpOfficer" ColumnName="ImpOfficer" />
+          <ScalarProperty Name="RCRPN" ColumnName="RCRPN" />
+          <ScalarProperty Name="RCRMSVID" ColumnName="RCRMSVID" />
+          <ScalarProperty Name="RCRMLHID" ColumnName="RCRMLHID" />
+          <ScalarProperty Name="RCAdRCID" ColumnName="RCAdRCID" />
+          <ScalarProperty Name="REvRPN" ColumnName="REvRPN" />
+          <ScalarProperty Name="REvRMSVID" ColumnName="REvRMSVID" />
+          <ScalarProperty Name="REvRMLHID" ColumnName="REvRMLHID" />
+          <ScalarProperty Name="REvExRCID" ColumnName="REvExRCID" />
+          <ScalarProperty Name="PAHID" ColumnName="PAHID" />
+          <ScalarProperty Name="HazardID" ColumnName="HazardID" />
+          <ScalarProperty Name="RAWADetail" ColumnName="RAWADetail" />
+          <ScalarProperty Name="RAWADetID" ColumnName="RAWADetID" />
+          <ScalarProperty Name="RAID" ColumnName="RAID" />
+          <ScalarProperty Name="RACMID" ColumnName="RACMID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_ra_work_activity">
+      <EntityTypeMapping TypeName="Eng360Model.eng_ra_work_activity">
+        <MappingFragment StoreEntitySet="eng_ra_work_activity">
+          <ScalarProperty Name="UpdtaedDate" ColumnName="UpdtaedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ItemDescription" ColumnName="ItemDescription" />
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_safety_esh">
+      <EntityTypeMapping TypeName="Eng360Model.eng_safety_esh">
+        <MappingFragment StoreEntitySet="eng_safety_esh">
+          <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="FileCaption" ColumnName="FileCaption" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="AcknowlegeBy" ColumnName="AcknowlegeBy" />
+          <ScalarProperty Name="EHSName" ColumnName="EHSName" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Rectification_Remarks" ColumnName="Rectification_Remarks" />
+          <ScalarProperty Name="ActionBy_Deadline" ColumnName="ActionBy_Deadline" />
+          <ScalarProperty Name="RemedialAction" ColumnName="RemedialAction" />
+          <ScalarProperty Name="Observation" ColumnName="Observation" />
+          <ScalarProperty Name="InspectedBy" ColumnName="InspectedBy" />
+          <ScalarProperty Name="ProjectLocation" ColumnName="ProjectLocation" />
+          <ScalarProperty Name="InspectionDate" ColumnName="InspectionDate" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="NSIID" ColumnName="NSIID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_safety_esh_files">
+      <EntityTypeMapping TypeName="Eng360Model.eng_safety_esh_files">
+        <MappingFragment StoreEntitySet="eng_safety_esh_files">
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="InspectionDate" ColumnName="InspectionDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Rectification_Remarks" ColumnName="Rectification_Remarks" />
+          <ScalarProperty Name="ActionBy_Deadline" ColumnName="ActionBy_Deadline" />
+          <ScalarProperty Name="RemedialAction" ColumnName="RemedialAction" />
+          <ScalarProperty Name="Observation" ColumnName="Observation" />
+          <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="FileCaption" ColumnName="FileCaption" />
+          <ScalarProperty Name="NSIID" ColumnName="NSIID" />
+          <ScalarProperty Name="NSIFileID" ColumnName="NSIFileID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_safety_hazard_list">
+      <EntityTypeMapping TypeName="Eng360Model.eng_safety_hazard_list">
+        <MappingFragment StoreEntitySet="eng_safety_hazard_list">
+          <ScalarProperty Name="HazardID" ColumnName="HazardID" />
+          <ScalarProperty Name="SafetyID" ColumnName="SafetyID" />
+          <ScalarProperty Name="HLID" ColumnName="HLID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_safety_insp_detail">
+      <EntityTypeMapping TypeName="Eng360Model.eng_safety_insp_detail">
+        <MappingFragment StoreEntitySet="eng_safety_insp_detail">
+          <ScalarProperty Name="ACDate" ColumnName="ACDate" />
+          <ScalarProperty Name="ResponsiblePerson" ColumnName="ResponsiblePerson" />
+          <ScalarProperty Name="Recommendation" ColumnName="Recommendation" />
+          <ScalarProperty Name="Is_Applicable" ColumnName="Is_Applicable" />
+          <ScalarProperty Name="SIItemID" ColumnName="SIItemID" />
+          <ScalarProperty Name="SAFINSID" ColumnName="SAFINSID" />
+          <ScalarProperty Name="SIDetailID" ColumnName="SIDetailID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_safety_insp_master">
+      <EntityTypeMapping TypeName="Eng360Model.eng_safety_insp_master">
+        <MappingFragment StoreEntitySet="eng_safety_insp_master">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Safety_Officer" ColumnName="Safety_Officer" />
+          <ScalarProperty Name="Safety_Manager" ColumnName="Safety_Manager" />
+          <ScalarProperty Name="Zone_Construction_Manager" ColumnName="Zone_Construction_Manager" />
+          <ScalarProperty Name="Site_Manager" ColumnName="Site_Manager" />
+          <ScalarProperty Name="Project_Manager" ColumnName="Project_Manager" />
+          <ScalarProperty Name="Senior_Construction_Manager" ColumnName="Senior_Construction_Manager" />
+          <ScalarProperty Name="ACDate10" ColumnName="ACDate10" />
+          <ScalarProperty Name="ACDate9" ColumnName="ACDate9" />
+          <ScalarProperty Name="ACDate8" ColumnName="ACDate8" />
+          <ScalarProperty Name="ACDate7" ColumnName="ACDate7" />
+          <ScalarProperty Name="ACDate6" ColumnName="ACDate6" />
+          <ScalarProperty Name="ACDate5" ColumnName="ACDate5" />
+          <ScalarProperty Name="ACDate4" ColumnName="ACDate4" />
+          <ScalarProperty Name="ACDate3" ColumnName="ACDate3" />
+          <ScalarProperty Name="ACDate2" ColumnName="ACDate2" />
+          <ScalarProperty Name="ACDate1" ColumnName="ACDate1" />
+          <ScalarProperty Name="RP10" ColumnName="RP10" />
+          <ScalarProperty Name="RP9" ColumnName="RP9" />
+          <ScalarProperty Name="RP8" ColumnName="RP8" />
+          <ScalarProperty Name="RP7" ColumnName="RP7" />
+          <ScalarProperty Name="RP6" ColumnName="RP6" />
+          <ScalarProperty Name="RP5" ColumnName="RP5" />
+          <ScalarProperty Name="RP4" ColumnName="RP4" />
+          <ScalarProperty Name="RP3" ColumnName="RP3" />
+          <ScalarProperty Name="RP2" ColumnName="RP2" />
+          <ScalarProperty Name="RP1" ColumnName="RP1" />
+          <ScalarProperty Name="Others10" ColumnName="Others10" />
+          <ScalarProperty Name="Others9" ColumnName="Others9" />
+          <ScalarProperty Name="Others8" ColumnName="Others8" />
+          <ScalarProperty Name="Others7" ColumnName="Others7" />
+          <ScalarProperty Name="Others6" ColumnName="Others6" />
+          <ScalarProperty Name="Others5" ColumnName="Others5" />
+          <ScalarProperty Name="Others4" ColumnName="Others4" />
+          <ScalarProperty Name="Others3" ColumnName="Others3" />
+          <ScalarProperty Name="Others2" ColumnName="Others2" />
+          <ScalarProperty Name="Others1" ColumnName="Others1" />
+          <ScalarProperty Name="Safety_Cert_Info" ColumnName="Safety_Cert_Info" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="InspectedBy" ColumnName="InspectedBy" />
+          <ScalarProperty Name="ProjectLocation" ColumnName="ProjectLocation" />
+          <ScalarProperty Name="SIDate" ColumnName="SIDate" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="SafetyRefNum" ColumnName="SafetyRefNum" />
+          <ScalarProperty Name="SAFINSID" ColumnName="SAFINSID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_safety_master">
+      <EntityTypeMapping TypeName="Eng360Model.eng_safety_master">
+        <MappingFragment StoreEntitySet="eng_safety_master">
+          <ScalarProperty Name="SignaturePath" ColumnName="SignaturePath" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ASHMeasures" ColumnName="ASHMeasures" />
+          <ScalarProperty Name="SubmittedBy" ColumnName="SubmittedBy" />
+          <ScalarProperty Name="OtherHazard" ColumnName="OtherHazard" />
+          <ScalarProperty Name="LocationOfWork" ColumnName="LocationOfWork" />
+          <ScalarProperty Name="RepTime" ColumnName="RepTime" />
+          <ScalarProperty Name="RepDate" ColumnName="RepDate" />
+          <ScalarProperty Name="ProjectTitle" ColumnName="ProjectTitle" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="SafetyID" ColumnName="SafetyID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_safety_ppe_list">
+      <EntityTypeMapping TypeName="Eng360Model.eng_safety_ppe_list">
+        <MappingFragment StoreEntitySet="eng_safety_ppe_list">
+          <ScalarProperty Name="PPEID" ColumnName="PPEID" />
+          <ScalarProperty Name="SafetyID" ColumnName="SafetyID" />
+          <ScalarProperty Name="PPELID" ColumnName="PPELID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_safety_worker_list">
+      <EntityTypeMapping TypeName="Eng360Model.eng_safety_worker_list">
+        <MappingFragment StoreEntitySet="eng_safety_worker_list">
+          <ScalarProperty Name="EmpID" ColumnName="EmpID" />
+          <ScalarProperty Name="SafetyID" ColumnName="SafetyID" />
+          <ScalarProperty Name="WLID" ColumnName="WLID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_screens">
+      <EntityTypeMapping TypeName="Eng360Model.eng_screens">
+        <MappingFragment StoreEntitySet="eng_screens">
+          <ScalarProperty Name="ORDER_BY" ColumnName="ORDER_BY" />
+          <ScalarProperty Name="SCREEN_URL" ColumnName="SCREEN_URL" />
+          <ScalarProperty Name="SCREEN_CLASS_NAME" ColumnName="SCREEN_CLASS_NAME" />
+          <ScalarProperty Name="SCREEN_NAME" ColumnName="SCREEN_NAME" />
+          <ScalarProperty Name="MODULEID" ColumnName="MODULEID" />
+          <ScalarProperty Name="SCREEN_ID" ColumnName="SCREEN_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_store_master">
+      <EntityTypeMapping TypeName="Eng360Model.eng_store_master">
+        <MappingFragment StoreEntitySet="eng_store_master">
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="Incharge_Name" ColumnName="Incharge_Name" />
+          <ScalarProperty Name="Store_Description" ColumnName="Store_Description" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="Store_Name" ColumnName="Store_Name" />
+          <ScalarProperty Name="Start_Date" ColumnName="Start_Date" />
+          <ScalarProperty Name="Branch_Name" ColumnName="Branch_Name" />
+          <ScalarProperty Name="Store_Code" ColumnName="Store_Code" />
+          <ScalarProperty Name="StoreID" ColumnName="StoreID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_supplier_master">
+      <EntityTypeMapping TypeName="Eng360Model.eng_supplier_master">
+        <MappingFragment StoreEntitySet="eng_supplier_master">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+          <ScalarProperty Name="Supplier_Description" ColumnName="Supplier_Description" />
+          <ScalarProperty Name="Spoc_Name" ColumnName="Spoc_Name" />
+          <ScalarProperty Name="IndustryID" ColumnName="IndustryID" />
+          <ScalarProperty Name="Company_Name" ColumnName="Company_Name" />
+          <ScalarProperty Name="SupplierDisplayID" ColumnName="SupplierDisplayID" />
+          <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_sys_claimtype">
+      <EntityTypeMapping TypeName="Eng360Model.eng_sys_claimtype">
+        <MappingFragment StoreEntitySet="eng_sys_claimtype">
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="ClaimTypeID" ColumnName="ClaimTypeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_sys_country">
+      <EntityTypeMapping TypeName="Eng360Model.eng_sys_country">
+        <MappingFragment StoreEntitySet="eng_sys_country">
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_sys_function">
+      <EntityTypeMapping TypeName="Eng360Model.eng_sys_function">
+        <MappingFragment StoreEntitySet="eng_sys_function">
+          <ScalarProperty Name="Fn_Value" ColumnName="Fn_Value" />
+          <ScalarProperty Name="Fn_Title" ColumnName="Fn_Title" />
+          <ScalarProperty Name="Fn_code" ColumnName="Fn_code" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_sys_industry">
+      <EntityTypeMapping TypeName="Eng360Model.eng_sys_industry">
+        <MappingFragment StoreEntitySet="eng_sys_industry">
+          <ScalarProperty Name="Industry_Title" ColumnName="Industry_Title" />
+          <ScalarProperty Name="Industry_Code" ColumnName="Industry_Code" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_sys_location">
+      <EntityTypeMapping TypeName="Eng360Model.eng_sys_location">
+        <MappingFragment StoreEntitySet="eng_sys_location">
+          <ScalarProperty Name="LocationName" ColumnName="LocationName" />
+          <ScalarProperty Name="LocationId" ColumnName="LocationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_sys_project_status">
+      <EntityTypeMapping TypeName="Eng360Model.eng_sys_project_status">
+        <MappingFragment StoreEntitySet="eng_sys_project_status">
+          <ScalarProperty Name="ProjectStatus" ColumnName="ProjectStatus" />
+          <ScalarProperty Name="ProjectStatusID" ColumnName="ProjectStatusID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_sys_ptw_stage1_config">
+      <EntityTypeMapping TypeName="Eng360Model.eng_sys_ptw_stage1_config">
+        <MappingFragment StoreEntitySet="eng_sys_ptw_stage1_config">
+          <ScalarProperty Name="Order_By" ColumnName="Order_By" />
+          <ScalarProperty Name="Item" ColumnName="Item" />
+          <ScalarProperty Name="PTW_Title" ColumnName="PTW_Title" />
+          <ScalarProperty Name="PTW_Type" ColumnName="PTW_Type" />
+          <ScalarProperty Name="PTW_Stage_One_ID" ColumnName="PTW_Stage_One_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_sys_ptw_stages">
+      <EntityTypeMapping TypeName="Eng360Model.eng_sys_ptw_stages">
+        <MappingFragment StoreEntitySet="eng_sys_ptw_stages">
+          <ScalarProperty Name="Stages" ColumnName="Stages" />
+          <ScalarProperty Name="Stage_Type" ColumnName="Stage_Type" />
+          <ScalarProperty Name="StageCofigID" ColumnName="StageCofigID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_sys_pymt_status">
+      <EntityTypeMapping TypeName="Eng360Model.eng_sys_pymt_status">
+        <MappingFragment StoreEntitySet="eng_sys_pymt_status">
+          <ScalarProperty Name="PymtStatus" ColumnName="PymtStatus" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_sys_quotestatus">
+      <EntityTypeMapping TypeName="Eng360Model.eng_sys_quotestatus">
+        <MappingFragment StoreEntitySet="eng_sys_quotestatus">
+          <ScalarProperty Name="Selection" ColumnName="Selection" />
+          <ScalarProperty Name="QuoteStatus" ColumnName="QuoteStatus" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_sys_riskmatrix">
+      <EntityTypeMapping TypeName="Eng360Model.eng_sys_riskmatrix">
+        <MappingFragment StoreEntitySet="eng_sys_riskmatrix">
+          <ScalarProperty Name="Risk_Type" ColumnName="Risk_Type" />
+          <ScalarProperty Name="Risk_Value" ColumnName="Risk_Value" />
+          <ScalarProperty Name="Likelihood_Value" ColumnName="Likelihood_Value" />
+          <ScalarProperty Name="Severity_Value" ColumnName="Severity_Value" />
+          <ScalarProperty Name="RMID" ColumnName="RMID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_sys_rm_likelihood">
+      <EntityTypeMapping TypeName="Eng360Model.eng_sys_rm_likelihood">
+        <MappingFragment StoreEntitySet="eng_sys_rm_likelihood">
+          <ScalarProperty Name="Likelihood_Description" ColumnName="Likelihood_Description" />
+          <ScalarProperty Name="Likelihood_Type" ColumnName="Likelihood_Type" />
+          <ScalarProperty Name="Likelihood_Value" ColumnName="Likelihood_Value" />
+          <ScalarProperty Name="RMLHID" ColumnName="RMLHID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_sys_rm_severity">
+      <EntityTypeMapping TypeName="Eng360Model.eng_sys_rm_severity">
+        <MappingFragment StoreEntitySet="eng_sys_rm_severity">
+          <ScalarProperty Name="Severity_Description" ColumnName="Severity_Description" />
+          <ScalarProperty Name="Severity_Type" ColumnName="Severity_Type" />
+          <ScalarProperty Name="Severity_Value" ColumnName="Severity_Value" />
+          <ScalarProperty Name="RMSVID" ColumnName="RMSVID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_sys_safety_hazard">
+      <EntityTypeMapping TypeName="Eng360Model.eng_sys_safety_hazard">
+        <MappingFragment StoreEntitySet="eng_sys_safety_hazard">
+          <ScalarProperty Name="HazardDesc" ColumnName="HazardDesc" />
+          <ScalarProperty Name="HazardID" ColumnName="HazardID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_sys_safety_insp_items">
+      <EntityTypeMapping TypeName="Eng360Model.eng_sys_safety_insp_items">
+        <MappingFragment StoreEntitySet="eng_sys_safety_insp_items">
+          <ScalarProperty Name="OrderBy" ColumnName="OrderBy" />
+          <ScalarProperty Name="SIItemDescription" ColumnName="SIItemDescription" />
+          <ScalarProperty Name="SITitle" ColumnName="SITitle" />
+          <ScalarProperty Name="SIHeaderID" ColumnName="SIHeaderID" />
+          <ScalarProperty Name="SIItemID" ColumnName="SIItemID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_sys_safety_ppelist">
+      <EntityTypeMapping TypeName="Eng360Model.eng_sys_safety_ppelist">
+        <MappingFragment StoreEntitySet="eng_sys_safety_ppelist">
+          <ScalarProperty Name="PPE_Desc" ColumnName="PPE_Desc" />
+          <ScalarProperty Name="PPEID" ColumnName="PPEID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_sys_task_status">
+      <EntityTypeMapping TypeName="Eng360Model.eng_sys_task_status">
+        <MappingFragment StoreEntitySet="eng_sys_task_status">
+          <ScalarProperty Name="TaskStatus" ColumnName="TaskStatus" />
+          <ScalarProperty Name="TaskStatusID" ColumnName="TaskStatusID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_time_entry">
+      <EntityTypeMapping TypeName="Eng360Model.eng_time_entry">
+        <MappingFragment StoreEntitySet="eng_time_entry">
+          <ScalarProperty Name="ReportEndDate" ColumnName="ReportEndDate" />
+          <ScalarProperty Name="Leave" ColumnName="Leave" />
+          <ScalarProperty Name="LBflag" ColumnName="LBflag" />
+          <ScalarProperty Name="WEHflag" ColumnName="WEHflag" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="SubmittedDate" ColumnName="SubmittedDate" />
+          <ScalarProperty Name="SubmittedBy" ColumnName="SubmittedBy" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="No_of_OtHours" ColumnName="No_of_OtHours" />
+          <ScalarProperty Name="No_of_WorkHours" ColumnName="No_of_WorkHours" />
+          <ScalarProperty Name="Ot_End_Time" ColumnName="Ot_End_Time" />
+          <ScalarProperty Name="Ot_Start_Time" ColumnName="Ot_Start_Time" />
+          <ScalarProperty Name="Work_End_Time" ColumnName="Work_End_Time" />
+          <ScalarProperty Name="Work_Start_Time" ColumnName="Work_Start_Time" />
+          <ScalarProperty Name="ReportDate" ColumnName="ReportDate" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="EmpID" ColumnName="EmpID" />
+          <ScalarProperty Name="TEID" ColumnName="TEID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_transport_master">
+      <EntityTypeMapping TypeName="Eng360Model.eng_transport_master">
+        <MappingFragment StoreEntitySet="eng_transport_master">
+          <ScalarProperty Name="AgreementNumber" ColumnName="AgreementNumber" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="Inspection_Due_Date" ColumnName="Inspection_Due_Date" />
+          <ScalarProperty Name="Vehicle_Inspection_Date" ColumnName="Vehicle_Inspection_Date" />
+          <ScalarProperty Name="Last_Insurance_Renew_Date" ColumnName="Last_Insurance_Renew_Date" />
+          <ScalarProperty Name="Insurance_Company" ColumnName="Insurance_Company" />
+          <ScalarProperty Name="Insurance_Expiry_Date" ColumnName="Insurance_Expiry_Date" />
+          <ScalarProperty Name="Insurance_Issue_Date" ColumnName="Insurance_Issue_Date" />
+          <ScalarProperty Name="Insurance_Policy_Number" ColumnName="Insurance_Policy_Number" />
+          <ScalarProperty Name="RoadTax_Expiry_Date" ColumnName="RoadTax_Expiry_Date" />
+          <ScalarProperty Name="RoadTax_Iussue_Date" ColumnName="RoadTax_Iussue_Date" />
+          <ScalarProperty Name="RoadTax_Regn_Number" ColumnName="RoadTax_Regn_Number" />
+          <ScalarProperty Name="COE_Expiry_Date" ColumnName="COE_Expiry_Date" />
+          <ScalarProperty Name="COE_Issue_Date" ColumnName="COE_Issue_Date" />
+          <ScalarProperty Name="COE_Regn_Number" ColumnName="COE_Regn_Number" />
+          <ScalarProperty Name="Vehicle_Number" ColumnName="Vehicle_Number" />
+          <ScalarProperty Name="Vehicle_Type" ColumnName="Vehicle_Type" />
+          <ScalarProperty Name="Vehicle_Model" ColumnName="Vehicle_Model" />
+          <ScalarProperty Name="Vehicle_Company" ColumnName="Vehicle_Company" />
+          <ScalarProperty Name="Vehicle_Name" ColumnName="Vehicle_Name" />
+          <ScalarProperty Name="TransportID" ColumnName="TransportID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_usergroup">
+      <EntityTypeMapping TypeName="Eng360Model.eng_usergroup">
+        <MappingFragment StoreEntitySet="eng_usergroup">
+          <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+          <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eng_users">
+      <EntityTypeMapping TypeName="Eng360Model.eng_users">
+        <MappingFragment StoreEntitySet="eng_users">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="UID" ColumnName="UID" />
+          <ScalarProperty Name="LastLogin" ColumnName="LastLogin" />
+          <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+          <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+          <ScalarProperty Name="EmpID" ColumnName="EmpID" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="Eng360Model.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="definition" ColumnName="definition" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

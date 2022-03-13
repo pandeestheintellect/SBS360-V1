@@ -1,0 +1,496 @@
+﻿@model Eng360Web.Models.ViewModel.QualityDefectViewModel
+
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<style>
+    
+
+    input[type='checkbox'] {
+        width: 20px;
+        height: 20px;
+    }
+
+    .required::after {
+        content: "*";
+        font-weight: bold;
+        color: red;
+    }
+</style>
+
+
+
+<div class="row inner-page--container">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <b> Details of Defect ID - @Model.DefectDisplayID  </b>
+
+                @*<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>*@
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+
+
+
+                @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "qualityEditForm" }))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="row">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.HiddenFor(model => model.DefectID)
+                        @Html.HiddenFor(model => model.DefectDisplayID)
+                        
+                        @Html.HiddenFor(model => model.InspectedDate)
+                        @Html.HiddenFor(model => model.CreatedBy)
+                        @Html.HiddenFor(model => model.CreatedDate)
+                        @Html.HiddenFor(model => model.InspectionType)
+
+                        
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.ProjectID, htmlAttributes: new { @class = "control-label required" })
+                            
+                            <div>
+                                @Html.DropDownList("ProjectID", null, htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.ProjectID, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.Location, htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.EditorFor(model => model.Location, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Location, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.DrawingRecordNo, htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.EditorFor(model => model.DrawingRecordNo, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.DrawingRecordNo, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.InspectionArea, htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.EditorFor(model => model.InspectionArea, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.InspectionArea, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.Remarks, htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.EditorFor(model => model.Remarks, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Remarks, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.DefStatus, "Status", htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.DropDownListFor(model => model.DefStatus, new SelectList(
+                                    new List<Object>{
+                                    new { value = "Pending" , text = "Pending"  },
+                                    new { value = "Completed" , text = "Completed" }
+
+                                }, "value", "text", 2), htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.DefStatus, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.InspectedDate, htmlAttributes: new { @class = "control-label" })
+                            @Html.ValidationMessageFor(model => model.InspectedDate, "", new { @class = "text-danger" })
+                            <div>@{
+                                var dt = "";
+                                dt = Convert.ToDateTime(@Model.InspectedDate).ToString(Eng360Web.Models.Utility.AppSettings.GetDateFormat());
+                                }
+                            @Html.Editor("Test", new { htmlAttributes = new { @class = "form-control", @disabled = "disabled", @Value = @dt } })
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.InspectedBy, htmlAttributes: new { @class = "control-label" })
+                            @Html.ValidationMessageFor(model => model.InspectedBy, "", new { @class = "text-danger" })
+                            <div>
+                                @Html.DropDownList("InspectedBy", null, htmlAttributes: new { @class = "form-control" })
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.PM_Incharge, htmlAttributes: new { @class = "control-label" })
+                            @Html.ValidationMessageFor(model => model.PM_Incharge, "", new { @class = "text-danger" })
+                            <div>
+                                @Html.DropDownList("PM_Incharge", null, htmlAttributes: new { @class = "form-control" })
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.InspectionType, htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.DropDownListFor(model => model.InspectionType, new SelectList(
+                                    new List<Object>{
+                                    new { value = "Internal" , text = "Internal"  },
+                                    new { value = "External" , text = "External" }
+
+                                }, "value", "text", 2), htmlAttributes: new { @class = "form-control", @disabled = "disabled"})
+                                @Html.ValidationMessageFor(model => model.DefStatus, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        @if (Model.InspectionType == "External")
+                        {
+                        <div id="show-auditor-name"  class="col-md-6">
+                            @Html.LabelFor(model => model.Ext_AuditedBy, htmlAttributes: new { @class = "control-label" })
+                            @Html.ValidationMessageFor(model => model.Ext_AuditedBy, "", new { @class = "text-danger" })
+                            <div>
+                                @Html.EditorFor(model => model.Ext_AuditedBy, new { htmlAttributes = new { @class = "form-control" } })
+
+                            </div>
+                        </div>
+
+                        <div id="show-auditor-desig"  class="col-md-6">
+                            @Html.LabelFor(model => model.Ext_Auditor_Desig, htmlAttributes: new { @class = "control-label" })
+                            @Html.ValidationMessageFor(model => model.Ext_Auditor_Desig, "", new { @class = "text-danger" })
+                            <div>
+                                @Html.EditorFor(model => model.Ext_Auditor_Desig, new { htmlAttributes = new { @class = "form-control" } })
+
+                            </div>
+                        </div>
+                        }
+
+
+
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.files, htmlAttributes: new { @class = "control-label" })
+                            <div class="">
+                                @Html.TextBoxFor(model => model.files, "", new { @type = "file", @multiple = "multiple", @accept = "image/x-png,image/gif,image/jpeg" })
+                                @Html.ValidationMessageFor(model => model.files, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+
+                            <div class="">
+                                &nbsp;
+                            </div>
+                        </div>
+
+                        <div id="show-supplier-list" class="col-md-3">
+                            @Html.LabelFor(model => model.SupplierFlag)
+                            <div>
+                                @Html.CheckBoxFor(model => model.SupplierFlag, htmlAttributes: new { @class = "form-control", onclick = "ShowHideSupplier(this)" })
+
+                            </div>
+                        </div>
+
+                        <div id="show-mail-supplier" style="display: none" class="col-md-3">
+                            @Html.LabelFor(model => model.SupplierID)
+                            <div>
+                                @Html.DropDownListFor(model => Model.SupplierID, null, htmlAttributes: new { @class = "form-control" })
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-12" style="min-height:300px !important;padding-top:25px;padding-left:0px;padding-right:0px;">
+
+                        <table class="table table-striped table-bordered" id="tableDefectDetail">
+
+                            <thead>
+                                <tr>
+                                    <th>Defect Track ID</th>
+                                    <th>Defect Title</th>
+                                    <th>Impact Details</th>
+                                    <th>Status</th>
+                                    <th>track</th>
+                                    <th>Actions</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var obj in Model.eng_qa_defect_detail)
+                                {
+                                    <tr id="@obj.DefectDetailID">
+                                        <td>
+                                            @obj.DefectTrackNum
+                                        </td>
+                                        <td>
+                                            @obj.DefectTitle
+                                        </td>
+                                        <td>
+                                            @obj.DefectImpactDetails
+                                        </td>
+                                        <td>@obj.DefectStatus</td>
+                                        
+                                        <td>@obj.DefectDetailID</td>
+                                        <td></td>
+                                    </tr>
+                                }
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <table class="table table-striped table-bordered" id="tableFiles">
+
+                                <thead>
+                                    <tr>
+
+                                        <th>File Name</th>
+
+                                        <th>Image</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var file in Model.eng_qa_defect_files)
+                                    {
+                                        <tr id="@file.DefectFileID">
+
+                                            <td>
+                                                @file.FileName
+                                            </td>
+                                            <td>
+                                                <a href="@file.FilePath" target="_blank">
+                                                    <img src="@file.FilePath" height="20" width="20" />
+                                                </a>
+                                            </td>
+                                            <td>
+                                                @* <a class="btn" title="Delete Project" style="padding: 0px 0px;"> <i class="fa fa-trash" aria-hidden="true" style="color:orangered;font-size:24px"></i> </a>*@
+                                                @*<a class="btn" title="Delete File" style="padding: 0px 0px;" onclick="DeleteReportFile(@file.ProjectSupportFileID)"> <i class="fa fa-trash" aria-hidden="true" style="color:orangered;font-size:24px"></i> </a>*@
+                                            </td>
+
+                                        </tr>
+                                    }
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+
+
+                }
+
+            </div>
+            <div class="modal-footer">
+                
+                    
+                        <button type="button" id="create-qualityEdit-dialog-save" style="float:right" class="btn btn-primary">Save</button>
+                    
+                    
+                
+                <span style="float:right">&nbsp;</span>
+                <input type="button" value="Back" id="create-qualitydefect1-dialog1-save1" style="float:right" class="btn btn-primary QualityInspection" />
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+
+    var initMailSupp = document.getElementById("show-mail-supplier");
+    initMailSupp.style.display = SupplierFlag.checked ? "block" : "none";
+
+   
+    var contacts = [];
+    var deleteIDs = [];
+        var defectdetailTable;
+        $(document).ready(function () {
+
+            defectdetailTable = $('#tableDefectDetail').DataTable({
+                dom: 'Brti',
+                buttons: [
+                    'copyHtml5',
+                    'excelHtml5',
+                    'csvHtml5',
+                    'pdfHtml5',
+
+                ],
+                "columnDefs": [
+                       {
+                           // The `data` parameter refers to the data for the cell (defined by the
+                           // `data` option, which defaults to the column being worked with, in
+                           // this case `data: 0`.
+                           "render": function (data, type, row) {
+                               // return '<a class="btn" onclick="removeDataFromDT(this)"> <img src="Content/images/delete.png" /> </a>';
+                               return ' <a class="btn" title="Edit Defect"  onclick="EditDefectDetail(this)"> <i class="fa fa-pencil" aria-hidden="true" ></i>   </a><a class="btn" onclick="removeDataFromDT(this)" title="Delete Defect" > <i class="fa fa-trash" aria-hidden="true" ></i> </a>';
+                           },
+                           "targets": 5
+                       }]
+            });
+        });
+        var column = defectdetailTable.column(4);
+        var column1 = defectdetailTable.column(5);
+
+
+        column.visible(false);
+        column1.visible(false);
+        if ("@Model.DefStatus" == "Pending") {
+            $('.dt-buttons').prepend('<a style="margin-bottom:10px;"  onclick="CreateDefectDetail()" class="dt-button  buttons-html5" tabindex="0" aria-controls="claimTable" href="#"><span>Add Defect</span></a>')
+
+            column1.visible(true);
+        }
+    $('.dt-button').addClass('btn btn-primary').removeClass('dt-button').css('margin-right', '5px')
+    $('.buttons-copy').css('display', 'none');
+    $('.buttons-excel').css('display', 'none');
+    $('.buttons-csv').css('display', 'none');
+    $('.buttons-pdf').css('display', 'none');
+
+        function EditDefectDetail(btn)
+        {
+
+            var id = btn.closest('tr').id;
+            $(btn.closest('tr')).addClass('selectedRow')
+            CreateDefectDetailEdit(id);
+        }
+
+        function removeDataFromDT(btn) {
+
+            $(btn.closest('tr')).addClass('remove')
+            var id = btn.closest('tr').id;
+            //deleteIDs.push(btn.closest('tr').id);
+            debugger;
+            if (id != "")
+            {
+
+                DeleteDefectDetail(id);
+                //claimdescTable.row('.remove').remove().draw(false);
+
+            }
+            else
+            {
+                defectdetailTable.row('.remove').remove().draw(false);
+            }
+
+
+        }
+
+        var contactTable;
+        $(document).ready(function () {
+            debugger;
+            contactTable = $('#tableFiles').DataTable({
+                "order": [],
+                dom: 'Brti',
+                //buttons: [
+                //    'copyHtml5',
+                //    'excelHtml5',
+                //    'csvHtml5',
+                //    'pdfHtml5',
+
+                //],
+                "columnDefs": [
+            {
+                //    // The `data` parameter refers to the data for the cell (defined by the
+                //    // `data` option, which defaults to the column being worked with, in
+                //    // this case `data: 0`.
+                "render": function (data, type, row) {
+                    //        //  return '<a class="btn" onclick="removeDataFromDT(this)"> <img src="Content/images/delete.png" /> </a>';
+                    if ("@Model.DefStatus" == "Pending") {
+
+                        return '<a class="btn" onclick="removeDataFromFT(this)" title="Delete File" > <i class="fa fa-trash" aria-hidden="true" ></i> </a>';
+                    }
+                    else {
+                        return '<a class="btn">  </a>';
+                    }
+                    
+                },
+
+                "targets": 2
+            }]
+            });
+        });
+
+        //$('.dt-buttons').prepend('<a  onclick="CreateContact()" class="dt-button  buttons-html5" tabindex="0" aria-controls="emplyeeTable" href="#"><span>Add Contacts</span></a>')
+        $('.dt-button').addClass('btn btn-primary').removeClass('dt-button').css('margin-right', '5px')
+        $('.buttons-copy').css('display', 'none');
+        $('.buttons-excel').css('display', 'none');
+        $('.buttons-csv').css('display', 'none');
+        $('.buttons-pdf').css('display', 'none');
+        $('.buttons-print').css('display', 'none');
+
+
+
+
+        function removeDataFromFT(btn) {
+            debugger;
+            var id = btn.closest('tr').id;
+            $(btn.closest('tr')).addClass('remove')
+            DeleteDefectFile(id);
+            //contactTable.row('.remove').remove().draw(false);
+
+        }
+
+        function DeleteDefectFile(id)
+        {
+
+            confirmDialogYesorNo("Are you sure to delete this File?", DeleteDefectFileConfirmed, null, id)
+
+        }
+
+        function DeleteDefectFileConfirmed(id)
+        {
+            debugger;
+
+            $.post("QualityDefect/DeleteFile/", { id: id, @Html.AntiForgeryTokenForAjaxPost()}, function (data) {
+                if (data.value == "OK") {
+                    //removeDataFromFT(btn);
+                    contactTable.row('.remove').remove().draw(false);
+                    return;
+
+                }
+                else {
+                    alertDialog("Delete File failed")
+                }
+            });
+        }
+
+
+    function DeleteDefectDetail(id)
+    {
+
+        confirmDialogYesorNo("Are you sure to delete this item?", DeleteDefectDetailConfirmed, null, id)
+    }
+
+    function DeleteDefectDetailConfirmed(id)
+    {
+        debugger;
+
+        $.post("QualityDefect/DeleteDefectDetail/", { id: id, @Html.AntiForgeryTokenForAjaxPost()}, function (data) {
+            if (data.value == "OK") {
+                //removeDataFromDT(btn);
+                defectdetailTable.row('.remove').remove().draw(false);
+                return;
+
+            }
+            else {
+                alertDialog("Delete Item failed")
+            }
+        });
+    }
+
+    function ShowHideSupplier(SupplierFlag) {
+        debugger;
+        var dvMailSupp = document.getElementById("show-mail-supplier");
+        dvMailSupp.style.display = SupplierFlag.checked ? "block" : "none";
+
+    }
+
+ 
+   
+
+</script>

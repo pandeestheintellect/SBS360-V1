@@ -1,0 +1,6 @@
+2019-02-15 17:40:10.6260|ERROR|Eng360Web.MvcApplication|Claim Report Error:
+2019-02-15 17:40:10.6958|ERROR|Eng360Web.MvcApplication|Path '/Views/TimeEntry/Index - Copy.cshtml' was not found.
+2019-02-15 17:40:10.9492|ERROR|Eng360Web.MvcApplication|   at System.Web.HttpNotFoundHandler.ProcessRequest(HttpContext context)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)

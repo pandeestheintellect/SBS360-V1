@@ -1,0 +1,418 @@
+﻿@model Eng360Web.Models.ViewModel.QualityDefectCPAViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<style>
+    input[type='checkbox'] {
+        width: 20px;
+        height: 20px;
+    }
+
+    .required::after {
+        content: "*";
+        font-weight: bold;
+        color: red;
+    }
+</style>
+
+
+
+<div class="row inner-page--container">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <b> Details of Defect ID - @Model.eng_qa_defect_detail.DefectTrackNum </b>
+
+                @*<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>*@
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+
+                    <div class="row">
+                       
+                        
+                        <div class="col-md-4">
+                           @Html.Label("Project Name", htmlAttributes: new { @class = "control-label" })    
+                            
+                            <div>
+                             @Html.EditorFor(model => model.eng_qa_defect_detail.eng_qa_defect.eng_project_master.ProjectName, new { htmlAttributes = new { @class = "form-control", @disabled="disabled" } })   
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            @Html.Label("Customer", htmlAttributes: new { @class = "control-label" })
+
+                            <div>
+                                @Html.EditorFor(model => model.eng_qa_defect_detail.eng_qa_defect.eng_project_master.eng_quote_master.eng_client_master.Company_Name, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            @Html.Label("Location", htmlAttributes: new { @class = "control-label" })
+
+                            <div>
+                                @Html.EditorFor(model => model.eng_qa_defect_detail.eng_qa_defect.Location, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            @Html.Label("Inspection Record#", htmlAttributes: new { @class = "control-label" })
+
+                            <div>
+                                @Html.EditorFor(model => model.eng_qa_defect_detail.eng_qa_defect.DefectDisplayID, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            @Html.Label("Inspected Date", htmlAttributes: new { @class = "control-label" })
+
+                            <div>
+                                @Html.EditorFor(model => model.eng_qa_defect_detail.eng_qa_defect.InspectedDate, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            @Html.Label("Supplier Name", htmlAttributes: new { @class = "control-label" })
+
+                            <div>
+                                @Html.EditorFor(model => model.eng_qa_defect_detail.eng_qa_defect.eng_supplier_master.Company_Name, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            @Html.Label("Defect Track Number", htmlAttributes: new { @class = "control-label" })
+
+                            <div>
+                                @Html.EditorFor(model => model.eng_qa_defect_detail.DefectTrackNum, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                            </div>
+                        </div>
+
+                        <div class="col-md-8">
+                            @Html.Label("Defect Description", htmlAttributes: new { @class = "control-label" })
+
+                            <div>
+                                @Html.EditorFor(model => model.eng_qa_defect_detail.DefectTitle, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                            </div>
+                        </div>
+
+                        <div id="show-supplier-list" class="col-md-4">
+                            @Html.LabelFor(model => model.CAflag)
+                            <div>
+                                @Html.CheckBoxFor(model => model.CAflag, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
+
+                            </div>
+                        </div>
+
+                        <div id="show-supplier-list" class="col-md-4">
+                            @Html.LabelFor(model => model.PAflag)
+                            <div>
+                                @Html.CheckBoxFor(model => model.PAflag, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
+
+                            </div>
+                        </div>
+
+                       
+                        <div class="col-md-6">
+                            @Html.Label("Issue Pertaining To", htmlAttributes: new { @class = "control-label" })
+
+                            <div>
+                               <table width="100%" border="1" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                       <td>
+                                              @Html.LabelFor(model => model.ipt_envmt, htmlAttributes: new { @class = "control-label col-md-6" })
+                                              @Html.CheckBoxFor(model => model.ipt_envmt, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            @Html.LabelFor(model => model.ipt_safety, htmlAttributes: new { @class = "control-label col-md-6" })
+                                            @Html.CheckBoxFor(model => model.ipt_safety, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
+                                        </td>
+                                    </tr>
+                                   <tr>
+                                       <td>
+                                           @Html.LabelFor(model => model.ipt_health, htmlAttributes: new { @class = "control-label col-md-6" })
+                                           @Html.CheckBoxFor(model => model.ipt_health, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
+                                       </td>
+                                   </tr>
+                                   <tr>
+                                       <td>
+                                           @Html.LabelFor(model => model.ipt_insandops, htmlAttributes: new { @class = "control-label col-md-6" })
+                                           @Html.CheckBoxFor(model => model.ipt_insandops, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
+                                       </td>
+                                   </tr>
+                                   <tr>
+                                       <td>
+                                           @Html.LabelFor(model => model.ipt_suggestion, htmlAttributes: new { @class = "control-label col-md-6" })
+                                           @Html.CheckBoxFor(model => model.ipt_suggestion, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
+                                       </td>
+                                   </tr>
+                                   
+                                </table>
+
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-6">
+                            @Html.Label("Reason for Preventive", htmlAttributes: new { @class = "control-label" })
+
+                            <div>
+                                <table width="100%" border="1" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td>
+                                            @Html.LabelFor(model => model.rfp_ncps, htmlAttributes: new { @class = "control-label col-md-6" })
+                                            @Html.CheckBoxFor(model => model.rfp_ncps, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            @Html.LabelFor(model => model.rfp_mgmtreview, htmlAttributes: new { @class = "control-label col-md-6" })
+                                            @Html.CheckBoxFor(model => model.rfp_mgmtreview, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            @Html.LabelFor(model => model.rfp_cc, htmlAttributes: new { @class = "control-label col-md-6" })
+                                            @Html.CheckBoxFor(model => model.rfp_cc, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            @Html.LabelFor(model => model.rfp_ea, htmlAttributes: new { @class = "control-label col-md-6" })
+                                            @Html.CheckBoxFor(model => model.rfp_ea, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            @Html.LabelFor(model => model.rfp_other, htmlAttributes: new { @class = "control-label col-md-6" })
+                                            @Html.CheckBoxFor(model => model.rfp_other, htmlAttributes: new { @class = "form-control col-md-2" })
+                                            @Html.EditorFor(model => model.rfp_other_remarks, new { htmlAttributes = new { @class = "control-label", @disabled = "disabled" } })
+                                        </td>
+                                    </tr>
+                                     
+                                </table>
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            @Html.LabelFor(model => model.ActionTaken, htmlAttributes: new { @class = "control-label required" })
+                            <div>
+                                @Html.TextAreaFor(model => model.ActionTaken, new { @class = "form-control", @disabled = "disabled" })
+                                
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-4">
+                            
+                            @Html.LabelFor(model => model.FollowupAction, htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.TextAreaFor(model => model.FollowupAction, new { @class = "form-control", @disabled = "disabled" })
+                                
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            @Html.LabelFor(model => model.Remarks, htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.TextAreaFor(model => model.Remarks, new { @class = "form-control", @disabled = "disabled" })
+                                
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            @Html.LabelFor(model => model.ActionBy, htmlAttributes: new { @class = "control-label required" })
+                           
+                            <div>
+                                @Html.EditorFor(model => model.ActionBy, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            @Html.LabelFor(model => model.ReviewedBy, htmlAttributes: new { @class = "control-label required" })
+                            
+                            <div>
+                                @Html.EditorFor(model => model.ReviewedBy, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            @Html.LabelFor(model => model.TrackStatus, "Status", htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.DropDownListFor(model => model.TrackStatus, new SelectList(
+                                    new List<Object>{
+                                    new { value = "InProcess" , text = "InProcess"  },
+                                    new { value = "Completed" , text = "Completed" }
+
+                                }, "value", "text", 2), htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
+                                
+                            </div>
+                        </div>
+
+
+                        
+
+                        <div class="col-md-6">
+
+                            <div class="">
+                                &nbsp;
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <table class="table table-striped table-bordered" id="tableFiles">
+
+                                <thead>
+                                    <tr>
+
+                                        <th>File Name</th>
+
+                                        <th>Image</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if (Model.eng_qa_defect_cpa_files != null)
+                                    {
+                                    foreach (var file in Model.eng_qa_defect_cpa_files)
+                                    {
+                                        <tr id="@file.DPCID">
+
+                                            <td>
+                                                @file.FileName
+                                            </td>
+                                            <td>
+                                                <a href="@file.FilePath" target="_blank">
+                                                    <img src="@file.FilePath" height="20" width="20" />
+                                                </a>
+                                            </td>
+                                            <td>
+                                                @* <a class="btn" title="Delete Project" > <i class="fa fa-trash" aria-hidden="true" ></i> </a>*@
+                                                @*<a class="btn" title="Delete File" " onclick="DeleteReportFile(@file.ProjectSupportFileID)"> <i class="fa fa-trash" aria-hidden="true" ></i> </a>*@
+                                            </td>
+
+                                        </tr>
+                                    }
+                                    }
+                                    else
+                                    {
+                                        <tr class="remove">
+
+                                            <td>
+                                               sdff 
+                                            </td>
+                                            <td>
+                                              dddd  
+                                            </td>
+                                            <td>
+                                                dddd
+                                            </td>
+
+                                        </tr>
+
+                                    }
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+
+               
+
+            </div>
+            <div class="modal-footer">
+                               
+                <span style="float:right">&nbsp;</span>
+                <input type="button" value="Back" id="create-qualitydefectcpa-dialog1-save1" style="float:right" class="btn btn-primary DefectTracking" />
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+
+        var contactTable;
+        $(document).ready(function () {
+            debugger;
+            contactTable = $('#tableFiles').DataTable({
+                dom: 'Brti',
+                //buttons: [
+                //    'copyHtml5',
+                //    'excelHtml5',
+                //    'csvHtml5',
+                //    'pdfHtml5',
+
+                //],
+                "columnDefs": [
+            {
+                //    // The `data` parameter refers to the data for the cell (defined by the
+                //    // `data` option, which defaults to the column being worked with, in
+                //    // this case `data: 0`.
+                "render": function (data, type, row) {
+                    //        //  return '<a class="btn" onclick="removeDataFromDT(this)"> <img src="Content/images/delete.png" /> </a>';
+                    
+
+                        return '<a >  </a>';
+                                  
+                },
+
+                "targets": 2
+            }]
+            });
+        });
+
+        //$('.dt-buttons').prepend('<a  onclick="CreateContact()" class="dt-button  buttons-html5" tabindex="0" aria-controls="emplyeeTable" href="#"><span>Add Contacts</span></a>')
+        $('.dt-button').addClass('btn btn-primary').removeClass('dt-button').css('margin-right', '5px')
+        $('.buttons-copy').css('display', 'none');
+        $('.buttons-excel').css('display', 'none');
+        $('.buttons-csv').css('display', 'none');
+        $('.buttons-pdf').css('display', 'none');
+        $('.buttons-print').css('display', 'none');
+        contactTable.row('.remove').remove().draw(false);
+
+
+        function removeDataFromFT(btn) {
+            
+            var id = btn.closest('tr').id;
+            $(btn.closest('tr')).addClass('remove')
+            DeleteCPAFile(id);
+            //contactTable.row('.remove').remove().draw(false);
+
+        }
+
+        function DeleteCPAFile(id)
+        {
+
+            confirmDialogYesorNo("Are you sure to delete this File?", DeleteCPAFileConfirmed, null, id)
+
+        }
+
+        function DeleteCPAFileConfirmed(id)
+        {
+            debugger;
+
+            $.post("QualityDefect/DeleteCPAFile/", { id: id, @Html.AntiForgeryTokenForAjaxPost()}, function (data) {
+                if (data.value == "OK") {
+                    //removeDataFromFT(btn);
+                    contactTable.row('.remove').remove().draw(false);
+                    return;
+
+                }
+                else {
+                    alertDialog("Delete File failed")
+                }
+            });
+        }
+
+
+</script>

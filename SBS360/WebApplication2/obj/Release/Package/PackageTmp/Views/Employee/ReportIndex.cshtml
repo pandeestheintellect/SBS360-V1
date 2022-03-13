@@ -1,0 +1,305 @@
+﻿@model Eng360Web.Models.ViewModel.FilterViewModel
+
+@{
+    Layout = null;
+}
+
+<script src="~/Scripts/moment.js"></script>
+<script src="~/Scripts/bootstrap-datetimepicker.js"></script>
+<link href="~/Content/bootstrap-datetimepicker.css" rel="stylesheet" />
+
+
+
+    <div class="row inner-page--container">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <b> Employee Reports </b>
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { role = "form", id = "employeeReportForm" }))
+{
+                @Html.AntiForgeryToken()
+
+    <div class="row">
+        <div class="col-md-4">
+            @Html.Label("Name", htmlAttributes: new { @class = "control-label" })
+            <div>
+                @*Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })*@
+                @Html.DropDownList("UserID", null, htmlAttributes: new { @class = "form-control" })
+
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            @Html.Label("DoJ From", htmlAttributes: new { @class = "control-label" })
+            <div>
+                @Html.EditorFor(model => model.dateFrom, new { htmlAttributes = new { @class = "form-control" } })
+
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            @Html.Label("DoJ To", htmlAttributes: new { @class = "control-label" })
+            <div>
+                @Html.EditorFor(model => model.dateTo, new { htmlAttributes = new { @class = "form-control" } })
+
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            @Html.Label("Branch", htmlAttributes: new { @class = "control-label" })
+            <div>
+                @*Html.EditorFor(model => model.OpBranch, new { htmlAttributes = new { @class = "form-control" } })*@
+                @Html.DropDownList("OpBranch", null, htmlAttributes: new { @class = "form-control" })
+
+            </div>
+        </div>
+        </div>
+
+        <div class="modal-footer">
+
+            <button type="button" id="report-employeeIndex-search" class="btn btn-primary">Search</button>
+
+        </div>
+
+
+
+
+        }
+
+
+        <br />
+        <table class="table table-striped table-bordered" id="employeeTable">
+            <thead>
+                <tr>
+                    <th>Employee ID</th>
+                    <th>Operation Branch</th>
+                    <th>First Name</th>                    
+                    <th>Last Name</th>
+                    <th>Gender</th>
+                    <th>Date of Birth</th>
+                    <th>Nationality</th>
+                    <th>Date of Join</th>                
+                    
+                    <th>Designation</th>
+                    <th>Type of ID</th>
+                    <th>ID Number</th>
+                    <th>Employee Level</th>
+                    <th>Profile Description</th>
+                    <th>SOC Number</th>
+                    <th>SOC Issue Date</th>
+                    <th>SOC Expiry Date</th>
+                    <th>Address</th>
+                    <th>Email</th>
+                    <th>Mobile</th>
+                    <th>Tel</th>
+                    <th>Licence Number</th>
+                    <th>Licence Expiry Date</th>
+                    <th>Permit Number</th>
+                    <th>Permit Valid From</th>
+                    <th>Permit Valid To</th>
+                    <th>Passport Number</th>
+                    <th>Passport Expiry Date</th>
+                    <th>Insurance Number</th>
+                    <th>Insurance Expiry Date</th>
+                    <th>Salary</th>
+                    <th>Levy</th>
+                    <th>Date of Resignation</th>
+
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.eng_employee_master)
+                {
+                    var dt = "";
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.EmpID)</td>
+                        <td>@Html.DisplayFor(modelItem => item.OpBranch)</td>
+                        <td>@Html.DisplayFor(modelItem => item.FirstName)</td>
+                        
+                        <td>@Html.DisplayFor(modelItem => item.LastName)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Gender)</td>
+                        <td>@{
+                            
+                            dt = Convert.ToDateTime(item.DoB).ToString(Eng360Web.Models.Utility.AppSettings.GetDateFormat());
+                        }
+                        @if (item.DoB != null)
+                        {
+                            @dt
+                        }
+                        </td>
+                        <td>@Html.DisplayFor(modelItem => item.Nationality)</td>
+                        <td>@{
+
+                            dt = Convert.ToDateTime(item.DoJ).ToString(Eng360Web.Models.Utility.AppSettings.GetDateFormat());
+                        }
+                        @if (item.DoJ != null)
+                        {
+                            @dt
+                        }
+                        </td>
+                        
+                        <td>@Html.DisplayFor(modelItem => item.Designation)</td>
+                        <td>@Html.DisplayFor(modelItem => item.ID_Type)</td>
+                        <td>@Html.DisplayFor(modelItem => item.ID_Number)</td>
+                        <td>@Html.DisplayFor(modelItem => item.llevel)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Profile_Desc)</td>
+                        <td>@Html.DisplayFor(modelItem => item.SOC_number)</td>
+                        <td>@{
+
+                            dt = Convert.ToDateTime(item.SOC_Issue_Date).ToString(Eng360Web.Models.Utility.AppSettings.GetDateFormat());
+                        }
+                        @if (item.SOC_Issue_Date != null)
+                        {
+                            @dt
+                        }</td>
+                        <td>@{
+
+                            dt = Convert.ToDateTime(item.SOC_Expiry_Date).ToString(Eng360Web.Models.Utility.AppSettings.GetDateFormat());
+                        }
+                        @if (item.SOC_Expiry_Date != null)
+                        {
+                            @dt
+                        }</td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.eng_address_master.Address1),
+                            @Html.DisplayFor(modelItem => item.eng_address_master.Address2),
+                            @Html.DisplayFor(modelItem => item.eng_address_master.City),
+                            @Html.DisplayFor(modelItem => item.eng_address_master.Country)-
+                            @Html.DisplayFor(modelItem => item.eng_address_master.Postal_Code)
+                        </td>
+                        <td>@Html.DisplayFor(modelItem => item.eng_address_master.Email)</td>
+                        <td>@Html.DisplayFor(modelItem => item.eng_address_master.Mobile)</td>
+                        <td>@Html.DisplayFor(modelItem => item.eng_address_master.Tel)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Licence_Number)</td>
+                        <td>@{
+
+                            dt = Convert.ToDateTime(item.Licence_Valid_Till).ToString(Eng360Web.Models.Utility.AppSettings.GetDateFormat());
+                        }
+                        @if (item.Licence_Valid_Till != null)
+                        {
+                            @dt
+                        }</td>
+                        <td>@Html.DisplayFor(modelItem => item.Permit_Number)</td>
+                        <td>@{
+
+                            dt = Convert.ToDateTime(item.Permit_Valid_From).ToString(Eng360Web.Models.Utility.AppSettings.GetDateFormat());
+                        }
+                        @if (item.Permit_Valid_From != null)
+                        {
+                            @dt
+                        }</td>
+                        <td>@{
+
+                            dt = Convert.ToDateTime(item.Permit_Valid_To).ToString(Eng360Web.Models.Utility.AppSettings.GetDateFormat());
+                        }
+                        @if (item.Permit_Valid_To != null)
+                        {
+                            @dt
+                        }</td>
+                        <td>@Html.DisplayFor(modelItem => item.Passport_Number)</td>
+                        <td>@{
+
+                            dt = Convert.ToDateTime(item.Passport_Valid_Till).ToString(Eng360Web.Models.Utility.AppSettings.GetDateFormat());
+                        }
+                        @if (item.Passport_Valid_Till != null)
+                        {
+                            @dt
+                        }</td>
+                        <td>@Html.DisplayFor(modelItem => item.Insurance_Number)</td>
+                        <td>@{
+
+                            dt = Convert.ToDateTime(item.Insurance_Valid_Till).ToString(Eng360Web.Models.Utility.AppSettings.GetDateFormat());
+                        }
+                        @if (item.Insurance_Valid_Till != null)
+                        {
+                            @dt
+                        }</td>
+                        <td>@Html.DisplayFor(modelItem => item.Salary)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Levy)</td>
+                        <td>@{
+
+                            dt = Convert.ToDateTime(item.DoR).ToString(Eng360Web.Models.Utility.AppSettings.GetDateFormat());
+                        }
+                        @if (item.DoR != null)
+                        {
+                            @dt
+                        }</td>
+
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+            </div>
+            </div>
+        </div>
+
+<script>
+    var empTable;
+    $(document).ready(function () {
+        var currentdate = new Date();
+        var datetime = currentdate.getDate() + ""
+                    + (currentdate.getMonth() + 1) + ""
+                    + currentdate.getFullYear() + " "
+                    + currentdate.getHours() + ""
+                    + currentdate.getMinutes() + ""
+                    + currentdate.getSeconds();
+
+        empTable = $('#employeeTable').DataTable({
+            "autoWidth": false,
+            "scrollX": true,
+            dom: 'Bfrtipl',
+            buttons: [
+               
+                {
+                    extend: 'excelHtml5',
+                    text: '<i class="fa fa-file-excel-o"></i>',
+                    title: 'Employee Details-' + datetime
+                },
+                {
+                    extend: 'csvHtml5',
+                    text: '<i class="fa fa-file-text-o"></i>',
+                title: 'Employee Details-' + datetime
+                }
+                
+            ]
+            
+        });
+    });
+    $('.dt-button').addClass('btn btn-primary').removeClass('dt-button').css('margin-right', '0px')  
+    
+    //empTable.column(3).visible(false);
+    //empTable.column(4).visible(false);
+    //empTable.column(5).visible(false);
+    //empTable.column(7).visible(false);
+    //empTable.column(8).visible(false);
+    //empTable.column(10).visible(false);
+    //empTable.column(11).visible(false);
+    //empTable.column(12).visible(false);
+    //empTable.column(14).visible(false);
+    //empTable.column(15).visible(false);
+    //empTable.column(16).visible(false);
+    //empTable.column(17).visible(false);
+    //empTable.column(20).visible(false);
+    //empTable.column(21).visible(false);
+    //empTable.column(22).visible(false);
+    //empTable.column(23).visible(false);
+    //empTable.column(24).visible(false);
+    //empTable.column(25).visible(false);
+    //empTable.column(26).visible(false);
+    //empTable.column(27).visible(false);
+    //empTable.column(28).visible(false);
+    //empTable.column(29).visible(false);
+    //empTable.column(30).visible(false);
+    //empTable.column(31).visible(false);
+    
+    $('#dateFrom').datetimepicker({ format: 'DD/MM/YYYY' });
+    $('#dateTo').datetimepicker({ format: 'DD/MM/YYYY' });
+   
+</script>

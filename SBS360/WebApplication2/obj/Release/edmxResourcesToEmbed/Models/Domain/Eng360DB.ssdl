@@ -1,0 +1,3092 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Eng360Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="eng_address_master">
+    <Key>
+      <PropertyRef Name="AddressID" />
+    </Key>
+    <Property Name="AddressID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="150" />
+    <Property Name="Mobile" Type="nvarchar" MaxLength="18" />
+    <Property Name="Tel" Type="nvarchar" MaxLength="18" />
+    <Property Name="Web" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address1" Type="nvarchar" MaxLength="150" />
+    <Property Name="Address2" Type="nvarchar" MaxLength="150" />
+    <Property Name="City" Type="nvarchar" MaxLength="150" />
+    <Property Name="Country" Type="nvarchar" MaxLength="50" />
+    <Property Name="Postal_Code" Type="nvarchar" MaxLength="10" />
+    <Property Name="Fax1" Type="nvarchar" MaxLength="18" />
+    <Property Name="SkypeID" Type="nvarchar" MaxLength="50" />
+    <Property Name="Remarks" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="eng_claim">
+    <Key>
+      <PropertyRef Name="ClaimID" />
+    </Key>
+    <Property Name="ClaimID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClaimDisplayID" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserID" Type="int" />
+    <Property Name="ProjectID" Type="int" />
+    <Property Name="ClaimAgainst" Type="nvarchar" MaxLength="50" />
+    <Property Name="Status" Type="int" />
+    <Property Name="SVRemarks" Type="nvarchar" MaxLength="250" />
+    <Property Name="ApprovalRemarks" Type="nvarchar" MaxLength="250" />
+    <Property Name="RejectRemarks" Type="nvarchar" MaxLength="250" />
+    <Property Name="ApprovedBy" Type="int" />
+    <Property Name="ApprovedDate" Type="date" />
+    <Property Name="SubmittedBy" Type="int" />
+    <Property Name="SubmittedDate" Type="date" />
+    <Property Name="isFullyPaid" Type="int" />
+    <Property Name="TotalClaim" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="PaymentSource" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="eng_claim_description">
+    <Key>
+      <PropertyRef Name="ClaimDescID" />
+    </Key>
+    <Property Name="ClaimDescID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClaimID" Type="int" />
+    <Property Name="ClaimTypeID" Type="int" />
+    <Property Name="RecpDate" Type="date" />
+    <Property Name="ClaimDescription" Type="nvarchar(max)" />
+    <Property Name="RecpAmount" Type="decimal" Precision="7" Scale="2" />
+    <Property Name="GST" Type="nvarchar" MaxLength="3" />
+  </EntityType>
+  <EntityType Name="eng_claim_files">
+    <Key>
+      <PropertyRef Name="ClaimFileID" />
+    </Key>
+    <Property Name="ClaimFileID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClaimID" Type="int" />
+    <Property Name="FIleCaption" Type="nvarchar" MaxLength="250" />
+    <Property Name="FileName" Type="nvarchar" MaxLength="300" />
+    <Property Name="FilePath" Type="nvarchar" MaxLength="300" />
+  </EntityType>
+  <EntityType Name="eng_client_contact">
+    <Key>
+      <PropertyRef Name="CCID" />
+    </Key>
+    <Property Name="CCID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClientID" Type="int" />
+    <Property Name="NamePrefix" Type="nvarchar" MaxLength="10" />
+    <Property Name="SPOCName" Type="nvarchar" MaxLength="150" />
+    <Property Name="Email" Type="nvarchar" MaxLength="150" />
+    <Property Name="Mobile" Type="nvarchar" MaxLength="18" />
+    <Property Name="Tel" Type="nvarchar" MaxLength="18" />
+    <Property Name="Remarks" Type="nvarchar" MaxLength="155" />
+  </EntityType>
+  <EntityType Name="eng_client_master">
+    <Key>
+      <PropertyRef Name="ClientID" />
+    </Key>
+    <Property Name="ClientID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClientDisplayID" Type="nvarchar" MaxLength="50" />
+    <Property Name="Company_Name" Type="nvarchar" MaxLength="150" />
+    <Property Name="IndustryID" Type="int" />
+    <Property Name="FunctionalityID" Type="int" />
+    <Property Name="Reference" Type="nvarchar" MaxLength="150" />
+    <Property Name="AddressID" Type="int" />
+    <Property Name="CreatedDate" Type="date" />
+    <Property Name="UpdatedDate" Type="date" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="IsActive" Type="int" />
+  </EntityType>
+  <EntityType Name="eng_company">
+    <Key>
+      <PropertyRef Name="CompanyID" />
+    </Key>
+    <Property Name="CompanyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompanyName" Type="nvarchar(max)" />
+    <Property Name="Auth_InvoiceName" Type="nvarchar(max)" />
+    <Property Name="InvoiceTerms" Type="nvarchar(max)" />
+    <Property Name="Address1" Type="nvarchar" MaxLength="150" />
+    <Property Name="Address2" Type="nvarchar" MaxLength="150" />
+    <Property Name="City" Type="nvarchar" MaxLength="150" />
+    <Property Name="Country" Type="nvarchar" MaxLength="80" />
+    <Property Name="Pincode" Type="nvarchar" MaxLength="10" />
+    <Property Name="Tel" Type="nvarchar" MaxLength="20" />
+    <Property Name="Fax" Type="nvarchar" MaxLength="20" />
+    <Property Name="Email" Type="nvarchar" MaxLength="80" />
+    <Property Name="RegNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="GstRegNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="LogoPath" Type="nvarchar" MaxLength="250" />
+    <Property Name="Normal_Work_Hours" Type="decimal" Precision="6" Scale="2" />
+    <Property Name="Weekend_Work_Hours" Type="decimal" Precision="6" Scale="2" />
+    <Property Name="Lunch_Break_Hours" Type="decimal" Precision="6" Scale="2" />
+    <Property Name="GST" Type="decimal" Precision="5" Scale="2" />
+  </EntityType>
+  <EntityType Name="eng_company_cert">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Company_ID" Type="nvarchar" MaxLength="50" />
+    <Property Name="Company_Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="Cert_License_Name" Type="nvarchar" MaxLength="80" />
+    <Property Name="BoardName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Policy_Cert_Number" Type="nvarchar" MaxLength="80" />
+    <Property Name="Issue_Date" Type="date" />
+    <Property Name="Expiry_Date" Type="date" />
+    <Property Name="Document_Name" Type="nvarchar" MaxLength="80" />
+    <Property Name="UploadPath" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="eng_custom_invoice">
+    <Key>
+      <PropertyRef Name="InvoiceID" />
+    </Key>
+    <Property Name="InvoiceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InvoiceDate" Type="date" />
+    <Property Name="ProjectID" Type="int" />
+    <Property Name="QuotationID" Type="int" />
+    <Property Name="InvoiceNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="DoNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="DODate" Type="date" />
+    <Property Name="isFullyPaid" Type="int" />
+    <Property Name="FinalInvoiceAmount" Type="decimal" Precision="10" Scale="2" />
+  </EntityType>
+  <EntityType Name="eng_custom_invoice_details">
+    <Key>
+      <PropertyRef Name="InvoiceDetailsID" />
+    </Key>
+    <Property Name="InvoiceDetailsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InvoiceID" Type="int" />
+    <Property Name="Quantity" Type="decimal" Precision="12" Scale="4" />
+    <Property Name="QuoteDescription" Type="nvarchar(max)" />
+    <Property Name="UnitOfMeasure" Type="nvarchar" MaxLength="50" />
+    <Property Name="QuotePrice" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="AddedDate" Type="date" />
+    <Property Name="UpdatedDate" Type="date" />
+    <Property Name="AddedBy" Type="int" />
+    <Property Name="UpdatedBy" Type="int" />
+  </EntityType>
+  <EntityType Name="eng_do_seqnum">
+    <Key>
+      <PropertyRef Name="DoID" />
+    </Key>
+    <Property Name="DoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DoNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="DoType" Type="nvarchar" MaxLength="10" />
+    <Property Name="id" Type="int" />
+  </EntityType>
+  <EntityType Name="eng_employee_profile">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmpID" Type="nvarchar" MaxLength="50" />
+    <Property Name="OpBranch" Type="nvarchar" MaxLength="50" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+    <Property Name="AddressID" Type="int" />
+    <Property Name="Nationality" Type="nvarchar" MaxLength="50" />
+    <Property Name="DoB" Type="date" />
+    <Property Name="SOC_number" Type="nvarchar" MaxLength="50" />
+    <Property Name="SOC_Issue_Date" Type="date" />
+    <Property Name="SOC_Expiry_Date" Type="date" />
+    <Property Name="Salary" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="Levy" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="DoJ" Type="date" />
+    <Property Name="DoR" Type="date" />
+    <Property Name="Gender" Type="nvarchar" MaxLength="10" />
+    <Property Name="Designation" Type="nvarchar" MaxLength="150" />
+    <Property Name="ID_Type" Type="nvarchar" MaxLength="50" />
+    <Property Name="ID_Number" Type="nvarchar" MaxLength="50" />
+    <Property Name="Profile_Desc" Type="nvarchar" MaxLength="150" />
+    <Property Name="Profile_Photo_Path" Type="nvarchar" MaxLength="150" />
+    <Property Name="llevel" Type="int" />
+    <Property Name="CreatedDate" Type="date" />
+    <Property Name="UpdatedDate" Type="date" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="Passport_Number" Type="nvarchar" MaxLength="50" />
+    <Property Name="Passport_Valid_Till" Type="date" />
+    <Property Name="Permit_Number" Type="nvarchar" MaxLength="50" />
+    <Property Name="Permit_Valid_From" Type="date" />
+    <Property Name="Permit_Valid_To" Type="date" />
+    <Property Name="Licence_Number" Type="nvarchar" MaxLength="50" />
+    <Property Name="Licence_Valid_Till" Type="date" />
+    <Property Name="Insurance_Number" Type="nvarchar" MaxLength="50" />
+    <Property Name="Insurance_Valid_Till" Type="date" />
+    <Property Name="IsActive" Type="int" />
+    <Property Name="License_Scissor_Lift_Number" Type="nvarchar" MaxLength="50" />
+    <Property Name="License_Scissor_Lift_ExpiryDate" Type="date" />
+    <Property Name="License_Boom_Lift_Number" Type="nvarchar" MaxLength="50" />
+    <Property Name="License_Boom_Lift_ExpiryDate" Type="date" />
+    <Property Name="License_WorkatHeight_Number" Type="nvarchar" MaxLength="50" />
+    <Property Name="License_WorkatHeight_ExpiryDate" Type="date" />
+    <Property Name="License_IslandPass_Number" Type="nvarchar" MaxLength="50" />
+    <Property Name="License_IslandPass_ExpiryDate" Type="date" />
+    <Property Name="Skilled_Level" Type="int" />
+    <Property Name="Safety_Supervisor_Name" Type="nvarchar" MaxLength="80" />
+    <Property Name="License_Course" Type="nvarchar" MaxLength="250" />
+    <Property Name="License_Course_Expiry_Date" Type="date" />
+    <Property Name="GroupID" Type="int" />
+  </EntityType>
+  <EntityType Name="eng_inv_seqnum">
+    <Key>
+      <PropertyRef Name="InvoiceID" />
+    </Key>
+    <Property Name="InvoiceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InvoiceNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="InvoiceType" Type="nvarchar" MaxLength="10" />
+    <Property Name="id" Type="int" />
+  </EntityType>
+  <EntityType Name="eng_invoice_details">
+    <Key>
+      <PropertyRef Name="InvoiceDescID" />
+    </Key>
+    <Property Name="InvoiceDescID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InvoiceID" Type="int" />
+    <Property Name="Quantity" Type="decimal" Precision="12" Scale="4" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="UnitOfMeasure" Type="nvarchar" MaxLength="50" />
+    <Property Name="Price" Type="decimal" Precision="10" Scale="2" />
+  </EntityType>
+  <EntityType Name="eng_invoice_master">
+    <Key>
+      <PropertyRef Name="InvoiceID" />
+    </Key>
+    <Property Name="InvoiceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InvoiceNum" Type="nvarchar" MaxLength="50" />
+    <Property Name="InvoiceDate" Type="date" />
+    <Property Name="QuoteID" Type="int" />
+    <Property Name="ClientID" Type="int" />
+    <Property Name="DoNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="DoDate" Type="date" />
+    <Property Name="AttentionTo" Type="nvarchar" MaxLength="80" />
+    <Property Name="isFullyPaid" Type="int" />
+    <Property Name="GST" Type="nvarchar" MaxLength="10" />
+    <Property Name="TotalInvoiceAmount" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="InvoiceType" Type="nvarchar" MaxLength="50" />
+    <Property Name="InvCategory" Type="nvarchar" MaxLength="50" />
+    <Property Name="InvTermandCond" Type="nvarchar" MaxLength="350" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedDate" Type="date" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedDate" Type="date" />
+    <Property Name="ClientOthers" Type="nvarchar" MaxLength="250" />
+    <Property Name="ServicesFor" Type="nvarchar" MaxLength="350" />
+  </EntityType>
+  <EntityType Name="eng_inward">
+    <Key>
+      <PropertyRef Name="Inward_ID" />
+    </Key>
+    <Property Name="Inward_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Inward_Number" Type="nvarchar" MaxLength="50" />
+    <Property Name="StoreID" Type="int" />
+    <Property Name="Branch_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="SupplierID" Type="int" />
+    <Property Name="Invoice_or_DO_Number" Type="nvarchar" MaxLength="150" />
+    <Property Name="Invoice_or_DO_Date" Type="date" />
+    <Property Name="Receipt_Type" Type="int" />
+    <Property Name="Received_Date" Type="date" />
+    <Property Name="ReceivedBy" Type="int" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedDate" Type="date" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedDate" Type="date" />
+    <Property Name="DraftFlag" Type="int" />
+  </EntityType>
+  <EntityType Name="eng_mm_inwdesc">
+    <Key>
+      <PropertyRef Name="InDescID" />
+    </Key>
+    <Property Name="InDescID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Inward_ID" Type="int" />
+    <Property Name="ProductID" Type="int" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="UoM" Type="nvarchar" MaxLength="50" />
+    <Property Name="Remarks" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="eng_mm_outdesc">
+    <Key>
+      <PropertyRef Name="OutDescID" />
+    </Key>
+    <Property Name="OutDescID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Outward_ID" Type="int" />
+    <Property Name="ProductID" Type="int" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="UoM" Type="nvarchar" MaxLength="50" />
+    <Property Name="Remarks" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="eng_mm_stockadj_master">
+    <Key>
+      <PropertyRef Name="StockAdjID" />
+    </Key>
+    <Property Name="StockAdjID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Stock_Taking_Number" Type="nvarchar" MaxLength="50" />
+    <Property Name="StoreID" Type="int" />
+    <Property Name="Branch_Name" Type="nvarchar" MaxLength="80" />
+    <Property Name="Stock_Taking_Date" Type="date" />
+    <Property Name="Stock_Taken_By" Type="int" />
+    <Property Name="AdjReason" Type="int" />
+    <Property Name="AdjType" Type="int" />
+    <Property Name="Adj_Ref_Number" Type="nvarchar" MaxLength="50" />
+    <Property Name="Adj_Ref_Date" Type="date" />
+    <Property Name="ProductID" Type="int" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="ActualStock" Type="int" />
+    <Property Name="Remarks" Type="nvarchar(max)" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedDate" Type="date" />
+  </EntityType>
+  <EntityType Name="eng_mm_trmaster">
+    <Key>
+      <PropertyRef Name="MMTRID" />
+    </Key>
+    <Property Name="MMTRID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="inoutadj_ref" Type="varchar" MaxLength="50" />
+    <Property Name="ProductID" Type="int" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="UoM" Type="nvarchar" MaxLength="50" />
+    <Property Name="StoreID" Type="int" />
+    <Property Name="Trn_Date" Type="date" />
+  </EntityType>
+  <EntityType Name="eng_module">
+    <Key>
+      <PropertyRef Name="ModuleID" />
+    </Key>
+    <Property Name="ModuleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AccessType" Type="int" Nullable="false" />
+    <Property Name="ModuleName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Order_By" Type="int" Nullable="false" />
+    <Property Name="Icon" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="eng_outward">
+    <Key>
+      <PropertyRef Name="Outward_ID" />
+    </Key>
+    <Property Name="Outward_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Outward_Number" Type="nvarchar" MaxLength="50" />
+    <Property Name="StoreID" Type="int" />
+    <Property Name="Branch_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="ClientID" Type="int" />
+    <Property Name="DO_Number" Type="nvarchar" MaxLength="150" />
+    <Property Name="DO_Date" Type="date" />
+    <Property Name="Outward_Type" Type="int" />
+    <Property Name="Delivery_Date" Type="date" />
+    <Property Name="Vehicle_Number" Type="nvarchar" MaxLength="50" />
+    <Property Name="Delivery_Mode" Type="nvarchar" MaxLength="80" />
+    <Property Name="Project_Location" Type="nvarchar" MaxLength="80" />
+    <Property Name="DeliveredBy" Type="int" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedDate" Type="date" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedDate" Type="date" />
+    <Property Name="DraftFlag" Type="int" />
+  </EntityType>
+  <EntityType Name="eng_permission">
+    <Key>
+      <PropertyRef Name="PermissionID" />
+    </Key>
+    <Property Name="PermissionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GroupID" Type="int" />
+    <Property Name="ModuleID" Type="int" />
+    <Property Name="Access" Type="int" />
+  </EntityType>
+  <EntityType Name="eng_po_description">
+    <Key>
+      <PropertyRef Name="PDID" />
+    </Key>
+    <Property Name="PDID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PoID" Type="int" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="PODescription" Type="nvarchar(max)" />
+    <Property Name="UnitOfMeasure" Type="nvarchar" MaxLength="50" />
+    <Property Name="PoPrice" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="AddedDate" Type="date" />
+    <Property Name="UpdatedDate" Type="date" />
+    <Property Name="AddedBy" Type="int" />
+    <Property Name="UpdatedBy" Type="int" />
+  </EntityType>
+  <EntityType Name="eng_po_master">
+    <Key>
+      <PropertyRef Name="PoID" />
+    </Key>
+    <Property Name="PoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PoRefNum" Type="nvarchar" MaxLength="50" />
+    <Property Name="PoDate" Type="date" />
+    <Property Name="SupplierID" Type="int" />
+    <Property Name="Attention" Type="nvarchar" MaxLength="100" />
+    <Property Name="Branch_code" Type="nvarchar" MaxLength="10" />
+    <Property Name="YourRef" Type="nvarchar" MaxLength="250" />
+    <Property Name="PaymentTerms" Type="nvarchar" MaxLength="250" />
+    <Property Name="DeliveryAddress" Type="nvarchar" MaxLength="250" />
+    <Property Name="GTAX" Type="nvarchar" MaxLength="3" />
+    <Property Name="OrderStatusID" Type="int" />
+    <Property Name="CreatedDate" Type="date" />
+    <Property Name="UpdatedDate" Type="date" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="FinalAmount" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="isFullyPaid" Type="int" />
+  </EntityType>
+  <EntityType Name="eng_product_master">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Product_Name" Type="nvarchar" MaxLength="150" />
+    <Property Name="Product_Type" Type="nvarchar" MaxLength="100" />
+    <Property Name="Product_Company_Name" Type="nvarchar" MaxLength="150" />
+    <Property Name="Product_Description" Type="nvarchar" MaxLength="250" />
+    <Property Name="Dimension" Type="nvarchar" MaxLength="50" />
+    <Property Name="Measuring_Unit" Type="nvarchar" MaxLength="50" />
+    <Property Name="Unit_Price" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="Product_Code" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedDate" Type="date" />
+    <Property Name="UpdatedDate" Type="date" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="IsActive" Type="int" />
+    <Property Name="Barcode1" Type="nvarchar" MaxLength="250" />
+    <Property Name="Barcode2" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="eng_project_master">
+    <Key>
+      <PropertyRef Name="ProjectID" />
+    </Key>
+    <Property Name="ProjectID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProjectName" Type="nvarchar" MaxLength="150" />
+    <Property Name="LocationId" Type="int" />
+    <Property Name="QuotationID" Type="int" />
+    <Property Name="DoNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="Start_Date" Type="date" />
+    <Property Name="End_Date" Type="date" />
+    <Property Name="Key_Milestones" Type="nvarchar(max)" />
+    <Property Name="Service_Desc" Type="nvarchar(max)" />
+    <Property Name="Project_Status_ID" Type="int" />
+    <Property Name="Payment_Status" Type="nvarchar" MaxLength="50" />
+    <Property Name="Client_Acceptance_Status" Type="nchar" MaxLength="10" />
+    <Property Name="Project_Cost" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="CreatedDate" Type="date" />
+    <Property Name="UpdatedDate" Type="date" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="InvoiceNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="InvoiceDate" Type="date" />
+    <Property Name="DoDate" Type="date" />
+    <Property Name="Is_Project_level_inv" Type="int" />
+    <Property Name="Is_Custom_level_inv" Type="int" />
+    <Property Name="isFullyPaid" Type="int" />
+    <Property Name="Is_Project_level_do" Type="int" />
+  </EntityType>
+  <EntityType Name="eng_project_report">
+    <Key>
+      <PropertyRef Name="ProjectReportID" />
+    </Key>
+    <Property Name="ProjectReportID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectID" Type="int" />
+    <Property Name="ReportDate" Type="datetime" />
+    <Property Name="Start_Date_Time" Type="time" Precision="7" />
+    <Property Name="End_Date_Time" Type="time" Precision="7" />
+    <Property Name="Task_Description" Type="nvarchar(max)" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="TaskStatusID" Type="int" />
+    <Property Name="Remarks" Type="nvarchar" MaxLength="500" />
+    <Property Name="Resource_name" Type="nvarchar(max)" />
+    <Property Name="CreatedDate" Type="date" />
+    <Property Name="UpdatedDate" Type="date" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="ProgressPercentage" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="eng_project_report_files">
+    <Key>
+      <PropertyRef Name="ProjectSupportFileID" />
+    </Key>
+    <Property Name="ProjectSupportFileID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectReportID" Type="int" />
+    <Property Name="FIleCaption" Type="nvarchar" MaxLength="250" />
+    <Property Name="FileName" Type="nvarchar" MaxLength="300" />
+    <Property Name="FilePath" Type="nvarchar" MaxLength="300" />
+  </EntityType>
+  <EntityType Name="eng_PTW_Conspc_Detail_Stage1">
+    <Key>
+      <PropertyRef Name="PTW_Conspc_Stage1_ID" />
+    </Key>
+    <Property Name="PTW_Conspc_Stage1_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PTW_Master_ID" Type="int" />
+    <Property Name="PTW_Stage_One_ID" Type="int" />
+    <Property Name="Is_Applicable_Applicant" Type="int" />
+    <Property Name="Is_Applicable_Assessor" Type="int" />
+    <Property Name="Assessor_Remarks" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="eng_PTW_Conspc_Detail_Stage5">
+    <Key>
+      <PropertyRef Name="PTW_Conspc_Stage5_ID" />
+    </Key>
+    <Property Name="PTW_Conspc_Stage5_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PTW_Master_ID" Type="int" />
+    <Property Name="Stage5_Date_Time" Type="datetime" />
+    <Property Name="O2" Type="nvarchar" MaxLength="20" />
+    <Property Name="CO2" Type="nvarchar" MaxLength="20" />
+    <Property Name="LEL" Type="nvarchar" MaxLength="20" />
+    <Property Name="H2S" Type="nvarchar" MaxLength="20" />
+    <Property Name="Safe_for_Entry" Type="nvarchar" MaxLength="10" />
+    <Property Name="Stage5_Assessor_Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="Assessor_Comments" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="eng_PTW_Conspc_Employee_Details">
+    <Key>
+      <PropertyRef Name="PTWEmployeeID" />
+    </Key>
+    <Property Name="PTWEmployeeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PTW_Master_ID" Type="int" />
+    <Property Name="EmployeeID" Type="int" />
+  </EntityType>
+  <EntityType Name="eng_ptw_conspc_master">
+    <Key>
+      <PropertyRef Name="PTW_master_ID" />
+    </Key>
+    <Property Name="PTW_master_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ContractorName" Type="nvarchar" MaxLength="250" />
+    <Property Name="Work_Description" Type="nvarchar" MaxLength="250" />
+    <Property Name="Applicant_Name" Type="nvarchar" MaxLength="150" />
+    <Property Name="Applicant_Desig" Type="nvarchar" MaxLength="150" />
+    <Property Name="Applicant_Date_Time" Type="datetime" />
+    <Property Name="LocationOfWork" Type="nvarchar" MaxLength="250" />
+    <Property Name="Start_Date_Time" Type="datetime" />
+    <Property Name="End_Date_Time" Type="datetime" />
+    <Property Name="No_of_workers_involved" Type="int" />
+    <Property Name="Stage1_Watchman_Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="Stage1_Watchman_ID" Type="nvarchar" MaxLength="100" />
+    <Property Name="Stage1_Watchman_Company" Type="nvarchar" MaxLength="100" />
+    <Property Name="Stage2_O2" Type="nvarchar" MaxLength="20" />
+    <Property Name="Stage2_CO2" Type="nvarchar" MaxLength="20" />
+    <Property Name="Stage2_LEL" Type="nvarchar" MaxLength="20" />
+    <Property Name="Stage2_H2S" Type="nvarchar" MaxLength="20" />
+    <Property Name="Safe_for_Entry" Type="nvarchar" MaxLength="10" />
+    <Property Name="Stage2_Assessor_Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="Stage2_Assessor_Desig" Type="nvarchar" MaxLength="100" />
+    <Property Name="Stage2_Assessor_Date_Time" Type="datetime" />
+    <Property Name="Stage2_Comments" Type="nvarchar" MaxLength="250" />
+    <Property Name="Stage3_WSH_Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="Stage3_WSH_Desig" Type="nvarchar" MaxLength="100" />
+    <Property Name="Stage3_WSH_Date_Time" Type="datetime" />
+    <Property Name="Stage3_Comments" Type="nvarchar" MaxLength="250" />
+    <Property Name="Stage4_Mng_Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="Stage4_Mng_Desig" Type="nvarchar" MaxLength="100" />
+    <Property Name="Stage4_Date_Time" Type="datetime" />
+    <Property Name="Stage4_Comments" Type="nvarchar" MaxLength="250" />
+    <Property Name="Stage6_Person_Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="Stage6_Person_Desig" Type="nvarchar" MaxLength="100" />
+    <Property Name="Stage6_Date_Time" Type="datetime" />
+    <Property Name="Revoke_Desc" Type="nvarchar" MaxLength="250" />
+    <Property Name="Revoke_WSH_Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="Revoke_PM_Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="Revoke_Date_Time" Type="datetime" />
+    <Property Name="ProjectID" Type="int" />
+    <Property Name="PTW_type" Type="nvarchar" MaxLength="50" />
+    <Property Name="Created_By" Type="int" />
+    <Property Name="Created_Date" Type="datetime" />
+    <Property Name="Updated_By" Type="int" />
+    <Property Name="Updated_Date" Type="datetime" />
+    <Property Name="CompletedStage" Type="int" />
+  </EntityType>
+  <EntityType Name="eng_PTW_Detail_Satge1">
+    <Key>
+      <PropertyRef Name="PTW_Detail_Satge1_ID" />
+    </Key>
+    <Property Name="PTW_Detail_Satge1_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PTW_Master_ID" Type="int" />
+    <Property Name="PTW_Stage_One_ID" Type="int" />
+    <Property Name="Is_Applicable" Type="int" />
+  </EntityType>
+  <EntityType Name="eng_PTW_Detail_Satge4">
+    <Key>
+      <PropertyRef Name="PTW_Detail_Satge4" />
+    </Key>
+    <Property Name="PTW_Detail_Satge4" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PTW_Master_ID" Type="int" />
+    <Property Name="Day" Type="nvarchar" MaxLength="3" />
+    <Property Name="DayDate" Type="date" />
+    <Property Name="Sup_Signature" Type="nvarchar" MaxLength="100" />
+    <Property Name="Sup_Sig_Date" Type="datetime" />
+    <Property Name="Mng_Signature" Type="nvarchar" MaxLength="100" />
+    <Property Name="Mng_Sig_Date" Type="datetime" />
+  </EntityType>
+  <EntityType Name="eng_PTW_Employee_Details">
+    <Key>
+      <PropertyRef Name="PTWEmployeeID" />
+    </Key>
+    <Property Name="PTWEmployeeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PTW_Master_ID" Type="int" />
+    <Property Name="EmployeeID" Type="int" />
+  </EntityType>
+  <EntityType Name="eng_ptw_master">
+    <Key>
+      <PropertyRef Name="PTW_master_ID" />
+    </Key>
+    <Property Name="PTW_master_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompanyName" Type="nvarchar" MaxLength="250" />
+    <Property Name="ProjectTitle" Type="nvarchar" MaxLength="250" />
+    <Property Name="NameOfApplicant" Type="nvarchar" MaxLength="150" />
+    <Property Name="Date_Time" Type="datetime" />
+    <Property Name="Sub_con_Name" Type="nvarchar" MaxLength="250" />
+    <Property Name="Loc_or_GridLineNo" Type="nvarchar" MaxLength="250" />
+    <Property Name="Start_Date_Time" Type="datetime" />
+    <Property Name="End_Date_Time" Type="datetime" />
+    <Property Name="No_of_workers_involved" Type="int" />
+    <Property Name="Stage1_Person_Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="Stage1_Date_Time" Type="datetime" />
+    <Property Name="Stage2_Person_Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="Stage2_Date_Time" Type="datetime" />
+    <Property Name="Stage3_Person_Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="Stage3_Date_Time" Type="datetime" />
+    <Property Name="Stage4_Sup_Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="Stage4_Sup_Date_Time" Type="datetime" />
+    <Property Name="Stage4_WSH_Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="Stage4_WSH_Date_Time" Type="datetime" />
+    <Property Name="Stage5_Sup_Person_Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="Stage5_Sup_Date_Time" Type="datetime" />
+    <Property Name="Stage5_Mng_Person_Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="Stage5_Mng_Date_Time" Type="datetime" />
+    <Property Name="Revoke_Desc" Type="nvarchar" MaxLength="250" />
+    <Property Name="Revoke_Sup_Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="Revoke_Mng_Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="ProjectID" Type="int" />
+    <Property Name="PTW_type" Type="nvarchar" MaxLength="50" />
+    <Property Name="Created_By" Type="int" />
+    <Property Name="Created_Date" Type="datetime" />
+    <Property Name="Updated_By" Type="int" />
+    <Property Name="Updated_Date" Type="datetime" />
+    <Property Name="CompletedStage" Type="int" />
+  </EntityType>
+  <EntityType Name="eng_pymt_payable">
+    <Key>
+      <PropertyRef Name="PymtID" />
+    </Key>
+    <Property Name="PymtID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VoucherNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="SupplierID" Type="int" />
+    <Property Name="Tr_date" Type="date" />
+    <Property Name="Due_date" Type="date" />
+    <Property Name="PoNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="Tr_status" Type="int" />
+    <Property Name="reference" Type="nvarchar" MaxLength="250" />
+    <Property Name="FY" Type="nvarchar" MaxLength="50" />
+    <Property Name="Particulars" Type="nvarchar" MaxLength="250" />
+    <Property Name="Amount" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="GTAX" Type="nvarchar" MaxLength="50" />
+    <Property Name="PreparedBy" Type="nvarchar" MaxLength="150" />
+    <Property Name="ApprovedBy" Type="nvarchar" MaxLength="150" />
+    <Property Name="ReceivedBy" Type="nvarchar" MaxLength="150" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="CreatedDate" Type="date" />
+    <Property Name="UpdatedDate" Type="date" />
+    <Property Name="ExpenseFlag" Type="int" />
+    <Property Name="EmpID" Type="int" />
+    <Property Name="ClaimID" Type="int" />
+    <Property Name="PayableType" Type="nvarchar" MaxLength="50" />
+    <Property Name="ClaimNo" Type="nvarchar" MaxLength="80" />
+    <Property Name="PoID" Type="int" />
+  </EntityType>
+  <EntityType Name="eng_pymt_receivable">
+    <Key>
+      <PropertyRef Name="PymtID" />
+    </Key>
+    <Property Name="PymtID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VoucherNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="ClientID" Type="int" />
+    <Property Name="Tr_date" Type="date" />
+    <Property Name="Due_date" Type="date" />
+    <Property Name="InvoiceNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="Tr_status" Type="int" />
+    <Property Name="reference" Type="nvarchar" MaxLength="250" />
+    <Property Name="FY" Type="nvarchar" MaxLength="50" />
+    <Property Name="Particulars" Type="nvarchar" MaxLength="250" />
+    <Property Name="Amount" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="GTAX" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="CreatedDate" Type="date" />
+    <Property Name="UpdatedDate" Type="date" />
+    <Property Name="ReceivableType" Type="int" />
+    <Property Name="QuoteID" Type="int" />
+    <Property Name="InvoiceType" Type="nvarchar" MaxLength="50" />
+    <Property Name="InvoiceID" Type="int" />
+  </EntityType>
+  <EntityType Name="eng_qa_defect">
+    <Key>
+      <PropertyRef Name="DefectID" />
+    </Key>
+    <Property Name="DefectID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DefectDisplayID" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProjectID" Type="int" />
+    <Property Name="Location" Type="nvarchar" MaxLength="80" />
+    <Property Name="DrawingRecordNo" Type="nvarchar" MaxLength="80" />
+    <Property Name="InspectionArea" Type="nvarchar" MaxLength="150" />
+    <Property Name="SupplierFlag" Type="int" />
+    <Property Name="SupplierID" Type="int" />
+    <Property Name="Remarks" Type="nvarchar" MaxLength="250" />
+    <Property Name="DefStatus" Type="nvarchar" MaxLength="50" />
+    <Property Name="InspectedBy" Type="int" />
+    <Property Name="InspectedDate" Type="date" />
+    <Property Name="PM_Incharge" Type="int" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedDate" Type="date" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedDate" Type="date" />
+    <Property Name="InspectionType" Type="nvarchar" MaxLength="50" />
+    <Property Name="Ext_AuditedBy" Type="nvarchar" MaxLength="80" />
+    <Property Name="Ext_Auditor_Desig" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="eng_qa_defect_cpa">
+    <Key>
+      <PropertyRef Name="DPCID" />
+    </Key>
+    <Property Name="DPCID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DefectDetailID" Type="int" />
+    <Property Name="PAflag" Type="int" />
+    <Property Name="CAflag" Type="int" />
+    <Property Name="rfp_ncps" Type="int" />
+    <Property Name="rfp_mgmtreview" Type="int" />
+    <Property Name="rfp_cc" Type="int" />
+    <Property Name="rfp_ea" Type="int" />
+    <Property Name="rfp_other" Type="int" />
+    <Property Name="rfp_other_remarks" Type="nvarchar" MaxLength="250" />
+    <Property Name="ipt_envmt" Type="int" />
+    <Property Name="ipt_safety" Type="int" />
+    <Property Name="ipt_health" Type="int" />
+    <Property Name="ipt_insandops" Type="int" />
+    <Property Name="ipt_suggestion" Type="int" />
+    <Property Name="ActionTaken" Type="nvarchar(max)" />
+    <Property Name="ActionBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="DoI" Type="date" />
+    <Property Name="FollowupAction" Type="nvarchar(max)" />
+    <Property Name="Remarks" Type="nvarchar(max)" />
+    <Property Name="ReviewedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="TrackStatus" Type="nvarchar" MaxLength="50" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedDate" Type="date" />
+  </EntityType>
+  <EntityType Name="eng_qa_defect_cpa_files">
+    <Key>
+      <PropertyRef Name="CpaFileID" />
+    </Key>
+    <Property Name="CpaFileID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DPCID" Type="int" />
+    <Property Name="FIleCaption" Type="nvarchar" MaxLength="250" />
+    <Property Name="FileName" Type="nvarchar" MaxLength="300" />
+    <Property Name="FilePath" Type="nvarchar" MaxLength="300" />
+  </EntityType>
+  <EntityType Name="eng_qa_defect_detail">
+    <Key>
+      <PropertyRef Name="DefectDetailID" />
+    </Key>
+    <Property Name="DefectDetailID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DefectTrackNum" Type="nvarchar" MaxLength="50" />
+    <Property Name="DefectID" Type="int" />
+    <Property Name="DefectTitle" Type="nvarchar" MaxLength="250" />
+    <Property Name="DefectImpactDetails" Type="nvarchar(max)" />
+    <Property Name="DefectStatus" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="eng_qa_defect_files">
+    <Key>
+      <PropertyRef Name="DefectFileID" />
+    </Key>
+    <Property Name="DefectFileID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DefectID" Type="int" />
+    <Property Name="FIleCaption" Type="nvarchar" MaxLength="250" />
+    <Property Name="FileName" Type="nvarchar" MaxLength="300" />
+    <Property Name="FilePath" Type="nvarchar" MaxLength="300" />
+    <Property Name="DefectType" Type="int" />
+  </EntityType>
+  <EntityType Name="eng_quote_description">
+    <Key>
+      <PropertyRef Name="QDID" />
+    </Key>
+    <Property Name="QDID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="QuoteID" Type="int" />
+    <Property Name="Quantity" Type="decimal" Precision="12" Scale="4" />
+    <Property Name="QuoteDescription" Type="nvarchar(max)" />
+    <Property Name="UnitOfMeasure" Type="nvarchar" MaxLength="50" />
+    <Property Name="QuotePrice" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="AddedDate" Type="date" />
+    <Property Name="UpdatedDate" Type="date" />
+    <Property Name="AddedBy" Type="int" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="ProjectID" Type="int" />
+  </EntityType>
+  <EntityType Name="eng_quote_master">
+    <Key>
+      <PropertyRef Name="QuoteID" />
+    </Key>
+    <Property Name="QuoteID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="QuoteRefNum" Type="nvarchar" MaxLength="50" />
+    <Property Name="QuoteDate" Type="date" />
+    <Property Name="ClientID" Type="int" />
+    <Property Name="Attention_CCID" Type="int" />
+    <Property Name="Branch_code" Type="nvarchar" MaxLength="10" />
+    <Property Name="QuoteCategory" Type="nvarchar" MaxLength="8" />
+    <Property Name="ValidTill" Type="nvarchar" MaxLength="128" />
+    <Property Name="YourRef" Type="nvarchar" MaxLength="250" />
+    <Property Name="PaymentTerms" Type="nvarchar" MaxLength="250" />
+    <Property Name="TermsAndCond" Type="nvarchar(max)" />
+    <Property Name="GTAX" Type="nvarchar" MaxLength="3" />
+    <Property Name="Currency" Type="nvarchar" MaxLength="5" />
+    <Property Name="QuoteStatusID" Type="int" />
+    <Property Name="CreatedDate" Type="date" />
+    <Property Name="UpdatedDate" Type="date" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="IsAutoApproved" Type="int" />
+    <Property Name="IsProjectCreated" Type="int" />
+    <Property Name="InvoiceNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="DoNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="InvoiceDate" Type="date" />
+    <Property Name="DODate" Type="date" />
+    <Property Name="QuoteTitle" Type="nvarchar(max)" />
+    <Property Name="RvFlag" Type="int" />
+    <Property Name="ProjectTitle" Type="nvarchar(max)" />
+    <Property Name="Is_invoice_released" Type="int" />
+    <Property Name="Is_Quote_level_inv" Type="int" />
+    <Property Name="Is_Project_level_inv" Type="int" />
+    <Property Name="Is_Custom_level_inv" Type="int" />
+    <Property Name="Discount" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="isFullyPaid" Type="int" />
+    <Property Name="FinalAmount" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="Is_do_released" Type="int" />
+    <Property Name="Is_Quote_level_do" Type="int" />
+    <Property Name="InvoiceFlag" Type="int" />
+  </EntityType>
+  <EntityType Name="eng_ra_control_measures">
+    <Key>
+      <PropertyRef Name="ItemID" />
+    </Key>
+    <Property Name="ItemID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ItemDescription" Type="nvarchar(max)" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="eng_ra_hazardlist">
+    <Key>
+      <PropertyRef Name="ItemID" />
+    </Key>
+    <Property Name="ItemID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ItemDescription" Type="nvarchar(max)" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="eng_ra_location">
+    <Key>
+      <PropertyRef Name="ItemID" />
+    </Key>
+    <Property Name="ItemID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ItemDescription" Type="nvarchar(max)" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="eng_ra_possible_accident_health">
+    <Key>
+      <PropertyRef Name="ItemID" />
+    </Key>
+    <Property Name="ItemID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ItemDescription" Type="nvarchar(max)" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="eng_ra_process">
+    <Key>
+      <PropertyRef Name="ItemID" />
+    </Key>
+    <Property Name="ItemID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ItemDescription" Type="nvarchar(max)" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="eng_ra_trans_detail1">
+    <Key>
+      <PropertyRef Name="RAWADetID" />
+    </Key>
+    <Property Name="RAWADetID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RAID" Type="int" />
+    <Property Name="Locations" Type="nvarchar" MaxLength="250" />
+    <Property Name="Process" Type="nvarchar(max)" />
+    <Property Name="WorkActivities" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="eng_ra_trans_master">
+    <Key>
+      <PropertyRef Name="RAID" />
+    </Key>
+    <Property Name="RAID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RARefNum" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProjectID" Type="int" />
+    <Property Name="CompanyName" Type="nvarchar" MaxLength="80" />
+    <Property Name="ContractNumber" Type="nvarchar" MaxLength="150" />
+    <Property Name="Process" Type="nvarchar(max)" />
+    <Property Name="ActivityLocation" Type="nvarchar" MaxLength="150" />
+    <Property Name="AssessmentDate" Type="datetime" />
+    <Property Name="LastReviewDate" Type="date" />
+    <Property Name="NextReviewDate" Type="date" />
+    <Property Name="RALeader" Type="nvarchar" MaxLength="100" />
+    <Property Name="RAMember1" Type="nvarchar" MaxLength="100" />
+    <Property Name="RAMember2" Type="nvarchar" MaxLength="100" />
+    <Property Name="RAMember3" Type="nvarchar" MaxLength="100" />
+    <Property Name="RAMember4" Type="nvarchar" MaxLength="100" />
+    <Property Name="RAMember5" Type="nvarchar" MaxLength="100" />
+    <Property Name="ApprovedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="ApprovedDesig" Type="nvarchar" MaxLength="80" />
+    <Property Name="ApprovedDate" Type="datetime" />
+    <Property Name="Reference_Number" Type="nvarchar" MaxLength="80" />
+    <Property Name="PreparedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="eng_ra_trans_racm">
+    <Key>
+      <PropertyRef Name="RACMID" />
+    </Key>
+    <Property Name="RACMID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RAID" Type="int" />
+    <Property Name="RAWADetID" Type="int" />
+    <Property Name="RAWADetail" Type="nvarchar(max)" />
+    <Property Name="HazardID" Type="nvarchar(max)" />
+    <Property Name="PAHID" Type="nvarchar(max)" />
+    <Property Name="REvExRCID" Type="nvarchar(max)" />
+    <Property Name="REvRMLHID" Type="int" />
+    <Property Name="REvRMSVID" Type="int" />
+    <Property Name="REvRPN" Type="int" />
+    <Property Name="RCAdRCID" Type="nvarchar(max)" />
+    <Property Name="RCRMLHID" Type="int" />
+    <Property Name="RCRMSVID" Type="int" />
+    <Property Name="RCRPN" Type="int" />
+    <Property Name="ImpOfficer" Type="nvarchar" MaxLength="100" />
+    <Property Name="DueDate" Type="datetime" />
+    <Property Name="Remarks" Type="nvarchar(max)" />
+    <Property Name="PreparedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="eng_ra_work_activity">
+    <Key>
+      <PropertyRef Name="ItemID" />
+    </Key>
+    <Property Name="ItemID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ItemDescription" Type="nvarchar(max)" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdtaedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="eng_safety_esh">
+    <Key>
+      <PropertyRef Name="NSIID" />
+    </Key>
+    <Property Name="NSIID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectID" Type="int" />
+    <Property Name="InspectionDate" Type="date" />
+    <Property Name="ProjectLocation" Type="nvarchar" MaxLength="80" />
+    <Property Name="InspectedBy" Type="nvarchar" MaxLength="80" />
+    <Property Name="Observation" Type="nvarchar(max)" />
+    <Property Name="RemedialAction" Type="nvarchar" MaxLength="350" />
+    <Property Name="ActionBy_Deadline" Type="nvarchar" MaxLength="150" />
+    <Property Name="Rectification_Remarks" Type="nvarchar" MaxLength="350" />
+    <Property Name="Status" Type="nvarchar" MaxLength="150" />
+    <Property Name="EHSName" Type="nvarchar" MaxLength="80" />
+    <Property Name="AcknowlegeBy" Type="nvarchar" MaxLength="80" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedDate" Type="date" />
+    <Property Name="UpdatedBy" Type="int" Nullable="false" />
+    <Property Name="UpdatedDate" Type="date" />
+    <Property Name="FileCaption" Type="nvarchar" MaxLength="250" />
+    <Property Name="FileName" Type="nvarchar" MaxLength="350" />
+    <Property Name="FilePath" Type="nvarchar" MaxLength="450" />
+  </EntityType>
+  <EntityType Name="eng_safety_esh_files">
+    <Key>
+      <PropertyRef Name="NSIFileID" />
+    </Key>
+    <Property Name="NSIFileID" Type="int" Nullable="false" />
+    <Property Name="NSIID" Type="int" />
+    <Property Name="FileCaption" Type="nvarchar" MaxLength="250" />
+    <Property Name="FileName" Type="nvarchar" MaxLength="300" />
+    <Property Name="FilePath" Type="nvarchar" MaxLength="350" />
+    <Property Name="Observation" Type="nvarchar(max)" />
+    <Property Name="RemedialAction" Type="nvarchar" MaxLength="350" />
+    <Property Name="ActionBy_Deadline" Type="nvarchar" MaxLength="150" />
+    <Property Name="Rectification_Remarks" Type="nvarchar" MaxLength="350" />
+    <Property Name="Status" Type="nvarchar" MaxLength="150" />
+    <Property Name="InspectionDate" Type="date" />
+    <Property Name="ProjectID" Type="int" />
+  </EntityType>
+  <EntityType Name="eng_safety_hazard_list">
+    <Key>
+      <PropertyRef Name="HLID" />
+    </Key>
+    <Property Name="HLID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SafetyID" Type="int" />
+    <Property Name="HazardID" Type="int" />
+  </EntityType>
+  <EntityType Name="eng_safety_insp_detail">
+    <Key>
+      <PropertyRef Name="SIDetailID" />
+    </Key>
+    <Property Name="SIDetailID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SAFINSID" Type="int" />
+    <Property Name="SIItemID" Type="int" />
+    <Property Name="Is_Applicable" Type="int" />
+    <Property Name="Recommendation" Type="nvarchar(max)" />
+    <Property Name="ResponsiblePerson" Type="nvarchar" MaxLength="80" />
+    <Property Name="ACDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="eng_safety_insp_master">
+    <Key>
+      <PropertyRef Name="SAFINSID" />
+    </Key>
+    <Property Name="SAFINSID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SafetyRefNum" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProjectID" Type="int" />
+    <Property Name="SIDate" Type="datetime" />
+    <Property Name="ProjectLocation" Type="nvarchar" MaxLength="150" />
+    <Property Name="InspectedBy" Type="nvarchar" MaxLength="80" />
+    <Property Name="Address" Type="nvarchar" MaxLength="250" />
+    <Property Name="Safety_Cert_Info" Type="nvarchar" MaxLength="80" />
+    <Property Name="Others1" Type="nvarchar" MaxLength="250" />
+    <Property Name="Others2" Type="nvarchar" MaxLength="250" />
+    <Property Name="Others3" Type="nvarchar" MaxLength="250" />
+    <Property Name="Others4" Type="nvarchar" MaxLength="250" />
+    <Property Name="Others5" Type="nvarchar" MaxLength="250" />
+    <Property Name="Others6" Type="nvarchar" MaxLength="250" />
+    <Property Name="Others7" Type="nvarchar" MaxLength="250" />
+    <Property Name="Others8" Type="nvarchar" MaxLength="250" />
+    <Property Name="Others9" Type="nvarchar" MaxLength="250" />
+    <Property Name="Others10" Type="nvarchar" MaxLength="250" />
+    <Property Name="RP1" Type="nvarchar" MaxLength="80" />
+    <Property Name="RP2" Type="nvarchar" MaxLength="80" />
+    <Property Name="RP3" Type="nvarchar" MaxLength="80" />
+    <Property Name="RP4" Type="nvarchar" MaxLength="80" />
+    <Property Name="RP5" Type="nvarchar" MaxLength="80" />
+    <Property Name="RP6" Type="nvarchar" MaxLength="80" />
+    <Property Name="RP7" Type="nvarchar" MaxLength="80" />
+    <Property Name="RP8" Type="nvarchar" MaxLength="80" />
+    <Property Name="RP9" Type="nvarchar" MaxLength="80" />
+    <Property Name="RP10" Type="nvarchar" MaxLength="80" />
+    <Property Name="ACDate1" Type="datetime" />
+    <Property Name="ACDate2" Type="datetime" />
+    <Property Name="ACDate3" Type="datetime" />
+    <Property Name="ACDate4" Type="datetime" />
+    <Property Name="ACDate5" Type="datetime" />
+    <Property Name="ACDate6" Type="datetime" />
+    <Property Name="ACDate7" Type="datetime" />
+    <Property Name="ACDate8" Type="datetime" />
+    <Property Name="ACDate9" Type="datetime" />
+    <Property Name="ACDate10" Type="datetime" />
+    <Property Name="Senior_Construction_Manager" Type="nvarchar" MaxLength="80" />
+    <Property Name="Project_Manager" Type="nvarchar" MaxLength="80" />
+    <Property Name="Site_Manager" Type="nvarchar" MaxLength="80" />
+    <Property Name="Zone_Construction_Manager" Type="nvarchar" MaxLength="80" />
+    <Property Name="Safety_Manager" Type="nvarchar" MaxLength="80" />
+    <Property Name="Safety_Officer" Type="nvarchar" MaxLength="80" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="eng_safety_master">
+    <Key>
+      <PropertyRef Name="SafetyID" />
+    </Key>
+    <Property Name="SafetyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompanyName" Type="nvarchar" MaxLength="100" />
+    <Property Name="ProjectTitle" Type="nvarchar" MaxLength="250" />
+    <Property Name="RepDate" Type="date" />
+    <Property Name="RepTime" Type="time" Precision="7" />
+    <Property Name="LocationOfWork" Type="nvarchar(max)" />
+    <Property Name="OtherHazard" Type="nvarchar" MaxLength="150" />
+    <Property Name="SubmittedBy" Type="int" />
+    <Property Name="ASHMeasures" Type="nvarchar(max)" />
+    <Property Name="Status" Type="int" />
+    <Property Name="CreatedDate" Type="date" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedDate" Type="date" />
+    <Property Name="SignaturePath" Type="nvarchar" MaxLength="350" />
+  </EntityType>
+  <EntityType Name="eng_safety_ppe_list">
+    <Key>
+      <PropertyRef Name="PPELID" />
+    </Key>
+    <Property Name="PPELID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SafetyID" Type="int" />
+    <Property Name="PPEID" Type="int" />
+  </EntityType>
+  <EntityType Name="eng_safety_worker_list">
+    <Key>
+      <PropertyRef Name="WLID" />
+    </Key>
+    <Property Name="WLID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SafetyID" Type="int" />
+    <Property Name="EmpID" Type="int" />
+  </EntityType>
+  <EntityType Name="eng_screens">
+    <Key>
+      <PropertyRef Name="SCREEN_ID" />
+    </Key>
+    <Property Name="SCREEN_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MODULEID" Type="int" Nullable="false" />
+    <Property Name="SCREEN_NAME" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="SCREEN_CLASS_NAME" Type="nvarchar" MaxLength="50" />
+    <Property Name="SCREEN_URL" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="ORDER_BY" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="eng_store_master">
+    <Key>
+      <PropertyRef Name="StoreID" />
+    </Key>
+    <Property Name="StoreID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Store_Code" Type="nvarchar" MaxLength="50" />
+    <Property Name="Branch_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Start_Date" Type="date" />
+    <Property Name="Store_Name" Type="nvarchar" MaxLength="150" />
+    <Property Name="Address1" Type="nvarchar" MaxLength="150" />
+    <Property Name="Address2" Type="nvarchar" MaxLength="150" />
+    <Property Name="City" Type="nvarchar" MaxLength="50" />
+    <Property Name="Country" Type="nvarchar" MaxLength="50" />
+    <Property Name="Store_Description" Type="nvarchar" MaxLength="250" />
+    <Property Name="Incharge_Name" Type="nvarchar" MaxLength="80" />
+    <Property Name="Remarks" Type="nvarchar" MaxLength="250" />
+    <Property Name="CreatedDate" Type="date" />
+    <Property Name="UpdatedDate" Type="date" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="UpdatedBy" Type="int" />
+  </EntityType>
+  <EntityType Name="eng_supplier_master">
+    <Key>
+      <PropertyRef Name="SupplierID" />
+    </Key>
+    <Property Name="SupplierID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SupplierDisplayID" Type="nvarchar" MaxLength="50" />
+    <Property Name="Company_Name" Type="nvarchar" MaxLength="150" />
+    <Property Name="IndustryID" Type="int" />
+    <Property Name="Spoc_Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="Supplier_Description" Type="nvarchar" MaxLength="100" />
+    <Property Name="AddressID" Type="int" />
+    <Property Name="CreatedDate" Type="date" />
+    <Property Name="UpdatedDate" Type="date" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="IsActive" Type="int" />
+  </EntityType>
+  <EntityType Name="eng_sys_claimtype">
+    <Key>
+      <PropertyRef Name="ClaimTypeID" />
+    </Key>
+    <Property Name="ClaimTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClaimType" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="eng_sys_country">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CountryCode" Type="nvarchar" MaxLength="3" />
+    <Property Name="Country" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="eng_sys_function">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Fn_code" Type="nvarchar" MaxLength="16" />
+    <Property Name="Fn_Title" Type="nvarchar" MaxLength="100" />
+    <Property Name="Fn_Value" Type="int" />
+  </EntityType>
+  <EntityType Name="eng_sys_industry">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Industry_Code" Type="nvarchar" MaxLength="10" />
+    <Property Name="Industry_Title" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="eng_sys_location">
+    <Key>
+      <PropertyRef Name="LocationId" />
+    </Key>
+    <Property Name="LocationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LocationName" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="eng_sys_project_status">
+    <Key>
+      <PropertyRef Name="ProjectStatusID" />
+    </Key>
+    <Property Name="ProjectStatusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectStatus" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="eng_sys_ptw_stage1_config">
+    <Key>
+      <PropertyRef Name="PTW_Stage_One_ID" />
+    </Key>
+    <Property Name="PTW_Stage_One_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PTW_Type" Type="nvarchar" MaxLength="50" />
+    <Property Name="PTW_Title" Type="nvarchar" MaxLength="150" />
+    <Property Name="Item" Type="nvarchar" MaxLength="500" />
+    <Property Name="Order_By" Type="int" />
+  </EntityType>
+  <EntityType Name="eng_sys_ptw_stages">
+    <Key>
+      <PropertyRef Name="StageCofigID" />
+    </Key>
+    <Property Name="StageCofigID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Stage_Type" Type="nvarchar" MaxLength="50" />
+    <Property Name="Stages" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="eng_sys_pymt_status">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PymtStatus" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="eng_sys_quotestatus">
+    <Key>
+      <PropertyRef Name="StatusID" />
+    </Key>
+    <Property Name="StatusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="QuoteStatus" Type="nvarchar" MaxLength="50" />
+    <Property Name="Selection" Type="int" />
+  </EntityType>
+  <EntityType Name="eng_sys_riskmatrix">
+    <Key>
+      <PropertyRef Name="RMID" />
+    </Key>
+    <Property Name="RMID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Severity_Value" Type="int" />
+    <Property Name="Likelihood_Value" Type="int" />
+    <Property Name="Risk_Value" Type="int" />
+    <Property Name="Risk_Type" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="eng_sys_rm_likelihood">
+    <Key>
+      <PropertyRef Name="RMLHID" />
+    </Key>
+    <Property Name="RMLHID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Likelihood_Value" Type="int" />
+    <Property Name="Likelihood_Type" Type="nvarchar" MaxLength="50" />
+    <Property Name="Likelihood_Description" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="eng_sys_rm_severity">
+    <Key>
+      <PropertyRef Name="RMSVID" />
+    </Key>
+    <Property Name="RMSVID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Severity_Value" Type="int" />
+    <Property Name="Severity_Type" Type="nvarchar" MaxLength="50" />
+    <Property Name="Severity_Description" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="eng_sys_safety_hazard">
+    <Key>
+      <PropertyRef Name="HazardID" />
+    </Key>
+    <Property Name="HazardID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HazardDesc" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="eng_sys_safety_insp_items">
+    <Key>
+      <PropertyRef Name="SIItemID" />
+    </Key>
+    <Property Name="SIItemID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SIHeaderID" Type="nvarchar" MaxLength="10" />
+    <Property Name="SITitle" Type="nvarchar" MaxLength="80" />
+    <Property Name="SIItemDescription" Type="nvarchar" MaxLength="250" />
+    <Property Name="OrderBy" Type="int" />
+  </EntityType>
+  <EntityType Name="eng_sys_safety_ppelist">
+    <Key>
+      <PropertyRef Name="PPEID" />
+    </Key>
+    <Property Name="PPEID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PPE_Desc" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="eng_sys_task_status">
+    <Key>
+      <PropertyRef Name="TaskStatusID" />
+    </Key>
+    <Property Name="TaskStatusID" Type="int" Nullable="false" />
+    <Property Name="TaskStatus" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="eng_time_entry">
+    <Key>
+      <PropertyRef Name="TEID" />
+    </Key>
+    <Property Name="TEID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmpID" Type="int" />
+    <Property Name="ProjectID" Type="int" />
+    <Property Name="ReportDate" Type="date" />
+    <Property Name="Work_Start_Time" Type="time" Precision="7" />
+    <Property Name="Work_End_Time" Type="time" Precision="7" />
+    <Property Name="Ot_Start_Time" Type="time" Precision="7" />
+    <Property Name="Ot_End_Time" Type="time" Precision="7" />
+    <Property Name="No_of_WorkHours" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="No_of_OtHours" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="Remarks" Type="nvarchar" MaxLength="250" />
+    <Property Name="SubmittedBy" Type="int" />
+    <Property Name="SubmittedDate" Type="date" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedDate" Type="date" />
+    <Property Name="WEHflag" Type="int" />
+    <Property Name="LBflag" Type="int" />
+    <Property Name="Leave" Type="int" />
+    <Property Name="ReportEndDate" Type="date" />
+  </EntityType>
+  <EntityType Name="eng_transport_master">
+    <Key>
+      <PropertyRef Name="TransportID" />
+    </Key>
+    <Property Name="TransportID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Vehicle_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Vehicle_Company" Type="nvarchar" MaxLength="50" />
+    <Property Name="Vehicle_Model" Type="nvarchar" MaxLength="50" />
+    <Property Name="Vehicle_Type" Type="nvarchar" MaxLength="50" />
+    <Property Name="Vehicle_Number" Type="nvarchar" MaxLength="50" />
+    <Property Name="COE_Regn_Number" Type="nvarchar" MaxLength="100" />
+    <Property Name="COE_Issue_Date" Type="date" />
+    <Property Name="COE_Expiry_Date" Type="date" />
+    <Property Name="RoadTax_Regn_Number" Type="nvarchar" MaxLength="100" />
+    <Property Name="RoadTax_Iussue_Date" Type="date" />
+    <Property Name="RoadTax_Expiry_Date" Type="date" />
+    <Property Name="Insurance_Policy_Number" Type="nvarchar" MaxLength="100" />
+    <Property Name="Insurance_Issue_Date" Type="date" />
+    <Property Name="Insurance_Expiry_Date" Type="date" />
+    <Property Name="Insurance_Company" Type="nvarchar" MaxLength="80" />
+    <Property Name="Last_Insurance_Renew_Date" Type="date" />
+    <Property Name="Vehicle_Inspection_Date" Type="date" />
+    <Property Name="Inspection_Due_Date" Type="date" />
+    <Property Name="Remarks" Type="nvarchar(max)" />
+    <Property Name="CreatedDate" Type="date" />
+    <Property Name="UpdatedDate" Type="date" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="IsActive" Type="int" />
+    <Property Name="AgreementNumber" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="eng_usergroup">
+    <Key>
+      <PropertyRef Name="GroupID" />
+    </Key>
+    <Property Name="GroupID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GroupName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="eng_users">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="80" />
+    <Property Name="Password" Type="nvarchar" MaxLength="255" />
+    <Property Name="EmpID" Type="int" />
+    <Property Name="GroupID" Type="int" />
+    <Property Name="DisplayName" Type="nvarchar" MaxLength="80" />
+    <Property Name="LastLogin" Type="smalldatetime" />
+    <Property Name="UID" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsActive" Type="int" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedDate" Type="date" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedDate" Type="date" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'Eng360Demo.dbo.TRMAS' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="TRMAS">
+          <Property Name="ProductID" Type="int" />
+          <Property Name="StoreID" Type="int" />
+          <Property Name="Quantity" Type="int" />
+        </EntityType>-->
+  <Association Name="FK_eng_claim_description_eng_claim">
+    <End Role="eng_claim" Type="Self.eng_claim" Multiplicity="0..1" />
+    <End Role="eng_claim_description" Type="Self.eng_claim_description" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_claim">
+        <PropertyRef Name="ClaimID" />
+      </Principal>
+      <Dependent Role="eng_claim_description">
+        <PropertyRef Name="ClaimID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_claim_description_eng_sys_claimtype">
+    <End Role="eng_sys_claimtype" Type="Self.eng_sys_claimtype" Multiplicity="0..1" />
+    <End Role="eng_claim_description" Type="Self.eng_claim_description" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_sys_claimtype">
+        <PropertyRef Name="ClaimTypeID" />
+      </Principal>
+      <Dependent Role="eng_claim_description">
+        <PropertyRef Name="ClaimTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_claim_eng_employee_profile">
+    <End Role="eng_employee_profile" Type="Self.eng_employee_profile" Multiplicity="0..1" />
+    <End Role="eng_claim" Type="Self.eng_claim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_employee_profile">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="eng_claim">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_claim_eng_project_master">
+    <End Role="eng_project_master" Type="Self.eng_project_master" Multiplicity="0..1" />
+    <End Role="eng_claim" Type="Self.eng_claim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_project_master">
+        <PropertyRef Name="ProjectID" />
+      </Principal>
+      <Dependent Role="eng_claim">
+        <PropertyRef Name="ProjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_claim_eng_users">
+    <End Role="eng_users" Type="Self.eng_users" Multiplicity="0..1" />
+    <End Role="eng_claim" Type="Self.eng_claim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="eng_claim">
+        <PropertyRef Name="ApprovedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_claim_eng_users1">
+    <End Role="eng_users" Type="Self.eng_users" Multiplicity="0..1" />
+    <End Role="eng_claim" Type="Self.eng_claim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="eng_claim">
+        <PropertyRef Name="SubmittedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_claim_files_eng_claim">
+    <End Role="eng_claim" Type="Self.eng_claim" Multiplicity="0..1" />
+    <End Role="eng_claim_files" Type="Self.eng_claim_files" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_claim">
+        <PropertyRef Name="ClaimID" />
+      </Principal>
+      <Dependent Role="eng_claim_files">
+        <PropertyRef Name="ClaimID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_client_contact_eng_client_master">
+    <End Role="eng_client_master" Type="Self.eng_client_master" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="eng_client_contact" Type="Self.eng_client_contact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_client_master">
+        <PropertyRef Name="ClientID" />
+      </Principal>
+      <Dependent Role="eng_client_contact">
+        <PropertyRef Name="ClientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_client_master_eng_address_master">
+    <End Role="eng_address_master" Type="Self.eng_address_master" Multiplicity="0..1" />
+    <End Role="eng_client_master" Type="Self.eng_client_master" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_address_master">
+        <PropertyRef Name="AddressID" />
+      </Principal>
+      <Dependent Role="eng_client_master">
+        <PropertyRef Name="AddressID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_client_master_eng_sys_function">
+    <End Role="eng_sys_function" Type="Self.eng_sys_function" Multiplicity="0..1" />
+    <End Role="eng_client_master" Type="Self.eng_client_master" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_sys_function">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="eng_client_master">
+        <PropertyRef Name="FunctionalityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_client_master_eng_sys_industry">
+    <End Role="eng_sys_industry" Type="Self.eng_sys_industry" Multiplicity="0..1" />
+    <End Role="eng_client_master" Type="Self.eng_client_master" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_sys_industry">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="eng_client_master">
+        <PropertyRef Name="IndustryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_custom_invoice_details_eng_custom_invoice">
+    <End Role="eng_custom_invoice" Type="Self.eng_custom_invoice" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="eng_custom_invoice_details" Type="Self.eng_custom_invoice_details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_custom_invoice">
+        <PropertyRef Name="InvoiceID" />
+      </Principal>
+      <Dependent Role="eng_custom_invoice_details">
+        <PropertyRef Name="InvoiceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_custom_invoice_eng_project_master">
+    <End Role="eng_project_master" Type="Self.eng_project_master" Multiplicity="0..1" />
+    <End Role="eng_custom_invoice" Type="Self.eng_custom_invoice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_project_master">
+        <PropertyRef Name="ProjectID" />
+      </Principal>
+      <Dependent Role="eng_custom_invoice">
+        <PropertyRef Name="ProjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_custom_invoice_eng_quote_master">
+    <End Role="eng_quote_master" Type="Self.eng_quote_master" Multiplicity="0..1" />
+    <End Role="eng_custom_invoice" Type="Self.eng_custom_invoice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_quote_master">
+        <PropertyRef Name="QuoteID" />
+      </Principal>
+      <Dependent Role="eng_custom_invoice">
+        <PropertyRef Name="QuotationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_employee_profile_eng_address_master">
+    <End Role="eng_address_master" Type="Self.eng_address_master" Multiplicity="0..1" />
+    <End Role="eng_employee_profile" Type="Self.eng_employee_profile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_address_master">
+        <PropertyRef Name="AddressID" />
+      </Principal>
+      <Dependent Role="eng_employee_profile">
+        <PropertyRef Name="AddressID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_employee_profile_eng_usergroup">
+    <End Role="eng_usergroup" Type="Self.eng_usergroup" Multiplicity="0..1" />
+    <End Role="eng_employee_profile" Type="Self.eng_employee_profile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_usergroup">
+        <PropertyRef Name="GroupID" />
+      </Principal>
+      <Dependent Role="eng_employee_profile">
+        <PropertyRef Name="GroupID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_invoice_details_eng_invoice_master">
+    <End Role="eng_invoice_master" Type="Self.eng_invoice_master" Multiplicity="0..1" />
+    <End Role="eng_invoice_details" Type="Self.eng_invoice_details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_invoice_master">
+        <PropertyRef Name="InvoiceID" />
+      </Principal>
+      <Dependent Role="eng_invoice_details">
+        <PropertyRef Name="InvoiceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_invoice_master_eng_quote_master">
+    <End Role="eng_quote_master" Type="Self.eng_quote_master" Multiplicity="0..1" />
+    <End Role="eng_invoice_master" Type="Self.eng_invoice_master" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_quote_master">
+        <PropertyRef Name="QuoteID" />
+      </Principal>
+      <Dependent Role="eng_invoice_master">
+        <PropertyRef Name="QuoteID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_inward_eng_employee_profile">
+    <End Role="eng_employee_profile" Type="Self.eng_employee_profile" Multiplicity="0..1" />
+    <End Role="eng_inward" Type="Self.eng_inward" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_employee_profile">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="eng_inward">
+        <PropertyRef Name="ReceivedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_inward_eng_store_master">
+    <End Role="eng_store_master" Type="Self.eng_store_master" Multiplicity="0..1" />
+    <End Role="eng_inward" Type="Self.eng_inward" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_store_master">
+        <PropertyRef Name="StoreID" />
+      </Principal>
+      <Dependent Role="eng_inward">
+        <PropertyRef Name="StoreID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_inward_eng_supplier_master">
+    <End Role="eng_supplier_master" Type="Self.eng_supplier_master" Multiplicity="0..1" />
+    <End Role="eng_inward" Type="Self.eng_inward" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_supplier_master">
+        <PropertyRef Name="SupplierID" />
+      </Principal>
+      <Dependent Role="eng_inward">
+        <PropertyRef Name="SupplierID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_mm_inwdesc_eng_inward">
+    <End Role="eng_inward" Type="Self.eng_inward" Multiplicity="0..1" />
+    <End Role="eng_mm_inwdesc" Type="Self.eng_mm_inwdesc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_inward">
+        <PropertyRef Name="Inward_ID" />
+      </Principal>
+      <Dependent Role="eng_mm_inwdesc">
+        <PropertyRef Name="Inward_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_mm_inwdesc_eng_product_master">
+    <End Role="eng_product_master" Type="Self.eng_product_master" Multiplicity="0..1" />
+    <End Role="eng_mm_inwdesc" Type="Self.eng_mm_inwdesc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_product_master">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="eng_mm_inwdesc">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_mm_outdesc_eng_outward">
+    <End Role="eng_outward" Type="Self.eng_outward" Multiplicity="0..1" />
+    <End Role="eng_mm_outdesc" Type="Self.eng_mm_outdesc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_outward">
+        <PropertyRef Name="Outward_ID" />
+      </Principal>
+      <Dependent Role="eng_mm_outdesc">
+        <PropertyRef Name="Outward_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_mm_outdesc_eng_product_master">
+    <End Role="eng_product_master" Type="Self.eng_product_master" Multiplicity="0..1" />
+    <End Role="eng_mm_outdesc" Type="Self.eng_mm_outdesc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_product_master">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="eng_mm_outdesc">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_mm_stockadj_master_eng_employee_profile">
+    <End Role="eng_employee_profile" Type="Self.eng_employee_profile" Multiplicity="0..1" />
+    <End Role="eng_mm_stockadj_master" Type="Self.eng_mm_stockadj_master" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_employee_profile">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="eng_mm_stockadj_master">
+        <PropertyRef Name="Stock_Taken_By" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_mm_stockadj_master_eng_product_master">
+    <End Role="eng_product_master" Type="Self.eng_product_master" Multiplicity="0..1" />
+    <End Role="eng_mm_stockadj_master" Type="Self.eng_mm_stockadj_master" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_product_master">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="eng_mm_stockadj_master">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_mm_stockadj_master_eng_store_master">
+    <End Role="eng_store_master" Type="Self.eng_store_master" Multiplicity="0..1" />
+    <End Role="eng_mm_stockadj_master" Type="Self.eng_mm_stockadj_master" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_store_master">
+        <PropertyRef Name="StoreID" />
+      </Principal>
+      <Dependent Role="eng_mm_stockadj_master">
+        <PropertyRef Name="StoreID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_mm_trmaster_eng_product_master">
+    <End Role="eng_product_master" Type="Self.eng_product_master" Multiplicity="0..1" />
+    <End Role="eng_mm_trmaster" Type="Self.eng_mm_trmaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_product_master">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="eng_mm_trmaster">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_outward_eng_client_master">
+    <End Role="eng_client_master" Type="Self.eng_client_master" Multiplicity="0..1" />
+    <End Role="eng_outward" Type="Self.eng_outward" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_client_master">
+        <PropertyRef Name="ClientID" />
+      </Principal>
+      <Dependent Role="eng_outward">
+        <PropertyRef Name="ClientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_outward_eng_employee_profile">
+    <End Role="eng_employee_profile" Type="Self.eng_employee_profile" Multiplicity="0..1" />
+    <End Role="eng_outward" Type="Self.eng_outward" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_employee_profile">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="eng_outward">
+        <PropertyRef Name="DeliveredBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_outward_eng_store_master">
+    <End Role="eng_store_master" Type="Self.eng_store_master" Multiplicity="0..1" />
+    <End Role="eng_outward" Type="Self.eng_outward" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_store_master">
+        <PropertyRef Name="StoreID" />
+      </Principal>
+      <Dependent Role="eng_outward">
+        <PropertyRef Name="StoreID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_permission_eng_module">
+    <End Role="eng_module" Type="Self.eng_module" Multiplicity="0..1" />
+    <End Role="eng_permission" Type="Self.eng_permission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_module">
+        <PropertyRef Name="ModuleID" />
+      </Principal>
+      <Dependent Role="eng_permission">
+        <PropertyRef Name="ModuleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_permission_eng_usergroup">
+    <End Role="eng_usergroup" Type="Self.eng_usergroup" Multiplicity="0..1" />
+    <End Role="eng_permission" Type="Self.eng_permission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_usergroup">
+        <PropertyRef Name="GroupID" />
+      </Principal>
+      <Dependent Role="eng_permission">
+        <PropertyRef Name="GroupID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_po_decription_eng_po_master">
+    <End Role="eng_po_master" Type="Self.eng_po_master" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="eng_po_description" Type="Self.eng_po_description" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_po_master">
+        <PropertyRef Name="PoID" />
+      </Principal>
+      <Dependent Role="eng_po_description">
+        <PropertyRef Name="PoID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_po_master_eng_supplier_master">
+    <End Role="eng_supplier_master" Type="Self.eng_supplier_master" Multiplicity="0..1" />
+    <End Role="eng_po_master" Type="Self.eng_po_master" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_supplier_master">
+        <PropertyRef Name="SupplierID" />
+      </Principal>
+      <Dependent Role="eng_po_master">
+        <PropertyRef Name="SupplierID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_po_master_eng_sys_quotestatus">
+    <End Role="eng_sys_quotestatus" Type="Self.eng_sys_quotestatus" Multiplicity="0..1" />
+    <End Role="eng_po_master" Type="Self.eng_po_master" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_sys_quotestatus">
+        <PropertyRef Name="StatusID" />
+      </Principal>
+      <Dependent Role="eng_po_master">
+        <PropertyRef Name="OrderStatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_project_master_eng_quote_master">
+    <End Role="eng_quote_master" Type="Self.eng_quote_master" Multiplicity="0..1" />
+    <End Role="eng_project_master" Type="Self.eng_project_master" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_quote_master">
+        <PropertyRef Name="QuoteID" />
+      </Principal>
+      <Dependent Role="eng_project_master">
+        <PropertyRef Name="QuotationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_project_master_eng_sys_location">
+    <End Role="eng_sys_location" Type="Self.eng_sys_location" Multiplicity="0..1" />
+    <End Role="eng_project_master" Type="Self.eng_project_master" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_sys_location">
+        <PropertyRef Name="LocationId" />
+      </Principal>
+      <Dependent Role="eng_project_master">
+        <PropertyRef Name="LocationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_project_master_eng_sys_project_status">
+    <End Role="eng_sys_project_status" Type="Self.eng_sys_project_status" Multiplicity="0..1" />
+    <End Role="eng_project_master" Type="Self.eng_project_master" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_sys_project_status">
+        <PropertyRef Name="ProjectStatusID" />
+      </Principal>
+      <Dependent Role="eng_project_master">
+        <PropertyRef Name="Project_Status_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_project_report_eng_project_master">
+    <End Role="eng_project_master" Type="Self.eng_project_master" Multiplicity="0..1" />
+    <End Role="eng_project_report" Type="Self.eng_project_report" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_project_master">
+        <PropertyRef Name="ProjectID" />
+      </Principal>
+      <Dependent Role="eng_project_report">
+        <PropertyRef Name="ProjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_project_report_eng_project_report">
+    <End Role="eng_sys_task_status" Type="Self.eng_sys_task_status" Multiplicity="0..1" />
+    <End Role="eng_project_report" Type="Self.eng_project_report" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_sys_task_status">
+        <PropertyRef Name="TaskStatusID" />
+      </Principal>
+      <Dependent Role="eng_project_report">
+        <PropertyRef Name="TaskStatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_project_report_files_eng_project_report">
+    <End Role="eng_project_report" Type="Self.eng_project_report" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="eng_project_report_files" Type="Self.eng_project_report_files" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_project_report">
+        <PropertyRef Name="ProjectReportID" />
+      </Principal>
+      <Dependent Role="eng_project_report_files">
+        <PropertyRef Name="ProjectReportID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_PTW_Conspc_Detail_Stage1_eng_ptw_conspc_master">
+    <End Role="eng_ptw_conspc_master" Type="Self.eng_ptw_conspc_master" Multiplicity="0..1" />
+    <End Role="eng_PTW_Conspc_Detail_Stage1" Type="Self.eng_PTW_Conspc_Detail_Stage1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_ptw_conspc_master">
+        <PropertyRef Name="PTW_master_ID" />
+      </Principal>
+      <Dependent Role="eng_PTW_Conspc_Detail_Stage1">
+        <PropertyRef Name="PTW_Master_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_PTW_Conspc_Detail_Stage1_eng_sys_ptw_stage1_config">
+    <End Role="eng_sys_ptw_stage1_config" Type="Self.eng_sys_ptw_stage1_config" Multiplicity="0..1" />
+    <End Role="eng_PTW_Conspc_Detail_Stage1" Type="Self.eng_PTW_Conspc_Detail_Stage1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_sys_ptw_stage1_config">
+        <PropertyRef Name="PTW_Stage_One_ID" />
+      </Principal>
+      <Dependent Role="eng_PTW_Conspc_Detail_Stage1">
+        <PropertyRef Name="PTW_Stage_One_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_PTW_Conspc_Detail_Stage5_eng_ptw_conspc_master">
+    <End Role="eng_ptw_conspc_master" Type="Self.eng_ptw_conspc_master" Multiplicity="0..1" />
+    <End Role="eng_PTW_Conspc_Detail_Stage5" Type="Self.eng_PTW_Conspc_Detail_Stage5" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_ptw_conspc_master">
+        <PropertyRef Name="PTW_master_ID" />
+      </Principal>
+      <Dependent Role="eng_PTW_Conspc_Detail_Stage5">
+        <PropertyRef Name="PTW_Master_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_PTW_Conspc_Employee_Details_eng_ptw_conspc_master">
+    <End Role="eng_ptw_conspc_master" Type="Self.eng_ptw_conspc_master" Multiplicity="0..1" />
+    <End Role="eng_PTW_Conspc_Employee_Details" Type="Self.eng_PTW_Conspc_Employee_Details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_ptw_conspc_master">
+        <PropertyRef Name="PTW_master_ID" />
+      </Principal>
+      <Dependent Role="eng_PTW_Conspc_Employee_Details">
+        <PropertyRef Name="PTW_Master_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_PTW_Detail_Satge1_eng_ptw_master">
+    <End Role="eng_ptw_master" Type="Self.eng_ptw_master" Multiplicity="0..1" />
+    <End Role="eng_PTW_Detail_Satge1" Type="Self.eng_PTW_Detail_Satge1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_ptw_master">
+        <PropertyRef Name="PTW_master_ID" />
+      </Principal>
+      <Dependent Role="eng_PTW_Detail_Satge1">
+        <PropertyRef Name="PTW_Master_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_PTW_Detail_Satge1_eng_sys_ptw_stage1_config">
+    <End Role="eng_sys_ptw_stage1_config" Type="Self.eng_sys_ptw_stage1_config" Multiplicity="0..1" />
+    <End Role="eng_PTW_Detail_Satge1" Type="Self.eng_PTW_Detail_Satge1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_sys_ptw_stage1_config">
+        <PropertyRef Name="PTW_Stage_One_ID" />
+      </Principal>
+      <Dependent Role="eng_PTW_Detail_Satge1">
+        <PropertyRef Name="PTW_Stage_One_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_PTW_Detail_Satge4_eng_ptw_master">
+    <End Role="eng_ptw_master" Type="Self.eng_ptw_master" Multiplicity="0..1" />
+    <End Role="eng_PTW_Detail_Satge4" Type="Self.eng_PTW_Detail_Satge4" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_ptw_master">
+        <PropertyRef Name="PTW_master_ID" />
+      </Principal>
+      <Dependent Role="eng_PTW_Detail_Satge4">
+        <PropertyRef Name="PTW_Master_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_PTW_Employee_Details_eng_ptw_master">
+    <End Role="eng_ptw_master" Type="Self.eng_ptw_master" Multiplicity="0..1" />
+    <End Role="eng_PTW_Employee_Details" Type="Self.eng_PTW_Employee_Details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_ptw_master">
+        <PropertyRef Name="PTW_master_ID" />
+      </Principal>
+      <Dependent Role="eng_PTW_Employee_Details">
+        <PropertyRef Name="PTW_Master_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_pymt_payable_eng_claim">
+    <End Role="eng_claim" Type="Self.eng_claim" Multiplicity="0..1" />
+    <End Role="eng_pymt_payable" Type="Self.eng_pymt_payable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_claim">
+        <PropertyRef Name="ClaimID" />
+      </Principal>
+      <Dependent Role="eng_pymt_payable">
+        <PropertyRef Name="ClaimID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_pymt_payable_eng_employee_profile">
+    <End Role="eng_employee_profile" Type="Self.eng_employee_profile" Multiplicity="0..1" />
+    <End Role="eng_pymt_payable" Type="Self.eng_pymt_payable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_employee_profile">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="eng_pymt_payable">
+        <PropertyRef Name="EmpID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_pymt_payable_eng_po_master">
+    <End Role="eng_po_master" Type="Self.eng_po_master" Multiplicity="0..1" />
+    <End Role="eng_pymt_payable" Type="Self.eng_pymt_payable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_po_master">
+        <PropertyRef Name="PoID" />
+      </Principal>
+      <Dependent Role="eng_pymt_payable">
+        <PropertyRef Name="PoID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_pymt_payable_eng_sys_pymt_status">
+    <End Role="eng_sys_pymt_status" Type="Self.eng_sys_pymt_status" Multiplicity="0..1" />
+    <End Role="eng_pymt_payable" Type="Self.eng_pymt_payable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_sys_pymt_status">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="eng_pymt_payable">
+        <PropertyRef Name="Tr_status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_pymt_receivable_eng_client_master">
+    <End Role="eng_client_master" Type="Self.eng_client_master" Multiplicity="0..1" />
+    <End Role="eng_pymt_receivable" Type="Self.eng_pymt_receivable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_client_master">
+        <PropertyRef Name="ClientID" />
+      </Principal>
+      <Dependent Role="eng_pymt_receivable">
+        <PropertyRef Name="ClientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_pymt_receivable_eng_sys_pymt_status">
+    <End Role="eng_sys_pymt_status" Type="Self.eng_sys_pymt_status" Multiplicity="0..1" />
+    <End Role="eng_pymt_receivable" Type="Self.eng_pymt_receivable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_sys_pymt_status">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="eng_pymt_receivable">
+        <PropertyRef Name="Tr_status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_qa_defect_cpa_eng_qa_defect_detail">
+    <End Role="eng_qa_defect_detail" Type="Self.eng_qa_defect_detail" Multiplicity="0..1" />
+    <End Role="eng_qa_defect_cpa" Type="Self.eng_qa_defect_cpa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_qa_defect_detail">
+        <PropertyRef Name="DefectDetailID" />
+      </Principal>
+      <Dependent Role="eng_qa_defect_cpa">
+        <PropertyRef Name="DefectDetailID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_qa_defect_cpa_files_eng_qa_defect_cpa">
+    <End Role="eng_qa_defect_cpa" Type="Self.eng_qa_defect_cpa" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="eng_qa_defect_cpa_files" Type="Self.eng_qa_defect_cpa_files" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_qa_defect_cpa">
+        <PropertyRef Name="DPCID" />
+      </Principal>
+      <Dependent Role="eng_qa_defect_cpa_files">
+        <PropertyRef Name="DPCID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_qa_defect_details_eng_qa_defect">
+    <End Role="eng_qa_defect" Type="Self.eng_qa_defect" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="eng_qa_defect_detail" Type="Self.eng_qa_defect_detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_qa_defect">
+        <PropertyRef Name="DefectID" />
+      </Principal>
+      <Dependent Role="eng_qa_defect_detail">
+        <PropertyRef Name="DefectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_qa_defect_eng_employee_profile">
+    <End Role="eng_employee_profile" Type="Self.eng_employee_profile" Multiplicity="0..1" />
+    <End Role="eng_qa_defect" Type="Self.eng_qa_defect" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_employee_profile">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="eng_qa_defect">
+        <PropertyRef Name="InspectedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_qa_defect_eng_employee_profile1">
+    <End Role="eng_employee_profile" Type="Self.eng_employee_profile" Multiplicity="0..1" />
+    <End Role="eng_qa_defect" Type="Self.eng_qa_defect" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_employee_profile">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="eng_qa_defect">
+        <PropertyRef Name="PM_Incharge" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_qa_defect_eng_project_master">
+    <End Role="eng_project_master" Type="Self.eng_project_master" Multiplicity="0..1" />
+    <End Role="eng_qa_defect" Type="Self.eng_qa_defect" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_project_master">
+        <PropertyRef Name="ProjectID" />
+      </Principal>
+      <Dependent Role="eng_qa_defect">
+        <PropertyRef Name="ProjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_qa_defect_eng_supplier_master">
+    <End Role="eng_supplier_master" Type="Self.eng_supplier_master" Multiplicity="0..1" />
+    <End Role="eng_qa_defect" Type="Self.eng_qa_defect" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_supplier_master">
+        <PropertyRef Name="SupplierID" />
+      </Principal>
+      <Dependent Role="eng_qa_defect">
+        <PropertyRef Name="SupplierID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_qa_defect_files_eng_qa_defect">
+    <End Role="eng_qa_defect" Type="Self.eng_qa_defect" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="eng_qa_defect_files" Type="Self.eng_qa_defect_files" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_qa_defect">
+        <PropertyRef Name="DefectID" />
+      </Principal>
+      <Dependent Role="eng_qa_defect_files">
+        <PropertyRef Name="DefectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_quote_description_eng_project_master">
+    <End Role="eng_project_master" Type="Self.eng_project_master" Multiplicity="0..1" />
+    <End Role="eng_quote_description" Type="Self.eng_quote_description" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_project_master">
+        <PropertyRef Name="ProjectID" />
+      </Principal>
+      <Dependent Role="eng_quote_description">
+        <PropertyRef Name="ProjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_quote_description_eng_quote_master">
+    <End Role="eng_quote_master" Type="Self.eng_quote_master" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="eng_quote_description" Type="Self.eng_quote_description" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_quote_master">
+        <PropertyRef Name="QuoteID" />
+      </Principal>
+      <Dependent Role="eng_quote_description">
+        <PropertyRef Name="QuoteID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_quote_master_eng_client_master">
+    <End Role="eng_client_master" Type="Self.eng_client_master" Multiplicity="0..1" />
+    <End Role="eng_quote_master" Type="Self.eng_quote_master" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_client_master">
+        <PropertyRef Name="ClientID" />
+      </Principal>
+      <Dependent Role="eng_quote_master">
+        <PropertyRef Name="ClientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_quote_master_eng_sys_quotestatus">
+    <End Role="eng_sys_quotestatus" Type="Self.eng_sys_quotestatus" Multiplicity="0..1" />
+    <End Role="eng_quote_master" Type="Self.eng_quote_master" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_sys_quotestatus">
+        <PropertyRef Name="StatusID" />
+      </Principal>
+      <Dependent Role="eng_quote_master">
+        <PropertyRef Name="QuoteStatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_ra_team_eng_project_master">
+    <End Role="eng_project_master" Type="Self.eng_project_master" Multiplicity="0..1" />
+    <End Role="eng_ra_trans_master" Type="Self.eng_ra_trans_master" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_project_master">
+        <PropertyRef Name="ProjectID" />
+      </Principal>
+      <Dependent Role="eng_ra_trans_master">
+        <PropertyRef Name="ProjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_ra_trans_detail1_eng_ra_trans_master">
+    <End Role="eng_ra_trans_master" Type="Self.eng_ra_trans_master" Multiplicity="0..1" />
+    <End Role="eng_ra_trans_detail1" Type="Self.eng_ra_trans_detail1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_ra_trans_master">
+        <PropertyRef Name="RAID" />
+      </Principal>
+      <Dependent Role="eng_ra_trans_detail1">
+        <PropertyRef Name="RAID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_ra_trans_racm_eng_ra_trans_master">
+    <End Role="eng_ra_trans_master" Type="Self.eng_ra_trans_master" Multiplicity="0..1" />
+    <End Role="eng_ra_trans_racm" Type="Self.eng_ra_trans_racm" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_ra_trans_master">
+        <PropertyRef Name="RAID" />
+      </Principal>
+      <Dependent Role="eng_ra_trans_racm">
+        <PropertyRef Name="RAID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_safety_esh_eng_project_master">
+    <End Role="eng_project_master" Type="Self.eng_project_master" Multiplicity="0..1" />
+    <End Role="eng_safety_esh" Type="Self.eng_safety_esh" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_project_master">
+        <PropertyRef Name="ProjectID" />
+      </Principal>
+      <Dependent Role="eng_safety_esh">
+        <PropertyRef Name="ProjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_safety_esh_files_eng_safety_esh_files">
+    <End Role="eng_safety_esh" Type="Self.eng_safety_esh" Multiplicity="0..1" />
+    <End Role="eng_safety_esh_files" Type="Self.eng_safety_esh_files" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_safety_esh">
+        <PropertyRef Name="NSIID" />
+      </Principal>
+      <Dependent Role="eng_safety_esh_files">
+        <PropertyRef Name="NSIID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_safety_hazard_list_eng_safety_master">
+    <End Role="eng_safety_master" Type="Self.eng_safety_master" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="eng_safety_hazard_list" Type="Self.eng_safety_hazard_list" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_safety_master">
+        <PropertyRef Name="SafetyID" />
+      </Principal>
+      <Dependent Role="eng_safety_hazard_list">
+        <PropertyRef Name="SafetyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_safety_hazard_list_eng_sys_safety_hazard">
+    <End Role="eng_sys_safety_hazard" Type="Self.eng_sys_safety_hazard" Multiplicity="0..1" />
+    <End Role="eng_safety_hazard_list" Type="Self.eng_safety_hazard_list" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_sys_safety_hazard">
+        <PropertyRef Name="HazardID" />
+      </Principal>
+      <Dependent Role="eng_safety_hazard_list">
+        <PropertyRef Name="HazardID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_safety_insp_detail_eng_safety_insp_master">
+    <End Role="eng_safety_insp_master" Type="Self.eng_safety_insp_master" Multiplicity="0..1" />
+    <End Role="eng_safety_insp_detail" Type="Self.eng_safety_insp_detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_safety_insp_master">
+        <PropertyRef Name="SAFINSID" />
+      </Principal>
+      <Dependent Role="eng_safety_insp_detail">
+        <PropertyRef Name="SAFINSID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_safety_insp_detail_eng_sys_safety_insp_items">
+    <End Role="eng_sys_safety_insp_items" Type="Self.eng_sys_safety_insp_items" Multiplicity="0..1" />
+    <End Role="eng_safety_insp_detail" Type="Self.eng_safety_insp_detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_sys_safety_insp_items">
+        <PropertyRef Name="SIItemID" />
+      </Principal>
+      <Dependent Role="eng_safety_insp_detail">
+        <PropertyRef Name="SIItemID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_safety_insp_master_eng_project_master">
+    <End Role="eng_project_master" Type="Self.eng_project_master" Multiplicity="0..1" />
+    <End Role="eng_safety_insp_master" Type="Self.eng_safety_insp_master" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_project_master">
+        <PropertyRef Name="ProjectID" />
+      </Principal>
+      <Dependent Role="eng_safety_insp_master">
+        <PropertyRef Name="ProjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_safety_master_eng_users">
+    <End Role="eng_users" Type="Self.eng_users" Multiplicity="0..1" />
+    <End Role="eng_safety_master" Type="Self.eng_safety_master" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="eng_safety_master">
+        <PropertyRef Name="SubmittedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_safety_ppe_list_eng_safety_master">
+    <End Role="eng_safety_master" Type="Self.eng_safety_master" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="eng_safety_ppe_list" Type="Self.eng_safety_ppe_list" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_safety_master">
+        <PropertyRef Name="SafetyID" />
+      </Principal>
+      <Dependent Role="eng_safety_ppe_list">
+        <PropertyRef Name="SafetyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_safety_ppe_list_eng_sys_safety_ppelist">
+    <End Role="eng_sys_safety_ppelist" Type="Self.eng_sys_safety_ppelist" Multiplicity="0..1" />
+    <End Role="eng_safety_ppe_list" Type="Self.eng_safety_ppe_list" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_sys_safety_ppelist">
+        <PropertyRef Name="PPEID" />
+      </Principal>
+      <Dependent Role="eng_safety_ppe_list">
+        <PropertyRef Name="PPEID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_safety_worker_list_eng_employee_profile">
+    <End Role="eng_employee_profile" Type="Self.eng_employee_profile" Multiplicity="0..1" />
+    <End Role="eng_safety_worker_list" Type="Self.eng_safety_worker_list" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_employee_profile">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="eng_safety_worker_list">
+        <PropertyRef Name="EmpID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_safety_worker_list_eng_safety_master">
+    <End Role="eng_safety_master" Type="Self.eng_safety_master" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="eng_safety_worker_list" Type="Self.eng_safety_worker_list" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_safety_master">
+        <PropertyRef Name="SafetyID" />
+      </Principal>
+      <Dependent Role="eng_safety_worker_list">
+        <PropertyRef Name="SafetyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_screens_eng_module">
+    <End Role="eng_module" Type="Self.eng_module" Multiplicity="1" />
+    <End Role="eng_screens" Type="Self.eng_screens" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_module">
+        <PropertyRef Name="ModuleID" />
+      </Principal>
+      <Dependent Role="eng_screens">
+        <PropertyRef Name="MODULEID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_supplier_master_eng_address_master">
+    <End Role="eng_address_master" Type="Self.eng_address_master" Multiplicity="0..1" />
+    <End Role="eng_supplier_master" Type="Self.eng_supplier_master" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_address_master">
+        <PropertyRef Name="AddressID" />
+      </Principal>
+      <Dependent Role="eng_supplier_master">
+        <PropertyRef Name="AddressID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_supplier_master_eng_sys_industry">
+    <End Role="eng_sys_industry" Type="Self.eng_sys_industry" Multiplicity="0..1" />
+    <End Role="eng_supplier_master" Type="Self.eng_supplier_master" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_sys_industry">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="eng_supplier_master">
+        <PropertyRef Name="IndustryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_sys_pymt_status_eng_sys_pymt_status">
+    <End Role="eng_sys_pymt_status" Type="Self.eng_sys_pymt_status" Multiplicity="1" />
+    <End Role="eng_sys_pymt_status1" Type="Self.eng_sys_pymt_status" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="eng_sys_pymt_status">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="eng_sys_pymt_status1">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_time_entry_eng_employee_profile">
+    <End Role="eng_employee_profile" Type="Self.eng_employee_profile" Multiplicity="0..1" />
+    <End Role="eng_time_entry" Type="Self.eng_time_entry" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_employee_profile">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="eng_time_entry">
+        <PropertyRef Name="EmpID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_time_entry_eng_project_master">
+    <End Role="eng_project_master" Type="Self.eng_project_master" Multiplicity="0..1" />
+    <End Role="eng_time_entry" Type="Self.eng_time_entry" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_project_master">
+        <PropertyRef Name="ProjectID" />
+      </Principal>
+      <Dependent Role="eng_time_entry">
+        <PropertyRef Name="ProjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_time_entry_eng_users">
+    <End Role="eng_users" Type="Self.eng_users" Multiplicity="0..1" />
+    <End Role="eng_time_entry" Type="Self.eng_time_entry" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="eng_time_entry">
+        <PropertyRef Name="SubmittedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_users_eng_employee_profile">
+    <End Role="eng_employee_profile" Type="Self.eng_employee_profile" Multiplicity="0..1" />
+    <End Role="eng_users" Type="Self.eng_users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_employee_profile">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="eng_users">
+        <PropertyRef Name="EmpID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_eng_users_eng_usergroup">
+    <End Role="eng_usergroup" Type="Self.eng_usergroup" Multiplicity="0..1" />
+    <End Role="eng_users" Type="Self.eng_users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="eng_usergroup">
+        <PropertyRef Name="GroupID" />
+      </Principal>
+      <Dependent Role="eng_users">
+        <PropertyRef Name="GroupID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="DB_Company" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="repType" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DB_Director_Project" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="repType" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DB_Emp" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="repType" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DB_Operation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="groupID" Type="int" Mode="In" />
+    <Parameter Name="userID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DB_Payable" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="repType" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DB_Receivable" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="repType" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DB_SVMan_DTTR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="groupID" Type="int" Mode="In" />
+    <Parameter Name="userID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DB_SVMan_Project" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="groupID" Type="int" Mode="In" />
+    <Parameter Name="userID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DB_SVMan_Quality" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="groupID" Type="int" Mode="In" />
+    <Parameter Name="userID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DB_Vehicle" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="repType" Type="int" Mode="In" />
+  </Function>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="getProjectReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetProjectReportStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="nvarchar">
+    <Parameter Name="projectID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetStock" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="getTimeReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="TimeEntry" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="Eng360ModelStoreContainer">
+    <EntitySet Name="eng_address_master" EntityType="Self.eng_address_master" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_claim" EntityType="Self.eng_claim" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_claim_description" EntityType="Self.eng_claim_description" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_claim_files" EntityType="Self.eng_claim_files" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_client_contact" EntityType="Self.eng_client_contact" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_client_master" EntityType="Self.eng_client_master" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_company" EntityType="Self.eng_company" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_company_cert" EntityType="Self.eng_company_cert" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_custom_invoice" EntityType="Self.eng_custom_invoice" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_custom_invoice_details" EntityType="Self.eng_custom_invoice_details" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_do_seqnum" EntityType="Self.eng_do_seqnum" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_employee_profile" EntityType="Self.eng_employee_profile" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_inv_seqnum" EntityType="Self.eng_inv_seqnum" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_invoice_details" EntityType="Self.eng_invoice_details" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_invoice_master" EntityType="Self.eng_invoice_master" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_inward" EntityType="Self.eng_inward" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_mm_inwdesc" EntityType="Self.eng_mm_inwdesc" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_mm_outdesc" EntityType="Self.eng_mm_outdesc" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_mm_stockadj_master" EntityType="Self.eng_mm_stockadj_master" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_mm_trmaster" EntityType="Self.eng_mm_trmaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_module" EntityType="Self.eng_module" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_outward" EntityType="Self.eng_outward" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_permission" EntityType="Self.eng_permission" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_po_description" EntityType="Self.eng_po_description" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_po_master" EntityType="Self.eng_po_master" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_product_master" EntityType="Self.eng_product_master" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_project_master" EntityType="Self.eng_project_master" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_project_report" EntityType="Self.eng_project_report" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_project_report_files" EntityType="Self.eng_project_report_files" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_PTW_Conspc_Detail_Stage1" EntityType="Self.eng_PTW_Conspc_Detail_Stage1" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_PTW_Conspc_Detail_Stage5" EntityType="Self.eng_PTW_Conspc_Detail_Stage5" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_PTW_Conspc_Employee_Details" EntityType="Self.eng_PTW_Conspc_Employee_Details" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_ptw_conspc_master" EntityType="Self.eng_ptw_conspc_master" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_PTW_Detail_Satge1" EntityType="Self.eng_PTW_Detail_Satge1" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_PTW_Detail_Satge4" EntityType="Self.eng_PTW_Detail_Satge4" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_PTW_Employee_Details" EntityType="Self.eng_PTW_Employee_Details" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_ptw_master" EntityType="Self.eng_ptw_master" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_pymt_payable" EntityType="Self.eng_pymt_payable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_pymt_receivable" EntityType="Self.eng_pymt_receivable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_qa_defect" EntityType="Self.eng_qa_defect" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_qa_defect_cpa" EntityType="Self.eng_qa_defect_cpa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_qa_defect_cpa_files" EntityType="Self.eng_qa_defect_cpa_files" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_qa_defect_detail" EntityType="Self.eng_qa_defect_detail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_qa_defect_files" EntityType="Self.eng_qa_defect_files" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_quote_description" EntityType="Self.eng_quote_description" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_quote_master" EntityType="Self.eng_quote_master" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_ra_control_measures" EntityType="Self.eng_ra_control_measures" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_ra_hazardlist" EntityType="Self.eng_ra_hazardlist" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_ra_location" EntityType="Self.eng_ra_location" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_ra_possible_accident_health" EntityType="Self.eng_ra_possible_accident_health" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_ra_process" EntityType="Self.eng_ra_process" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_ra_trans_detail1" EntityType="Self.eng_ra_trans_detail1" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_ra_trans_master" EntityType="Self.eng_ra_trans_master" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_ra_trans_racm" EntityType="Self.eng_ra_trans_racm" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_ra_work_activity" EntityType="Self.eng_ra_work_activity" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_safety_esh" EntityType="Self.eng_safety_esh" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_safety_esh_files" EntityType="Self.eng_safety_esh_files" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_safety_hazard_list" EntityType="Self.eng_safety_hazard_list" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_safety_insp_detail" EntityType="Self.eng_safety_insp_detail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_safety_insp_master" EntityType="Self.eng_safety_insp_master" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_safety_master" EntityType="Self.eng_safety_master" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_safety_ppe_list" EntityType="Self.eng_safety_ppe_list" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_safety_worker_list" EntityType="Self.eng_safety_worker_list" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_screens" EntityType="Self.eng_screens" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_store_master" EntityType="Self.eng_store_master" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_supplier_master" EntityType="Self.eng_supplier_master" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_sys_claimtype" EntityType="Self.eng_sys_claimtype" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_sys_country" EntityType="Self.eng_sys_country" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_sys_function" EntityType="Self.eng_sys_function" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_sys_industry" EntityType="Self.eng_sys_industry" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_sys_location" EntityType="Self.eng_sys_location" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_sys_project_status" EntityType="Self.eng_sys_project_status" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_sys_ptw_stage1_config" EntityType="Self.eng_sys_ptw_stage1_config" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_sys_ptw_stages" EntityType="Self.eng_sys_ptw_stages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_sys_pymt_status" EntityType="Self.eng_sys_pymt_status" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_sys_quotestatus" EntityType="Self.eng_sys_quotestatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_sys_riskmatrix" EntityType="Self.eng_sys_riskmatrix" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_sys_rm_likelihood" EntityType="Self.eng_sys_rm_likelihood" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_sys_rm_severity" EntityType="Self.eng_sys_rm_severity" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_sys_safety_hazard" EntityType="Self.eng_sys_safety_hazard" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_sys_safety_insp_items" EntityType="Self.eng_sys_safety_insp_items" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_sys_safety_ppelist" EntityType="Self.eng_sys_safety_ppelist" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_sys_task_status" EntityType="Self.eng_sys_task_status" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_time_entry" EntityType="Self.eng_time_entry" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_transport_master" EntityType="Self.eng_transport_master" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_usergroup" EntityType="Self.eng_usergroup" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="eng_users" EntityType="Self.eng_users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_eng_claim_description_eng_claim" Association="Self.FK_eng_claim_description_eng_claim">
+      <End Role="eng_claim" EntitySet="eng_claim" />
+      <End Role="eng_claim_description" EntitySet="eng_claim_description" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_claim_description_eng_sys_claimtype" Association="Self.FK_eng_claim_description_eng_sys_claimtype">
+      <End Role="eng_sys_claimtype" EntitySet="eng_sys_claimtype" />
+      <End Role="eng_claim_description" EntitySet="eng_claim_description" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_claim_eng_employee_profile" Association="Self.FK_eng_claim_eng_employee_profile">
+      <End Role="eng_employee_profile" EntitySet="eng_employee_profile" />
+      <End Role="eng_claim" EntitySet="eng_claim" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_claim_eng_project_master" Association="Self.FK_eng_claim_eng_project_master">
+      <End Role="eng_project_master" EntitySet="eng_project_master" />
+      <End Role="eng_claim" EntitySet="eng_claim" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_claim_eng_users" Association="Self.FK_eng_claim_eng_users">
+      <End Role="eng_users" EntitySet="eng_users" />
+      <End Role="eng_claim" EntitySet="eng_claim" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_claim_eng_users1" Association="Self.FK_eng_claim_eng_users1">
+      <End Role="eng_users" EntitySet="eng_users" />
+      <End Role="eng_claim" EntitySet="eng_claim" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_claim_files_eng_claim" Association="Self.FK_eng_claim_files_eng_claim">
+      <End Role="eng_claim" EntitySet="eng_claim" />
+      <End Role="eng_claim_files" EntitySet="eng_claim_files" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_client_contact_eng_client_master" Association="Self.FK_eng_client_contact_eng_client_master">
+      <End Role="eng_client_master" EntitySet="eng_client_master" />
+      <End Role="eng_client_contact" EntitySet="eng_client_contact" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_client_master_eng_address_master" Association="Self.FK_eng_client_master_eng_address_master">
+      <End Role="eng_address_master" EntitySet="eng_address_master" />
+      <End Role="eng_client_master" EntitySet="eng_client_master" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_client_master_eng_sys_function" Association="Self.FK_eng_client_master_eng_sys_function">
+      <End Role="eng_sys_function" EntitySet="eng_sys_function" />
+      <End Role="eng_client_master" EntitySet="eng_client_master" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_client_master_eng_sys_industry" Association="Self.FK_eng_client_master_eng_sys_industry">
+      <End Role="eng_sys_industry" EntitySet="eng_sys_industry" />
+      <End Role="eng_client_master" EntitySet="eng_client_master" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_custom_invoice_details_eng_custom_invoice" Association="Self.FK_eng_custom_invoice_details_eng_custom_invoice">
+      <End Role="eng_custom_invoice" EntitySet="eng_custom_invoice" />
+      <End Role="eng_custom_invoice_details" EntitySet="eng_custom_invoice_details" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_custom_invoice_eng_project_master" Association="Self.FK_eng_custom_invoice_eng_project_master">
+      <End Role="eng_project_master" EntitySet="eng_project_master" />
+      <End Role="eng_custom_invoice" EntitySet="eng_custom_invoice" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_custom_invoice_eng_quote_master" Association="Self.FK_eng_custom_invoice_eng_quote_master">
+      <End Role="eng_quote_master" EntitySet="eng_quote_master" />
+      <End Role="eng_custom_invoice" EntitySet="eng_custom_invoice" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_employee_profile_eng_address_master" Association="Self.FK_eng_employee_profile_eng_address_master">
+      <End Role="eng_address_master" EntitySet="eng_address_master" />
+      <End Role="eng_employee_profile" EntitySet="eng_employee_profile" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_employee_profile_eng_usergroup" Association="Self.FK_eng_employee_profile_eng_usergroup">
+      <End Role="eng_usergroup" EntitySet="eng_usergroup" />
+      <End Role="eng_employee_profile" EntitySet="eng_employee_profile" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_invoice_details_eng_invoice_master" Association="Self.FK_eng_invoice_details_eng_invoice_master">
+      <End Role="eng_invoice_master" EntitySet="eng_invoice_master" />
+      <End Role="eng_invoice_details" EntitySet="eng_invoice_details" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_invoice_master_eng_quote_master" Association="Self.FK_eng_invoice_master_eng_quote_master">
+      <End Role="eng_quote_master" EntitySet="eng_quote_master" />
+      <End Role="eng_invoice_master" EntitySet="eng_invoice_master" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_inward_eng_employee_profile" Association="Self.FK_eng_inward_eng_employee_profile">
+      <End Role="eng_employee_profile" EntitySet="eng_employee_profile" />
+      <End Role="eng_inward" EntitySet="eng_inward" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_inward_eng_store_master" Association="Self.FK_eng_inward_eng_store_master">
+      <End Role="eng_store_master" EntitySet="eng_store_master" />
+      <End Role="eng_inward" EntitySet="eng_inward" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_inward_eng_supplier_master" Association="Self.FK_eng_inward_eng_supplier_master">
+      <End Role="eng_supplier_master" EntitySet="eng_supplier_master" />
+      <End Role="eng_inward" EntitySet="eng_inward" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_mm_inwdesc_eng_inward" Association="Self.FK_eng_mm_inwdesc_eng_inward">
+      <End Role="eng_inward" EntitySet="eng_inward" />
+      <End Role="eng_mm_inwdesc" EntitySet="eng_mm_inwdesc" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_mm_inwdesc_eng_product_master" Association="Self.FK_eng_mm_inwdesc_eng_product_master">
+      <End Role="eng_product_master" EntitySet="eng_product_master" />
+      <End Role="eng_mm_inwdesc" EntitySet="eng_mm_inwdesc" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_mm_outdesc_eng_outward" Association="Self.FK_eng_mm_outdesc_eng_outward">
+      <End Role="eng_outward" EntitySet="eng_outward" />
+      <End Role="eng_mm_outdesc" EntitySet="eng_mm_outdesc" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_mm_outdesc_eng_product_master" Association="Self.FK_eng_mm_outdesc_eng_product_master">
+      <End Role="eng_product_master" EntitySet="eng_product_master" />
+      <End Role="eng_mm_outdesc" EntitySet="eng_mm_outdesc" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_mm_stockadj_master_eng_employee_profile" Association="Self.FK_eng_mm_stockadj_master_eng_employee_profile">
+      <End Role="eng_employee_profile" EntitySet="eng_employee_profile" />
+      <End Role="eng_mm_stockadj_master" EntitySet="eng_mm_stockadj_master" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_mm_stockadj_master_eng_product_master" Association="Self.FK_eng_mm_stockadj_master_eng_product_master">
+      <End Role="eng_product_master" EntitySet="eng_product_master" />
+      <End Role="eng_mm_stockadj_master" EntitySet="eng_mm_stockadj_master" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_mm_stockadj_master_eng_store_master" Association="Self.FK_eng_mm_stockadj_master_eng_store_master">
+      <End Role="eng_store_master" EntitySet="eng_store_master" />
+      <End Role="eng_mm_stockadj_master" EntitySet="eng_mm_stockadj_master" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_mm_trmaster_eng_product_master" Association="Self.FK_eng_mm_trmaster_eng_product_master">
+      <End Role="eng_product_master" EntitySet="eng_product_master" />
+      <End Role="eng_mm_trmaster" EntitySet="eng_mm_trmaster" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_outward_eng_client_master" Association="Self.FK_eng_outward_eng_client_master">
+      <End Role="eng_client_master" EntitySet="eng_client_master" />
+      <End Role="eng_outward" EntitySet="eng_outward" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_outward_eng_employee_profile" Association="Self.FK_eng_outward_eng_employee_profile">
+      <End Role="eng_employee_profile" EntitySet="eng_employee_profile" />
+      <End Role="eng_outward" EntitySet="eng_outward" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_outward_eng_store_master" Association="Self.FK_eng_outward_eng_store_master">
+      <End Role="eng_store_master" EntitySet="eng_store_master" />
+      <End Role="eng_outward" EntitySet="eng_outward" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_permission_eng_module" Association="Self.FK_eng_permission_eng_module">
+      <End Role="eng_module" EntitySet="eng_module" />
+      <End Role="eng_permission" EntitySet="eng_permission" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_permission_eng_usergroup" Association="Self.FK_eng_permission_eng_usergroup">
+      <End Role="eng_usergroup" EntitySet="eng_usergroup" />
+      <End Role="eng_permission" EntitySet="eng_permission" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_po_decription_eng_po_master" Association="Self.FK_eng_po_decription_eng_po_master">
+      <End Role="eng_po_master" EntitySet="eng_po_master" />
+      <End Role="eng_po_description" EntitySet="eng_po_description" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_po_master_eng_supplier_master" Association="Self.FK_eng_po_master_eng_supplier_master">
+      <End Role="eng_supplier_master" EntitySet="eng_supplier_master" />
+      <End Role="eng_po_master" EntitySet="eng_po_master" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_po_master_eng_sys_quotestatus" Association="Self.FK_eng_po_master_eng_sys_quotestatus">
+      <End Role="eng_sys_quotestatus" EntitySet="eng_sys_quotestatus" />
+      <End Role="eng_po_master" EntitySet="eng_po_master" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_project_master_eng_quote_master" Association="Self.FK_eng_project_master_eng_quote_master">
+      <End Role="eng_quote_master" EntitySet="eng_quote_master" />
+      <End Role="eng_project_master" EntitySet="eng_project_master" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_project_master_eng_sys_location" Association="Self.FK_eng_project_master_eng_sys_location">
+      <End Role="eng_sys_location" EntitySet="eng_sys_location" />
+      <End Role="eng_project_master" EntitySet="eng_project_master" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_project_master_eng_sys_project_status" Association="Self.FK_eng_project_master_eng_sys_project_status">
+      <End Role="eng_sys_project_status" EntitySet="eng_sys_project_status" />
+      <End Role="eng_project_master" EntitySet="eng_project_master" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_project_report_eng_project_master" Association="Self.FK_eng_project_report_eng_project_master">
+      <End Role="eng_project_master" EntitySet="eng_project_master" />
+      <End Role="eng_project_report" EntitySet="eng_project_report" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_project_report_eng_project_report" Association="Self.FK_eng_project_report_eng_project_report">
+      <End Role="eng_sys_task_status" EntitySet="eng_sys_task_status" />
+      <End Role="eng_project_report" EntitySet="eng_project_report" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_project_report_files_eng_project_report" Association="Self.FK_eng_project_report_files_eng_project_report">
+      <End Role="eng_project_report" EntitySet="eng_project_report" />
+      <End Role="eng_project_report_files" EntitySet="eng_project_report_files" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_PTW_Conspc_Detail_Stage1_eng_ptw_conspc_master" Association="Self.FK_eng_PTW_Conspc_Detail_Stage1_eng_ptw_conspc_master">
+      <End Role="eng_ptw_conspc_master" EntitySet="eng_ptw_conspc_master" />
+      <End Role="eng_PTW_Conspc_Detail_Stage1" EntitySet="eng_PTW_Conspc_Detail_Stage1" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_PTW_Conspc_Detail_Stage1_eng_sys_ptw_stage1_config" Association="Self.FK_eng_PTW_Conspc_Detail_Stage1_eng_sys_ptw_stage1_config">
+      <End Role="eng_sys_ptw_stage1_config" EntitySet="eng_sys_ptw_stage1_config" />
+      <End Role="eng_PTW_Conspc_Detail_Stage1" EntitySet="eng_PTW_Conspc_Detail_Stage1" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_PTW_Conspc_Detail_Stage5_eng_ptw_conspc_master" Association="Self.FK_eng_PTW_Conspc_Detail_Stage5_eng_ptw_conspc_master">
+      <End Role="eng_ptw_conspc_master" EntitySet="eng_ptw_conspc_master" />
+      <End Role="eng_PTW_Conspc_Detail_Stage5" EntitySet="eng_PTW_Conspc_Detail_Stage5" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_PTW_Conspc_Employee_Details_eng_ptw_conspc_master" Association="Self.FK_eng_PTW_Conspc_Employee_Details_eng_ptw_conspc_master">
+      <End Role="eng_ptw_conspc_master" EntitySet="eng_ptw_conspc_master" />
+      <End Role="eng_PTW_Conspc_Employee_Details" EntitySet="eng_PTW_Conspc_Employee_Details" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_PTW_Detail_Satge1_eng_ptw_master" Association="Self.FK_eng_PTW_Detail_Satge1_eng_ptw_master">
+      <End Role="eng_ptw_master" EntitySet="eng_ptw_master" />
+      <End Role="eng_PTW_Detail_Satge1" EntitySet="eng_PTW_Detail_Satge1" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_PTW_Detail_Satge1_eng_sys_ptw_stage1_config" Association="Self.FK_eng_PTW_Detail_Satge1_eng_sys_ptw_stage1_config">
+      <End Role="eng_sys_ptw_stage1_config" EntitySet="eng_sys_ptw_stage1_config" />
+      <End Role="eng_PTW_Detail_Satge1" EntitySet="eng_PTW_Detail_Satge1" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_PTW_Detail_Satge4_eng_ptw_master" Association="Self.FK_eng_PTW_Detail_Satge4_eng_ptw_master">
+      <End Role="eng_ptw_master" EntitySet="eng_ptw_master" />
+      <End Role="eng_PTW_Detail_Satge4" EntitySet="eng_PTW_Detail_Satge4" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_PTW_Employee_Details_eng_ptw_master" Association="Self.FK_eng_PTW_Employee_Details_eng_ptw_master">
+      <End Role="eng_ptw_master" EntitySet="eng_ptw_master" />
+      <End Role="eng_PTW_Employee_Details" EntitySet="eng_PTW_Employee_Details" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_pymt_payable_eng_claim" Association="Self.FK_eng_pymt_payable_eng_claim">
+      <End Role="eng_claim" EntitySet="eng_claim" />
+      <End Role="eng_pymt_payable" EntitySet="eng_pymt_payable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_pymt_payable_eng_employee_profile" Association="Self.FK_eng_pymt_payable_eng_employee_profile">
+      <End Role="eng_employee_profile" EntitySet="eng_employee_profile" />
+      <End Role="eng_pymt_payable" EntitySet="eng_pymt_payable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_pymt_payable_eng_po_master" Association="Self.FK_eng_pymt_payable_eng_po_master">
+      <End Role="eng_po_master" EntitySet="eng_po_master" />
+      <End Role="eng_pymt_payable" EntitySet="eng_pymt_payable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_pymt_payable_eng_sys_pymt_status" Association="Self.FK_eng_pymt_payable_eng_sys_pymt_status">
+      <End Role="eng_sys_pymt_status" EntitySet="eng_sys_pymt_status" />
+      <End Role="eng_pymt_payable" EntitySet="eng_pymt_payable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_pymt_receivable_eng_client_master" Association="Self.FK_eng_pymt_receivable_eng_client_master">
+      <End Role="eng_client_master" EntitySet="eng_client_master" />
+      <End Role="eng_pymt_receivable" EntitySet="eng_pymt_receivable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_pymt_receivable_eng_sys_pymt_status" Association="Self.FK_eng_pymt_receivable_eng_sys_pymt_status">
+      <End Role="eng_sys_pymt_status" EntitySet="eng_sys_pymt_status" />
+      <End Role="eng_pymt_receivable" EntitySet="eng_pymt_receivable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_qa_defect_cpa_eng_qa_defect_detail" Association="Self.FK_eng_qa_defect_cpa_eng_qa_defect_detail">
+      <End Role="eng_qa_defect_detail" EntitySet="eng_qa_defect_detail" />
+      <End Role="eng_qa_defect_cpa" EntitySet="eng_qa_defect_cpa" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_qa_defect_cpa_files_eng_qa_defect_cpa" Association="Self.FK_eng_qa_defect_cpa_files_eng_qa_defect_cpa">
+      <End Role="eng_qa_defect_cpa" EntitySet="eng_qa_defect_cpa" />
+      <End Role="eng_qa_defect_cpa_files" EntitySet="eng_qa_defect_cpa_files" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_qa_defect_details_eng_qa_defect" Association="Self.FK_eng_qa_defect_details_eng_qa_defect">
+      <End Role="eng_qa_defect" EntitySet="eng_qa_defect" />
+      <End Role="eng_qa_defect_detail" EntitySet="eng_qa_defect_detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_qa_defect_eng_employee_profile" Association="Self.FK_eng_qa_defect_eng_employee_profile">
+      <End Role="eng_employee_profile" EntitySet="eng_employee_profile" />
+      <End Role="eng_qa_defect" EntitySet="eng_qa_defect" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_qa_defect_eng_employee_profile1" Association="Self.FK_eng_qa_defect_eng_employee_profile1">
+      <End Role="eng_employee_profile" EntitySet="eng_employee_profile" />
+      <End Role="eng_qa_defect" EntitySet="eng_qa_defect" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_qa_defect_eng_project_master" Association="Self.FK_eng_qa_defect_eng_project_master">
+      <End Role="eng_project_master" EntitySet="eng_project_master" />
+      <End Role="eng_qa_defect" EntitySet="eng_qa_defect" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_qa_defect_eng_supplier_master" Association="Self.FK_eng_qa_defect_eng_supplier_master">
+      <End Role="eng_supplier_master" EntitySet="eng_supplier_master" />
+      <End Role="eng_qa_defect" EntitySet="eng_qa_defect" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_qa_defect_files_eng_qa_defect" Association="Self.FK_eng_qa_defect_files_eng_qa_defect">
+      <End Role="eng_qa_defect" EntitySet="eng_qa_defect" />
+      <End Role="eng_qa_defect_files" EntitySet="eng_qa_defect_files" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_quote_description_eng_project_master" Association="Self.FK_eng_quote_description_eng_project_master">
+      <End Role="eng_project_master" EntitySet="eng_project_master" />
+      <End Role="eng_quote_description" EntitySet="eng_quote_description" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_quote_description_eng_quote_master" Association="Self.FK_eng_quote_description_eng_quote_master">
+      <End Role="eng_quote_master" EntitySet="eng_quote_master" />
+      <End Role="eng_quote_description" EntitySet="eng_quote_description" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_quote_master_eng_client_master" Association="Self.FK_eng_quote_master_eng_client_master">
+      <End Role="eng_client_master" EntitySet="eng_client_master" />
+      <End Role="eng_quote_master" EntitySet="eng_quote_master" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_quote_master_eng_sys_quotestatus" Association="Self.FK_eng_quote_master_eng_sys_quotestatus">
+      <End Role="eng_sys_quotestatus" EntitySet="eng_sys_quotestatus" />
+      <End Role="eng_quote_master" EntitySet="eng_quote_master" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_ra_team_eng_project_master" Association="Self.FK_eng_ra_team_eng_project_master">
+      <End Role="eng_project_master" EntitySet="eng_project_master" />
+      <End Role="eng_ra_trans_master" EntitySet="eng_ra_trans_master" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_ra_trans_detail1_eng_ra_trans_master" Association="Self.FK_eng_ra_trans_detail1_eng_ra_trans_master">
+      <End Role="eng_ra_trans_master" EntitySet="eng_ra_trans_master" />
+      <End Role="eng_ra_trans_detail1" EntitySet="eng_ra_trans_detail1" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_ra_trans_racm_eng_ra_trans_master" Association="Self.FK_eng_ra_trans_racm_eng_ra_trans_master">
+      <End Role="eng_ra_trans_master" EntitySet="eng_ra_trans_master" />
+      <End Role="eng_ra_trans_racm" EntitySet="eng_ra_trans_racm" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_safety_esh_eng_project_master" Association="Self.FK_eng_safety_esh_eng_project_master">
+      <End Role="eng_project_master" EntitySet="eng_project_master" />
+      <End Role="eng_safety_esh" EntitySet="eng_safety_esh" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_safety_esh_files_eng_safety_esh_files" Association="Self.FK_eng_safety_esh_files_eng_safety_esh_files">
+      <End Role="eng_safety_esh" EntitySet="eng_safety_esh" />
+      <End Role="eng_safety_esh_files" EntitySet="eng_safety_esh_files" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_safety_hazard_list_eng_safety_master" Association="Self.FK_eng_safety_hazard_list_eng_safety_master">
+      <End Role="eng_safety_master" EntitySet="eng_safety_master" />
+      <End Role="eng_safety_hazard_list" EntitySet="eng_safety_hazard_list" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_safety_hazard_list_eng_sys_safety_hazard" Association="Self.FK_eng_safety_hazard_list_eng_sys_safety_hazard">
+      <End Role="eng_sys_safety_hazard" EntitySet="eng_sys_safety_hazard" />
+      <End Role="eng_safety_hazard_list" EntitySet="eng_safety_hazard_list" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_safety_insp_detail_eng_safety_insp_master" Association="Self.FK_eng_safety_insp_detail_eng_safety_insp_master">
+      <End Role="eng_safety_insp_master" EntitySet="eng_safety_insp_master" />
+      <End Role="eng_safety_insp_detail" EntitySet="eng_safety_insp_detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_safety_insp_detail_eng_sys_safety_insp_items" Association="Self.FK_eng_safety_insp_detail_eng_sys_safety_insp_items">
+      <End Role="eng_sys_safety_insp_items" EntitySet="eng_sys_safety_insp_items" />
+      <End Role="eng_safety_insp_detail" EntitySet="eng_safety_insp_detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_safety_insp_master_eng_project_master" Association="Self.FK_eng_safety_insp_master_eng_project_master">
+      <End Role="eng_project_master" EntitySet="eng_project_master" />
+      <End Role="eng_safety_insp_master" EntitySet="eng_safety_insp_master" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_safety_master_eng_users" Association="Self.FK_eng_safety_master_eng_users">
+      <End Role="eng_users" EntitySet="eng_users" />
+      <End Role="eng_safety_master" EntitySet="eng_safety_master" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_safety_ppe_list_eng_safety_master" Association="Self.FK_eng_safety_ppe_list_eng_safety_master">
+      <End Role="eng_safety_master" EntitySet="eng_safety_master" />
+      <End Role="eng_safety_ppe_list" EntitySet="eng_safety_ppe_list" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_safety_ppe_list_eng_sys_safety_ppelist" Association="Self.FK_eng_safety_ppe_list_eng_sys_safety_ppelist">
+      <End Role="eng_sys_safety_ppelist" EntitySet="eng_sys_safety_ppelist" />
+      <End Role="eng_safety_ppe_list" EntitySet="eng_safety_ppe_list" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_safety_worker_list_eng_employee_profile" Association="Self.FK_eng_safety_worker_list_eng_employee_profile">
+      <End Role="eng_employee_profile" EntitySet="eng_employee_profile" />
+      <End Role="eng_safety_worker_list" EntitySet="eng_safety_worker_list" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_safety_worker_list_eng_safety_master" Association="Self.FK_eng_safety_worker_list_eng_safety_master">
+      <End Role="eng_safety_master" EntitySet="eng_safety_master" />
+      <End Role="eng_safety_worker_list" EntitySet="eng_safety_worker_list" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_screens_eng_module" Association="Self.FK_eng_screens_eng_module">
+      <End Role="eng_module" EntitySet="eng_module" />
+      <End Role="eng_screens" EntitySet="eng_screens" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_supplier_master_eng_address_master" Association="Self.FK_eng_supplier_master_eng_address_master">
+      <End Role="eng_address_master" EntitySet="eng_address_master" />
+      <End Role="eng_supplier_master" EntitySet="eng_supplier_master" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_supplier_master_eng_sys_industry" Association="Self.FK_eng_supplier_master_eng_sys_industry">
+      <End Role="eng_sys_industry" EntitySet="eng_sys_industry" />
+      <End Role="eng_supplier_master" EntitySet="eng_supplier_master" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_sys_pymt_status_eng_sys_pymt_status" Association="Self.FK_eng_sys_pymt_status_eng_sys_pymt_status">
+      <End Role="eng_sys_pymt_status" EntitySet="eng_sys_pymt_status" />
+      <End Role="eng_sys_pymt_status1" EntitySet="eng_sys_pymt_status" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_time_entry_eng_employee_profile" Association="Self.FK_eng_time_entry_eng_employee_profile">
+      <End Role="eng_employee_profile" EntitySet="eng_employee_profile" />
+      <End Role="eng_time_entry" EntitySet="eng_time_entry" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_time_entry_eng_project_master" Association="Self.FK_eng_time_entry_eng_project_master">
+      <End Role="eng_project_master" EntitySet="eng_project_master" />
+      <End Role="eng_time_entry" EntitySet="eng_time_entry" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_time_entry_eng_users" Association="Self.FK_eng_time_entry_eng_users">
+      <End Role="eng_users" EntitySet="eng_users" />
+      <End Role="eng_time_entry" EntitySet="eng_time_entry" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_users_eng_employee_profile" Association="Self.FK_eng_users_eng_employee_profile">
+      <End Role="eng_employee_profile" EntitySet="eng_employee_profile" />
+      <End Role="eng_users" EntitySet="eng_users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_eng_users_eng_usergroup" Association="Self.FK_eng_users_eng_usergroup">
+      <End Role="eng_usergroup" EntitySet="eng_usergroup" />
+      <End Role="eng_users" EntitySet="eng_users" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

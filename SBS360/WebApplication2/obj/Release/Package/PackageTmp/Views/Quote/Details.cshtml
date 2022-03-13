@@ -1,0 +1,501 @@
+﻿@model Eng360Web.Models.ViewModel.QuoteViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title align="right">@Model.QuoteRefNum</title>
+
+    <style type="text/css">
+
+        @@media print
+        {
+        #footer {
+         display: block;
+         position: fixed;
+         bottom: 0;
+            }
+        }
+
+        body, td, th {
+            font-family: Arial;
+            font-size: 13px;
+            word-wrap:break-word;
+        }
+     
+        /*body, td, th {
+            font-family: Arial;
+            font-size: 13px;
+            word-wrap:break-word;
+        }
+
+        body {
+            margin-left: 0px;
+            margin-top: 0px;
+            margin-right: 0px;
+            margin-bottom: 0px;
+            
+        }
+
+      @@page{
+          margin-bottom: 
+      }  
+
+    @@media screen {
+    div#footer_wrapper {
+      display: none;
+    }
+
+     div#header_wrapper {
+      display: none;
+    }
+     @@media print
+{
+  table { page-break-after:auto }
+  tr    { page-break-inside:avoid; page-break-after:auto }
+  td    { page-break-inside:avoid; page-break-after:auto }
+  thead { display:table-header-group }
+  tfoot { display:table-footer-group }
+}
+
+     
+  }
+
+         /*@@page
+   {    
+    margin-top: 0.5cm;
+    margin-bottom: 0.5cm;  
+   } 
+     
+
+  @@media print {
+
+  body {
+             
+             height: 99%; 
+             page-break-before: always;
+             page-break-after: always;
+           
+        }
+       
+    div#footer_wrapper {
+      margin: 0px 2px 0px 1px;
+      position: fixed;
+      bottom: 0;
+      padding-top:20px;
+     
+    }
+
+    
+    div#footer_content {
+      font-weight: bold;
+    }
+
+    div#header_wrapper {
+      margin: 0px 1px 0px 2px;
+      position: fixed;
+      top: 0;
+     
+    }
+
+    div#header_content {
+      font-weight: bold;
+    }
+
+
+  }*/
+
+</style>
+
+</head>
+<body style="font-family: Arial;">
+    
+    <center>
+        <table border="0" width="800">
+            <thead>
+                <tr>
+                    <th style="width:100%">
+                        <table width="773" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+
+                                <td width="100" align="left" valign="top" style="padding:0px;"><img style="width: 130px; height: 130px;" src="~/images/CompanyLogo/logo.png" /></td>
+                                <td width="388" align="left" valign="top" style="padding:2px;">
+                                    <span style="font-size:16px; font-weight:bold;">
+                                        @Eng360Web.Models.Utility.AppSession.GetCompanyDetail().CompanyName
+                                    </span><br />
+                                    <span style="font-weight:bold; font-size:12px;">
+                                        @Eng360Web.Models.Utility.AppSession.GetCompanyDetail().Address1<br />
+                                        @Eng360Web.Models.Utility.AppSession.GetCompanyDetail().Address2 @Eng360Web.Models.Utility.AppSession.GetCompanyDetail().City @Eng360Web.Models.Utility.AppSession.GetCompanyDetail().Pincode	<br />
+                                        Tel : (65) @Eng360Web.Models.Utility.AppSession.GetCompanyDetail().Tel / Fax: (65) @Eng360Web.Models.Utility.AppSession.GetCompanyDetail().Fax	<br />
+                                        E-mail : @Eng360Web.Models.Utility.AppSession.GetCompanyDetail().Email	<br />
+                                        Co. Reg. No : @Eng360Web.Models.Utility.AppSession.GetCompanyDetail().RegNo GST. Reg. No : @Eng360Web.Models.Utility.AppSession.GetCompanyDetail().GstRegNo
+                                    </span>
+                                </td>
+                                <td width="240" align="right" valign="top" style="padding-right:5px; line-height:15px;">
+                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                        <tr>
+                                            <td align="right" valign="top">
+                                                <img style="width: 210px; height: 90px;" src="~/images/CompanyLogo/biz3.png" />
+                                            </td>
+                                        </tr>
+                                                                                
+                                    </table>
+
+                                </td>
+                            </tr>
+                        </table>
+
+
+                    </th>
+                </tr>
+                
+            </thead>
+
+            <tfoot>
+                <tr>
+                    <td width="100%">
+                        <table width="100%" border="0" height="100">
+                            <tr>
+                                <td><br />&nbsp;</td>
+                            </tr>
+                        </table>
+            </tfoot>
+
+            <tbody>
+                <tr>
+                   
+                    <td align="center" style="font-size: 22px;font-weight:bold;">
+                        
+                        QUOTATION
+                    </td>
+                </tr>
+                <tr>
+                    <td><hr /></td>
+                </tr>
+                @{
+                    var st = "";
+                    var y = 1;
+                    decimal suTot = 0;
+
+                    decimal fgst = 0;
+
+                    int itemcount = Model.eng_quote_description.Count;
+                    int pages = (int)Math.Ceiling((double)itemcount / 5);
+
+                    foreach (var desc in Model.eng_quote_description)
+                    {
+                        var tempTot = desc.Quantity * desc.QuotePrice;
+                        suTot = suTot + (desc.Quantity * Convert.ToDecimal(desc.QuotePrice));
+
+                        y = y + 1;
+                    }
+
+                    if (Model.GTAX == "0")
+                    {
+                        fgst = Math.Round(Convert.ToDecimal((7.0 / 100.00)) * (suTot - (decimal)Model.Discount), 2);
+
+                    }
+
+                    //var word = Eng360Web.Models.Utility.AppSettings.changeCurrencyToWords((double)Math.Round(fgst + suTot, 2), true, "Singapore Dollars", "");
+                    decimal numamt = Math.Round(fgst + suTot - (decimal)Model.Discount, 2);
+                    var word = Eng360Web.Models.Utility.AppSettings.NumberToCurrencyText((decimal)Math.Round(fgst + suTot - (decimal)Model.Discount, 2), MidpointRounding.AwayFromZero);
+                }
+
+                <tr>
+                    <td>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:5px;">
+                            <tr>
+                                <td width="412" align="left" valign="top" style="padding:0px;">
+                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                        <tr>
+
+                                            <td>
+                                                @{
+                                                    var nam = Model.eng_client_master.eng_client_contact.Where(a => a.CCID == Model.Attention_CCID).First().NamePrefix + Model.eng_client_master.eng_client_contact.Where(a => a.CCID == Model.Attention_CCID).First().SPOCName;
+                                                }
+                                                <div>
+                                                    To:<br />
+                                                    <div style="margin-top:auto"><strong>@Model.eng_client_master.Company_Name<br /></strong></div>
+                                                    <div style="margin-top:-13px;">
+
+                                                        <br />@Model.eng_client_master.eng_address_master.Address1<br />
+                                                        @Model.eng_client_master.eng_address_master.Address2<br />
+                                                        @Model.eng_client_master.eng_address_master.City- @Model.eng_client_master.eng_address_master.Postal_Code<br />
+                                                        Tel: @Model.eng_client_master.eng_address_master.Tel<br /><br />
+
+                                                        Attn : <strong>@nam </strong><br />
+                                                       
+                                                        <br />
+                                                        Dear Sir / Madam,<br />
+
+
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+
+                                </td>
+                                <td width="289" align="center" valign="top" style="padding:3px;">
+                                    <table width="299" border="0" cellspacing="0" cellpadding="0">
+                                        <tr>
+                                            <td width="156" height="11" align="right" valign="middle" style="padding:1px; font-size:13px; ">Quotation No &nbsp; : </td>
+                                            <td width="143" align="left" valign="middle" style="padding:1px; font-size:13px;font-weight: bold;">
+                                            &nbsp; @Model.QuoteRefNum.Replace("_R0", "")</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="156" height="11" align="right" valign="middle" style="padding:1px; font-size:13px;">Date &nbsp; :</td>
+                                            <td width="143" align="left" valign="middle" style="padding:1px; font-size:13px;font-weight: bold;">
+                                                &nbsp;
+                                                @{
+                                                    var dt = "";
+                                                    dt = Convert.ToDateTime(Model.QuoteDate).ToString("dd-MM-yyyy");
+                                                }
+                                                @dt
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td width="156" align="right" valign="middle" style="padding:1px; font-size:13px;">Your Ref &nbsp; : </td>
+                                            <td width="143" align="left" valign="middle" style="padding:1px; font-size:13px;">&nbsp; @Model.YourRef </td>
+                                        </tr>
+
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:5px;">
+                            <tr>
+                                <td align="justify" style="font-size:13px;">Project:&nbsp;<strong>@Model.ProjectTitle</strong></td>
+                            </tr>
+                        </table>
+                        <br />
+
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:5px;">
+                            <tr>
+                                <td style="font-size:13px;" align="justify">Subject:&nbsp;<strong>@Model.QuoteTitle</strong></td>
+                            </tr>
+                        </table>
+                        <br />
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:5px;">
+                            <tr>
+                                <td style="font-size:13px;"><strong>S$ @numamt.ToString("#,##0.00") (Singapore Dollars @word Only)</strong></td>
+                            </tr>
+                        </table>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;<br /></td>
+                </tr>
+
+                <tr>
+                    <td width="100%">
+                        <table id="Result" class="table table-bordered table-sm" style="border-collapse: collapse !important" width="99%">
+
+                            <thead>
+
+                                <tr>
+                                    <th width="7%" style="border:1px solid #000000 !important">S.NO</th>
+                                    <th width="50%" style="border:1px solid #000000 !important">JOB DESCRIPTION</th>
+                                    <th width="7%" style="border:1px solid #000000 !important">UNIT</th>
+                                    <th width="8%" style="border:1px solid #000000 !important">QTY</th>
+                                    <th width="12%" style="border:1px solid #000000 !important">PRICE S$</th>
+                                    <th width="16%" style="border:1px solid #000000 !important">AMOUNT S$</th>
+                                </tr>
+                            </thead>
+                            @{
+                                st = "";
+                                var i = 1;
+                                decimal subTotal = 0;
+
+                                decimal gst = 0;
+                                decimal disc = (decimal)Model.Discount;
+
+                                foreach (var desc in Model.eng_quote_description)
+                                {
+                                    var tempTotal = desc.Quantity * desc.QuotePrice;
+                                    IHtmlString tx = null;
+
+                                    tx = Html.Raw(Html.Encode(desc.QuoteDescription).Replace(Environment.NewLine, "<br />"));
+                                    tx = Html.Raw(Html.Encode(tx).Replace("\n", "<br />"));
+                                    tx = Html.Raw(Html.Encode(tx).Replace("\r", "<br />"));
+                                    if (desc.QDID == Model.eng_quote_description.Last().QDID)
+                                    {
+
+                            @*<tr style="border-bottom: 1px solid #000000 !important;">*@
+                            <tr style="border:1px solid #000000 !important; border: 1px solid #000;">
+                                <td width="7%" align="center" valign="top" style="font-size:13px;padding:3px; border:1px solid #000000 !important">@i</td>
+                                <td width="50%" align="left" valign="top" style="font-size:13px;word-wrap:break-word; padding-left: 3px; padding-right: 3px; text-overflow: ellipsis;border:1px solid #000000 !important ">
+                                    <div style="font-size:13px;word-break: keep-all;">
+                                        @*@Html.Raw(Html.Encode(desc.QuoteDescription).Replace(Environment.NewLine, "<br />"))*@
+                                        @tx
+                                    </div>
+                                </td>
+                                <td width="7%" align="center" valign="top" style="font-size:13px;padding:3px;border:1px solid #000000 !important">@desc.UnitOfMeasure</td>
+                                <td width="8%" align="center" valign="top" style="font-size:13px;padding:3px;border:1px solid #000000 !important ">
+
+                                    @desc.Quantity
+                                </td>
+                                <td width="12%" align="right" valign="top" style="font-size:13px;padding:3px;border:1px solid #000000 !important ">
+                                    @{
+                                                    st = string.Format("{0:0,0.00}", desc.QuotePrice);
+                                    }
+                                    @st
+                                </td>
+                                <td width="16%" align="right" valign="top" style="font-size:13px;padding:3px;border:1px solid #000000 !important ">
+                                    @{
+                                                    st = string.Format("{0:0,0.00}", tempTotal);
+                                    }
+                                    @st
+                                </td>
+                            </tr>
+
+                                                    }
+                                                    else
+                                                    {
+
+                            @*<tr style="border-bottom: 1px solid #000000 !important;">*@
+                            <tr style="border:1px solid #000000 !important; border: 1px solid #000;">
+                                <td width="7%" align="center" valign="top" style="font-size:13px;padding:3px;border:1px solid #000000 !important ">@i</td>
+                                <td width="50%" align="left" valign="top" style="font-size:13px;padding-left:3px; padding-right:3px; border:1px solid #000000 !important">
+                                    <div style="font-size:13px;word-break: keep-all;">
+                                        @*@Html.Raw(Html.Encode(desc.QuoteDescription).Replace(Environment.NewLine, "<br />"))*@
+                                        @tx
+                                    </div>
+                                </td>
+                                <td width="7%" align="center" valign="top" style="font-size:13px;padding:3px; border:1px solid #000000 !important">@desc.UnitOfMeasure </td>
+                                <td width="8%" align="center" valign="top" style="font-size:13px;padding:3px;border:1px solid #000000 !important ">@desc.Quantity</td>
+                                <td width="12%" align="right" valign="top" style="font-size:13px;padding:3px; text-align:right;border:1px solid #000000 !important ">
+                                    @{
+                                                                    st = string.Format("{0:0,0.00}", desc.QuotePrice);
+                                    }
+                                    @st
+                                </td>
+                                <td width="16%" align="right" valign="top" style="font-size:13px;padding:3px; text-align:right;border:1px solid #000000 !important ">
+                                    @{
+                                                                    st = string.Format("{0:0,0.00}", tempTotal);
+                                    }
+                                    @st
+                                </td>
+                            </tr>
+
+                                                                        }
+
+
+                                                                        subTotal = subTotal + (desc.Quantity * Convert.ToDecimal(desc.QuotePrice));
+
+                                                                        i = i + 1;
+                                                                    }
+
+                                                                    if (disc > 0 || Model.GTAX == "0")
+                                                                    {
+                            <tr style="border-bottom: 1px solid #000000 !important; border: 1px solid #000;">
+                                <td colspan="5" align="right" valign="middle" style="font-size:13px;padding:3px; text-align:right;border:1px solid #000000 !important ">Sub Total</td>
+                                <td align="right" valign="middle" style="font-size:13px;padding:3px; text-align:right;border:1px solid #000000 !important ">
+                                    @string.Format("{0:0,0.00}", Math.Round(subTotal, 2))
+                                </td>
+                            </tr>
+                                                                    }
+
+
+                                                                    if (disc > 0)
+                                                                    {
+                            @*<tr style="border-bottom: 1px solid #000000 !important; border: 1px solid #000;">*@
+                            <tr>
+                                <td colspan="5" align="right" valign="middle" style="font-size:13px;padding:3px; text-align:right;border:1px solid #000000 !important">Discount</td>
+                                <td align="right" valign="middle" style="font-size:13px;padding:3px; text-align:right;border:1px solid #000000 !important">
+                                    @string.Format("{0:0,0.00}", Math.Round(disc, 2))
+                                </td>
+                            </tr>
+                            @*<tr style="border-bottom: 1px solid #000000 !important; border: 1px solid #000;">*@
+                            <tr>
+                                <td colspan="5" align="right" valign="middle" style="font-size:13px;padding:3px; text-align:right;border:1px solid #000000 !important">Total (After Discount)</td>
+                                <td align="right" valign="middle" style="font-size:13px;padding:3px; text-align:right;border:1px solid #000000 !important ">
+                                    @string.Format("{0:0,0.00}", Math.Round((subTotal - (decimal)Model.Discount), 2))
+                                </td>
+                            </tr>
+
+                                                                    }
+
+                                                                    if (Model.GTAX == "0")
+                                                                    {
+                            @*<tr style="border-bottom: 1px solid #000000 !important; border: 1px solid #000;">*@
+                            <tr>
+                                <td colspan="5" align="right" valign="middle" style="font-size:13px;padding:3px; text-align:right; border:1px solid #000000 !important">GST 7%</td>
+                                <td align="right" valign="middle" style="font-size:13px;padding:3px; text-align:right; border:1px solid #000000 !important">
+                                    @string.Format("{0:0,0.00}", Math.Round(Convert.ToDecimal((7.0 / 100.00)) * (subTotal - (decimal)Model.Discount), 2))
+                                </td>
+                            </tr>
+                                                                        gst = Math.Round(Convert.ToDecimal((7.0 / 100.00)) * (subTotal - (decimal)Model.Discount), 2);
+                                                                    }
+                                                                    //else
+                                                                    //{
+
+                            @*<tr style="border-bottom: 1px solid #000000 !important; border: 1px solid #000;">*@
+                            <tr>
+                                <td height="20" colspan="4" align="right" valign="middle" style="padding:3px; text-align:right; border:1px solid #000000 !important ">&nbsp;</td>
+                                <td align="right" valign="top" style="font-size:13px;padding:3px; text-align:right; font-weight: bold;border:1px solid #000000 !important">Total</td>
+                                <td align="right" valign="top" style="font-size:13px;padding:3px; text-align:right; font-weight: bold;border:1px solid #000000 !important">
+                                    @string.Format("{0:0,0.00}", Math.Round(gst + subTotal - (decimal)Model.Discount, 2))
+
+                                </td>
+                            </tr>
+
+                            }
+
+                        </table>
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>&nbsp;<br /></td>
+                </tr>
+
+                <tr>
+                    <td style="padding:3px; text-align:left; border: 0px solid #000; font-size:12px;">
+                        <strong>Terms & Conditions:</strong><br />
+                        @Html.Raw(Html.Encode(Model.TermsAndCond).Replace(Environment.NewLine, "<br />"))
+                        <br />
+                        <br />
+                        <div style="font-size: 13px;">
+                            For Citi Construction & Engineering Pte. Ltd.
+                            <br /><br />
+                            <br />
+                            <br />
+                            Authorised Signature
+                         </div>
+</td>
+                </tr>
+
+            </tbody>
+        </table>
+
+        <table id="footer" width="800">
+            <tr>
+                <td width="100%">
+                   @* <img style="width: 750px; height: 80px;" src="~/images/CompanyLogo/Footer.jpg" /> *@ 
+                </td>
+            </tr>
+        </table>
+
+    
+              
+
+
+</center>
+    
+</body>
+
+</html>

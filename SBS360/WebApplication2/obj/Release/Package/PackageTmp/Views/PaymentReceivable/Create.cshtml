@@ -1,0 +1,302 @@
+﻿@model Eng360Web.Models.ViewModel.PaymentReceivableViewModel
+@{
+    Layout = null;
+}
+
+<script src="~/Scripts/moment.js"></script>
+<script src="~/Scripts/bootstrap-datetimepicker.js"></script>
+<link href="~/Content/bootstrap-datetimepicker.css" rel="stylesheet" />
+
+
+<style>
+    .table-condensed tbody > tr > td > a {
+        color: #4eb1ba !important;
+    }
+
+    .required::after {
+        content: "*";
+        font-weight: bold;
+        color: red;
+    }
+</style>
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <b> Add Receivable Voucher  </b>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+
+                <div class="modal-body">
+                    @using (Html.BeginForm("Create", "PaymentReceivable", FormMethod.Post, new { role = "form", id = "receivableForm" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                        @Html.HiddenFor(model => model.InvoiceID)
+                        @Html.HiddenFor(model => model.InvoiceNo)
+                        @Html.HiddenFor(model => model.InvoiceType)
+
+                        <div class="row">
+
+                            <div class="col-md-12">
+                                @Html.LabelFor(model => model.ReceivableType, "Receivable Type", htmlAttributes: new { @class = "control-label required" })
+                                <div>
+                                    @Html.DropDownListFor(model => model.ReceivableType, new SelectList(
+                                    new List<Object>{
+                                    new { value = 0 , text = "Select"  },
+                                    new { value = 1 , text = "Invoice" },
+                                    new { value = 2 , text = "Others" }
+
+                    }, "value", "text", 0), htmlAttributes: new { @class = "form-control", @onchange = "ShowHideClients(this.value)" })
+                                    @Html.ValidationMessageFor(model => model.ReceivableType, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+
+                            <div id="show-client" style="display: none" class="col-md-6">
+                                @Html.LabelFor(model => model.ClientID, "ClientID", htmlAttributes: new { @class = "control-label required" })
+                                <div>
+                                    @Html.DropDownList("ClientID", null, htmlAttributes: new { @class = "form-control", @onchange = "clientOnChange(this)" })
+                                    @Html.ValidationMessageFor(model => model.ClientID, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+
+                            <div id="show-invoice" style="display: none" class="col-md-6">
+                                @Html.LabelFor(model => model.DummyNo, htmlAttributes: new { @class = "control-label required" })
+                                <div class="divInvoiceNo">
+                                    @Html.DropDownList("DummyNo", null, htmlAttributes: new { @class = "form-control", @onchange = "DispInvAmount(this)" })
+                                    @Html.ValidationMessageFor(model => model.DummyNo, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                @Html.LabelFor(model => model.Tr_date, htmlAttributes: new { @class = "control-label required" })
+                                <div>
+                                    @Html.EditorFor(model => model.Tr_date, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Tr_date, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                @Html.LabelFor(model => model.Due_date, "Cheque / Payment Date", htmlAttributes: new { @class = "control-label" })
+                                <div>
+                                    @Html.EditorFor(model => model.Due_date, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Due_date, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-6">
+                                @Html.LabelFor(model => model.Tr_status, "Transaction Status", htmlAttributes: new { @class = "control-label" })
+                                <div>
+                                    @Html.DropDownList("Tr_status", null, htmlAttributes: new { @class = "form-control" })
+
+                                    @Html.ValidationMessageFor(model => model.Tr_status, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                @Html.LabelFor(model => model.reference, htmlAttributes: new { @class = "control-label" })
+                                <div>
+                                    @Html.EditorFor(model => model.reference, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.reference, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-6">
+                                @Html.LabelFor(model => model.FY, "Financial Year", htmlAttributes: new { @class = "control-label" })
+                                <div>
+                                    @Html.DropDownListFor(model => model.FY, new SelectList(
+                                    new List<Object>{
+                                    new { value = 2020 , text = "2020" },
+                                    new { value = 2020 , text = "2021" },
+                                    new { value = 2020 , text = "2022" },
+                                    new { value = 2020 , text = "2023" },
+                                    new { value = 2020 , text = "2024" },
+                                    new { value = 2020 , text = "2025" }
+
+                    }, "value", "text", 2), htmlAttributes: new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.FY, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                @Html.LabelFor(model => model.Particulars, htmlAttributes: new { @class = "control-label" })
+                                <div>
+                                    @Html.EditorFor(model => model.Particulars, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Particulars, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div id="show-amt" style="display: none" class="col-md-6">
+
+                                @Html.Label("Total Amount")
+                                <div>
+
+                                    @Html.EditorFor(model => model.TotAmt, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                </div>
+                            </div>
+
+                            <div id="show-paid" style="display: none" class="col-md-6">
+
+                                @Html.Label("Already Paid")
+                                <div>
+
+                                    @Html.EditorFor(model => model.AlreadyPaid, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-6">
+                                @Html.LabelFor(model => model.Amount, htmlAttributes: new { @class = "control-label required" })
+                                <div>
+                                    @Html.EditorFor(model => model.Amount, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Amount, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                @Html.LabelFor(model => model.GTAX, "GST", htmlAttributes: new { @class = "control-label" })
+                                <div>
+                                    @Html.DropDownListFor(model => model.GTAX, new SelectList(
+                                    new List<Object>{
+                                    new { value = 0 , text = "Yes"  },
+                                    new { value = 1 , text = "No" }
+
+                    }, "value", "text", 2), htmlAttributes: new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.GTAX, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <div class="modal-footer">
+                            <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+
+                            <button type="button" id="create-receivable-dialog-save" class="btn btn-primary">Create</button>
+
+                        </div>
+
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $("form").removeData("validator");
+    $("form").removeData("unobtrusiveValidation");
+    $.validator.unobtrusive.parse("form");
+
+   $(function () {
+
+       $('#ClientID').append('<option value="0" selected="selected">Others</option>');
+       $('#ClientID').prepend('<option value="x" selected="selected">Select</option>');
+
+       $('#DummyNo').prepend('<option value="0" selected="selected">Select</option>');
+
+       $('#Tr_date').datetimepicker({ format: 'DD/MM/YYYY', defaultDate: new Date(), maxDate: new Date() });
+       $('#Due_date').datetimepicker({ format: 'DD/MM/YYYY' });
+
+   });
+
+   function ShowHideClients(val) {
+       debugger;
+       var dvCltDropdown = document.getElementById("show-client");
+       var dvInvNo = document.getElementById("show-invoice");
+       var dvAmt = document.getElementById("show-amt");
+       var dvPaid = document.getElementById("show-paid");
+
+       if (val == 0)
+       {
+           dvCltDropdown.style.display = "none";
+           dvInvNo.style.display = "none";
+           dvAmt.style.display = "none";
+           dvPaid.style.display = "none";
+           $('#ClientID').val("x");
+           $('#TotAmt').val(0);
+           $("#AlreadyPaid").val(0);
+           $('#Amount').val(0);
+       }
+       if (val == 1) {
+           dvCltDropdown.style.display = "block";
+           dvInvNo.style.display = "block";
+           dvAmt.style.display = "block";
+           dvPaid.style.display = "block";
+           clientOnChange(this);
+
+
+       }
+       if (val == 2) {
+           dvCltDropdown.style.display = "none";
+           dvInvNo.style.display = "none";
+           dvAmt.style.display = "none";
+           dvPaid.style.display = "none";
+           $('#ClientID').val("x");
+       }
+
+   }
+
+   function clientOnChange(obj) {
+
+       $.each($(".divInvoiceNo option:selected"), function () {
+
+           // this is it
+           $(this).prop('selected', false);
+
+       });
+       debugger;
+       $('.divInvoiceNo option').css('display', 'none')
+
+       $('.divInvoiceNo option[value^="' + obj.value + '"]').css('display', 'block')
+
+       $.each($('.divInvoiceNo option[value^="' + obj.value + '"]'), function () {
+
+           // this is it
+           $(this).prop('selected', true);
+
+           return;
+       });
+       DispInvAmount();
+   }
+
+   function DispInvAmount(val) {
+       debugger;
+      // var pid = $('#DummyNo option:selected').text();
+       var pid = $('#DummyNo option:selected').val();
+       var apid = pid.split('_');
+       var inv = apid[1];
+       //var invfrom = apid[2];
+       var apaid = 0;
+
+       var amt = 0;
+
+       @*$.post("PaymentReceivable/GetAlreadyPaid?inv=" + inv + "&invfrom=" + invfrom, {@Html.AntiForgeryTokenForAjaxPost() }, function (datanew) {
+           $("#AlreadyPaid").val(datanew.sumpaid);
+           $('#TotAmt').val(datanew.invamount);
+           amt = parseFloat($("#TotAmt").val()) - parseFloat($("#AlreadyPaid").val());
+           $('#Amount').val(amt.toFixed(2));
+       });*@
+
+       $.post("PaymentReceivable/GetInvoiceDetails?inv=" + inv, {@Html.AntiForgeryTokenForAjaxPost() }, function (datanew) {
+           $("#AlreadyPaid").val(datanew.sumpaid);
+           $('#TotAmt').val(datanew.invamount);
+           amt = parseFloat($("#TotAmt").val()) - parseFloat($("#AlreadyPaid").val());
+           $('#Amount').val(amt.toFixed(2));
+       });
+
+   }
+
+
+</script>

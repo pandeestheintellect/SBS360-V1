@@ -1,0 +1,320 @@
+﻿@model Eng360Web.Models.ViewModel.QualityDefectViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+
+    <style type="text/css">
+        body, td, th {
+            font-family: Book Antiqua;
+            font-size: 12px;
+        }
+
+        body {
+            margin-left: 0px;
+            margin-top: 0px;
+            margin-right: 0px;
+            margin-bottom: 0px;
+        }
+
+        a:link {
+            text-decoration: none;
+        }
+
+        a:visited {
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: none;
+        }
+
+        a:active {
+            text-decoration: none;
+        }
+
+        .tb {
+            border-style: solid;
+            /*border-width:1px;*/
+            border-bottom-width: 1px;
+            border-top-width: 1px;
+            border-left-width: 1px;
+            border-right-width: 1px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+        input[type='checkbox'] {
+            width: 20px;
+            height: 20px;
+        }
+    </style>
+</head>
+
+@using (Html.BeginForm("ConvertThisPageToPdf", "QualityDefect", FormMethod.Post, new { id = "convertForm" }))
+{
+
+<body style="font-family: Book Antiqua;">
+    <center>
+        <table width="773" border="0" cellspacing="0" cellpadding="0">
+
+            <tr>
+                <td height="1062" align="center" valign="top">
+                    <table width="773" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+
+                            <td width="100" align="left" valign="top" style="padding:0px;"><img src="~/images/CompanyLogo/logo.png" /></td>
+                            <td width="328" align="left" valign="top" style="padding:2px;">
+                                <span style="font-size:16px; font-weight:bold;">CITI CONSTRUCTION & ENGINEERING PTE. LTD.</span><br />
+                                <span style="font-weight:bold; font-size:12px;">
+                                    21 BUKIT BATOK CRESCENT #07-81<br />
+                                    WCEGA TOWER Singapore 658065	<br />
+                                    Tel : (65) 6570-8754 / Fax: (65) 6570-8753	<br />
+                                    E-mail : project@citicon.com	<br />
+                                    Co. Reg. No : 201211XXXK GST. Reg. No : 201211XXXK
+                                </span>
+                            </td>
+                            <td width="300" align="right" valign="top" style="padding-right:5px; line-height:15px;">
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td align="right" valign="top">
+                                            <img src="~/images/CompanyLogo/biz3.png" />
+                                        </td>
+                                    </tr>
+                                    @*<tr>
+                                            <td height="25">&nbsp;</td>
+                                        </tr>*@
+                                    <tr>
+                                        <td align="right" valign="bottom" height="35"><span style="font-size:26px; font-weight:bold; padding-right:5px;">QI Report</span></td>
+                                    </tr>
+                                </table>
+
+                            </td>
+                        </tr>
+                    </table>
+                    <table width="98%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td>
+                                <hr />
+                                <span style="font-size:18px; font-weight:bold; padding-right:5px;">Quality Inspection Record: #@Model.DefectDisplayID</span>
+                            </td>
+                        </tr>
+                    </table>
+                    <br />
+                    <br />
+
+                    <table width="95%" border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse;">
+                        <tr style="border-bottom: 1px solid #000000 !important;">
+                            <th width="35%" align="center" valign="middle" style="padding:3px; border: 1px solid #000;" height="20">Items</th>
+                            <th width="65%" align="center" valign="middle" style="padding:3px; border: 1px solid #000;">Details</th>
+
+                        </tr>
+
+                        <tr style="border-bottom: 1px solid #000000 !important;">
+                            <td width="35%" align="left" valign="top" style="padding:3px; border-left: 1px solid #000; border-right: 1px solid #000; border-top: 0px solid #000; line-height:15px;">Project/Batch</td>
+                            <td width="65%" align="left" valign="top" style="padding:3px; border-left: 1px solid #000; border-right: 1px solid #000; border-top: 0px solid #000; line-height:15px;">@Model.eng_project_master.ProjectName</td>
+                        </tr>
+
+                        <tr style="border-bottom: 1px solid #000000 !important;">
+                            <td width="35%" align="left" valign="top" style="padding:3px; border-left: 1px solid #000; border-right: 1px solid #000; border-top: 0px solid #000; line-height:15px;">Client/Customer</td>
+                            <td width="65%" align="left" valign="top" style="padding:3px; border-left: 1px solid #000; border-right: 1px solid #000; border-top: 0px solid #000; line-height:15px;">@Model.eng_project_master.eng_quote_master.eng_client_master.Company_Name</td>
+                        </tr>
+
+                        <tr style="border-bottom: 1px solid #000000 !important;">
+                            <td width="35%" align="left" valign="top" style="padding:3px; border-left: 1px solid #000; border-right: 1px solid #000; border-top: 0px solid #000; line-height:15px;">Location</td>
+                            <td width="65%" align="left" valign="top" style="padding:3px; border-left: 1px solid #000; border-right: 1px solid #000; border-top: 0px solid #000; line-height:15px;">@Model.Location</td>
+                        </tr>
+
+                        <tr style="border-bottom: 1px solid #000000 !important;">
+                            <td width="35%" align="left" valign="top" style="padding:3px; border-left: 1px solid #000; border-right: 1px solid #000; border-top: 0px solid #000; line-height:15px;">Drawing/Record #</td>
+                            <td width="65%" align="left" valign="top" style="padding:3px; border-left: 1px solid #000; border-right: 1px solid #000; border-top: 0px solid #000; line-height:15px;">@Model.DrawingRecordNo</td>
+                        </tr>
+
+                        <tr style="border-bottom: 1px solid #000000 !important;">
+                            <td width="35%" align="left" valign="top" style="padding:3px; border-left: 1px solid #000; border-right: 1px solid #000; border-top: 0px solid #000; line-height:15px;">Inspection Area</td>
+                            <td width="65%" align="left" valign="top" style="padding:3px; border-left: 1px solid #000; border-right: 1px solid #000; border-top: 0px solid #000; line-height:15px;">@Model.InspectionArea</td>
+                        </tr>
+
+                        <tr style="border-bottom: 1px solid #000000 !important;">
+                            <td width="35%" align="left" valign="top" style="padding:3px; border-left: 1px solid #000; border-right: 1px solid #000; border-top: 0px solid #000; line-height:15px;">No. of Defects Finding</td>
+                            <td width="65%" align="left" valign="top" style="padding:3px; border-left: 1px solid #000; border-right: 1px solid #000; border-top: 0px solid #000; line-height:15px;">@Model.IssueCount</td>
+                        </tr>
+
+                        <tr style="border-bottom: 1px solid #000000 !important;">
+                            <td width="35%" align="left" valign="top" style="padding:3px; border-left: 1px solid #000; border-right: 1px solid #000; border-top: 0px solid #000; line-height:15px;">Assign to Supplier</td>
+                            <td width="65%" align="left" valign="top" style="padding:3px; border-left: 1px solid #000; border-right: 1px solid #000; border-top: 0px solid #000; line-height:15px;">
+                                @Html.CheckBoxFor(model => model.SupplierFlag, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
+                            </td>
+                        </tr>
+
+                        <tr style="border-bottom: 1px solid #000000 !important;">
+                            <td width="35%" align="left" valign="top" style="padding:3px; border-left: 1px solid #000; border-right: 1px solid #000; border-top: 0px solid #000; line-height:15px;">Supplier/Contractor Name</td>
+                            <td width="65%" align="left" valign="top" style="padding:3px; border-left: 1px solid #000; border-right: 1px solid #000; border-top: 0px solid #000; line-height:15px;">
+
+                                @if (Model.SupplierFlag == true)
+                                {
+                                    @Model.eng_supplier_master.Company_Name
+                                }
+
+
+                            </td>
+                        </tr>
+
+                        <tr style="border-bottom: 1px solid #000000 !important;">
+                            <td width="35%" align="left" valign="top" style="padding:3px; border-left: 1px solid #000; border-right: 1px solid #000; border-top: 0px solid #000; line-height:15px;">Supplier Email</td>
+                            <td width="65%" align="left" valign="top" style="padding:3px; border-left: 1px solid #000; border-right: 1px solid #000; border-top: 0px solid #000; line-height:15px;">
+                                @if (Model.SupplierFlag == true)
+                                {
+                                    @Model.eng_supplier_master.eng_address_master.Email
+                                }
+
+                            </td>
+                        </tr>
+                        @{
+                            var j = 0;
+                            foreach (var desc in Model.eng_qa_defect_files)
+                            {
+                                j = j + 1;
+                            }
+                        }
+
+
+
+                        <tr style="border-bottom: 1px solid #000000 !important;">
+                            <td width="35%" align="left" valign="top" style="padding:3px; border-left: 1px solid #000; border-right: 1px solid #000; border-top: 0px solid #000; line-height:15px;">Pictures for Reference</td>
+                            <td width="65%" align="left" valign="top" style="padding:3px; border-left: 1px solid #000; border-right: 1px solid #000; border-top: 0px solid #000; line-height:15px;">Enclosed @j No. of Pictures</td>
+                        </tr>
+
+
+
+
+                    </table>
+
+
+
+
+
+                    <table width="95%" border="0" cellspacing="0" cellpadding="0" style="margin-top:5px;">
+                        <tr>
+                            <td></td>
+                        </tr>
+                    </table>
+                    <br />
+
+                    <table width="95%" border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse;">
+                        <tr style="border-bottom: 1px solid #000000 !important;">
+                            <th width="5%" align="center" valign="middle" style="padding:3px; border: 1px solid #000;" height="20">S.NO</th>
+                            <th width="12%" align="left" valign="middle" style="padding:3px; border: 1px solid #000;">Defect ID </th>
+                            <th width="33%" align="center" valign="middle" style="padding:3px; border: 1px solid #000;">Defect Description</th>
+                            <th width="50%" align="center" valign="middle" style="padding:3px; border: 1px solid #000;">Impact Description</th>
+
+                        </tr>
+
+                        @{
+                            var i = 1;
+                            foreach (var desc in Model.eng_qa_defect_detail)
+                            {
+
+                                <tr style="border-bottom: 1px solid #000000 !important;">
+                                    <td width="5%" align="left" valign="top" style="padding:3px; border-left: 1px solid #000; border-right: 1px solid #000; border-top: 0px solid #000; line-height:15px;">@i</td>
+                                    <td width="12%" align="left" valign="top" style="padding:3px; border-left: 1px solid #000; border-right: 1px solid #000; border-top: 0px solid #000; line-height:15px;">@desc.DefectTrackNum</td>
+                                    <td width="33%" align="left" valign="top" style="padding:3px; border-left: 1px solid #000; border-right: 1px solid #000; border-top: 0px solid #000; line-height:15px;">@desc.DefectTitle</td>
+                                    <td width="50%" align="left" valign="top" style="padding:3px; border-left: 1px solid #000; border-right: 1px solid #000; border-top: 0px solid #000; line-height:15px;">@desc.DefectImpactDetails</td>
+                                </tr>
+
+                                i = i + 1;
+                            }
+
+                        }
+                        <tr style="border-bottom: 1px solid #000000 !important; border: 1px solid #000;">
+                            <td colspan="6" align="right" valign="middle" style="padding:3px; text-align:left; border: 0px solid #000; font-size:10px; text-align:left;" height="20">
+                                <pre style="font-family: 'Roboto', Book Antiqua; font-size:11px; text-align:left;">Remarks: @Model.Remarks </pre>
+                            </td>
+                        </tr>
+
+                    </table>
+                    <br />
+                    <table width="95%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td>
+
+                                <span style="font-size:14px; font-weight:bold; padding-right:5px;">Inspected By: @Model.eng_employee_profile.FirstName</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+
+                                <span style="font-size:14px; font-weight:bold; padding-right:5px;">Inspected On: @Model.InspectedDate.Split(new string[] { " " }, StringSplitOptions.None)[0]</span>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+
+                                <span style="font-size:14px; font-weight:bold; padding-right:5px;">&nbsp;</span>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+
+                                <span style="font-size:14px; font-weight:bold; padding-right:5px;">Inspect Signature:</span>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <table width="95%" border="0" cellspacing="0" cellpadding="0" style="margin-top:0px; border-collapse: collapse;">
+                        <tr>
+                            <td width="385" align="left" valign="top" style="font-size:13px; border-style:solid; border-bottom-width:0px; border-top-width:0px; border-left-width:0px; border-right-width:0px; padding:0px;">
+                                <table width="350" border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td style="padding:14px;">Reviewed By Department Head</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding:10px; padding-bottom:5px;"> ____________________________________</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding:14px; padding-top:-10px;">Authorised Signature </td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td width="385" align="right" valign="top" style="font-size:13px; border-style:solid; border-bottom-width:0px; border-top-width:0px; border-left-width:0px; border-right-width:0px; padding:0px;">
+                                <table width="330" border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td style="padding:14px;">Received and Accepted by Supplier/Contractor</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding:10px;"> ____________________________________</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding:14px;">Authorised Signature</td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+
+        <div id="convertThisPageButtonDiv">
+            <input type="submit" value="Convert
+                        This Page To PDF" />
+        </div>
+
+    </center>
+
+    
+</body>
+
+
+                            }
+
+</html>

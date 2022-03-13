@@ -1,0 +1,389 @@
+﻿@model Eng360Web.Models.ViewModel.InvoiceMasterViewModel
+
+@{
+    Layout = null;
+}
+
+<script src="~/Scripts/moment.js"></script>
+<script src="~/Scripts/bootstrap-datetimepicker.js"></script>
+<link href="~/Content/bootstrap-datetimepicker.css" rel="stylesheet" />
+
+
+<style>
+    .table-condensed tbody > tr > td > a {
+        color: #4eb1ba !important;
+    }
+
+    input[type='checkbox'] {
+        width: 20px;
+        height: 20px;
+    }
+
+    .required::after {
+        content: "*";
+        font-weight: bold;
+        color: red;
+    }
+</style>
+<p>
+    &nbsp;
+</p>
+
+
+<div class="row inner-page--container">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <b> Add New Invoice  </b>
+
+                @*<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>*@
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+
+
+                @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "invoicemasterEditForm" }))
+                {
+                    @Html.AntiForgeryToken()
+
+
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    @Html.HiddenFor(model => model.TotalInvoiceAmount)
+                    @Html.HiddenFor(model => model.QuoteID)
+                    @Html.HiddenFor(model => model.Qflag)
+                    @Html.HiddenFor(model => model.InvoiceType)
+                    @Html.HiddenFor(model => model.CreatedBy)
+                    @Html.HiddenFor(model => model.CreatedDate)
+                    @Html.HiddenFor(model => model.InvoiceID)
+                    @Html.HiddenFor(model => model.InvoiceNum)
+                    @Html.HiddenFor(model => model.ClientID)
+
+                    var invtype = Model.InvoiceType;
+
+                    // @Html.HiddenFor(model => model.INVValue)
+
+                    //decimal qfamt = 0;
+                    //if (Model.Discount != null)
+                    //{
+                    //    qfamt = (decimal)Model.QuoteFinalAmount;
+                    //}
+                    //else
+                    //{
+                    //    qfamt = Model.prjAmt;
+                    //}
+                    //var dis = Model.Discount;
+                    //var raisedamt = Model.invAmt;
+
+                    //var maxLimAmt = qfamt - raisedamt;
+
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.InvoiceDate, htmlAttributes: new { @class = "control-label required" })
+                            @Html.ValidationMessageFor(model => model.InvoiceDate, "", new { @class = "text-danger" })
+                            <div>
+                                @Html.EditorFor(model => model.InvoiceDate, new { htmlAttributes = new { @class = "form-control", @Value = Convert.ToDateTime(Model.InvoiceDate).ToString("dd/MM/yyyy") } })
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.InvoiceType, "Invoice Type", htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.DropDownListFor(model => model.InvoiceType, new SelectList(
+                                    new List<Object>{
+                                    new { value = "Select" , text = "Select"  },
+                                    new { value = "Quotation" , text = "Quotation"  },
+                                    new { value = "Others" , text = "Others" }
+
+                    }, "value", "text", 1), htmlAttributes: new { @class = "form-control", @disabled="disabled" })
+                                @Html.ValidationMessageFor(model => model.InvoiceType, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        @if (invtype == "Quotation")
+                        {
+                        <div  class="col-md-6">
+                            @Html.LabelFor(model => model.ClientID, htmlAttributes: new { @class = "control-label" })
+                            @Html.ValidationMessageFor(model => model.ClientID, "", new { @class = "text-danger" })
+                            <div>
+                                @Html.DropDownList("ClientID", null, htmlAttributes: new { @class = "form-control", @disabled = "disabled" })
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.eng_quote_master.QuoteRefNum, "Quote Number", htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.EditorFor(model => model.eng_quote_master.QuoteRefNum, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                                @Html.ValidationMessageFor(model => model.QuoteID, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        
+                        }
+                        else
+                        {
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.ClientOthers, "Invoice To", htmlAttributes: new { @class = "control-label" })
+                            @Html.ValidationMessageFor(model => model.ClientOthers, "", new { @class = "text-danger" })
+                            <div>
+                               @* @Html.EditorFor(model => model.ClientOthers, new { htmlAttributes = new { @class = "form-control" } })*@
+                                @Html.TextAreaFor(model => model.ClientOthers, 5, 40, new { @class = "form-control" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.ServicesFor, "Services For", htmlAttributes: new { @class = "control-label" })
+                            @Html.ValidationMessageFor(model => model.ServicesFor, "", new { @class = "text-danger" })
+                            <div>
+                                @Html.EditorFor(model => model.ServicesFor, new { htmlAttributes = new { @class = "form-control" } })
+
+                            </div>
+                        </div>
+
+                        }
+
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.InvCategory, "Invoice Category", htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.DropDownListFor(model => model.InvCategory, new SelectList(
+                                    new List<Object>{
+                                    new { value = "Select" , text = "Select"  },
+                                    new { value = "Normal" , text = "Normal"  }
+                                    //new { value = "ProgPercent" , text = "Pogress/Percentage" }
+
+                    }, "value", "text", 1), htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.InvCategory, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.AttentionTo, htmlAttributes: new { @class = "control-label" })
+                            @Html.ValidationMessageFor(model => model.AttentionTo, "", new { @class = "text-danger" })
+                            <div>
+                                @Html.EditorFor(model => model.AttentionTo, new { htmlAttributes = new { @class = "form-control" } })
+
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.InvTermandCond, "Notes", htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.EditorFor(model => model.InvTermandCond, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.InvTermandCond, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.LabelFor(model => model.GST, "GST", htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.DropDownListFor(model => model.GST, new SelectList(
+                                    new List<Object>{
+                                    new { value = 0 , text = "Yes"  },
+                                    new { value = 1 , text = "No" }
+
+                    }, "value", "text", 2), htmlAttributes: new { @class = "form-control", onchange = "OnGstEntry(this)" })
+                                @Html.ValidationMessageFor(model => model.GST, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        @if (invtype == "Quotation")
+                        {
+
+                        <div id="show-Quotecost"  class="col-md-6">
+                            @Html.LabelFor(model => model.QuoteFinalAmount, "Quote Cost after Discount", htmlAttributes: new { @class = "control-label" })
+                            <div class="">
+                                @Html.EditorFor(model => model.QuoteFinalAmount, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+
+                            </div>
+                        </div>
+
+                        <div id="show-Discount"  class="col-md-6">
+                            @Html.LabelFor(model => model.Discount, "Discount in Quotation", htmlAttributes: new { @class = "control-label" })
+                            <div class="">
+                                @Html.EditorFor(model => model.Discount, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+
+                            </div>
+                        </div>
+
+
+                        <div id="show-alriv"  class="col-md-6">
+                            @Html.LabelFor(model => model.invAmt, "Total Invoice Amount raised so far", htmlAttributes: new { @class = "control-label" })
+                            <div class="">
+                                @Html.EditorFor(model => model.invAmt, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+
+                            </div>
+                        </div>
+
+                        <div id="show-mlia"  class="col-md-6">
+                            @Html.Label("Max Limit of Invoice Amount")
+                            <div class="">
+
+                                @Html.TextBox("MaxAmt", Model.prjAmt, new { @class = "form-control", @readonly = "readonly" })
+                            </div>
+                        </div>
+
+                        }
+                        <div class="col-md-6">
+
+                            @Html.Label("INV Amount")
+                            <div>
+                                @Html.TextBox("INVValue", Model.INVValue, new { @class = "form-control", style = "width: 200px", @readonly = "readonly", @Value = Model.TotalInvoiceAmount })
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-12" style="min-height:300px !important;padding-top:25px;padding-left:0px;padding-right:0px;">
+
+                        <table class="table table-striped table-bordered" id="tableInvDescriptions">
+
+                            <thead>
+                                <tr>
+                                    <th>Item Desc</th>
+                                    <th>Quantity</th>
+                                    <th>UoM</th>
+                                    <th>PO Price</th>
+
+                                    <th>Actions</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.eng_invoice_details)
+                                {
+                                
+                                <tr>
+                                    <td>
+                                       @item.Description
+                                    </td>
+                                    <td>
+                                       @item.Quantity
+                                    </td>
+                                    <td>
+                                       @item.UnitOfMeasure
+                                    </td>
+                                    <td>@item.Price</td>
+
+                                    <td></td>
+                                </tr>
+                                }
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+
+
+                }
+
+            </div>
+            <div class="modal-footer">
+
+                <input type="button" value="Save" id="edit-invoice-dialog-save" style="float:right" class="btn btn-primary" /><span style="float:right">&nbsp;</span><input type="button" value="Back" id="edit-invoice-dialog-back" style="float:right" class="btn btn-primary Invoice" />
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    $("form").removeData("validator");
+    $("form").removeData("unobtrusiveValidation");
+    $.validator.unobtrusive.parse("form");
+
+    var contacts = [];
+
+                    var invdescTable;
+                    $(document).ready(function () {
+
+                        invdescTable = $('#tableInvDescriptions').DataTable({
+                            "order": [],
+                            dom: 'Brti',
+                            buttons: [
+                                'copyHtml5',
+                                'excelHtml5',
+                                'csvHtml5',
+                                'pdfHtml5',
+
+                            ],
+                            "columnDefs": [
+                        {
+                            // The `data` parameter refers to the data for the cell (defined by the
+                            // `data` option, which defaults to the column being worked with, in
+                            // this case `data: 0`.
+                            "render": function (data, type, row) {
+                               // return '<a class="btn" onclick="removeDataFromDT(this)"> <img src="Content/images/delete.png" /> </a>';
+                                return '<a class="btn" title="Edit Description" onclick="EditDesc(this)"> <i class="fa fa-pencil" aria-hidden="true" ></i>   </a><a class="btn" onclick="removeDataFromDT(this)" title="Delete PoDescription" > <i class="fa fa-trash" aria-hidden="true" ></i> </a>';
+                            },
+                            "targets": 4
+                        }]
+                        });
+                    });
+
+                    $('.dt-buttons').prepend('<a style="margin-bottom:10px;"  onclick="CreateInvDesc()" class="dt-button  buttons-html5" tabindex="0" aria-controls="poTable" href="#"><span>Add Description</span></a>')
+                    $('.dt-button').addClass('btn btn-primary').removeClass('dt-button').css('margin-right', '5px')
+                    $('.buttons-copy').css('display', 'none');
+                    $('.buttons-excel').css('display', 'none');
+                    $('.buttons-csv').css('display', 'none');
+                    $('.buttons-pdf').css('display', 'none');
+                    invdescTable.row('.remove').remove().draw(false);
+
+                    function EditDesc(btn) {
+                        debugger;
+                        var id = btn.closest('tr').id;
+                        $(btn.closest('tr')).addClass('selectedRow')
+                        CreateInvoiceDescEdit(id);
+                    }
+
+
+                    function removeDataFromDT(btn) {
+
+                        $(btn.closest('tr')).addClass('remove')
+                        invdescTable.row('.remove').remove().draw(false);
+                        calcAmount();
+                    }
+
+                    function OnGstEntry(val) {
+                        calcAmount();
+                    }
+
+
+                    function calcAmount() {
+                        debugger;
+                        var amt = 0;
+                        var gst = parseInt($('#GST').val());
+                    invdescTable.rows().every(function (rowIdx, tableLoop, rowLoop) {
+                        var data = this.data();
+
+                        var object = { Description: data[0], Quantity: parseInt(data[1]), UnitOfMeasure: data[2], Price: parseFloat(data[3]) }
+                        //contacts.push(object);
+                        amt = amt + data[1] * data[3];
+
+                });
+
+                    if (gst == 0) {
+                        amt = amt + amt * 7 / 100;
+                    }
+
+                    $('#INVValue').val(amt);
+                    $('#TotalInvoiceAmount').val(amt.toFixed(2));
+                    }
+
+
+
+            $(function () {
+                //invdescTable.row.add(["Test", "2", "No", "10.00", 0]).draw(false)
+                debugger;
+                
+                    $('#Discount').val(@ViewBag.Discount);
+                    $('#QuoteFinalAmount').val(@ViewBag.FinalAmt);
+
+                    $('#InvoiceDate').datetimepicker({ format: 'DD/MM/YYYY' });
+                    });
+
+</script>

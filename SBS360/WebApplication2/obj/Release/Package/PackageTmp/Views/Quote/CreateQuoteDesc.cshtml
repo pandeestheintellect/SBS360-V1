@@ -1,0 +1,129 @@
+﻿@model Eng360Web.Models.ViewModel.QuoteDescriptionViewModel
+
+@{
+    Layout = null;
+}
+
+<style>
+    .required::after {
+        content: "*";
+        font-weight: bold;
+        color: red;
+    }
+</style>
+
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h4 class="modal-title">Add New Description</h4>
+</div>
+<div class="modal-body">
+    <form id="formQuoteDesc">
+        @Html.HiddenFor(model => model.QDID)
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.QuoteDescription, "Description", htmlAttributes: new { @class = "control-label required" })
+                    <div class="">
+                        @Html.TextAreaFor(model => model.QuoteDescription, 6, 40,  new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.QuoteDescription, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Quantity, htmlAttributes: new { @class = "control-label required" })
+                    <div class="">
+                        @Html.EditorFor(model => model.Quantity, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Quantity, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.UnitOfMeasure, "Unit of Measure", htmlAttributes: new { @class = "control-label" })
+                    <div class="">
+                        @Html.DropDownListFor(model => model.UnitOfMeasure, new SelectList(
+                                    new List<Object>{
+                                    new { value = "mm" , text = "mm"  },
+                                    new { value = "cm" , text = "cm" },
+                                    new { value = "Meter" , text = "meter" },
+                                    new { value = "sq.m" , text = "sq.m" },
+                                    new { value = "Nos" , text = "nos" },
+                                    new { value = "ltrs" , text = "ltrs" },
+                                    new { value = "kg" , text = "kg" },
+                                    new { value = "lot" , text = "lot" },
+                                    new { value = "Pallet" , text = "pallet" },
+                                    new { value = "Ton" , text = "ton" },
+                                    new { value = "bundle" , text = "bundle" },
+                                    new { value = "dozen" , text = "dozon" },
+                                    new { value = "Month" , text = "Month" },
+                                    new { value = "Tin" , text = "Tin" },
+                                    new { value = "Box" , text = "Box" },
+                                    new { value = "Lumpsum" , text = "Lumpsum" },
+                                    new { value = "cu.m" , text = "cu.m" },
+                                    new { value = "hr" , text = "hr" },
+                                    new { value = "day" , text = "day" },
+                                    new { value = "week" , text = "week" },
+                                    new { value = "pack" , text = "pack" }
+
+                                    }, "value", "text", 2), htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.UnitOfMeasure, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.QuotePrice, "Unit Price", htmlAttributes: new { @class = "control-label required" })
+                    <div class="">
+                        @Html.EditorFor(model => model.QuotePrice, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.QuotePrice, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    <input type="button" value="Add" id="create-QuoteDesc-dialog-save" class="btn btn-primary" />
+
+</div>
+<script>
+
+        $("form").removeData("validator");
+        $("form").removeData("unobtrusiveValidation");
+        $.validator.unobtrusive.parse("form");
+
+        function addDataToDataTable() {
+            if ($('#formQuoteDesc').valid()) {
+                var desc = $('#QuoteDescription').val().trim();
+                var qty = $('#Quantity').val().trim();
+                var uom = $('#UnitOfMeasure').val().trim();
+                var price = $('#QuotePrice').val().trim();
+                //var quotedisc = $('#QuoteDiscPercent').val().trim();
+                debugger;
+               if ($('#QDID').val() == "") {
+                   quotedescTable.row.add([desc, qty, uom, price, 0]).draw(false)
+               }
+               else
+               {
+                   quotedescTable.cell('.selectedRow', ':eq(0)').data(desc);
+                   quotedescTable.cell('.selectedRow', ':eq(1)').data(qty);
+                   quotedescTable.cell('.selectedRow', ':eq(2)').data(uom);
+                   quotedescTable.cell('.selectedRow', ':eq(3)').data(price);
+                   //quotedescTable.cell('.selectedRow', ':eq(4)').data(quotedisc);
+                   quotedescTable.cell('.selectedRow', ':eq(4)').data($('#QDID').val());
+                   quotedescTable.draw();
+
+                   $('.selectedRow').addClass('RowEdited').removeClass('selectedRow');
+               }
+
+               $('#create-QuoteDesc-dialog').modal('hide');
+               $('#create-QuoteDesc-dialog').css('z-index', '');
+               calcAmount();
+            }
+        }
+</script>

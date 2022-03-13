@@ -1,0 +1,172 @@
+﻿@model IEnumerable<Eng360Web.Models.ViewModel.QualityDefectViewModel>
+
+@{
+    Layout = null;
+}
+
+<script src="~/Scripts/moment.js"></script>
+<script src="~/Scripts/bootstrap-datetimepicker.js"></script>
+<link href="~/Content/bootstrap-datetimepicker.css" rel="stylesheet" />
+
+
+<style>
+    .table-condensed tbody > tr > td > a {
+        color: #4eb1ba !important;
+    }
+</style>
+
+
+
+
+
+<div class="row inner-page--container">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <b> Quality Inspection Details </b>
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <input id="quoteid" type="hidden" />
+                <table class="table table-striped table-bordered" id="qualitydefectTable">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.DefectDisplayID)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.InspectedDate)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.eng_project_master.ProjectName)
+                            </th>
+
+                            <th>
+                                Location
+                            </th>
+                           
+                            <th>
+                                @Html.DisplayNameFor(model => model.IssueCount)
+                            </th>
+                            <th>
+                                Status
+                            </th>
+                           
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            var dt = "";
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DefectDisplayID)
+                                </td>
+                                <td>@{
+
+                                    dt = Convert.ToDateTime(item.InspectedDate).ToString(Eng360Web.Models.Utility.AppSettings.GetDateFormat());
+                                }                                
+                                    @dt
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.eng_project_master.ProjectName)
+                                </td>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Location)
+                                </td>
+                                
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.IssueCount)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DefStatus)
+                                </td>
+                               
+                                <td>
+                                    @if (item.DefStatus == "Pending")
+                                    {
+                                        <a class="btn" title="Edit Defect"  onclick="EditQualityDefect(@item.DefectID)"> <i class="fa fa-pencil action-pencil" aria-hidden="true" ></i>   </a>
+                                        <a class="btn" title="Delete Defect"  onclick="DeleteQualityDefect(@item.DefectID)"> <i class="fa fa-trash action-trash" aria-hidden="true" ></i> </a>
+                                    }
+
+                                        @if (item.DefStatus == "Completed")
+                                        {
+                                            <a class="btn" title="Send Mail"  onclick="SendQualityDefectMail(@item.DefectID)"> <i class="fa fa-envelope action-mail" aria-hidden="true" ></i> </a>
+                                            
+                                        }                                      
+                                   <a class="btn" href="QualityDefect/Details/@item.DefectID" target="_blank" title="Generate Inspection Report" > <i class="fa fa-search action-search" aria-hidden="true" ></i> </a> 
+                                    @*<a class="btn" href="QualityDefect/GetPdf/@item.DefectID" target="_blank" title="Generate Inspection Report" style="padding: 0px 0px;"> <i class="fa fa-search" aria-hidden="true" style="color:#4eb1ba;font-size:24px"></i> </a> *@
+                                    
+                                    
+
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+
+        $('#qualitydefectTable').DataTable({
+            "autoWidth": true,
+            //"scrollX": true,
+            dom: 'Bfrtipl',
+            buttons: [
+                {
+                    extend: 'copyHtml5',
+                    text: '<i class="fa fa-files-o"></i>',
+                    titleAttr: 'Copy'
+                },
+                {
+                    extend: 'excelHtml5',
+                    text: '<i class="fa fa-file-excel-o"></i>',
+                    titleAttr: 'Excel'
+                },
+                {
+                    extend: 'csvHtml5',
+                    text: '<i class="fa fa-file-text-o"></i>',
+                    titleAttr: 'CSV'
+                },
+                {
+                    extend: 'pdfHtml5',
+                    text: '<i class="fa fa-file-pdf-o"></i>',
+                    titleAttr: 'PDF'
+                }
+
+            ]
+        });
+
+
+    });
+    $('.dt-buttons').prepend('<a  onclick="CreateQualityDefect()" class="dt-button buttons-create buttons-html5" tabindex="0" aria-controls="quoteTable" href="#" title="Create"><i class="fa fa-plus"></i></a>')
+    $('.dt-button').addClass('btn btn-primary').removeClass('dt-button')
+
+
+
+    function SendQualityDefectMail(id)
+    {
+        debugger;
+
+        $.post("QualityDefect/MailDefect/", { id: id, @Html.AntiForgeryTokenForAjaxPost()}, function (data) {
+            if (data.value == "OK") {
+                alertDialog("Mail sent Successfully!")
+                return;
+
+            }
+            else {
+                alertDialog("Delete File failed")
+            }
+        });
+    }
+
+</script>
+

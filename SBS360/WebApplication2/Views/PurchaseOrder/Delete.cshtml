@@ -1,0 +1,192 @@
+﻿@model Eng360Web.Models.Domain.eng_quote_master
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+</head>
+<body>
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        <h4>eng_quote_master</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.QuoteRefNum)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.QuoteRefNum)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.QuoteDate)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.QuoteDate)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Attention_CCID)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Attention_CCID)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Branch_code)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Branch_code)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.ValidTill)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ValidTill)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.YourRef)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.YourRef)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.TermsAndCond)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.TermsAndCond)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.GTAX)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.GTAX)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Currency)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Currency)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.QuoteAmount)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.QuoteAmount)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.QuoteDiscount)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.QuoteDiscount)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.QuoteTotValue)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.QuoteTotValue)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.QuoteStatus)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.QuoteStatus)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CreatedDate)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CreatedDate)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.DeletedDate)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.DeletedDate)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CreatedBy)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CreatedBy)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.DeletedBy)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.DeletedBy)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.IsAutoApproved)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.IsAutoApproved)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.IsProjectCreated)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.IsProjectCreated)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.eng_client_master.ClientDisplayID)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.eng_client_master.ClientDisplayID)
+            </dd>
+    
+        </dl>
+    
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+    
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>
+</body>
+</html>
